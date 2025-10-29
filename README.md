@@ -13,10 +13,7 @@ naritai/
 │   └── styles/          # グローバルスタイルファイル
 ├── public/              # 静的ファイル（画像、アイコンなど）
 ├── next.config.mjs      # Next.js設定
-├── tsconfig.json         # TypeScript設定（baseUrl: "src"）
-├── eslint.config.mjs    # ESLint設定（flat config）
-├── .prettierrc          # Prettier設定
-└── .env.example         # 環境変数の例
+└── tsconfig.json         # TypeScript設定（baseUrl: "src"）
 ```
 
 ## 技術スタック
