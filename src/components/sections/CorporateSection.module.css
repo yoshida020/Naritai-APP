@@ -16,27 +16,25 @@
 }
 
 .title {
-  font-size: 75px;
   font-weight: var(--font-weight-bold);
   color: var(--color-text-primary);
   margin-bottom: var(--spacing-4);
   display: block;
-  width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
 }
 
 .title:nth-of-type(1) {
   font-family: 'Parisienne', cursive;
+  font-size: 56px;
 }
 
 .title:nth-of-type(2) {
   font-family: 'Italianno', cursive;
+  font-size: 75px;
 }
 
 .title:nth-of-type(3) {
   font-family: 'Tangerine', cursive;
+  font-size: 75px;
 }
 
 .char {
@@ -111,11 +109,20 @@
   }
 
   .title {
-    font-size: 36px;
     margin-bottom: var(--spacing-3);
     line-height: 1.2;
-    width: 100%;
-    max-width: 400px;
+  }
+
+  .title:nth-of-type(1) {
+    font-size: 27px;
+  }
+
+  .title:nth-of-type(2) {
+    font-size: 36px;
+  }
+
+  .title:nth-of-type(3) {
+    font-size: 36px;
   }
 
   .subtitle {
