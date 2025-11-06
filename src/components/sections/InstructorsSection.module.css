@@ -141,5 +141,10 @@
     grid-template-columns: 1fr;
     gap: var(--spacing-6);
   }
+
+  .instructorCard:hover {
+    transform: none;
+    box-shadow: var(--shadow-md);
+  }
 }
 
