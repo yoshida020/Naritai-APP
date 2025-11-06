@@ -110,6 +110,31 @@
   transform: translateY(0);
 }
 
+/* アニメーション */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slideInUp {
+  animation: slideInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.slideInUpDelay1 {
+  animation-delay: 0.2s;
+}
+
+.slideInUpDelay2 {
+  animation-delay: 0.4s;
+}
+
 @media (max-width: 768px) {
   .hero {
     min-height: 500px;

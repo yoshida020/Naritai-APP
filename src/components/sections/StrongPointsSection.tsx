@@ -1,6 +1,37 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import styles from './StrongPointsSection.module.css';
 
 export default function StrongPointsSection() {
+  const text = 'Strong Points';
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const points = [
     {
       title: '豊富な実績',
@@ -22,8 +53,20 @@ export default function StrongPointsSection() {
 
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
-        <h2 className={styles.title}>Strong Points</h2>
+      <div className={styles.container} ref={containerRef}>
+        <h2 className={styles.title}>
+          {text.split('').map((char, i) => (
+            <span
+              key={i}
+              className={`${styles.char} ${isVisible ? styles.animate : ''}`}
+              style={{
+                animationDelay: `${i * 0.06}s`,
+              }}
+            >
+              {char === ' ' ? '\u00A0' : char}
+            </span>
+          ))}
+        </h2>
         <p className={styles.subtitle}>私たちの強み</p>
         <div className={styles.pointsGrid}>
           {points.map((point, index) => (

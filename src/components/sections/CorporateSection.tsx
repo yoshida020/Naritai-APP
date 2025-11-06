@@ -1,10 +1,61 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import styles from './CorporateSection.module.css';
 
 export default function CorporateSection() {
+  const text = 'For Corporate';
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+  
+  const renderAnimatedTitle = (index: number) => {
+    return (
+      <h2 className={styles.title}>
+        {text.split('').map((char, i) => (
+          <span
+            key={i}
+            className={`${styles.char} ${isVisible ? styles.animate : ''}`}
+            style={{
+              animationDelay: `${i * 0.06}s`,
+            }}
+          >
+            {char === ' ' ? '\u00A0' : char}
+          </span>
+        ))}
+      </h2>
+    );
+  };
+
   return (
     <section className={styles.section}>
-      <div className={styles.container}>
-        <h2 className={styles.title}>For Corporate</h2>
+      <div className={styles.container} ref={containerRef}>
+        {renderAnimatedTitle(0)}
+        {renderAnimatedTitle(1)}
+        {renderAnimatedTitle(2)}
         <p className={styles.subtitle}>実現できること</p>
         <div className={styles.content}>
           <p className={styles.description}>
