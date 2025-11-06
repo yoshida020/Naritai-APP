@@ -1,0 +1,144 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-inverse);
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.heroImagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.6) saturate(0.8);
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.5) 50%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  z-index: 2;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 3;
+  max-width: 1200px;
+  width: 100%;
+  padding: var(--spacing-20) var(--spacing-4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--spacing-8);
+  letter-spacing: var(--letter-spacing-tight);
+  color: #FFFFFF;
+}
+
+.titleLine {
+  display: block;
+  font-size: 63px;
+  color: #FFFFFF;
+}
+
+.titleLineLast {
+  font-size: 59px;
+  color: #FFFFFF;
+}
+
+.highlight {
+  color: #007FFF;
+}
+
+.subtitle {
+  font-size: var(--font-size-xl);
+  line-height: var(--line-height-relaxed);
+  opacity: 0.95;
+  margin-bottom: var(--spacing-10);
+  max-width: 800px;
+}
+
+.ctaButton {
+  padding: var(--spacing-4) var(--spacing-10);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-inverse);
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--color-text-inverse);
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color var(--transition-base), transform var(--transition-fast);
+  backdrop-filter: blur(4px);
+}
+
+.ctaButton:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  transform: translateY(-2px);
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 500px;
+  }
+
+  .heroContent {
+    padding: var(--spacing-12) var(--spacing-4);
+  }
+
+  .titleLine {
+    font-size: 36px;
+  }
+
+  .titleLineLast {
+    font-size: 34px;
+  }
+
+  .title {
+    margin-bottom: var(--spacing-6);
+  }
+
+  .subtitle {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-8);
+  }
+
+  .ctaButton {
+    padding: var(--spacing-3) var(--spacing-8);
+    font-size: var(--font-size-base);
+  }
+}
+
