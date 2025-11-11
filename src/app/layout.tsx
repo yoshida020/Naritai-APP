@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import dynamic from 'next/dynamic';
+import Header from '@/components/Header';
 
 const CursorHoverEffect = dynamic(() => import('@/components/CursorHoverEffect'), {
   ssr: false,
@@ -19,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body>
+        <Header />
         <CursorHoverEffect />
         {children}
       </body>

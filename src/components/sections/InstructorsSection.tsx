@@ -26,7 +26,7 @@ export default function InstructorsSection() {
   ];
 
   return (
-    <section className={styles.section}>
+    <section id="instructors" className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.title}>講師紹介</h2>
         <p className={styles.subtitle}>
@@ -60,6 +60,8 @@ export default function InstructorsSection() {
     </section>
   );
 }
+
+
 
 
 

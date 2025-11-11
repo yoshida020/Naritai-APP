@@ -71,6 +71,10 @@
   color: #FFFFFF;
 }
 
+.titleLine:first-child {
+  margin-top: var(--spacing-8);
+}
+
 .titleLineLast {
   font-size: 59px;
   color: #FFFFFF;
@@ -123,7 +127,7 @@
 }
 
 .slideInUp {
-  animation: slideInUp 0.8s ease-out forwards;
+  animation: slideInUp .8s ease-out forwards;
   opacity: 0;
 }
 

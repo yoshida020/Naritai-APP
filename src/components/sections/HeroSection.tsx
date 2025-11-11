@@ -2,7 +2,7 @@ import styles from './HeroSection.module.css';
 
 export default function HeroSection() {
   return (
-    <div className={styles.hero}>
+    <div id="top" className={styles.hero}>
       <div className={styles.heroBackground}>
         {/* オフィス背景画像 - 実際の画像ファイルに置き換えてください */}
         <div className={styles.heroImagePlaceholder} />

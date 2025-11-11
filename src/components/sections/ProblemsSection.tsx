@@ -9,7 +9,7 @@ export default function ProblemsSection() {
   ];
 
   return (
-    <section className={styles.section}>
+    <section id="problems" className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.title}>こんな悩みはありませんか？</h2>
         <div className={styles.problemsList}>

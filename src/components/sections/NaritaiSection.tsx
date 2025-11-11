@@ -2,7 +2,7 @@ import styles from './NaritaiSection.module.css';
 
 export default function NaritaiSection() {
   return (
-    <section className={styles.section}>
+    <section id="naritai" className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.title}>Naritai</h2>
         <div className={styles.content}>

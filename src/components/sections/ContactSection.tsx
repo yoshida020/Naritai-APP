@@ -33,7 +33,7 @@ export default function ContactSection() {
   }, []);
 
   return (
-    <section className={styles.section}>
+    <section id="contact" className={styles.section}>
       <div className={styles.background}>
         <div className={styles.backgroundImage} />
       </div>

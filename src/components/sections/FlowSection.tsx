@@ -25,7 +25,7 @@ export default function FlowSection() {
   ];
 
   return (
-    <section className={styles.section}>
+    <section id="flow" className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.title}>ご利用の流れ</h2>
         <div className={styles.flow}>
@@ -42,6 +42,8 @@ export default function FlowSection() {
     </section>
   );
 }
+
+
 
 
 

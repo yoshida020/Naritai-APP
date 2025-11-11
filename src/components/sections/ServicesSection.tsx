@@ -17,7 +17,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section className={styles.section}>
+    <section id="services" className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.title}>サービス内容</h2>
         <div className={styles.servicesGrid}>
@@ -32,6 +32,8 @@ export default function ServicesSection() {
     </section>
   );
 }
+
+
 
 
 

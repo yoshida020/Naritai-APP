@@ -38,7 +38,7 @@ export default function PricingSection() {
   ];
 
   return (
-    <section className={styles.section}>
+    <section id="pricing" className={styles.section}>
       <div className={styles.container}>
         <h2 className={styles.title}>料金</h2>
         <div className={styles.plansGrid}>
@@ -64,6 +64,8 @@ export default function PricingSection() {
     </section>
   );
 }
+
+
 
 
 

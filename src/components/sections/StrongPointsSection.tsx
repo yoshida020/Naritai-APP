@@ -52,7 +52,7 @@ export default function StrongPointsSection() {
   ];
 
   return (
-    <section className={styles.section}>
+    <section id="strong-points" className={styles.section}>
       <div className={styles.container} ref={containerRef}>
         <h2 className={styles.title}>
           {text.split('').map((char, i) => (

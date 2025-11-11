@@ -51,10 +51,8 @@ export default function CorporateSection() {
   };
 
   return (
-    <section className={styles.section}>
+    <section id="corporate" className={styles.section}>
       <div className={styles.container} ref={containerRef}>
-        {renderAnimatedTitle(0)}
-        {renderAnimatedTitle(1)}
         {renderAnimatedTitle(2)}
         <p className={styles.subtitle}>実現できること</p>
         <div className={styles.content}>

@@ -1,27 +1,24 @@
 .cursorEffect {
   position: fixed !important;
-  width: 600px !important;
-  height: 600px !important;
-  background: radial-gradient(circle, rgba(90, 177, 224, 0.35) 0%, rgba(90, 177, 224, 0) 70%) !important;
+  width: 12px !important;
+  height: 12px !important;
+  aspect-ratio: 1 / 1 !important;
+  background: #5AB1E0 !important;
   border-radius: 50% !important;
   pointer-events: none !important;
   transform: translate(-50%, -50%) !important;
-  transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
-    height 0.4s cubic-bezier(0.23, 1, 0.32, 1), 
-    opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+  transition: width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s ease-out !important;
   z-index: 9999 !important;
-  opacity: 0.8 !important;
   mix-blend-mode: normal !important;
-  filter: blur(20px) !important;
   will-change: transform !important;
 }
 
 .cursorEffect.hover {
-  width: 600px !important;
-  height: 600px !important;
-  opacity: 1 !important;
-  background: radial-gradient(circle, rgba(90, 177, 224, 0.65) 0%, rgba(90, 177, 224, 0) 70%) !important;
-  filter: blur(30px) !important;
+  width: 40px !important;
+  height: 40px !important;
+  aspect-ratio: 1 / 1 !important;
+  background: transparent !important;
+  border: 2px solid #5AB1E0 !important;
 }
 
 @media (max-width: 768px) {
