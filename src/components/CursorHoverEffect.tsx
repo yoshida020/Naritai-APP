@@ -4,12 +4,9 @@ import { useEffect, useState, useRef } from 'react';
 import styles from './CursorHoverEffect.module.css';
 
 export default function CursorHoverEffect() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
-  const rafId = useRef<number | null>(null);
-  const mousePosition = useRef({ x: 0, y: 0 });
-  const cursorPosition = useRef({ x: 0, y: 0 });
+  const cursorRef = useRef<HTMLDivElement>(null);
   const isVisibleRef = useRef(false);
 
   useEffect(() => {
@@ -18,47 +15,29 @@ export default function CursorHoverEffect() {
     // 初期位置を設定
     const initialX = window.innerWidth / 2;
     const initialY = window.innerHeight / 2;
-    cursorPosition.current = { x: initialX, y: initialY };
-    mousePosition.current = { x: initialX, y: initialY };
     
     // 初期状態を設定
-    setPosition({ x: initialX, y: initialY });
+    if (cursorRef.current) {
+      cursorRef.current.style.transform = `translate(${initialX}px, ${initialY}px) translate(-50%, -50%)`;
+    }
     setIsVisible(true);
     isVisibleRef.current = true;
 
-    // マウスの位置を追跡
+    // マウスの位置を追跡（時差なく直接DOM操作で反映）
     const updateMousePosition = (e: MouseEvent) => {
       try {
-        mousePosition.current = { x: e.clientX, y: e.clientY };
+        const x = e.clientX;
+        const y = e.clientY;
+        // DOMを直接操作して時差なく更新
+        if (cursorRef.current) {
+          cursorRef.current.style.transform = `translate(${x}px, ${y}px) translate(-50%, -50%)`;
+        }
         if (!isVisibleRef.current) {
           isVisibleRef.current = true;
           setIsVisible(true);
         }
       } catch (error) {
         // エラーを無視
-      }
-    };
-
-    // スムーズなアニメーションでカーソルを追従させる
-    const animateCursor = () => {
-      try {
-        const dx = mousePosition.current.x - cursorPosition.current.x;
-        const dy = mousePosition.current.y - cursorPosition.current.y;
-        
-        cursorPosition.current.x += dx * 0.15;
-        cursorPosition.current.y += dy * 0.15;
-        
-        setPosition({
-          x: cursorPosition.current.x,
-          y: cursorPosition.current.y,
-        });
-        
-        rafId.current = requestAnimationFrame(animateCursor);
-      } catch (error) {
-        // エラーを無視して続行
-        if (rafId.current !== null) {
-          rafId.current = requestAnimationFrame(animateCursor);
-        }
       }
     };
 
@@ -115,22 +94,16 @@ export default function CursorHoverEffect() {
       }
     };
 
-    window.addEventListener('mousemove', updateMousePosition);
+    window.addEventListener('mousemove', updateMousePosition, { passive: true });
     document.addEventListener('mouseover', handleMouseOver, true);
     document.addEventListener('mouseout', handleMouseOut, true);
     document.addEventListener('mouseleave', handleMouseLeave);
-    
-    // アニメーションループを開始
-    rafId.current = requestAnimationFrame(animateCursor);
 
     return () => {
       window.removeEventListener('mousemove', updateMousePosition);
       document.removeEventListener('mouseover', handleMouseOver, true);
       document.removeEventListener('mouseout', handleMouseOut, true);
       document.removeEventListener('mouseleave', handleMouseLeave);
-      if (rafId.current !== null) {
-        cancelAnimationFrame(rafId.current);
-      }
     };
   }, []);
 
@@ -138,11 +111,8 @@ export default function CursorHoverEffect() {
 
   return (
     <div
+      ref={cursorRef}
       className={`${styles.cursorEffect} ${isHovering ? styles.hover : ''}`}
-      style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`,
-      }}
       aria-hidden="true"
     />
   );
