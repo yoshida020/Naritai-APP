@@ -6,11 +6,11 @@ import styles from './CursorHoverEffect.module.css';
 export default function CursorHoverEffect() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const rafId = useRef<number | null>(null);
   const mousePosition = useRef({ x: 0, y: 0 });
   const cursorPosition = useRef({ x: 0, y: 0 });
-  const isVisibleRef = useRef(false);
+  const isVisibleRef = useRef(true);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -106,19 +106,9 @@ export default function CursorHoverEffect() {
       }
     };
 
-    const handleMouseLeave = () => {
-      try {
-        isVisibleRef.current = false;
-        setIsVisible(false);
-      } catch (error) {
-        // エラーを無視
-      }
-    };
-
     window.addEventListener('mousemove', updateMousePosition);
     document.addEventListener('mouseover', handleMouseOver, true);
     document.addEventListener('mouseout', handleMouseOut, true);
-    document.addEventListener('mouseleave', handleMouseLeave);
     
     // アニメーションループを開始
     rafId.current = requestAnimationFrame(animateCursor);
@@ -127,7 +117,6 @@ export default function CursorHoverEffect() {
       window.removeEventListener('mousemove', updateMousePosition);
       document.removeEventListener('mouseover', handleMouseOver, true);
       document.removeEventListener('mouseout', handleMouseOut, true);
-      document.removeEventListener('mouseleave', handleMouseLeave);
       if (rafId.current !== null) {
         cancelAnimationFrame(rafId.current);
       }

@@ -118,7 +118,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none !important;
 }
 
 html {
@@ -143,7 +142,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   width: 100%;
-  cursor: none !important;
 }
 
 #__next {
