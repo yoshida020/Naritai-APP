@@ -71,31 +71,33 @@ export default function PricingSection() {
           </div>
         </div>
         
-        <div className={styles.featuresSection}>
-          <h3 className={styles.featuresTitle}>プラン内容</h3>
-          <ul className={styles.featuresList}>
-            {features.map((feature, index) => (
-              <li key={index} className={styles.featureItem}>
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
+        <div className={styles.contentWrapper}>
+          <div className={styles.featuresSection}>
+            <h3 className={styles.featuresTitle}>プラン内容</h3>
+            <ul className={styles.featuresList}>
+              {features.map((feature, index) => (
+                <li key={index} className={styles.featureItem}>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        <div className={styles.plansGrid}>
-          {plans.map((plan, index) => (
-            <div key={index} className={styles.planWrapper}>
-              <div className={styles.planHeader}>
-                <h3 className={styles.planName}>{plan.name}</h3>
-              </div>
-              <div className={styles.planCard}>
-                <div className={styles.planPrice}>
-                  <span className={styles.price}>{plan.price}</span>
-                  <span className={styles.period}>{plan.period}</span>
+          <div className={styles.plansGrid}>
+            {plans.map((plan, index) => (
+              <div key={index} className={styles.planWrapper}>
+                <div className={styles.planHeader}>
+                  <h3 className={styles.planName}>{plan.name}</h3>
+                </div>
+                <div className={styles.planCard}>
+                  <div className={styles.planPrice}>
+                    <span className={styles.price}>{plan.price}</span>
+                    <span className={styles.period}>{plan.period}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
         <div className={styles.buttonContainer}>
           <button className={styles.planButton}>お問い合わせ</button>
