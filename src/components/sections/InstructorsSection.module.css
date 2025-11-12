@@ -40,6 +40,32 @@
   margin-top: var(--spacing-2);
 }
 
+.instructorsCarousel {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  overflow: visible;
+  perspective: 1200px;
+  perspective-origin: center center;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carouselTrack {
+  display: flex;
+  width: 100%;
+  will-change: transform;
+  transform-style: preserve-3d;
+  position: relative;
+  height: 100%;
+}
+
 .instructorsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -51,6 +77,13 @@
   perspective: 1000px;
   height: 100%;
   min-height: 400px;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 var(--spacing-4);
+  box-sizing: border-box;
+  position: absolute;
+  top: 50%;
+  transform-style: preserve-3d;
 }
 
 .instructorCard {
@@ -60,6 +93,10 @@
   min-height: 400px;
   transform-style: preserve-3d;
   transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  cursor: pointer;
+}
+
+.instructorCard.active {
   cursor: pointer;
 }
 
@@ -244,5 +281,45 @@
     max-width: 100%;
   }
 
+  .instructorsCarousel {
+    max-width: 100%;
+  }
+}
+
+/* カルーセルインジケーター */
+.carouselIndicators {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-6);
+  padding: var(--spacing-4) 0;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--border-radius-full);
+  background-color: var(--color-bg-tertiary);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background-color var(--transition-base), transform var(--transition-base);
+}
+
+.indicator:hover {
+  background-color: var(--color-brand-primary);
+  transform: scale(1.2);
+}
+
+.indicator.active {
+  background-color: var(--color-brand-primary);
+  width: 24px;
+  border-radius: var(--border-radius-sm);
+}
+
+@media (max-width: 768px) {
+  .carouselIndicators {
+    margin-top: var(--spacing-4);
+  }
 }
 
