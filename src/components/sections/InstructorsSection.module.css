@@ -32,69 +32,118 @@
   margin-right: auto;
 }
 
+.hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-brand-primary);
+  font-weight: var(--font-weight-medium);
+  display: inline-block;
+  margin-top: var(--spacing-2);
+}
+
 .instructorsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--spacing-8);
+  perspective: 1000px;
+}
+
+.cardContainer {
+  perspective: 1000px;
+  height: 100%;
+  min-height: 400px;
 }
 
 .instructorCard {
-  padding: var(--spacing-8);
-  background-color: var(--color-bg-secondary);
-  border-radius: var(--border-radius-lg);
-  box-shadow: var(--shadow-md);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 400px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
   cursor: pointer;
 }
 
-.instructorCard:hover {
-  transform: translateY(-4px);
+.instructorCard.flipped {
+  transform: rotateY(180deg);
+}
+
+.cardFront,
+.cardBack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-lg);
+  padding: var(--spacing-8);
+  background-color: var(--color-bg-secondary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cardFront {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.cardBack {
+  transform: rotateY(180deg);
+  background: linear-gradient(135deg, var(--color-brand-primary) 0%, var(--color-brand-secondary) 100%);
+  color: var(--color-text-inverse);
+  justify-content: center;
+}
+
+.instructorCard:hover:not(.flipped) {
+  transform: translateY(-8px) rotateY(5deg);
+  box-shadow: var(--shadow-xl);
+}
+
+.instructorCard.flipped:hover {
+  transform: rotateY(180deg) translateY(-8px);
 }
 
 .instructorImage {
-  margin-bottom: var(--spacing-6);
+  margin-bottom: var(--spacing-8);
+  flex-shrink: 0;
 }
 
 .imagePlaceholder {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
   border-radius: var(--border-radius-full);
   background: linear-gradient(135deg, var(--color-brand-primary) 0%, var(--color-brand-secondary) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-text-inverse);
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-5xl);
   font-weight: var(--font-weight-bold);
   margin: 0 auto;
+  box-shadow: var(--shadow-md);
 }
 
 .instructorInfo {
   width: 100%;
   text-align: center;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .instructorName {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
-  margin-bottom: var(--spacing-2);
+  margin-bottom: var(--spacing-3);
 }
 
 .instructorRole {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-medium);
   color: var(--color-brand-primary);
-  margin-bottom: var(--spacing-2);
-}
-
-.instructorExperience {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-secondary);
   margin-bottom: var(--spacing-4);
 }
 
@@ -103,7 +152,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--spacing-2);
-  margin-bottom: var(--spacing-4);
+  margin-top: var(--spacing-4);
 }
 
 .specialtyTag {
@@ -115,11 +164,38 @@
   font-weight: var(--font-weight-medium);
 }
 
-.instructorDescription {
+/* カード背面のスタイル */
+.backContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-6);
+}
+
+.backExperience {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-inverse);
+  margin-bottom: var(--spacing-4);
+}
+
+.backDivider {
+  width: 60px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: var(--spacing-4) 0;
+}
+
+.backDescription {
   font-size: var(--font-size-base);
   line-height: var(--line-height-relaxed);
-  color: var(--color-text-primary);
+  color: rgba(255, 255, 255, 0.95);
   margin-top: var(--spacing-4);
+  max-width: 280px;
 }
 
 @media (max-width: 768px) {
@@ -142,9 +218,31 @@
     gap: var(--spacing-6);
   }
 
-  .instructorCard:hover {
-    transform: none;
-    box-shadow: var(--shadow-md);
+  .cardContainer {
+    min-height: 350px;
   }
+
+  .instructorCard {
+    min-height: 350px;
+  }
+
+  .instructorCard:hover:not(.flipped) {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .instructorCard.flipped:hover {
+    transform: rotateY(180deg) translateY(-4px);
+  }
+
+  .backExperience {
+    font-size: var(--font-size-base);
+  }
+
+  .backDescription {
+    font-size: var(--font-size-sm);
+    max-width: 100%;
+  }
+
 }
 
