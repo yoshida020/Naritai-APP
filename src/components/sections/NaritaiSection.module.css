@@ -15,12 +15,16 @@
 }
 
 .title {
-  font-size: 75px;
-  font-weight: var(--font-weight-bold);
-  color: #FFFFFF;
   margin-bottom: var(--spacing-12);
-  font-family: 'Tangerine', cursive;
   text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.titleImage {
+  height: 200px;
+  width: auto;
+  object-fit: contain;
 }
 
 .content {
@@ -73,10 +77,13 @@
   }
 
   .title {
-    font-size: 36px;
     margin-bottom: var(--spacing-6);
     text-align: center;
-    line-height: 1.2;
+    justify-content: center;
+  }
+
+  .titleImage {
+    height: 100px;
   }
 
   .content {

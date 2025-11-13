@@ -4,7 +4,13 @@ export default function NaritaiSection() {
   return (
     <section id="naritai" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title}>Naritai</h2>
+        <h2 className={styles.title}>
+          <img 
+            src="/20251113-1222_0c6fac0955ae27ab6afae3f84537df2d.png" 
+            alt="Naritai" 
+            className={styles.titleImage}
+          />
+        </h2>
         <div className={styles.content}>
           <div className={styles.column}>
             <h3 className={styles.columnTitle}>Service</h3>

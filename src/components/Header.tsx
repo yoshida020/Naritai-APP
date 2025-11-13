@@ -89,7 +89,11 @@ export default function Header() {
     <header ref={headerRef} className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <a href="#top" className={styles.logo} onClick={(e) => handleLinkClick(e, '#top')}>
-          Naritai
+          <img 
+            src="/20251113-1222_2c7cdaaec151d3d5e7aabdec1966c120.png" 
+            alt="Naritai" 
+            className={styles.logoImage}
+          />
         </a>
         
         <nav className={styles.nav}>

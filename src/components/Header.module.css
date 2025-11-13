@@ -28,16 +28,20 @@
 }
 
 .logo {
-  font-family: 'Tangerine', cursive;
-  font-size: 32px;
-  font-weight: var(--font-weight-bold);
-  color: var(--color-brand-primary);
+  display: flex;
+  align-items: center;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .logo:hover {
-  color: var(--color-brand-accent);
+  opacity: 0.8;
+}
+
+.logoImage {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
 }
 
 .nav {
