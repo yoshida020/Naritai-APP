@@ -17,10 +17,10 @@
 }
 
 .heroContainer {
-  max-width: 1200px;
+  max-width: 1400px;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 1.5fr;
+  grid-template-columns: 1fr 700px;
   gap: var(--spacing-8);
   align-items: center;
   padding: var(--spacing-8) var(--spacing-4);
@@ -31,7 +31,7 @@
 .heroContent {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--spacing-8);
   width: 100%;
   min-width: 0;
@@ -41,9 +41,11 @@
 .textContent {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--spacing-8);
   width: 100%;
   min-width: 0;
+  text-align: center;
 }
 
 .title {
@@ -54,15 +56,17 @@
   color: #2C3E50;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 0;
+  text-align: center;
 }
 
 .titleLine {
   display: block;
-  font-size: clamp(32px, 5vw, 63px);
+  font-size: clamp(32px, 5vw, 56px);
   color: #2C3E50;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  white-space: nowrap;
+  line-height: 1.2;
 }
 
 .titleLine:first-child {
@@ -81,7 +85,7 @@
 }
 
 .subtitle {
-  font-size: clamp(14px, 1.5vw, var(--font-size-xl));
+  font-size: clamp(18px, 2.2vw, 28px);
   line-height: var(--line-height-relaxed);
   opacity: 0.95;
   margin-bottom: 0;
@@ -89,6 +93,14 @@
   color: #2C3E50;
   word-wrap: break-word;
   overflow-wrap: break-word;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: var(--spacing-4);
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .ctaButton {
@@ -102,7 +114,6 @@
   cursor: pointer;
   transition: background-color var(--transition-base), transform var(--transition-fast);
   width: fit-content;
-  align-self: center;
 }
 
 .ctaButton:hover {
@@ -114,20 +125,44 @@
   transform: translateY(0);
 }
 
+.ctaButtonSecondary {
+  padding: var(--spacing-3) var(--spacing-8);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: #007FFF;
+  background-color: transparent;
+  border: 2px solid #007FFF;
+  border-radius: 32px;
+  cursor: pointer;
+  transition: background-color var(--transition-base), transform var(--transition-fast), color var(--transition-base);
+  width: fit-content;
+}
+
+.ctaButtonSecondary:hover {
+  background-color: #007FFF;
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.ctaButtonSecondary:active {
+  transform: translateY(0);
+}
+
 .heroImage {
   position: relative;
-  width: 100%;
-  height: 100%;
-  max-height: calc(100vh - 200px);
+  width: 700px;
+  max-width: 100%;
+  aspect-ratio: 4 / 3;
   border-radius: 16px;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 .heroImagePlaceholder {
   width: 100%;
   height: 100%;
-  background-image: url('/Hero03.png');
-  background-size: cover;
+  background-image: url('/20251113-1220_ededb35b97201851bab8a364f84a4e32.jpg');
+  background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -159,7 +194,8 @@
 
 @media (max-width: 1024px) and (min-width: 769px) {
   .titleLine {
-    font-size: clamp(28px, 4vw, 48px);
+    font-size: clamp(28px, 4.5vw, 48px);
+    white-space: normal;
   }
 
   .titleLineLast {
@@ -167,12 +203,18 @@
   }
 
   .subtitle {
-    font-size: clamp(14px, 1.3vw, 18px);
+    font-size: clamp(18px, 2.2vw, 24px);
   }
 
   .heroContainer {
+    grid-template-columns: 1fr;
     gap: var(--spacing-6);
     padding: var(--spacing-6) var(--spacing-4);
+  }
+
+  .heroImage {
+    width: 100%;
+    max-width: 600px;
   }
 }
 
@@ -211,8 +253,9 @@
   }
 
   .titleLine {
-    font-size: 18px;
+    font-size: 22px;
     line-height: 1.3;
+    white-space: normal;
   }
 
   .titleLineLast {
@@ -229,25 +272,40 @@
   }
 
   .subtitle {
-    font-size: 11px;
+    font-size: 15px;
     margin-bottom: 0;
     line-height: 1.5;
+  }
+
+  .buttonGroup {
+    gap: var(--spacing-3);
+    justify-content: flex-start;
   }
 
   .ctaButton {
     padding: var(--spacing-3) var(--spacing-5);
     font-size: var(--font-size-sm);
     border-radius: 24px;
-    align-self: start;
   }
 
   .ctaButton:hover {
     transform: none;
   }
 
+  .ctaButtonSecondary {
+    padding: var(--spacing-3) var(--spacing-5);
+    font-size: var(--font-size-sm);
+    border-radius: 24px;
+  }
+
+  .ctaButtonSecondary:hover {
+    transform: none;
+  }
+
   .heroImage {
     min-height: 0;
-    max-height: 180px;
+    max-width: 400px;
+    aspect-ratio: 4 / 3;
     flex-shrink: 0;
     order: -1;
   }

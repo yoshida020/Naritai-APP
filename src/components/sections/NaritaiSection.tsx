@@ -13,7 +13,7 @@ export default function NaritaiSection() {
         </h2>
         <div className={styles.content}>
           <div className={styles.column}>
-            <h3 className={styles.columnTitle}>Service</h3>
+            <h3 className={styles.columnTitle}>サービス</h3>
             <ul className={styles.linkList}>
               <li>
                 <a href="/services/individual" className={styles.link}>
@@ -28,7 +28,7 @@ export default function NaritaiSection() {
             </ul>
           </div>
           <div className={styles.column}>
-            <h3 className={styles.columnTitle}>Company</h3>
+            <h3 className={styles.columnTitle}>会社情報</h3>
             <ul className={styles.linkList}>
               <li>
                 <a href="/about" className={styles.link}>
@@ -48,7 +48,7 @@ export default function NaritaiSection() {
             </ul>
           </div>
           <div className={styles.column}>
-            <h3 className={styles.columnTitle}>Privacy policy</h3>
+            <h3 className={styles.columnTitle}>法的事項</h3>
             <ul className={styles.linkList}>
               <li>
                 <a href="/privacy" className={styles.link}>

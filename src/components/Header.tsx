@@ -100,7 +100,7 @@ export default function Header() {
           <ul className={styles.navList}>
             <li>
               <a href="#problems" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#problems')}>
-                こんな悩みはありませんか？
+                課題
               </a>
             </li>
             <li>
@@ -115,12 +115,12 @@ export default function Header() {
             </li>
             <li>
               <a href="#corporate" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#corporate')}>
-                For Corporate
+                企業向け
               </a>
             </li>
             <li>
               <a href="#strong-points" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#strong-points')}>
-                Strong Points
+                強み
               </a>
             </li>
             <li>
@@ -135,12 +135,12 @@ export default function Header() {
             </li>
             <li>
               <a href="#contact" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#contact')}>
-                Contact
+                お問い合わせ
               </a>
             </li>
             <li>
               <a href="#naritai" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#naritai')}>
-                Naritai
+                会社情報
               </a>
             </li>
           </ul>
@@ -163,7 +163,7 @@ export default function Header() {
             <ul className={styles.mobileNavList}>
               <li>
                 <a href="#problems" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#problems')}>
-                  こんな悩みはありませんか？
+                  課題
                 </a>
               </li>
               <li>
@@ -178,12 +178,12 @@ export default function Header() {
               </li>
               <li>
                 <a href="#corporate" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#corporate')}>
-                  For Corporate
+                  企業向け
                 </a>
               </li>
               <li>
                 <a href="#strong-points" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#strong-points')}>
-                  Strong Points
+                  強み
                 </a>
               </li>
               <li>
@@ -198,12 +198,12 @@ export default function Header() {
               </li>
               <li>
                 <a href="#contact" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#contact')}>
-                  Contact
+                  お問い合わせ
                 </a>
               </li>
               <li>
                 <a href="#naritai" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#naritai')}>
-                  Naritai
+                  会社情報
                 </a>
               </li>
             </ul>
