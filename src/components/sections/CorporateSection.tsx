@@ -67,12 +67,20 @@ export default function CorporateSection() {
               <p className={styles.featureText}>早期離職を防ぎ、優秀な人材を定着させます。</p>
             </div>
             <div className={styles.feature}>
-              <h3 className={styles.featureTitle}>組織成長</h3>
+              <h3 className={styles.featureTitle}>静かな退職防止</h3>
+              <p className={styles.featureText}>早期離職を防ぎ、優秀な人材を定着させます。</p>
+            </div>
+            <div className={styles.feature}>
+              <h3 className={styles.featureTitle}>組織全体の成長</h3>
               <p className={styles.featureText}>社員の成長が組織全体の成長につながります。</p>
             </div>
             <div className={styles.feature}>
               <h3 className={styles.featureTitle}>生産性向上</h3>
               <p className={styles.featureText}>モチベーション向上により生産性が向上します。</p>
+            </div>
+            <div className={styles.feature}>
+              <h3 className={styles.featureTitle}>早期離職防止</h3>
+              <p className={styles.featureText}>早期離職を防ぎ、優秀な人材を定着させます。</p>
             </div>
           </div>
         </div>
