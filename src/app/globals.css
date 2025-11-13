@@ -173,7 +173,7 @@ a {
 
 button {
   font-family: inherit;
-  cursor: none !important;
+  cursor: pointer;
   border: none;
   background: none;
 }
