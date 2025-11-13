@@ -2,24 +2,27 @@ import styles from './ProblemsSection.module.css';
 
 export default function ProblemsSection() {
   const problems = [
-    ['何を考えているか分からない', '急に辞める'],
-    ['丁寧に育成する', 'リソースがない'],
-    ['すぐに辞めたがるのは', '忍耐力がないから？'],
-    ['何で', '飲み会に来ないの？'],
+    '考えていることがわからない、急に辞める',
+    '本音で話してくれない',
+    '丁寧に育成するリソースがない',
+    '忍耐力がない、主体的に動かない',
+    '飲み会に来ない',
   ];
 
   return (
     <section id="problems" className={styles.section}>
       <div className={styles.container}>
-        <h2 className={styles.title}>こんな悩みはありませんか？</h2>
+        <h2 className={styles.title}>Z世代にこんなお悩みありませんか？</h2>
         <div className={styles.problemsList}>
           {problems.map((problem, index) => (
             <div key={index} className={styles.problemItem}>
-              {problem[0]}
-              <br />
-              {problem[1]}
+              {problem}
             </div>
           ))}
+        </div>
+        <div className={styles.solution}>
+          <div className={styles.solutionIcon}>⇩</div>
+          <p className={styles.solutionText}>Naritaiがすべて解決します</p>
         </div>
       </div>
     </section>
