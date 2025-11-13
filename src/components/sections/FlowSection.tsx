@@ -19,7 +19,7 @@ export default function FlowSection() {
     },
     {
       number: '04',
-      title: '実施',
+      title: '実施・フォローアップ',
       description: 'プログラムを実施し、継続的にサポートします。',
     },
   ];
