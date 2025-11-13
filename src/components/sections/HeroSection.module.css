@@ -1,23 +1,126 @@
 .hero {
   position: relative;
   width: 100%;
+  height: 100vh;
   min-height: 100vh;
+  max-height: 100vh;
   margin: 0 !important;
-  padding: 0 !important;
+  padding: 80px 0 0 0 !important;
+  box-sizing: border-box;
+  background-color: #F5F5F5;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-inverse);
+  color: var(--color-text-primary);
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+
+.heroContainer {
+  max-width: 1200px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: var(--spacing-8);
+  align-items: center;
+  padding: var(--spacing-8) var(--spacing-4);
+  margin: 0 auto;
+  height: 100%;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+  width: 100%;
+  min-width: 0;
   overflow: hidden;
 }
 
-.heroBackground {
-  position: absolute;
-  top: 0;
-  left: 0;
+.textContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  width: 100%;
+  min-width: 0;
+}
+
+.title {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin-bottom: 0;
+  letter-spacing: var(--letter-spacing-tight);
+  color: #2C3E50;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.titleLine {
+  display: block;
+  font-size: clamp(32px, 5vw, 63px);
+  color: #2C3E50;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.titleLine:first-child {
+  margin-top: var(--spacing-8);
+}
+
+.titleLineLast {
+  font-size: clamp(30px, 4.5vw, 59px);
+  color: #2C3E50;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.highlight {
+  color: #007FFF;
+}
+
+.subtitle {
+  font-size: clamp(14px, 1.5vw, var(--font-size-xl));
+  line-height: var(--line-height-relaxed);
+  opacity: 0.95;
+  margin-bottom: 0;
+  max-width: 100%;
+  color: #2C3E50;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.ctaButton {
+  padding: var(--spacing-3) var(--spacing-8);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: #FFFFFF;
+  background-color: #007FFF;
+  border: none;
+  border-radius: 32px;
+  cursor: pointer;
+  transition: background-color var(--transition-base), transform var(--transition-fast);
+  width: fit-content;
+  align-self: center;
+}
+
+.ctaButton:hover {
+  background-color: #0066CC;
+  transform: translateY(-2px);
+}
+
+.ctaButton:active {
+  transform: translateY(0);
+}
+
+.heroImage {
+  position: relative;
   width: 100%;
   height: 100%;
-  z-index: 1;
+  max-height: calc(100vh - 200px);
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .heroImagePlaceholder {
@@ -27,91 +130,6 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(0.6) saturate(0.8);
-}
-
-.heroOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.3) 0%,
-    rgba(0, 0, 0, 0.5) 50%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
-  z-index: 2;
-}
-
-.heroContent {
-  position: relative;
-  z-index: 3;
-  max-width: 1200px;
-  width: 100%;
-  padding: var(--spacing-20) var(--spacing-4);
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.title {
-  font-weight: var(--font-weight-bold);
-  line-height: var(--line-height-tight);
-  margin-bottom: var(--spacing-8);
-  letter-spacing: var(--letter-spacing-tight);
-  color: #FFFFFF;
-}
-
-.titleLine {
-  display: block;
-  font-size: 63px;
-  color: #FFFFFF;
-}
-
-.titleLine:first-child {
-  margin-top: var(--spacing-8);
-}
-
-.titleLineLast {
-  font-size: 59px;
-  color: #FFFFFF;
-}
-
-.highlight {
-  color: #007FFF;
-}
-
-.subtitle {
-  font-size: var(--font-size-xl);
-  line-height: var(--line-height-relaxed);
-  opacity: 0.95;
-  margin-bottom: var(--spacing-10);
-  max-width: 800px;
-}
-
-.ctaButton {
-  padding: var(--spacing-4) var(--spacing-10);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-semibold);
-  color: var(--color-text-inverse);
-  background-color: rgba(0, 0, 0, 0.4);
-  border: 1px solid var(--color-text-inverse);
-  border-radius: 0;
-  cursor: pointer;
-  transition: background-color var(--transition-base), transform var(--transition-fast);
-  backdrop-filter: blur(4px);
-}
-
-.ctaButton:hover {
-  background-color: rgba(0, 0, 0, 0.6);
-  transform: translateY(-2px);
-}
-
-.ctaButton:active {
-  transform: translateY(0);
 }
 
 /* アニメーション */
@@ -139,43 +157,98 @@
   animation-delay: 0.4s;
 }
 
+@media (max-width: 1024px) and (min-width: 769px) {
+  .titleLine {
+    font-size: clamp(28px, 4vw, 48px);
+  }
+
+  .titleLineLast {
+    font-size: clamp(26px, 3.5vw, 45px);
+  }
+
+  .subtitle {
+    font-size: clamp(14px, 1.3vw, 18px);
+  }
+
+  .heroContainer {
+    gap: var(--spacing-6);
+    padding: var(--spacing-6) var(--spacing-4);
+  }
+}
+
 @media (max-width: 768px) {
   .hero {
+    height: 100vh;
     min-height: 100vh;
-    min-height: 100dvh; /* モバイルブラウザの動的ビューポート高さに対応 */
+    max-height: 100vh;
+    padding: 80px 0 0 0 !important;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .heroContainer {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-4);
+    padding: var(--spacing-4);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .heroContent {
-    padding: var(--spacing-8) var(--spacing-4);
+    align-items: stretch;
+    gap: var(--spacing-4);
+    flex: 1;
+    min-height: 0;
+  }
+
+  .textContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-3);
+    align-items: start;
   }
 
   .titleLine {
-    font-size: 28px;
+    font-size: 18px;
     line-height: 1.3;
   }
 
   .titleLineLast {
-    font-size: 26px;
+    font-size: 16px;
   }
 
   .title {
-    margin-bottom: var(--spacing-4);
+    margin-bottom: 0;
+    gap: 0;
+  }
+
+  .titleLine:first-child {
+    margin-top: 0;
   }
 
   .subtitle {
-    font-size: var(--font-size-base);
-    margin-bottom: var(--spacing-6);
-    line-height: 1.6;
+    font-size: 11px;
+    margin-bottom: 0;
+    line-height: 1.5;
   }
 
   .ctaButton {
-    padding: var(--spacing-3) var(--spacing-6);
+    padding: var(--spacing-3) var(--spacing-5);
     font-size: var(--font-size-sm);
+    border-radius: 24px;
+    align-self: start;
   }
 
   .ctaButton:hover {
-    background-color: rgba(0, 0, 0, 0.4);
     transform: none;
   }
-}
 
+  .heroImage {
+    min-height: 0;
+    max-height: 180px;
+    flex-shrink: 0;
+    order: -1;
+  }
+}
