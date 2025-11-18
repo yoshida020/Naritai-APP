@@ -33,18 +33,21 @@ export default function PricingSection() {
   const plans = [
     {
       name: '3か月',
-      price: '¥50,000',
-      period: '/月',
+      price: '150,000円',
+      period: '',
+      monthlyPrice: '50,000',
     },
     {
       name: '6か月',
-      price: '¥45,000',
-      period: '/月',
+      price: '270,000円',
+      period: '',
+      monthlyPrice: '45,000',
     },
     {
       name: '12か月',
-      price: '¥40,000',
-      period: '/月',
+      price: '480,000円',
+      period: '',
+      monthlyPrice: '40,000',
     },
   ];
 
@@ -90,7 +93,12 @@ export default function PricingSection() {
                     <div className={styles.planPrice}>
                       <span className={styles.planName}>{plan.name}</span>
                       <span className={styles.price}>{plan.price}</span>
-                      <span className={styles.period}>{plan.period}</span>
+                      {plan.period && <span className={styles.period}>{plan.period}</span>}
+                      {plan.monthlyPrice && (
+                        <div className={styles.tooltip}>
+                          ひと月あたり{plan.monthlyPrice}円
+                        </div>
+                      )}
                     </div>
                   </div>
                 ))}
