@@ -91,14 +91,19 @@ export default function PricingSection() {
                 {plans.map((plan, index) => (
                   <div key={index} className={styles.planItem}>
                     <div className={styles.planPrice}>
-                      <span className={styles.planName}>{plan.name}</span>
-                      <span className={styles.price}>{plan.price}</span>
-                      {plan.period && <span className={styles.period}>{plan.period}</span>}
-                      {plan.monthlyPrice && (
-                        <div className={styles.tooltip}>
-                          ひと月あたり{plan.monthlyPrice}円
-                        </div>
-                      )}
+                      <div className={styles.planMain}>
+                        <span className={styles.planName}>
+                          {plan.name}
+                          {plan.monthlyPrice && (
+                            <div className={styles.tooltip}>
+                              ひと月あたり<span className={styles.tooltipPrice}>{plan.monthlyPrice}円</span>/月
+                            </div>
+                          )}
+                        </span>
+                        <span className={styles.price}>
+                          {plan.price}
+                        </span>
+                      </div>
                     </div>
                   </div>
                 ))}

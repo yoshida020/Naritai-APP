@@ -123,7 +123,7 @@
   justify-content: center;
   flex: 1;
   min-width: 500px;
-  max-width: 700px;
+  max-width: 900px;
   align-items: stretch;
 }
 
@@ -140,7 +140,7 @@
 }
 
 .planCard {
-  padding: var(--spacing-8) var(--spacing-6);
+  padding: calc(var(--spacing-8) + 60px) var(--spacing-6) var(--spacing-8);
   background-color: var(--color-bg-default);
   border-radius: 24px;
   box-shadow: var(--shadow-lg);
@@ -152,6 +152,10 @@
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   flex-grow: 1;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow: visible;
+  margin: 0 auto;
 }
 
 .planItem {
@@ -161,14 +165,24 @@
   justify-content: center;
   flex: 1;
   padding: var(--spacing-4);
+  min-width: 0;
+  position: relative;
+}
+
+.planMain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-2);
 }
 
 .planName {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-semibold);
   color: var(--color-text-primary);
-  margin-bottom: var(--spacing-2);
+  margin-bottom: 0;
   display: block;
+  position: relative;
 }
 
 
@@ -183,10 +197,12 @@
 }
 
 .price {
-  font-size: var(--font-size-4xl);
+  font-size: var(--font-size-5xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-brand-primary);
   line-height: 1.2;
+  position: relative;
+  white-space: nowrap;
 }
 
 .period {
@@ -221,6 +237,162 @@
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-top: 6px solid var(--color-brand-primary);
+}
+
+/* PC版のレスポンシブ調整 */
+@media (max-width: 1400px) {
+  .title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--spacing-8);
+  }
+
+  .promotionLine1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .promotionLine2 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .featuresTitle {
+    font-size: var(--font-size-xl);
+  }
+
+  .planName {
+    font-size: var(--font-size-xl);
+  }
+
+  .price {
+    font-size: var(--font-size-4xl);
+  }
+
+  .planCard {
+    padding: calc(var(--spacing-6) + 50px) var(--spacing-5) var(--spacing-6);
+  }
+
+  .planItem {
+    padding: var(--spacing-3);
+  }
+
+  .contentWrapper {
+    gap: var(--spacing-8);
+    margin-bottom: var(--spacing-8);
+  }
+}
+
+@media (max-width: 1200px) {
+  .title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--spacing-6);
+  }
+
+  .promotionLine1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .promotionLine2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .featuresTitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .planName {
+    font-size: var(--font-size-lg);
+  }
+
+  .price {
+    font-size: var(--font-size-3xl);
+  }
+
+  .planCard {
+    padding: calc(var(--spacing-5) + 45px) var(--spacing-4) var(--spacing-5);
+    gap: var(--spacing-3);
+  }
+
+  .planItem {
+    padding: var(--spacing-2);
+  }
+
+  .contentWrapper {
+    gap: var(--spacing-6);
+    margin-bottom: var(--spacing-6);
+  }
+
+  .featuresSection {
+    flex: 0 0 200px;
+    max-width: 200px;
+    padding: var(--spacing-4) var(--spacing-4);
+  }
+
+  .plansGrid {
+    max-width: 800px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .section {
+    padding: var(--spacing-16) var(--spacing-4);
+  }
+
+  .title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .promotionBox {
+    padding: var(--spacing-4) var(--spacing-6);
+  }
+
+  .promotionLine1 {
+    font-size: var(--font-size-xl);
+  }
+
+  .promotionLine2 {
+    font-size: var(--font-size-lg);
+  }
+
+  .featuresTitle {
+    font-size: var(--font-size-base);
+  }
+
+  .planName {
+    font-size: var(--font-size-base);
+  }
+
+  .price {
+    font-size: var(--font-size-2xl);
+  }
+
+  .planCard {
+    padding: calc(var(--spacing-4) + 40px) var(--spacing-3) var(--spacing-4);
+    gap: var(--spacing-2);
+  }
+
+  .planItem {
+    padding: var(--spacing-2);
+  }
+
+  .contentWrapper {
+    gap: var(--spacing-4);
+    margin-bottom: var(--spacing-4);
+  }
+
+  .featuresSection {
+    flex: 0 0 180px;
+    max-width: 180px;
+    padding: var(--spacing-3) var(--spacing-3);
+  }
+
+  .plansGrid {
+    max-width: 700px;
+    min-width: 400px;
+  }
+
+  .buttonContainer {
+    margin-top: var(--spacing-4);
+  }
 }
 
 .featuresList {
@@ -259,7 +431,9 @@
 
 @media (max-width: 768px) {
   .section {
+    height: auto;
     min-height: auto;
+    max-height: none;
     padding: var(--spacing-16) var(--spacing-4);
   }
 
@@ -314,17 +488,98 @@
 
   .planCard {
     flex-direction: column;
-    padding: var(--spacing-6);
+    padding: 36px var(--spacing-6) 12px;
     min-height: auto;
     gap: var(--spacing-4);
+    align-items: flex-end;
+    overflow: visible;
   }
 
   .planItem {
-    padding: var(--spacing-4) 0;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+    position: relative;
+  }
+
+  .planItem:last-child {
+    margin-bottom: 0;
+  }
+
+  .planPrice {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+  }
+
+  .planMain {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: var(--spacing-4);
   }
 
   .planName {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0;
+    flex-shrink: 0;
+    position: static;
+  }
+
+  .price {
+    font-size: 24px;
+    font-weight: 700;
+    position: relative;
+    text-align: center;
+    flex-shrink: 0;
+    white-space: normal;
+  }
+
+  .period {
     font-size: var(--font-size-sm);
+  }
+
+  .tooltip {
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--color-brand-primary);
+    color: #FFFFFF;
+    padding: var(--spacing-1) var(--spacing-3);
+    border-radius: 6px;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    white-space: nowrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+    max-width: calc(100vw - 32px);
+  }
+
+  .tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid var(--color-brand-primary);
+  }
+
+  .tooltipPrice {
+    font-weight: 600;
   }
 
   .buttonContainer {
@@ -334,20 +589,6 @@
   .planButton {
     width: 100%;
     max-width: 100%;
-  }
-
-  .price {
-    font-size: var(--font-size-xl);
-  }
-
-  .period {
-    font-size: var(--font-size-sm);
-  }
-
-  .tooltip {
-    top: -40px;
-    font-size: var(--font-size-xs);
-    padding: var(--spacing-1) var(--spacing-3);
   }
 
 
