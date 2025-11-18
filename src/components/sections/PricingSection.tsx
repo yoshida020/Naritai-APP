@@ -21,14 +21,13 @@ export default function PricingSection() {
       }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    const currentRef = sectionRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      observer.disconnect();
     };
   }, []);
   const plans = [
@@ -43,7 +42,7 @@ export default function PricingSection() {
       period: '/月',
     },
     {
-      name: '無期限',
+      name: '12か月',
       price: '¥40,000',
       period: '/月',
     },
@@ -84,19 +83,19 @@ export default function PricingSection() {
           </div>
 
           <div className={styles.plansGrid}>
-            {plans.map((plan, index) => (
-              <div key={index} className={styles.planWrapper}>
-                <div className={styles.planHeader}>
-                  <h3 className={styles.planName}>{plan.name}</h3>
-                </div>
-                <div className={styles.planCard}>
-                  <div className={styles.planPrice}>
-                    <span className={styles.price}>{plan.price}</span>
-                    <span className={styles.period}>{plan.period}</span>
+            <div className={styles.planWrapper}>
+              <div className={styles.planCard}>
+                {plans.map((plan, index) => (
+                  <div key={index} className={styles.planItem}>
+                    <div className={styles.planPrice}>
+                      <span className={styles.planName}>{plan.name}</span>
+                      <span className={styles.price}>{plan.price}</span>
+                      <span className={styles.period}>{plan.period}</span>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
         <div className={styles.buttonContainer}>
