@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './ProblemsSection.module.css';
 
 export default function ProblemsSection() {
