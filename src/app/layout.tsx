@@ -1,19 +1,18 @@
 import type { Metadata } from 'next';
-import type { ReactNode } from 'react';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Naritai株式会社',
   description: 'Naritai株式会社の公式サイト',
   icons: {
-    icon: '/ファビコン.png',
+    icon: '/20251113-1222_f62354075cc7b78cbe63d9d572b3e147.png',
   },
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: ReactNode;
+  children: React.ReactNode;
 }) {
   return (
     <html lang="ja">

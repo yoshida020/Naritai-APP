@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import styles from './CustomCursor.module.css';
 
 export default function CustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
@@ -115,12 +114,16 @@ export default function CustomCursor() {
     <>
       <div
         ref={cursorRef}
-        className={`${styles.cursor} ${isHovering ? styles.hover : ''}`}
+        className={`fixed left-0 top-0 w-10 h-10 border-2 border-[#517CA2] rounded-full pointer-events-none transition-all duration-300 ease-[cubic-bezier(0.23,1,0.32,1)] z-[99999] mix-blend-difference opacity-80 will-change-transform ${
+          isHovering ? 'w-[60px] h-[60px] border-[#5AB1E0] opacity-100' : ''
+        }`}
         aria-hidden="true"
       />
       <div
         ref={cursorDotRef}
-        className={`${styles.cursorDot} ${isHovering ? styles.hover : ''}`}
+        className={`fixed left-0 top-0 w-2 h-2 bg-[#517CA2] rounded-full pointer-events-none transition-all duration-200 ease-[cubic-bezier(0.23,1,0.32,1)] z-[100000] mix-blend-difference will-change-transform ${
+          isHovering ? 'w-3 h-3 bg-[#5AB1E0]' : ''
+        }`}
         aria-hidden="true"
       />
     </>

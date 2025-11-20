@@ -1,5 +1,3 @@
-import styles from './ServicesSection.module.css';
-
 export default function ServicesSection() {
   const services = [
     {
@@ -42,14 +40,26 @@ export default function ServicesSection() {
   ];
 
   return (
-    <section id="services" className={styles.section}>
-      <div className={styles.container}>
-        <h2 className={styles.title}>サービス内容</h2>
-        <div className={styles.servicesGrid}>
+    <section 
+      id="services" 
+      className="w-full h-screen min-h-screen max-h-screen py-20 px-4 bg-[#F9FCFF] flex items-center justify-center md:min-h-auto md:py-16 md:px-4"
+    >
+      <div className="max-w-[1200px] w-full mx-auto text-center">
+        <h2 className="text-4xl font-bold text-[#2C3E50] mb-12 md:text-2xl md:mb-6 md:leading-[1.3]">
+          サービス内容
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8 md:gap-6 md:grid-cols-1">
           {services.map((service, index) => (
-            <div key={index} className={styles.serviceCard}>
-              <h3 className={styles.serviceTitle}>{service.title}</h3>
-              <p className={styles.serviceDescription}>{service.description}</p>
+            <div 
+              key={index} 
+              className="p-8 bg-white rounded-2xl shadow-lg transition-all cursor-pointer hover:-translate-y-1 hover:shadow-xl md:p-6 md:hover:translate-y-0 md:hover:shadow-lg"
+            >
+              <h3 className="text-2xl font-semibold text-[#517CA2] mb-4 md:text-xl">
+                {service.title}
+              </h3>
+              <p className="text-base leading-relaxed text-[#2C3E50]">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>

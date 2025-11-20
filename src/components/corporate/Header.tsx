@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
-import styles from './Header.module.css';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -86,60 +85,101 @@ export default function Header() {
   };
 
   return (
-    <header ref={headerRef} className={`${styles.header} ${isScrolled ? styles.scrolled : ''}`}>
-      <div className={styles.container}>
-        <a href="#top" className={styles.logo} onClick={(e) => handleLinkClick(e, '#top')}>
+    <header 
+      ref={headerRef} 
+      className={`fixed top-0 left-0 w-full z-[1000] bg-white/95 backdrop-blur-[10px] transition-all duration-300 border-b border-transparent ${
+        isScrolled ? 'bg-white/98 shadow-[0_2px_8px_rgba(0,0,0,0.1)] border-[#E6EAEE]' : ''
+      }`}
+    >
+      <div className="max-w-[1200px] mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-4">
+        <a href="#top" className="flex items-center transition-opacity duration-300 hover:opacity-80" onClick={(e) => handleLinkClick(e, '#top')}>
           <img 
             src="/20251113-1222_2c7cdaaec151d3d5e7aabdec1966c120.png" 
             alt="Naritai" 
-            className={styles.logoImage}
+            className="h-[60px] w-auto object-contain"
           />
         </a>
         
-        <nav className={styles.nav}>
-          <ul className={styles.navList}>
+        <nav className="hidden md:block">
+          <ul className="flex list-none gap-4 m-0 p-0 items-center flex-wrap justify-end">
             <li>
-              <a href="#problems" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#problems')}>
+              <a 
+                href="#problems" 
+                className="text-sm font-medium text-[#2C3E50] no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-0 after:bg-gradient-to-r after:from-[#362ae0] after:via-[#3b79cc] after:to-[#42d3ed] after:transition-all after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] after:-translate-x-1/2 hover:text-[#5AB1E0] hover:after:w-full" 
+                onClick={(e) => handleLinkClick(e, '#problems')}
+              >
                 課題
               </a>
             </li>
             <li>
-              <a href="#services" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#services')}>
+              <a 
+                href="#services" 
+                className="text-sm font-medium text-[#2C3E50] no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-0 after:bg-gradient-to-r after:from-[#362ae0] after:via-[#3b79cc] after:to-[#42d3ed] after:transition-all after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] after:-translate-x-1/2 hover:text-[#5AB1E0] hover:after:w-full" 
+                onClick={(e) => handleLinkClick(e, '#services')}
+              >
                 サービス内容
               </a>
             </li>
             <li>
-              <a href="#instructors" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#instructors')}>
+              <a 
+                href="#instructors" 
+                className="text-sm font-medium text-[#2C3E50] no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-0 after:bg-gradient-to-r after:from-[#362ae0] after:via-[#3b79cc] after:to-[#42d3ed] after:transition-all after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] after:-translate-x-1/2 hover:text-[#5AB1E0] hover:after:w-full" 
+                onClick={(e) => handleLinkClick(e, '#instructors')}
+              >
                 講師紹介
               </a>
             </li>
             <li>
-              <a href="#corporate" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#corporate')}>
+              <a 
+                href="#corporate" 
+                className="text-sm font-medium text-[#2C3E50] no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-0 after:bg-gradient-to-r after:from-[#362ae0] after:via-[#3b79cc] after:to-[#42d3ed] after:transition-all after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] after:-translate-x-1/2 hover:text-[#5AB1E0] hover:after:w-full" 
+                onClick={(e) => handleLinkClick(e, '#corporate')}
+              >
                 企業向け
               </a>
             </li>
             <li>
-              <a href="#strong-points" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#strong-points')}>
+              <a 
+                href="#strong-points" 
+                className="text-sm font-medium text-[#2C3E50] no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-0 after:bg-gradient-to-r after:from-[#362ae0] after:via-[#3b79cc] after:to-[#42d3ed] after:transition-all after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] after:-translate-x-1/2 hover:text-[#5AB1E0] hover:after:w-full" 
+                onClick={(e) => handleLinkClick(e, '#strong-points')}
+              >
                 強み
               </a>
             </li>
             <li>
-              <a href="#flow" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#flow')}>
+              <a 
+                href="#flow" 
+                className="text-sm font-medium text-[#2C3E50] no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-0 after:bg-gradient-to-r after:from-[#362ae0] after:via-[#3b79cc] after:to-[#42d3ed] after:transition-all after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] after:-translate-x-1/2 hover:text-[#5AB1E0] hover:after:w-full" 
+                onClick={(e) => handleLinkClick(e, '#flow')}
+              >
                 ご利用の流れ
               </a>
             </li>
             <li>
-              <a href="#pricing" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#pricing')}>
+              <a 
+                href="#pricing" 
+                className="text-sm font-medium text-[#2C3E50] no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-0 after:bg-gradient-to-r after:from-[#362ae0] after:via-[#3b79cc] after:to-[#42d3ed] after:transition-all after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] after:-translate-x-1/2 hover:text-[#5AB1E0] hover:after:w-full" 
+                onClick={(e) => handleLinkClick(e, '#pricing')}
+              >
                 料金
               </a>
             </li>
             <li>
-              <a href="#contact" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#contact')}>
+              <a 
+                href="#contact" 
+                className="text-sm font-medium text-[#2C3E50] no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-0 after:bg-gradient-to-r after:from-[#362ae0] after:via-[#3b79cc] after:to-[#42d3ed] after:transition-all after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] after:-translate-x-1/2 hover:text-[#5AB1E0] hover:after:w-full" 
+                onClick={(e) => handleLinkClick(e, '#contact')}
+              >
                 お問い合わせ
               </a>
             </li>
             <li>
-              <a href="#naritai" className={styles.navLink} onClick={(e) => handleLinkClick(e, '#naritai')}>
+              <a 
+                href="#naritai" 
+                className="text-sm font-medium text-[#2C3E50] no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-0 after:bg-gradient-to-r after:from-[#362ae0] after:via-[#3b79cc] after:to-[#42d3ed] after:transition-all after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] after:-translate-x-1/2 hover:text-[#5AB1E0] hover:after:w-full" 
+                onClick={(e) => handleLinkClick(e, '#naritai')}
+              >
                 会社情報
               </a>
             </li>
@@ -147,62 +187,62 @@ export default function Header() {
         </nav>
 
         <button
-          className={styles.mobileMenuButton}
+          className="flex flex-col gap-1 bg-transparent border-none p-2 cursor-none md:hidden"
           onClick={toggleMobileMenu}
           aria-label="メニューを開く"
         >
-          <span className={styles.mobileMenuIcon}></span>
-          <span className={styles.mobileMenuIcon}></span>
-          <span className={styles.mobileMenuIcon}></span>
+          <span className="w-6 h-0.5 bg-[#2C3E50] transition-all duration-300 rounded-sm"></span>
+          <span className="w-6 h-0.5 bg-[#2C3E50] transition-all duration-300 rounded-sm"></span>
+          <span className="w-6 h-0.5 bg-[#2C3E50] transition-all duration-300 rounded-sm"></span>
         </button>
       </div>
 
       {isMobileMenuOpen && (
-        <div className={styles.mobileMenuOverlay} onClick={closeMobileMenu}>
-          <nav className={styles.mobileNav} onClick={(e) => e.stopPropagation()}>
-            <ul className={styles.mobileNavList}>
+        <div className="fixed top-0 left-0 w-full h-screen bg-black/50 z-[999] flex items-start justify-end pt-20 md:hidden" onClick={closeMobileMenu}>
+          <nav className="bg-white w-[280px] h-full shadow-[-2px_0_8px_rgba(0,0,0,0.1)] p-8 px-6" onClick={(e) => e.stopPropagation()}>
+            <ul className="list-none m-0 p-0 flex flex-col gap-4">
               <li>
-                <a href="#problems" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#problems')}>
+                <a href="#problems" className="text-lg font-medium text-[#2C3E50] no-underline py-4 block transition-colors duration-300 border-b border-[#E6EAEE] hover:text-[#5AB1E0]" onClick={(e) => handleLinkClick(e, '#problems')}>
                   課題
                 </a>
               </li>
               <li>
-                <a href="#services" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#services')}>
+                <a href="#services" className="text-lg font-medium text-[#2C3E50] no-underline py-4 block transition-colors duration-300 border-b border-[#E6EAEE] hover:text-[#5AB1E0]" onClick={(e) => handleLinkClick(e, '#services')}>
                   サービス内容
                 </a>
               </li>
               <li>
-                <a href="#instructors" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#instructors')}>
+                <a href="#instructors" className="text-lg font-medium text-[#2C3E50] no-underline py-4 block transition-colors duration-300 border-b border-[#E6EAEE] hover:text-[#5AB1E0]" onClick={(e) => handleLinkClick(e, '#instructors')}>
                   講師紹介
                 </a>
               </li>
               <li>
-                <a href="#corporate" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#corporate')}>
+                <a href="#corporate" className="text-lg font-medium text-[#2C3E50] no-underline py-4 block transition-colors duration-300 border-b border-[#E6EAEE] hover:text-[#5AB1E0]" onClick={(e) => handleLinkClick(e, '#corporate')}>
                   企業向け
                 </a>
               </li>
               <li>
-                <a href="#strong-points" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#strong-points')}>
+                <a href="#strong-points" className="text-lg font-medium text-[#2C3E50] no-underline py-4 block transition-colors duration-300 border-b border-[#E6EAEE] hover:text-[#5AB1E0]" onClick={(e) => handleLinkClick(e, '#strong-points')}>
                   強み
                 </a>
               </li>
               <li>
-                <a href="#flow" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#flow')}>
+                <a href="#flow" className="text-lg font-medium text-[#2C3E50] no-underline py-4 block transition-colors duration-300 border-b border-[#E6EAEE] hover:text-[#5AB1E0]" onClick={(e) => handleLinkClick(e, '#flow')}>
                   ご利用の流れ
                 </a>
               </li>
               <li>
-                <a href="#pricing" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#pricing')}>
+                <a href="#pricing" className="text-lg font-medium text-[#2C3E50] no-underline py-4 block transition-colors duration-300 border-b border-[#E6EAEE] hover:text-[#5AB1E0]" onClick={(e) => handleLinkClick(e, '#pricing')}>
                   料金
                 </a>
               </li>
               <li>
-                <a href="#contact" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#contact')}>
+                <a href="#contact" className="text-lg font-medium text-[#2C3E50] no-underline py-4 block transition-colors duration-300 border-b border-[#E6EAEE] hover:text-[#5AB1E0]" onClick={(e) => handleLinkClick(e, '#contact')}>
                   お問い合わせ
                 </a>
               </li>
               <li>
-                <a href="#naritai" className={styles.mobileNavLink} onClick={(e) => handleLinkClick(e, '#naritai')}>
+                <a href="#naritai" className="text-lg font-medium text-[#2C3E50] no-underline py-4 block transition-colors duration-300 border-b border-[#E6EAEE] hover:text-[#5AB1E0]" onClick={(e) => handleLinkClick(e, '#naritai')}>
                   会社情報
                 </a>
               </li>

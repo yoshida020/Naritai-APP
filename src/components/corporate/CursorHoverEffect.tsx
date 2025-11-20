@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState, useRef } from 'react';
-import styles from './CursorHoverEffect.module.css';
 
 export default function CursorHoverEffect() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -127,7 +126,9 @@ export default function CursorHoverEffect() {
 
   return (
     <div
-      className={`${styles.cursorEffect} ${isHovering ? styles.hover : ''}`}
+      className={`fixed w-6 h-6 aspect-square bg-[#5AB1E0] rounded-full pointer-events-none transform -translate-x-1/2 -translate-y-1/2 transition-all duration-200 ease-out z-[9999] mix-blend-normal opacity-50 will-change-transform md:hidden ${
+        isHovering ? 'w-10 h-10 bg-transparent border-2 border-[#5AB1E0] opacity-70' : ''
+      }`}
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,
