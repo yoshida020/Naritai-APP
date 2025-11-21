@@ -69,12 +69,12 @@ export default function StrongPointsSection() {
   ];
 
   return (
-    <section 
-      id="strong-points" 
-      className="w-full h-screen min-h-screen max-h-screen py-20 px-4 bg-[#F9FCFF] flex items-center justify-center md:min-h-auto md:py-16 md:px-4"
+    <section
+      id="strong-points"
+      className="w-full min-h-screen py-20 px-4 bg-[#F9FCFF] flex items-center justify-center md:min-h-auto md:py-16 md:px-4"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center" ref={containerRef}>
-        <h2 className="font-['Tangerine',cursive] text-[75px] font-bold text-[#2C3E50] mb-4 block md:text-[36px] md:mb-3 md:leading-[1.2]">
+        <h2 className="corporate-section-title font-['Tangerine',cursive] text-[#2C3E50] mb-4 block md:mb-3">
           {text.split('').map((char, i) => (
             <span
               key={i}

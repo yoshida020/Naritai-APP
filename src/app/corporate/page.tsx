@@ -20,8 +20,8 @@ export default function ContactPage() {
       <InstructorsSection />
       <CorporateSection />
       <StrongPointsSection />
-      <FlowSection />
       <PricingSection />
+      <FlowSection />
       <ContactSection />
       <NaritaiSection />
     </div>

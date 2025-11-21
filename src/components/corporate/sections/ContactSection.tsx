@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Button from '../../common/Button';
 
 export default function ContactSection() {
   const text = 'Contact';
@@ -32,9 +33,9 @@ export default function ContactSection() {
   }, []);
 
   return (
-    <section 
-      id="contact" 
-      className="relative w-full h-screen min-h-screen max-h-screen flex items-center justify-center text-white overflow-hidden md:min-h-auto"
+    <section
+      id="contact"
+      className="relative w-full min-h-screen flex items-center justify-center text-white overflow-hidden md:min-h-auto"
     >
       <div className="absolute top-0 left-0 w-full h-full z-[1]">
         <div 
@@ -47,7 +48,7 @@ export default function ContactSection() {
         ref={containerRef}
       >
         <div className="flex flex-col items-center gap-10 md:gap-6">
-          <h2 className="font-['Tangerine',cursive] text-[79px] font-bold text-white mb-1 block md:text-[36px] md:mb-2 md:leading-[1.2]">
+          <h2 className="corporate-section-title font-['Tangerine',cursive] text-white mb-1 block md:mb-2">
             {text.split('').map((char, i) => (
               <span
                 key={i}
@@ -84,12 +85,20 @@ export default function ContactSection() {
             }`}
             style={{ animationDelay: '1.2s' }}
           >
-            <button className="px-12 py-6 text-xl font-semibold text-[#202D5F] bg-gradient-to-br from-[#F5F5F5] to-[#E6E5E6] border-2 border-black/10 border-t-white/50 border-l-white/50 border-b-black/20 border-r-black/20 rounded-full cursor-pointer shadow-[0_4px_6px_rgba(0,0,0,0.1),0_2px_4px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.8)] transition-all min-w-[280px] hover:-translate-y-[2px] hover:shadow-[0_6px_12px_rgba(0,0,0,0.15),0_4px_6px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] active:translate-y-[1px] active:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_1px_2px_rgba(0,0,0,0.06),inset_0_1px_2px_rgba(0,0,0,0.1)] md:w-full md:min-w-0 md:px-8 md:py-4 md:text-base md:hover:translate-y-0 md:hover:shadow-[0_4px_6px_rgba(0,0,0,0.1),0_2px_4px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.8)]">
+            <Button
+              variant="ghost"
+              size="lg"
+              className="text-[#202D5F] bg-gradient-to-br from-[#F5F5F5] to-[#E6E5E6] border-2 border-black/10 border-t-white/50 border-l-white/50 border-b-black/20 border-r-black/20 shadow-[0_4px_6px_rgba(0,0,0,0.1),0_2px_4px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.8)] hover:-translate-y-[2px] hover:shadow-[0_6px_12px_rgba(0,0,0,0.15),0_4px_6px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] active:translate-y-[1px] active:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_1px_2px_rgba(0,0,0,0.06),inset_0_1px_2px_rgba(0,0,0,0.1)] md:w-full md:min-w-0 md:hover:translate-y-0 md:hover:shadow-[0_4px_6px_rgba(0,0,0,0.1),0_2px_4px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.8)]"
+            >
               資料請求
-            </button>
-            <button className="px-12 py-6 text-xl font-semibold text-[#202D5F] bg-gradient-to-br from-[#F5F5F5] to-[#E6E5E6] border-2 border-black/10 border-t-white/50 border-l-white/50 border-b-black/20 border-r-black/20 rounded-full cursor-pointer shadow-[0_4px_6px_rgba(0,0,0,0.1),0_2px_4px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.8)] transition-all min-w-[280px] hover:-translate-y-[2px] hover:shadow-[0_6px_12px_rgba(0,0,0,0.15),0_4px_6px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] active:translate-y-[1px] active:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_1px_2px_rgba(0,0,0,0.06),inset_0_1px_2px_rgba(0,0,0,0.1)] md:w-full md:min-w-0 md:px-8 md:py-4 md:text-base md:hover:translate-y-0 md:hover:shadow-[0_4px_6px_rgba(0,0,0,0.1),0_2px_4px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.8)]">
+            </Button>
+            <Button
+              variant="ghost"
+              size="lg"
+              className="text-[#202D5F] bg-gradient-to-br from-[#F5F5F5] to-[#E6E5E6] border-2 border-black/10 border-t-white/50 border-l-white/50 border-b-black/20 border-r-black/20 shadow-[0_4px_6px_rgba(0,0,0,0.1),0_2px_4px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.8)] hover:-translate-y-[2px] hover:shadow-[0_6px_12px_rgba(0,0,0,0.15),0_4px_6px_rgba(0,0,0,0.1),inset_0_1px_0_rgba(255,255,255,0.8)] active:translate-y-[1px] active:shadow-[0_2px_4px_rgba(0,0,0,0.1),0_1px_2px_rgba(0,0,0,0.06),inset_0_1px_2px_rgba(0,0,0,0.1)] md:w-full md:min-w-0 md:hover:translate-y-0 md:hover:shadow-[0_4px_6px_rgba(0,0,0,0.1),0_2px_4px_rgba(0,0,0,0.06),inset_0_1px_0_rgba(255,255,255,0.8)]"
+            >
               無料相談
-            </button>
+            </Button>
           </div>
         </div>
       </div>

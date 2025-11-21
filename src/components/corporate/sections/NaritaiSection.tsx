@@ -1,12 +1,12 @@
 
 export default function NaritaiSection() {
   return (
-    <section 
-      id="naritai" 
-      className="w-full h-screen min-h-screen max-h-screen py-20 px-4 bg-[#202D5F] flex items-center justify-center md:min-h-auto md:py-16 md:px-4"
+    <section
+      id="naritai"
+      className="w-full min-h-screen py-20 px-4 bg-[#202D5F] flex items-center justify-center md:min-h-auto md:py-16 md:px-4"
     >
       <div className="max-w-[1200px] w-full mx-auto">
-        <h2 className="mb-12 text-left flex items-center md:mb-6 md:text-center md:justify-center">
+        <h2 className="corporate-section-title mb-12 text-left flex items-center md:mb-6 md:text-center md:justify-center">
           <img 
             src="/20251113-1222_0c6fac0955ae27ab6afae3f84537df2d.png" 
             alt="Naritai" 

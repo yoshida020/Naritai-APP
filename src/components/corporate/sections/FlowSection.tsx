@@ -24,12 +24,12 @@ export default function FlowSection() {
   ];
 
   return (
-    <section 
-      id="flow" 
-      className="w-full h-screen min-h-screen max-h-screen py-20 px-4 bg-white flex items-center justify-center md:min-h-auto md:py-16 md:px-4"
+    <section
+      id="flow"
+      className="w-full min-h-screen py-20 px-4 bg-white flex items-center justify-center md:min-h-auto md:py-16 md:px-4"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center">
-        <h2 className="text-4xl font-bold text-[#2C3E50] mb-12 md:text-2xl md:mb-6 md:leading-[1.3]">
+        <h2 className="corporate-section-title text-[#2C3E50] mb-12 md:mb-6">
           ご利用の流れ
         </h2>
         <div className="flex flex-row justify-between items-start gap-4 relative md:flex-col md:gap-6">

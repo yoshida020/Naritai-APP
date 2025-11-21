@@ -33,7 +33,7 @@ export default function CorporateSection() {
   
   const renderAnimatedTitle = () => {
     return (
-      <h2 className="font-['Tangerine',cursive] text-[75px] font-bold text-[#2C3E50] mb-4 block md:text-[36px] md:mb-3 md:leading-[1.2]">
+      <h2 className="corporate-section-title font-['Tangerine',cursive] text-[#2C3E50] mb-4 block md:mb-3">
         {text.split('').map((char, i) => (
           <span
             key={i}
@@ -50,21 +50,16 @@ export default function CorporateSection() {
   };
 
   return (
-    <section 
-      id="corporate" 
-      className="w-full h-screen min-h-screen max-h-screen py-20 px-4 bg-white flex items-center justify-center md:min-h-auto md:py-16 md:px-4"
+    <section
+      id="corporate"
+      className="w-full min-h-screen py-20 px-4 bg-white flex items-center justify-center md:min-h-auto md:py-16 md:px-4"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center" ref={containerRef}>
         {renderAnimatedTitle()}
         <p className="text-[26px] font-normal text-[#2C3E50] mb-12 md:text-[18px] md:mb-6">
-          実現できること
+          導入による効果
         </p>
-        <div>
-          <p className="text-xl leading-relaxed text-[#2C3E50] mb-12 max-w-[800px] mx-auto md:text-base md:mb-8 md:leading-[1.7]">
-            企業の成長を支える人材育成ソリューションを提供します。
-            <br />
-            若手社員の定着と成長を通じて、組織全体の活性化を実現します。
-          </p>
+        <div className="mt-0">
           <div className="grid grid-cols-5 gap-6 md:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 md:gap-4">
             <div className="p-6 bg-[#F9FCFF] rounded-lg border border-[#E6EAEE] cursor-pointer md:p-5">
               <h3 className="text-xl font-semibold text-[#517CA2] mb-4">

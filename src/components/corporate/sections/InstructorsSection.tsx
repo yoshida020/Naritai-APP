@@ -175,15 +175,15 @@ export default function InstructorsSection() {
   }, [isSwiping, currentIndex, instructors.length]);
 
   return (
-    <section 
-      id="instructors" 
-      className="w-full h-screen min-h-screen max-h-screen py-20 px-4 bg-white flex items-center justify-center md:py-12 md:px-4"
+    <section
+      id="instructors"
+      className="w-full min-h-screen py-20 px-4 bg-white flex items-center justify-center md:py-12 md:px-4"
     >
-      <div className="max-w-[1200px] w-full mx-auto text-center">
-        <h2 className="text-4xl font-bold text-[#2C3E50] mb-4 md:text-3xl md:mb-4">
+      <div className="max-w-[1200px] w-full mx-auto text-center flex flex-col items-center">
+        <h2 className="corporate-section-title text-[#2C3E50] mb-4">
           講師紹介
         </h2>
-        <p className="text-lg leading-relaxed text-[#919CB7] mb-12 max-w-[800px] mx-auto md:text-base md:mb-8">
+        <p className="text-lg leading-relaxed text-[#919CB7] mb-12 max-w-[800px] mx-auto text-center md:text-base md:mb-8">
           経験豊富な講師陣が、お客様の組織に最適なサポートを提供します。
           <br />
           <span className="text-sm text-[#517CA2] font-medium inline-block mt-2">
@@ -192,7 +192,7 @@ export default function InstructorsSection() {
         </p>
         <div
           ref={containerRef}
-          className="relative w-full max-w-[400px] mx-auto overflow-visible touch-pan-y select-none h-[500px] flex items-center justify-center"
+          className="relative w-[400px] mx-auto overflow-visible touch-pan-y select-none h-[500px] flex items-center justify-center"
           style={{ perspective: '1200px', perspectiveOrigin: 'center center' }}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -200,7 +200,7 @@ export default function InstructorsSection() {
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
         >
-          <div className="flex w-full h-full" style={{ willChange: 'transform', transformStyle: 'preserve-3d', position: 'relative' }}>
+          <div className="absolute inset-0 flex items-center justify-center" style={{ willChange: 'transform', transformStyle: 'preserve-3d' }}>
             {instructors.map((instructor, index) => {
               const isFlipped = flippedCards.has(index);
               const isActive = index === currentIndex;
@@ -221,17 +221,21 @@ export default function InstructorsSection() {
               
               // スワイプ中のオフセットを考慮
               const offsetX = isActive ? swipeOffset : 0;
-              const baseOffset = relativePosition * 100;
+              // カードの位置オフセット（中央配置を維持）
+              // relativePositionが0の時は中央、±1の時は左右に移動
+              const baseOffset = relativePosition * 120; // カード間の距離（px）
               
               // カードの位置に応じたスタイルを計算
               const cardStyle: React.CSSProperties = {
+                position: 'absolute',
                 left: '50%',
+                top: '50%',
                 zIndex: instructors.length - distance,
                 transform: isActive
-                  ? `translate(-50%, -50%) translateX(calc(${baseOffset}% + ${offsetX}px)) translateZ(0px) scale(1)`
+                  ? `translate(calc(-50% + ${baseOffset}px + ${offsetX}px), calc(-50% + 0px)) translateZ(0px) scale(1)`
                   : isPrev
-                  ? `translate(-50%, -50%) translateX(calc(${baseOffset}% - ${distance * 20}px)) translateZ(-${distance * 50}px) scale(${Math.max(0.65, 1 - distance * 0.2)})`
-                  : `translate(-50%, -50%) translateX(calc(${baseOffset}% + ${distance * 20}px)) translateZ(-${distance * 50}px) scale(${Math.max(0.65, 1 - distance * 0.2)})`,
+                  ? `translate(calc(-50% + ${baseOffset}px - ${distance * 20}px), calc(-50% + 0px)) translateZ(-${distance * 50}px) scale(${Math.max(0.65, 1 - distance * 0.2)})`
+                  : `translate(calc(-50% + ${baseOffset}px + ${distance * 20}px), calc(-50% + 0px)) translateZ(-${distance * 50}px) scale(${Math.max(0.65, 1 - distance * 0.2)})`,
                 opacity: isActive ? 1 : Math.max(0.3, 1 - distance * 0.3),
                 filter: isActive ? 'none' : `blur(${Math.min(5, distance * 2)}px)`,
                 pointerEvents: isActive ? 'auto' : 'none',
@@ -241,8 +245,8 @@ export default function InstructorsSection() {
               return (
                 <div
                   key={index}
-                  className="absolute top-1/2 w-full max-w-[400px] px-4 box-border"
-                  style={{ ...cardStyle, perspective: '1000px', height: '100%', minHeight: '400px', transformStyle: 'preserve-3d' }}
+                  className="w-[400px] box-border"
+                  style={{ ...cardStyle, perspective: '1000px', height: '400px', minHeight: '400px', transformStyle: 'preserve-3d' }}
                   onClick={(e) => handleCardClick(index, e)}
                 >
                   <div

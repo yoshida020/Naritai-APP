@@ -2,6 +2,7 @@ export default function ServicesSection() {
   const services = [
     {
       title: '個人コーチングセッション',
+      image: '/service01.png',
       description: (
         <>
           若手社員1人ひとりに専属コーチが伴走し、
@@ -12,6 +13,7 @@ export default function ServicesSection() {
     },
     {
       title: 'カルテ設計・可視化シート',
+      image: '/service02.png',
       description: (
         <>
           各セッションで抽出した想いや目標を「個人カルテ」にまとめ、
@@ -27,6 +29,7 @@ export default function ServicesSection() {
     },
     {
       title: 'フォローアップセッション',
+      image: '/service03.jpeg',
       description: (
         <>
           セッションから一定期間後に再面談を実施。
@@ -42,24 +45,33 @@ export default function ServicesSection() {
   return (
     <section 
       id="services" 
-      className="w-full h-screen min-h-screen max-h-screen py-20 px-4 bg-[#F9FCFF] flex items-center justify-center md:min-h-auto md:py-16 md:px-4"
+      className="w-full py-16 px-4 bg-[#F9FCFF] flex justify-center md:py-20 md:px-4"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center">
-        <h2 className="text-4xl font-bold text-[#2C3E50] mb-12 md:text-2xl md:mb-6 md:leading-[1.3]">
+        <h2 className="corporate-section-title text-[#2C3E50] mb-12 md:mb-6">
           サービス内容
         </h2>
-        <div className="grid grid-cols-1 md:grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8 md:gap-6 md:grid-cols-1">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6 place-items-center">
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="p-8 bg-white rounded-2xl shadow-lg transition-all cursor-pointer hover:-translate-y-1 hover:shadow-xl md:p-6 md:hover:translate-y-0 md:hover:shadow-lg"
+              className="w-full max-w-[320px] h-[520px] sm:h-[540px] mx-auto bg-white rounded-t-[220px] rounded-b-[32px] shadow-lg transition-all cursor-pointer lg:hover:-translate-y-1 lg:hover:shadow-xl flex flex-col text-left overflow-hidden"
             >
-              <h3 className="text-2xl font-semibold text-[#517CA2] mb-4 md:text-xl">
+              <div className="w-full h-44 bg-[#E3EFF7] flex items-end justify-center rounded-t-[220px]">
+                <img 
+                  src={service.image} 
+                  alt={service.title} 
+                  className="w-full h-full object-cover rounded-t-[220px]"
+                />
+              </div>
+              <div className="flex-1 px-8 py-6 flex flex-col overflow-hidden">
+                <h3 className="text-2xl font-semibold text-[#517CA2] mb-4 md:text-xl">
                 {service.title}
-              </h3>
-              <p className="text-base leading-relaxed text-[#2C3E50]">
-                {service.description}
-              </p>
+                </h3>
+                <p className="text-base leading-relaxed text-[#2C3E50] overflow-hidden">
+                  {service.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>

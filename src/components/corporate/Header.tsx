@@ -135,7 +135,7 @@ export default function Header() {
                 className="text-sm font-medium text-[#2C3E50] no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-0 after:bg-gradient-to-r after:from-[#362ae0] after:via-[#3b79cc] after:to-[#42d3ed] after:transition-all after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] after:-translate-x-1/2 hover:text-[#5AB1E0] hover:after:w-full" 
                 onClick={(e) => handleLinkClick(e, '#corporate')}
               >
-                企業向け
+                導入効果
               </a>
             </li>
             <li>
@@ -171,7 +171,7 @@ export default function Header() {
                 className="text-sm font-medium text-[#2C3E50] no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block after:content-[''] after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-0 after:bg-gradient-to-r after:from-[#362ae0] after:via-[#3b79cc] after:to-[#42d3ed] after:transition-all after:duration-500 after:ease-[cubic-bezier(0.22,1,0.36,1)] after:-translate-x-1/2 hover:text-[#5AB1E0] hover:after:w-full" 
                 onClick={(e) => handleLinkClick(e, '#contact')}
               >
-                お問い合わせ
+                問い合わせ
               </a>
             </li>
             <li>
@@ -218,7 +218,7 @@ export default function Header() {
               </li>
               <li>
                 <a href="#corporate" className="text-lg font-medium text-[#2C3E50] no-underline py-4 block transition-colors duration-300 border-b border-[#E6EAEE] hover:text-[#5AB1E0]" onClick={(e) => handleLinkClick(e, '#corporate')}>
-                  企業向け
+                  導入効果
                 </a>
               </li>
               <li>
@@ -238,7 +238,7 @@ export default function Header() {
               </li>
               <li>
                 <a href="#contact" className="text-lg font-medium text-[#2C3E50] no-underline py-4 block transition-colors duration-300 border-b border-[#E6EAEE] hover:text-[#5AB1E0]" onClick={(e) => handleLinkClick(e, '#contact')}>
-                  お問い合わせ
+                  問い合わせ
                 </a>
               </li>
               <li>

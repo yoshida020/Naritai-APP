@@ -113,14 +113,6 @@
   --transition-slow: 300ms ease-in-out;
 }
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 html {
   height: 100%;
   margin: 0 !important;
@@ -175,8 +167,6 @@ a {
 button {
   font-family: inherit;
   cursor: pointer;
-  border: none;
-  background: none;
 }
 
 input,
@@ -219,6 +209,11 @@ select {
   animation: fade-in-up 1s ease-out;
 }
 
+.delay-100 {
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
 .delay-200 {
   animation-delay: 0.2s;
   animation-fill-mode: both;
@@ -226,6 +221,16 @@ select {
 
 .delay-300 {
   animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
   animation-fill-mode: both;
 }
 
@@ -263,6 +268,33 @@ select {
 
 .animate-slide-in-from-bottom {
   animation: slideInFromBottom 0.6s ease-out forwards;
+}
+
+@keyframes heroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: var(--hero-slide-up-opacity, 1);
+    transform: translateY(0);
+  }
+}
+
+.hero-slide-up {
+  --hero-slide-up-opacity: 1;
+  --hero-slide-up-duration: 1.2s;
+  animation: heroSlideUp var(--hero-slide-up-duration, 1.2s) ease-out forwards;
+}
+
+.hero-slide-up-soft {
+  --hero-slide-up-opacity: 0.95;
+}
+
+.corporate-section-title {
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.25;
+  font-weight: 700;
 }
 
 /* Underline animation for pricing section */

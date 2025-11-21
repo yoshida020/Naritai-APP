@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import Button from '../common/Button';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -168,13 +169,18 @@ export default function ContactForm() {
         </div>
       )}
 
-      <button
-        type="submit"
-        disabled={isSubmitting}
-        className="w-full px-8 py-4 text-lg font-semibold text-white bg-[#517CA2] rounded-lg transition-all mt-6 hover:bg-[#517CA2] hover:-translate-y-[1px] active:translate-y-0 disabled:opacity-60 disabled:cursor-not-allowed"
-      >
-        {isSubmitting ? '送信中...' : '送信する'}
-      </button>
+      <div className="mt-6">
+        <Button
+          type="submit"
+          variant="primary"
+          size="md"
+          loading={isSubmitting}
+          disabled={isSubmitting}
+          fullWidth
+        >
+          送信する
+        </Button>
+      </div>
     </form>
   );
 }
