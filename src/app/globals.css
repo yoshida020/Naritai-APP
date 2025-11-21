@@ -3,234 +3,245 @@
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
 
-:root {
-  /* Colors - Brand */
-  --color-brand-primary: #517CA2;
-  --color-brand-secondary: #6AA5CE;
-  --color-brand-accent: #5AB1E0;
-  --color-brand-light: #5B87AE;
-  --color-brand-dark: #517CA2;
-
-  /* Colors - Text */
-  --color-text-primary: #2C3E50;
-  --color-text-secondary: #919CB7;
-  --color-text-tertiary: #919CB7;
-  --color-text-inverse: #FFFFFF;
-  --color-text-disabled: #D4DDEB;
-
-  /* Colors - Background */
-  --color-bg-default: #FFFFFF;
-  --color-bg-secondary: #F9FCFF;
-  --color-bg-tertiary: #DCE5F1;
-  --color-bg-quaternary: #D4DDEB;
-  --color-bg-light: #E6EAEE;
-  --color-bg-overlay: rgba(81, 124, 162, 0.5);
-
-  /* Colors - Border */
-  --color-border-default: #D4DDEB;
-  --color-border-light: #E6EAEE;
-  --color-border-focus: #517CA2;
-  --color-border-error: #EF4444;
-
-  /* Colors - Status */
-  --color-status-success: #22C55E;
-  --color-status-warning: #F59E0B;
-  --color-status-error: #EF4444;
-  --color-status-info: #5AB1E0;
-
-  /* Typography */
-  --font-family-primary: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-family-heading: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --font-family-mono: 'Courier New', Courier, monospace;
-
-  /* Font Sizes */
-  --font-size-xs: 12px;
-  --font-size-sm: 14px;
-  --font-size-base: 16px;
-  --font-size-lg: 18px;
-  --font-size-xl: 20px;
-  --font-size-2xl: 24px;
-  --font-size-3xl: 30px;
-  --font-size-4xl: 36px;
-  --font-size-5xl: 48px;
-  --font-size-6xl: 60px;
-
-  /* Font Weights */
-  --font-weight-light: 300;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-
-  /* Line Heights */
-  --line-height-tight: 1.2;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.75;
-  --line-height-loose: 2;
-
-  /* Letter Spacing */
-  --letter-spacing-tighter: -0.05em;
-  --letter-spacing-tight: -0.025em;
-  --letter-spacing-normal: 0em;
-  --letter-spacing-wide: 0.025em;
-  --letter-spacing-wider: 0.05em;
-
-  /* Spacing */
-  --spacing-0: 0px;
-  --spacing-1: 4px;
-  --spacing-2: 8px;
-  --spacing-3: 12px;
-  --spacing-4: 16px;
-  --spacing-5: 20px;
-  --spacing-6: 24px;
-  --spacing-8: 32px;
-  --spacing-10: 40px;
-  --spacing-12: 48px;
-  --spacing-16: 64px;
-  --spacing-20: 80px;
-  --spacing-24: 96px;
-
-  /* Border Radius */
-  --border-radius-none: 0px;
-  --border-radius-sm: 4px;
-  --border-radius-base: 8px;
-  --border-radius-md: 12px;
-  --border-radius-lg: 16px;
-  --border-radius-xl: 24px;
-  --border-radius-full: 9999px;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-
-  /* Transitions */
-  --transition-fast: 150ms ease-in-out;
-  --transition-base: 200ms ease-in-out;
-  --transition-slow: 300ms ease-in-out;
+/* Catchy Mager フォント定義 */
+@font-face {
+  font-family: 'Catchy Mager';
+  src: url('/fonts/CatchyMager.woff2') format('woff2'),
+       url('/fonts/CatchyMager.woff') format('woff'),
+       url('/fonts/CatchyMager.ttf') format('truetype'),
+       url('/fonts/CatchyMager.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer theme {
+  :root {
+    /* Colors - Brand */
+    --color-brand-primary: #517CA2;
+    --color-brand-secondary: #6AA5CE;
+    --color-brand-accent: #5AB1E0;
+    --color-brand-light: #5B87AE;
+    --color-brand-dark: #517CA2;
 
-html {
-  height: 100%;
-  margin: 0 !important;
-  padding: 0 !important;
-  overflow-x: hidden;
-  width: 100%;
-  scroll-behavior: smooth;
-}
+    /* Colors - Text */
+    --color-text-primary: #2C3E50;
+    --color-text-secondary: #919CB7;
+    --color-text-tertiary: #919CB7;
+    --color-text-inverse: #FFFFFF;
+    --color-text-disabled: #D4DDEB;
 
-body {
-  height: 100%;
-  margin: 0 !important;
-  padding: 0 !important;
-  font-family: var(--font-family-primary);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-normal);
-  color: var(--color-text-primary);
-  background-color: var(--color-bg-default);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  width: 100%;
-}
+    /* Colors - Background */
+    --color-bg-default: #FFFFFF;
+    --color-bg-secondary: #F9FCFF;
+    --color-bg-tertiary: #DCE5F1;
+    --color-bg-quaternary: #D4DDEB;
+    --color-bg-light: #E6EAEE;
+    --color-bg-overlay: rgba(81, 124, 162, 0.5);
 
-#__next {
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100% !important;
-  height: 100% !important;
-  position: relative;
-}
+    /* Colors - Border */
+    --color-border-default: #D4DDEB;
+    --color-border-light: #E6EAEE;
+    --color-border-focus: #517CA2;
+    --color-border-error: #EF4444;
 
-main {
-  margin: 0 !important;
-  padding: 0 !important;
-  width: 100%;
-}
+    /* Colors - Status */
+    --color-status-success: #22C55E;
+    --color-status-warning: #F59E0B;
+    --color-status-error: #EF4444;
+    --color-status-info: #5AB1E0;
 
-section {
-  scroll-margin-top: 100px;
-}
+    /* Typography */
+    --font-family-primary: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-heading: 'Catchy Mager', serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-mono: 'Courier New', Courier, monospace;
 
-div {
-  box-sizing: border-box;
-}
+    /* Font Sizes */
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    --font-size-3xl: 30px;
+    --font-size-4xl: 36px;
+    --font-size-5xl: 48px;
+    --font-size-6xl: 60px;
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+    /* Font Weights */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
+    /* Line Heights */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+    --line-height-loose: 2;
 
-input,
-textarea,
-select {
-  font-family: inherit;
-  font-size: inherit;
-}
+    /* Letter Spacing */
+    --letter-spacing-tighter: -0.05em;
+    --letter-spacing-tight: -0.025em;
+    --letter-spacing-normal: 0em;
+    --letter-spacing-wide: 0.025em;
+    --letter-spacing-wider: 0.05em;
 
-/* デフォルトカーソルを表示（カスタムカーソルは削除） */
+    /* Spacing */
+    --spacing-0: 0px;
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 12px;
+    --spacing-4: 16px;
+    --spacing-5: 20px;
+    --spacing-6: 24px;
+    --spacing-8: 32px;
+    --spacing-10: 40px;
+    --spacing-12: 48px;
+    --spacing-16: 64px;
+    --spacing-20: 80px;
+    --spacing-24: 96px;
 
-/* カスタムアニメーション */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    /* Border Radius */
+    --border-radius-none: 0px;
+    --border-radius-sm: 4px;
+    --border-radius-base: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 24px;
+    --border-radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+    /* Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 200ms ease-in-out;
+    --transition-slow: 300ms ease-in-out;
   }
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+@layer base {
+  * {
+    border-color: var(--color-border-default);
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--color-bg-default);
+    color: var(--color-text-primary);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Next.js specific */
+  #__next {
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Section scroll offset for fixed header */
+  section {
+    scroll-margin-top: 100px;
+  }
+
+  /* Ensure proper box-sizing */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Remove default margins and paddings */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Link styles */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Button styles */
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  /* Form element styles */
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: inherit;
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 1s ease-out;
-}
+@layer utilities {
+  /* カスタムアニメーション */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-.animate-fade-in-up {
-  animation: fade-in-up 1s ease-out;
-}
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-.delay-200 {
-  animation-delay: 0.2s;
-  animation-fill-mode: both;
-}
+  .animate-fade-in {
+    animation: fade-in 1s ease-out;
+  }
 
-.delay-300 {
-  animation-delay: 0.3s;
-  animation-fill-mode: both;
-}
+  .animate-fade-in-up {
+    animation: fade-in-up 1s ease-out;
+  }
 
-.delay-1000 {
-  animation-delay: 1s;
-  animation-fill-mode: both;
-}
+  .delay-200 {
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+  }
 
+  .delay-300 {
+    animation-delay: 0.3s;
+    animation-fill-mode: both;
+  }
+
+  .delay-1000 {
+    animation-delay: 1s;
+    animation-fill-mode: both;
+  }
+}
