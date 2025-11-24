@@ -1,62 +1,108 @@
-'use client';
+"use client";
+
+import { useEffect, useState } from "react";
+import Lottie from "lottie-react";
 
 export default function TopSection() {
+  const [animationData, setAnimationData] = useState(null);
+
+  useEffect(() => {
+    fetch("/scroll%20down.json")
+      .then((response) => response.json())
+      .then((data) => setAnimationData(data))
+      .catch((error) => console.error("Error loading animation:", error));
+  }, []);
+
   return (
-    <section id="top" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
-      {/* 背景グラデーション */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#F9FCFF] via-white to-[#E6EAEE]"></div>
-      
-      {/* 装飾的な背景要素 */}
-      <div className="absolute top-20 left-4 sm:left-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#5AB1E0]/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-4 sm:right-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      
-      <div className="relative max-w-[1200px] mx-auto px-4 text-center z-10">
-        {/* メインタイトル */}
-        <div className="mb-8 animate-fade-in">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-[#2C3E50] via-[#517CA2] to-[#5AB1E0] bg-clip-text text-transparent">
-              Naritai株式会社
-            </span>
-          </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full"></div>
-        </div>
-        
-        {/* サブタイトル */}
-        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-[#517CA2] mb-6 animate-fade-in-up">
-          あなたの「なりたい」を実現する
-        </p>
-        
-        {/* 説明文 */}
-        <p className="text-base sm:text-lg md:text-xl text-[#919CB7] max-w-3xl mx-auto mb-12 leading-relaxed animate-fade-in-up delay-200 px-4">
-          革新的なソリューションで、お客様のビジネス成長をサポートします。
-          私たちは、あなたの「なりたい」を実現するパートナーです。
-        </p>
-        
-        {/* CTAボタン */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-300 px-4">
-          <a
-            href="#contact"
-            className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#517CA2] to-[#5AB1E0] text-white text-sm sm:text-base font-semibold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden w-full sm:w-auto text-center"
+    <section
+      id="top"
+      className="relative min-h-[600px] md:min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-[#F9FCFF] via-white to-[#E6EAEE] z-0"></div>
+      <div className="absolute left-0 top-0 w-[5%] h-full bg-white z-[2] hidden md:flex flex-col items-center justify-end pb-4 sm:pb-6 md:pb-8 lg:pb-10">
+        {animationData && (
+          <div className="w-full max-w-[80px] sm:max-w-[100px] md:max-w-[120px]">
+            <Lottie animationData={animationData} loop={true} autoplay={true} />
+          </div>
+        )}
+      </div>
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute left-0 md:left-[5%] top-0 w-full md:w-[95%] h-full object-cover z-0"
+        preload="auto"
+      >
+        <source src="/TopHp.mp4" type="video/mp4" />
+      </video>
+      <div className="absolute right-0 bottom-0 md:top-0 w-[28%] md:w-[22%] h-auto md:h-full z-[3] flex items-end md:items-center justify-center pointer-events-none px-1 md:px-0 pb-8 md:pb-0">
+        <div
+          className="flex flex-col items-center gap-3 md:gap-6"
+          style={{
+            writingMode: "vertical-rl",
+            textOrientation: "upright"
+          }}
+        >
+          <div
+            className="bg-white rounded-md shadow-md px-2 py-1 md:px-4 md:py-2"
+            style={{
+              fontFamily: `'Noto Sans JP', 'Montserrat', 'Bebas Neue', 'Oswald', sans-serif`,
+              fontWeight: 700,
+              fontSize: "clamp(1rem, 3vw, 2.3rem)",
+              letterSpacing: "0.05em",
+              lineHeight: 1.8,
+              whiteSpace: "nowrap",
+              display: "inline-block"
+            }}
           >
-            <span className="relative z-10">お問い合わせ</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#5AB1E0] to-[#517CA2] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </a>
-          <a
-            href="#about"
-            className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#517CA2] text-sm sm:text-base font-semibold rounded-full border-2 border-[#517CA2] hover:bg-[#517CA2] hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto text-center"
+            あなたのなりたいを
+          </div>
+          <div
+            className="bg-white rounded-md shadow-md px-2 py-1 md:px-4 md:py-2"
+            style={{
+              fontFamily: `'Noto Sans JP', 'Montserrat', 'Bebas Neue', 'Oswald', sans-serif`,
+              fontWeight: 700,
+              fontSize: "clamp(1rem, 3vw, 2.3rem)",
+              letterSpacing: "0.05em",
+              lineHeight: 1.8,
+              whiteSpace: "nowrap",
+              display: "inline-block"
+            }}
           >
-            詳しく見る
-          </a>
-        </div>
-        
-        {/* スクロールインジケーター */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-[#517CA2] rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-[#517CA2] rounded-full mt-2"></div>
+            実現する
           </div>
         </div>
+      </div>
+      <div className="absolute top-20 left-4 sm:left-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#5AB1E0]/10 rounded-full blur-3xl animate-pulse z-[1]"></div>
+      <div className="absolute bottom-20 right-4 sm:right-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/10 rounded-full blur-3xl animate-pulse delay-1000 z-[1]"></div>
+      
+      {/* Naritai ロゴ - 中央 */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-[4]">
+        <h1
+          className="text-white drop-shadow-2xl inline-block"
+          style={{
+            fontFamily: "'Catchy Mager', serif",
+            fontWeight: 'normal',
+            fontSize: 'clamp(4rem, 12vw, 12rem)',
+            letterSpacing: "-0.05em",
+            textShadow: "0 4px 20px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(0, 0, 0, 0.3)"
+          }}
+        >
+          {['N', 'a', 'r', 'i', 't', 'a', 'i'].map((char, index) => (
+            <span
+              key={index}
+              className="inline-block animate-handwriting"
+              style={{
+                animationDelay: `${index * 0.15}s`,
+                display: 'inline-block'
+              }}
+            >
+              {char}
+            </span>
+          ))}
+        </h1>
       </div>
     </section>
   );
 }
-
