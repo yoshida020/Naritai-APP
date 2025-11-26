@@ -74,7 +74,7 @@ export default function TopSection() {
       </div>
       <div className="absolute right-0 bottom-0 md:top-0 w-[28%] md:w-[22%] h-auto md:h-full z-[3] flex items-end md:items-center justify-center pointer-events-none px-1 md:px-0 pb-8 md:pb-0">
         <div
-          className="flex flex-col items-center gap-3 md:gap-6"
+          className="flex flex-col items-center gap-3 md:gap-6 md:mt-20"
           style={{
             writingMode: "vertical-rl",
             textOrientation: "upright"
