@@ -145,7 +145,7 @@ export default function HeroSection() {
             </span>
           </h1>
         </div>
-        <div className="order-1 relative w-full max-w-full md:max-w-[50vw] lg:max-w-[560px] xl:max-w-[640px] aspect-[4/3] rounded-2xl overflow-hidden hero-slide-up md:col-start-2 md:row-span-3 md:w-full md:min-h-0 md:ml-auto md:mr-0">
+        <div className="order-1 relative w-full max-w-full md:max-w-[50vw] lg:max-w-[560px] xl:max-w-[640px] aspect-[4/3] rounded-2xl overflow-hidden md:col-start-2 md:row-span-3 md:w-full md:min-h-0 md:ml-auto md:mr-0">
           <div 
             className="w-full h-full bg-[url('/20251113-1220_ededb35b97201851bab8a364f84a4e32.jpg')] bg-contain bg-center bg-no-repeat"
           />
