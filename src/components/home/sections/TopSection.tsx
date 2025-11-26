@@ -45,14 +45,15 @@ export default function TopSection() {
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[#F9FCFF] via-white to-[#E6EAEE] z-0"></div>
       <div className="absolute left-0 top-0 w-[5%] h-full z-[2] hidden md:block" style={{ overflow: 'visible' }}>
-        <div 
+        <div
+          className="absolute top-0 left-0 w-full bg-white"
           style={{
-            height: 'calc(50% + 25px)',
+            height: 'calc(50% + 1.45vw)',
             zIndex: 3,
-            clipPath: 'polygon(0 0, 0 calc(100% - 25px), 20% 100%, 40% calc(100% - 25px), 60% 100%, 80% calc(100% - 25px), 90% 100%, 100% calc(100% - 25px), 100% 0)'
+            clipPath: 'polygon(0 0, 0 calc(100% - 1.45vw), 16.67% 100%, 33.33% calc(100% - 1.45vw), 50% 100%, 66.67% calc(100% - 1.45vw), 83.33% 100%, 100% calc(100% - 1.45vw), 100% 0)'
           }}
         ></div>
-        <div 
+        <div
           className="absolute bottom-0 left-0 w-full bg-[#F0F0F0] flex flex-col items-center justify-end pb-4 sm:pb-6 md:pb-8 lg:pb-10"
           style={{ height: '50%', zIndex: 2 }}
         >
@@ -84,7 +85,7 @@ export default function TopSection() {
             style={{
               fontFamily: `'花鳥風月', serif`,
               fontWeight: 700,
-              fontSize: "clamp(1.5rem, 3.5vw, 4rem)",
+              fontSize: "clamp(1.5rem, 3vw, 4rem)",
               letterSpacing: "0.05em",
               lineHeight: 1.8,
               whiteSpace: "nowrap",
@@ -98,7 +99,7 @@ export default function TopSection() {
             style={{
               fontFamily: `'花鳥風月', serif`,
               fontWeight: 700,
-              fontSize: "clamp(1.5rem, 5vw, 4rem)",
+              fontSize: "clamp(1.5rem, 3vw, 4rem)",
               letterSpacing: "0.05em",
               lineHeight: 1.8,
               whiteSpace: "nowrap",
@@ -111,7 +112,7 @@ export default function TopSection() {
       </div>
       <div className="absolute top-20 left-4 sm:left-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#5AB1E0]/10 rounded-full blur-3xl animate-pulse z-[1]"></div>
       <div className="absolute bottom-20 right-4 sm:right-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/10 rounded-full blur-3xl animate-pulse delay-1000 z-[1]"></div>
-      
+
       {/* Naritai ロゴ - 左下 */}
       <div className="absolute bottom-8 left-4 sm:left-8 md:left-[5%] md:ml-8 z-[4]">
         <h1
