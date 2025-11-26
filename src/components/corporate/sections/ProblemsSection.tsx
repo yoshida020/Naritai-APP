@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 
 export default function ProblemsSection() {
   const problems = [
@@ -20,60 +20,96 @@ export default function ProblemsSection() {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(false); // 初期表示時はfalse、アニメーション開始時にtrue
+  const currentIndexRef = useRef(0);
 
   // テキストを文字単位に分割する関数
-  const splitTextIntoChars = (text: React.ReactNode): Array<{ char: string | React.ReactNode; index: number; isBr: boolean }> => {
+  const splitTextIntoChars = useCallback((text: React.ReactNode): Array<{ char: string | React.ReactNode; index: number; isBr: boolean }> => {
     const result: Array<{ char: string | React.ReactNode; index: number; isBr: boolean }> = [];
     let charIndex = 0;
 
-    const processNode = (node: React.ReactNode) => {
+    const processNode = (node: React.ReactNode, keyPrefix: string = '') => {
+      if (node === null || node === undefined) {
+        return;
+      }
       if (typeof node === 'string') {
         node.split('').forEach((char) => {
           result.push({ char, index: charIndex++, isBr: false });
         });
+      } else if (typeof node === 'number') {
+        String(node).split('').forEach((char) => {
+          result.push({ char, index: charIndex++, isBr: false });
+        });
       } else if (React.isValidElement(node)) {
-        if (node.type === 'br') {
-          result.push({ char: <br key={`br-${charIndex}`} />, index: charIndex++, isBr: true });
-        } else if (node.props && node.props.children) {
-          React.Children.forEach(node.props.children, processNode);
+        if (node.type === 'br' || (typeof node.type === 'string' && node.type === 'br')) {
+          result.push({ char: React.createElement('br', { key: `${keyPrefix}-br-${charIndex}` }), index: charIndex++, isBr: true });
+        } else if (node.props && node.props.children !== undefined && node.props.children !== null) {
+          const children = Array.isArray(node.props.children) ? node.props.children : [node.props.children];
+          React.Children.forEach(children, (child, idx) => {
+            if (child !== null && child !== undefined) {
+              processNode(child, `${keyPrefix}-${idx}`);
+            }
+          });
         }
       } else if (Array.isArray(node)) {
-        node.forEach(processNode);
+        node.forEach((child, idx) => {
+          if (child !== null && child !== undefined) {
+            processNode(child, `${keyPrefix}-${idx}`);
+          }
+        });
       }
     };
 
-    processNode(text);
+    processNode(text, 'text');
     return result;
-  };
+  }, []);
 
-  // モバイル版：3秒ごとに吹き出しを切り替え
+  // モバイル版：初期表示時のアニメーション（少し遅延させて開始）
   useEffect(() => {
-    // 初期表示時のアニメーション
     const initialTimeout = setTimeout(() => {
       setIsActive(true);
-    }, 50);
+    }, 100);
 
+    return () => {
+      clearTimeout(initialTimeout);
+    };
+  }, []);
+
+  // currentIndexをrefに同期
+  useEffect(() => {
+    currentIndexRef.current = currentIndex;
+  }, [currentIndex]);
+
+  useEffect(() => {
     const interval = setInterval(() => {
+      // フェードアウト開始
       setIsActive(false);
+      
       // 現在表示中のテキストを消すアニメーションが完了するまで待機
       // 文字数 × 0.05秒（遅延） + 0.6秒（アニメーション時間） + 余裕
-      const currentChars = splitTextIntoChars(problems[currentIndex]);
+      const currentProblem = problems[currentIndexRef.current];
+      const currentChars = splitTextIntoChars(currentProblem);
       const fadeOutDuration = Math.min(currentChars.length * 0.05 + 0.6 + 0.2, 2.0); // 最大2秒まで
       
       setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % problems.length);
+        // 次のテキストに切り替え
+        setCurrentIndex((prev) => {
+          const nextIndex = (prev + 1) % problems.length;
+          currentIndexRef.current = nextIndex;
+          return nextIndex;
+        });
+        
+        // 少し待ってからフェードイン開始
         setTimeout(() => {
           setIsActive(true);
-        }, 50);
+        }, 100);
       }, fadeOutDuration * 1000);
     }, 3000);
 
     return () => {
       clearInterval(interval);
-      clearTimeout(initialTimeout);
     };
-  }, [currentIndex, problems.length]);
+  }, [splitTextIntoChars]);
 
   const firstRow = problems.slice(0, 3);
   const secondRow = problems.slice(3, 5);
@@ -116,26 +152,41 @@ export default function ProblemsSection() {
                       }}
                     >
                       <div className="text-[clamp(18px,4.5vw,22px)] font-medium text-[#2C3E50] text-center leading-relaxed">
-                        {chars.map((item, charIdx) => {
-                          if (item.isBr) {
-                            return <React.Fragment key={`char-${index}-${charIdx}`}>{item.char}</React.Fragment>;
-                          }
-                          return (
-                            <span
-                              key={`char-${index}-${charIdx}`}
-                              className="char inline-block"
-                              style={{
-                                '--opacity': isActive && isVisible ? 1 : 0,
-                                '--char-index': item.index,
-                                opacity: isActive && isVisible ? 1 : 0,
-                                transition: 'opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1)',
-                                transitionDelay: `calc(0.05s * ${item.index})`
-                              } as React.CSSProperties}
-                            >
-                              {item.char === ' ' ? '\u00A0' : item.char}
-                            </span>
-                          );
-                        })}
+                        {chars.length > 0 ? (
+                          chars.map((item, charIdx) => {
+                            if (item.isBr) {
+                              return <React.Fragment key={`char-${index}-${charIdx}`}>{item.char}</React.Fragment>;
+                            }
+                            const charStr = typeof item.char === 'string' ? item.char : '';
+                            // isVisibleがtrueの時のみ表示、isActiveでアニメーション制御
+                            // isActiveがtrue: フェードイン、false: フェードアウト
+                            const opacity = isVisible ? (isActive ? 1 : 0) : 0;
+                            // フェードイン・フェードアウトともに左から右（順番）
+                            const charPosition = item.index;
+                            // フェードイン・フェードアウトともに順番（左から右）
+                            const transitionDelay = isVisible 
+                              ? `calc(0.05s * ${charPosition})` // フェードイン・フェードアウトともに順番
+                              : '0s';
+                            return (
+                              <span
+                                key={`char-${index}-${charIdx}`}
+                                className="char inline-block"
+                                style={{
+                                  '--opacity': opacity,
+                                  '--char-index': item.index,
+                                  opacity: opacity,
+                                  transition: opacity === 0 ? 'opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1)' : 'opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1)',
+                                  transitionDelay: transitionDelay
+                                } as React.CSSProperties}
+                              >
+                                {charStr === ' ' ? '\u00A0' : item.char}
+                              </span>
+                            );
+                          })
+                        ) : (
+                          // フォールバック: 文字分割に失敗した場合は元のテキストを表示
+                          <div>{problem}</div>
+                        )}
                       </div>
                     </div>
                   );

@@ -1,62 +1,161 @@
-'use client';
+"use client";
+
+import { useEffect, useState, useRef } from "react";
+import Lottie from "lottie-react";
+import ZoomSlideShow from "@/components/home/ZoomSlideShow";
+
+const desktopImages = [
+  "/hero/hero-city.webp",
+  "/hero/hero-coaching.jpeg",
+  "/hero/hero-commute.jpeg"];
+
+const mobileImages = [
+  "/hero/hero-city.webp",
+  "/hero/hero-coaching-mobile.png",
+  "/hero/hero-commute.jpeg"];
 
 export default function TopSection() {
+  const [animationData, setAnimationData] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    fetch("/scroll%20down.json")
+      .then((response) => response.json())
+      .then((data) => setAnimationData(data))
+      .catch((error) => console.error("Error loading animation:", error));
+  }, []);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 450);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const images = isMobile ? mobileImages : desktopImages;
+
   return (
-    <section id="top" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
-      {/* 背景グラデーション */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#F9FCFF] via-white to-[#E6EAEE]"></div>
-      
-      {/* 装飾的な背景要素 */}
-      <div className="absolute top-20 left-4 sm:left-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#5AB1E0]/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-20 right-4 sm:right-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-      
-      <div className="relative max-w-[1200px] mx-auto px-4 text-center z-10">
-        {/* メインタイトル */}
-        <div className="mb-8 animate-fade-in">
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-tight">
-            <span className="bg-gradient-to-r from-[#2C3E50] via-[#517CA2] to-[#5AB1E0] bg-clip-text text-transparent">
-              Naritai株式会社
-            </span>
-          </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full"></div>
+    <section
+      id="top"
+      ref={sectionRef}
+      className="relative min-h-[600px] md:min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16"
+    >
+      <div className="absolute inset-0 bg-gradient-to-br from-[#F9FCFF] via-white to-[#E6EAEE] z-0"></div>
+      <div className="absolute left-0 top-0 w-[5%] h-full z-[2] hidden md:block" style={{ overflow: 'visible' }}>
+        <div
+          className="absolute top-0 left-0 w-full bg-white"
+          style={{
+            height: 'calc(50% + 1.45vw)',
+            zIndex: 3,
+            clipPath: 'polygon(0 0, 0 calc(100% - 1.45vw), 16.67% 100%, 33.33% calc(100% - 1.45vw), 50% 100%, 66.67% calc(100% - 1.45vw), 83.33% 100%, 100% calc(100% - 1.45vw), 100% 0)'
+          }}
+        ></div>
+        <div
+          className="absolute bottom-0 left-0 w-full bg-[#F0F0F0] flex flex-col items-center justify-end pb-4 sm:pb-6 md:pb-8 lg:pb-10"
+          style={{ height: '50%', zIndex: 2 }}
+        >
+          {animationData && (
+            <div className="w-full max-w-[80px] sm:max-w-[100px] md:max-w-[120px]">
+              <Lottie animationData={animationData} loop={true} autoplay={true} />
+            </div>
+          )}
         </div>
-        
-        {/* サブタイトル */}
-        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-[#517CA2] mb-6 animate-fade-in-up">
-          あなたの「なりたい」を実現する
-        </p>
-        
-        {/* 説明文 */}
-        <p className="text-base sm:text-lg md:text-xl text-[#919CB7] max-w-3xl mx-auto mb-12 leading-relaxed animate-fade-in-up delay-200 px-4">
-          革新的なソリューションで、お客様のビジネス成長をサポートします。
-          私たちは、あなたの「なりたい」を実現するパートナーです。
-        </p>
-        
-        {/* CTAボタン */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-300 px-4">
-          <a
-            href="#contact"
-            className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#517CA2] to-[#5AB1E0] text-white text-sm sm:text-base font-semibold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden w-full sm:w-auto text-center"
+      </div>
+      <div className="absolute left-0 md:left-[5%] top-0 w-full md:w-[95%] h-full z-0 overflow-hidden bg-[#F0F0F0]">
+        <ZoomSlideShow
+          images={images}
+          duration={7000}
+          zoomScale={1.2}
+          className="h-full"
+          paused={!isVisible}
+        />
+      </div>
+      <div className="absolute right-0 bottom-0 md:top-0 w-[28%] md:w-[22%] h-auto md:h-full z-[3] flex items-end md:items-center justify-center pointer-events-none px-1 md:px-0 pb-8 md:pb-0">
+        <div
+          className="flex flex-col items-center gap-3 md:gap-6 md:mt-20"
+          style={{
+            writingMode: "vertical-rl",
+            textOrientation: "upright"
+          }}
+        >
+          <div
+            className="bg-white rounded-md shadow-md px-2 py-1 md:px-4 md:py-2 animate-text-fade-in-down"
+            style={{
+              fontFamily: `'花鳥風月', serif`,
+              fontWeight: 700,
+              fontSize: "clamp(1.5rem, 3vw, 4rem)",
+              letterSpacing: "0.05em",
+              lineHeight: 1.8,
+              whiteSpace: "nowrap",
+              display: "inline-block"
+            }}
           >
-            <span className="relative z-10">お問い合わせ</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#5AB1E0] to-[#517CA2] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </a>
-          <a
-            href="#about"
-            className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#517CA2] text-sm sm:text-base font-semibold rounded-full border-2 border-[#517CA2] hover:bg-[#517CA2] hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-lg w-full sm:w-auto text-center"
+            あなたのなりたいを
+          </div>
+          <div
+            className="bg-white rounded-md shadow-md px-2 py-1 md:px-4 md:py-2 animate-text-fade-in-down delay-600"
+            style={{
+              fontFamily: `'花鳥風月', serif`,
+              fontWeight: 700,
+              fontSize: "clamp(1.5rem, 3vw, 4rem)",
+              letterSpacing: "0.05em",
+              lineHeight: 1.8,
+              whiteSpace: "nowrap",
+              display: "inline-block"
+            }}
           >
-            詳しく見る
-          </a>
-        </div>
-        
-        {/* スクロールインジケーター */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-[#517CA2] rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-[#517CA2] rounded-full mt-2"></div>
+            実現する
           </div>
         </div>
+      </div>
+      <div className="absolute top-20 left-4 sm:left-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#5AB1E0]/10 rounded-full blur-3xl animate-pulse z-[1]"></div>
+      <div className="absolute bottom-20 right-4 sm:right-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/10 rounded-full blur-3xl animate-pulse delay-1000 z-[1]"></div>
+
+      {/* Naritai ロゴ - 左下 */}
+      <div className="absolute bottom-8 left-4 sm:left-8 md:left-[5%] md:ml-8 z-[4]">
+        <h1
+          className="drop-shadow-2xl inline-block text-white animate-text-fade-in-down delay-1800"
+          style={{
+            fontFamily: "'Catchy Mager', serif",
+            fontWeight: 'bold',
+            fontSize: 'clamp(4rem, 12vw, 12rem)',
+            letterSpacing: "0.1em",
+            color: '#FFFFFF',
+            textShadow: "0 4px 20px rgba(0, 0, 0, 0.5), 0 2px 10px rgba(0, 0, 0, 0.3)"
+          }}
+        >
+          Naritai
+        </h1>
       </div>
     </section>
   );
 }
-
