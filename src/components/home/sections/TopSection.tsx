@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Lottie from "lottie-react";
 import ZoomSlideShow from "@/components/home/ZoomSlideShow";
 
@@ -17,6 +17,8 @@ const mobileImages = [
 export default function TopSection() {
   const [animationData, setAnimationData] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     fetch("/scroll%20down.json")
@@ -36,11 +38,35 @@ export default function TopSection() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const images = isMobile ? mobileImages : desktopImages;
 
   return (
     <section
       id="top"
+      ref={sectionRef}
       className="relative min-h-[600px] md:min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[#F9FCFF] via-white to-[#E6EAEE] z-0"></div>
@@ -70,6 +96,7 @@ export default function TopSection() {
           duration={7000}
           zoomScale={1.2}
           className="h-full"
+          paused={!isVisible}
         />
       </div>
       <div className="absolute right-0 bottom-0 md:top-0 w-[28%] md:w-[22%] h-auto md:h-full z-[3] flex items-end md:items-center justify-center pointer-events-none px-1 md:px-0 pb-8 md:pb-0">

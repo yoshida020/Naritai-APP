@@ -7,6 +7,7 @@ interface ZoomSlideShowProps {
   duration?: number;
   zoomScale?: number;
   className?: string;
+  paused?: boolean;
 }
 
 export default function ZoomSlideShow({
@@ -14,6 +15,7 @@ export default function ZoomSlideShow({
   duration = 7000,
   zoomScale = 1.2,
   className = "",
+  paused = false,
 }: ZoomSlideShowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [nextIndex, setNextIndex] = useState(1);
@@ -55,11 +57,11 @@ export default function ZoomSlideShow({
 
   // 画像の切り替えとクロスフェード
   useEffect(() => {
-    if (images.length === 0) return;
+    if (images.length === 0 || paused) return;
 
     // クロスフェード開始タイミング（duration - 2000ms = 最後の2秒）
     const fadeStartTime = duration - 2000;
-    
+
     const fadeTimeout = setTimeout(() => {
       setIsTransitioning(true);
       setNextIndex((currentIndex + 1) % images.length);
@@ -75,7 +77,7 @@ export default function ZoomSlideShow({
       clearTimeout(fadeTimeout);
       clearTimeout(switchTimeout);
     };
-  }, [images.length, duration, currentIndex]);
+  }, [images.length, duration, currentIndex, paused]);
 
   if (images.length === 0) {
     return null;
@@ -90,7 +92,7 @@ export default function ZoomSlideShow({
       {images.map((image, index) => {
         const isActive = index === currentIndex;
         const isNext = index === nextIndex && isTransitioning;
-        
+
         // 現在の画像と次の画像（クロスフェード中）のみ表示
         const isVisible = isActive || isNext;
 
@@ -113,6 +115,7 @@ export default function ZoomSlideShow({
               style={{
                 transform: `scale(1)`,
                 animation: `${animationName} ${animationDuration}s ease-out forwards`,
+                animationPlayState: paused ? 'paused' : 'running',
               }}
             />
           </div>
