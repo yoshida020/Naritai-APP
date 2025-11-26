@@ -90,11 +90,11 @@ export default function StrongPointsSection() {
         <p className="text-[26px] font-normal text-[#2C3E50] mb-12 md:text-[18px] md:mb-6">
           私たちの強み
         </p>
-        <div className="grid grid-cols-3 gap-8 md:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 md:gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-6">
           {points.map((point, index) => (
             <div 
               key={index} 
-              className="p-8 bg-white rounded-2xl shadow-md transition-all cursor-pointer hover:-translate-y-1 hover:shadow-lg md:p-6 lg:hover:translate-y-0 lg:hover:shadow-md"
+              className="p-8 bg-white rounded-2xl shadow-md transition-all cursor-pointer hover:-translate-y-1 hover:shadow-lg md:p-6 h-auto min-h-[200px] lg:min-h-0 lg:hover:translate-y-0 lg:hover:shadow-md"
             >
               <div className="w-[60px] h-[60px] mx-auto mb-4 flex items-center justify-center bg-[#517CA2] text-white rounded-full text-2xl font-bold md:w-[50px] md:h-[50px] md:text-xl">
                 ✓
