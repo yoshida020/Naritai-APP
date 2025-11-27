@@ -5,14 +5,14 @@ import Lottie from "lottie-react";
 import ZoomSlideShow from "@/components/home/ZoomSlideShow";
 
 const desktopImages = [
-  "/hero/hero-city.webp",
-  "/hero/hero-coaching.jpeg",
-  "/hero/hero-commute.jpeg"];
+  "/hp/hero/hero-city.webp",
+  "/hp/hero/hero-coaching.jpeg",
+  "/hp/hero/hero-commute.jpeg"];
 
 const mobileImages = [
-  "/hero/hero-city.webp",
-  "/hero/hero-coaching-mobile.png",
-  "/hero/hero-commute.jpeg"];
+  "/hp/hero/hero-city.webp",
+  "/hp/hero/hero-coaching-mobile.png",
+  "/hp/hero/hero-commute.jpeg"];
 
 export default function TopSection() {
   const [animationData, setAnimationData] = useState(null);

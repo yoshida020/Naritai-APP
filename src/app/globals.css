@@ -6,8 +6,8 @@
 /* Catchy Mager フォント定義 */
 @font-face {
   font-family: 'Catchy Mager';
-  src: url('/fonts/Catchy Mager.otf') format('opentype'),
-       url('/fonts/Catchy Mager.ttf') format('truetype');
+  src: url('/hp/fonts/Catchy Mager.otf') format('opentype'),
+    url('/hp/fonts/Catchy Mager.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -16,10 +16,19 @@
 /* 花鳥風月 フォント定義 */
 @font-face {
   font-family: '花鳥風月';
-  src: url('/fonts/花鳥風月.ttf') format('truetype');
+  src: url('/hp/fonts/花鳥風月.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: block;
+}
+
+/* Noto Serif JP フォント定義 */
+@font-face {
+  font-family: 'Noto Serif JP';
+  src: url('/hp/fonts/NotoSerifJP-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
 }
 
 @layer theme {
@@ -59,13 +68,26 @@
     --color-status-info: #5AB1E0;
 
     /* Typography */
-    --font-family-primary: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --font-family-heading: 'Catchy Mager', serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --font-family-mono: 'Courier New', Courier, monospace;
-    --font-family-catchy: '"Catchy Mager"', serif;
+    --font-family-primary: system-u i, -apple-syste m, 'Segoe UI
+ ' , Robot
+ o, 'Helvetica Neue
+ ' , Aria
+ l, sans-serif;
+    --font-family-heading: 'Catchy Mager
+ ' , seri
+ f, system-u i, -apple-syste m, 'Segoe UI
+ ' , Robot
+ o, 'Helvetica Neue
+ ' , Aria
+ l, sans-serif;
+    --font-family-mono: 'Courier New
+ ' , Courie
+ r, monospace;
+    --font-family-catchy: '"Catchy Mager"
+ ' , serif;
 
-    /* Font Sizes */
-    --font-size-xs: 12px;
+      /* Font Sizes */
+      --font-size-xs: 12px;
     --font-size-sm: 14px;
     --font-size-base: 16px;
     --font-size-lg: 18px;
@@ -207,12 +229,14 @@
 }
 
 @layer utilities {
+
   /* カスタムアニメーション */
   @keyframes fade-in {
     from {
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -224,6 +248,7 @@
       opacity: 0;
       transform: translateY(30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -260,14 +285,17 @@
       transform: translateY(30px) scale(0.7);
       clip-path: inset(100% 0 0 0);
     }
+
     30% {
       opacity: 0.3;
       transform: translateY(15px) scale(0.85);
     }
+
     60% {
       opacity: 0.7;
       transform: translateY(5px) scale(0.95);
     }
+
     100% {
       opacity: 1;
       transform: translateY(0) scale(1);
@@ -285,10 +313,12 @@
       opacity: 0;
       transform: translateY(40px) scale(1.15);
     }
+
     50% {
       opacity: 0.8;
       transform: translateY(10px) scale(1.05);
     }
+
     100% {
       opacity: 1;
       transform: translateY(0) scale(1);
@@ -304,6 +334,7 @@
     0% {
       transform: scale(1);
     }
+
     100% {
       transform: scale(1.1);
     }
@@ -319,6 +350,7 @@
       opacity: 0;
       transform: translateY(-30px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);

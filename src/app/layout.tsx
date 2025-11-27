@@ -19,7 +19,7 @@ export default function RootLayout({
       <head>
         <link
           rel="preload"
-          href="/fonts/花鳥風月.ttf"
+          href="/hp/fonts/花鳥風月.ttf"
           as="font"
           type="font/ttf"
           crossOrigin="anonymous"
