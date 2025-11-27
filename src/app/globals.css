@@ -22,6 +22,15 @@
   font-display: block;
 }
 
+/* 源暎こぶり明朝 フォント定義 */
+@font-face {
+  font-family: 'GenEi Koburi Min6';
+  src: url('/hp/fonts/GenEiKoburiMin6-R.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Noto Serif JP フォント定義 */
 @font-face {
   font-family: 'Noto Serif JP';

@@ -1,5 +1,10 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
 import './globals.css';
+
+const CursorHoverEffect = dynamic(() => import('@/components/common/CursorHoverEffect'), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: 'Naritai株式会社',
@@ -26,6 +31,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+        <CursorHoverEffect />
         {children}
       </body>
     </html>
