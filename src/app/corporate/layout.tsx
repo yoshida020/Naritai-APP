@@ -1,10 +1,5 @@
 import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
 import Header from '@/components/corporate/Header';
-
-const CursorHoverEffect = dynamic(() => import('@/components/corporate/CursorHoverEffect'), {
-  ssr: false,
-});
 
 export const metadata: Metadata = {
   title: 'Naritai株式会社 - お問い合わせ',
@@ -22,7 +17,6 @@ export default function CorporateLayout({
   return (
     <>
       <Header />
-      <CursorHoverEffect />
       {children}
     </>
   );
