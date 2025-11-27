@@ -142,7 +142,7 @@ export default function Header() {
 
   return (
     <>
-      <div className="fixed top-0 right-0 w-[60px] h-[60px] md:w-[160px] md:h-[90px] lg:w-[175px] lg:h-[100px] bg-gray-400 z-[1001] rounded-bl-3xl flex flex-col items-center justify-center overflow-hidden hover:bg-[#202D5F] transition-colors duration-300 cursor-pointer">
+      <div className="fixed top-0 right-0 w-[60px] h-[60px] md:w-[160px] md:h-[90px] lg:w-[175px] lg:h-[100px] bg-[#202D5F] z-[1001] rounded-bl-3xl flex flex-col items-center justify-center overflow-hidden hover:bg-[#2a3a6f] hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
         <a
           href="#contact"
           className="hidden md:flex flex-col items-center justify-center w-full h-full"
