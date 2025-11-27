@@ -82,63 +82,67 @@ export default function ServicesSection() {
         <h2 className="corporate-section-title text-[#2C3E50] mb-12 md:mb-6">
           サービス内容
         </h2>
-        {/* モバイル版：縦並び（変更なし） */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-6 place-items-center md:hidden">
+        {/* モバイル版：縦並び */}
+        <div className="grid grid-cols-1 gap-8 place-items-center sm:hidden">
           {services.map((service, index) => (
             <div 
               key={index} 
-              className="w-full max-w-[320px] h-[520px] sm:h-[540px] mx-auto bg-white rounded-t-[220px] rounded-b-[32px] shadow-lg transition-all cursor-pointer lg:hover:-translate-y-1 lg:hover:shadow-xl flex flex-col text-left overflow-hidden"
+              className="w-full max-w-[320px] mx-auto flex flex-col text-left"
             >
-              <div className="w-full h-44 bg-[#E3EFF7] flex items-end justify-center rounded-t-[220px]">
+              <div className="w-full mb-4 h-[200px] flex items-center justify-center overflow-hidden">
                 <img 
                   src={service.image} 
                   alt={service.title} 
-                  className="w-full h-full object-cover rounded-t-[220px]"
+                  className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex-1 px-8 py-6 flex flex-col overflow-hidden">
-                <h3 className="text-2xl font-semibold text-[#517CA2] mb-4 md:text-xl">
+              <h3 className="text-2xl font-semibold text-[#517CA2] mb-4 pb-4 border-b-2 border-[#517CA2] text-center">
                 {service.title}
-                </h3>
-                <p className="text-base leading-relaxed text-[#2C3E50] overflow-hidden">
-                  {service.description}
-                </p>
-              </div>
+              </h3>
+              <p className="text-base leading-relaxed text-[#2C3E50] pt-4 mb-8 md:mb-0">
+                {service.description}
+              </p>
             </div>
           ))}
         </div>
-        {/* PC版：横並び（5つ対応） */}
-        <div className="hidden md:flex md:flex-row md:items-center md:justify-center md:gap-6 md:w-full md:flex-nowrap">
-          {services.map((service, index) => (
-            <div 
-              key={index} 
-              className="flex-shrink-0 w-[280px] h-[520px] bg-white rounded-t-[220px] rounded-b-[32px] shadow-lg transition-all duration-700 cursor-pointer hover:-translate-y-1 hover:shadow-xl flex flex-col text-left overflow-hidden"
-              style={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible 
-                  ? `translateY(0) translateX(0)` 
-                  : `translateY(30px) translateX(${(index - 2) * 20}px)`,
-                transitionDelay: `${index * 100}ms`,
-                flexShrink: 0
-              }}
-            >
-              <div className="w-full h-44 bg-[#E3EFF7] flex items-end justify-center rounded-t-[220px]">
-                <img 
-                  src={service.image} 
-                  alt={service.title} 
-                  className="w-full h-full object-cover rounded-t-[220px]"
-                />
+        {/* PC版：左右交互配置 */}
+        <div className="hidden sm:flex sm:flex-col sm:gap-12 sm:w-full">
+          {services.map((service, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div 
+                key={index} 
+                className="flex flex-row items-center gap-16 w-full"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible 
+                    ? `translateY(0)` 
+                    : `translateY(30px)`,
+                  transitionDelay: `${index * 100}ms`,
+                  transition: 'opacity 0.7s ease, transform 0.7s ease',
+                  flexDirection: isEven ? 'row' : 'row-reverse'
+                }}
+              >
+                {/* 画像 */}
+                <div className="flex-shrink-0 w-[45%] aspect-[4/3] flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={service.image} 
+                    alt={service.title} 
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* テキスト */}
+                <div className="flex-1 flex flex-col text-left">
+                  <h3 className="text-[28px] md:text-[36px] font-semibold text-[#517CA2] mb-4 pb-4 border-b-2 border-[#517CA2] text-center">
+                    {service.title}
+                  </h3>
+                  <p className="text-[18px] md:text-[24px] leading-relaxed text-[#2C3E50] pt-4 text-center">
+                    {service.description}
+                  </p>
+                </div>
               </div>
-              <div className="flex-1 px-8 py-6 flex flex-col overflow-hidden">
-                <h3 className="text-2xl font-semibold text-[#517CA2] mb-4">
-                  {service.title}
-                </h3>
-                <p className="text-base leading-relaxed text-[#2C3E50] overflow-hidden">
-                  {service.description}
-                </p>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
