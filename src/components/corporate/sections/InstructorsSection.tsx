@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import styles from './InstructorsSection.module.css';
 
 export default function InstructorsSection() {
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
@@ -176,24 +175,32 @@ export default function InstructorsSection() {
   }, [isSwiping, currentIndex, instructors.length]);
 
   return (
-    <section id="instructors" className={styles.section}>
-      <div className={styles.container}>
-        <h2 className={styles.title}>講師紹介</h2>
-        <p className={styles.subtitle}>
+    <section
+      id="instructors"
+      className="w-full min-h-screen py-20 px-4 bg-white flex items-center justify-center md:py-12 md:px-4"
+    >
+      <div className="max-w-[1200px] w-full mx-auto text-center flex flex-col items-center">
+        <h2 className="corporate-section-title text-[#2C3E50] mb-4">
+          講師紹介
+        </h2>
+        <p className="text-lg leading-relaxed text-[#919CB7] mb-12 max-w-[800px] mx-auto text-center md:text-base md:mb-8">
           経験豊富な講師陣が、お客様の組織に最適なサポートを提供します。
           <br />
-          <span className={styles.hint}>カードをクリックして詳細を確認 / 左右にスワイプして切り替え</span>
+          <span className="text-sm text-[#517CA2] font-medium inline-block mt-2">
+            カードをクリックして詳細を確認 / 左右にスワイプして切り替え
+          </span>
         </p>
         <div
           ref={containerRef}
-          className={styles.instructorsCarousel}
+          className="relative w-[400px] mx-auto overflow-visible touch-pan-y select-none h-[500px] flex items-center justify-center"
+          style={{ perspective: '1200px', perspectiveOrigin: 'center center' }}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
           onMouseDown={handleMouseDown}
           onMouseLeave={handleMouseLeave}
         >
-          <div className={styles.carouselTrack}>
+          <div className="absolute inset-0 flex items-center justify-center" style={{ willChange: 'transform', transformStyle: 'preserve-3d' }}>
             {instructors.map((instructor, index) => {
               const isFlipped = flippedCards.has(index);
               const isActive = index === currentIndex;
@@ -214,17 +221,21 @@ export default function InstructorsSection() {
               
               // スワイプ中のオフセットを考慮
               const offsetX = isActive ? swipeOffset : 0;
-              const baseOffset = relativePosition * 100;
+              // カードの位置オフセット（中央配置を維持）
+              // relativePositionが0の時は中央、±1の時は左右に移動
+              const baseOffset = relativePosition * 120; // カード間の距離（px）
               
               // カードの位置に応じたスタイルを計算
               const cardStyle: React.CSSProperties = {
+                position: 'absolute',
                 left: '50%',
+                top: '50%',
                 zIndex: instructors.length - distance,
                 transform: isActive
-                  ? `translate(-50%, -50%) translateX(calc(${baseOffset}% + ${offsetX}px)) translateZ(0px) scale(1)`
+                  ? `translate(calc(-50% + ${baseOffset}px + ${offsetX}px), calc(-50% + 0px)) translateZ(0px) scale(1)`
                   : isPrev
-                  ? `translate(-50%, -50%) translateX(calc(${baseOffset}% - ${distance * 20}px)) translateZ(-${distance * 50}px) scale(${Math.max(0.65, 1 - distance * 0.2)})`
-                  : `translate(-50%, -50%) translateX(calc(${baseOffset}% + ${distance * 20}px)) translateZ(-${distance * 50}px) scale(${Math.max(0.65, 1 - distance * 0.2)})`,
+                  ? `translate(calc(-50% + ${baseOffset}px - ${distance * 20}px), calc(-50% + 0px)) translateZ(-${distance * 50}px) scale(${Math.max(0.65, 1 - distance * 0.2)})`
+                  : `translate(calc(-50% + ${baseOffset}px + ${distance * 20}px), calc(-50% + 0px)) translateZ(-${distance * 50}px) scale(${Math.max(0.65, 1 - distance * 0.2)})`,
                 opacity: isActive ? 1 : Math.max(0.3, 1 - distance * 0.3),
                 filter: isActive ? 'none' : `blur(${Math.min(5, distance * 2)}px)`,
                 pointerEvents: isActive ? 'auto' : 'none',
@@ -234,26 +245,41 @@ export default function InstructorsSection() {
               return (
                 <div
                   key={index}
-                  className={styles.cardContainer}
-                  style={cardStyle}
+                  className="w-[400px] box-border"
+                  style={{ ...cardStyle, perspective: '1000px', height: '400px', minHeight: '400px', transformStyle: 'preserve-3d' }}
                   onClick={(e) => handleCardClick(index, e)}
                 >
                   <div
-                    className={`${styles.instructorCard} ${isFlipped ? styles.flipped : ''} ${isActive ? styles.active : ''}`}
+                    className={`relative w-full h-full min-h-[400px] cursor-pointer transition-transform duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] md:min-h-[350px] ${
+                      isFlipped ? '[transform:rotateY(180deg)]' : ''
+                    } ${isActive ? 'cursor-pointer' : ''}`}
+                    style={{ transformStyle: 'preserve-3d' }}
                   >
                     {/* カードの前面 */}
-                    <div className={styles.cardFront}>
-                      <div className={styles.instructorImage}>
-                        <div className={styles.imagePlaceholder}>
+                    <div 
+                      className={`absolute w-full h-full rounded-2xl shadow-lg p-8 bg-[#F9FCFF] flex flex-col items-center transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] z-[2] ${
+                        isActive && !isFlipped ? 'hover:-translate-y-1 hover:shadow-xl md:hover:-translate-y-0.5' : ''
+                      }`}
+                      style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(0deg) translateZ(0)' }}
+                    >
+                      <div className="mb-8 flex-shrink-0">
+                        <div className="w-[150px] h-[150px] rounded-full bg-gradient-to-br from-[#517CA2] to-[#6AA5CE] flex items-center justify-center text-white text-5xl font-bold mx-auto shadow-md">
                           {instructor.name.charAt(0)}
                         </div>
                       </div>
-                      <div className={styles.instructorInfo}>
-                        <h3 className={styles.instructorName}>{instructor.name}</h3>
-                        <p className={styles.instructorRole}>{instructor.role}</p>
-                        <div className={styles.specialties}>
+                      <div className="w-full text-center flex-grow flex flex-col justify-center">
+                        <h3 className="text-2xl font-semibold text-[#2C3E50] mb-3">
+                          {instructor.name}
+                        </h3>
+                        <p className="text-lg font-medium text-[#517CA2] mb-4">
+                          {instructor.role}
+                        </p>
+                        <div className="flex flex-wrap justify-center gap-2 mt-4">
                           {instructor.specialties.map((specialty, specialtyIndex) => (
-                            <span key={specialtyIndex} className={styles.specialtyTag}>
+                            <span 
+                              key={specialtyIndex} 
+                              className="px-3 py-1 bg-[#DCE5F1] text-[#517CA2] rounded-full text-xs font-medium"
+                            >
                               {specialty}
                             </span>
                           ))}
@@ -261,10 +287,23 @@ export default function InstructorsSection() {
                       </div>
                     </div>
                     {/* カードの背面 */}
-                    <div className={styles.cardBack}>
-                      <div className={styles.backContent}>
-                        <p className={styles.backExperience}>{instructor.experience}</p>
-                        <p className={styles.backDescription}>{instructor.description}</p>
+                    <div 
+                      className={`absolute w-full h-full rounded-2xl shadow-lg p-8 bg-gradient-to-br from-[#517CA2] to-[#6AA5CE] text-white justify-center flex flex-col items-center transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                        isActive && isFlipped ? 'hover:-translate-y-1 hover:shadow-xl md:hover:-translate-y-0.5' : ''
+                      }`}
+                      style={{ 
+                        backfaceVisibility: 'hidden', 
+                        WebkitBackfaceVisibility: 'hidden', 
+                        transform: 'rotateY(180deg) translateZ(0)' 
+                      }}
+                    >
+                      <div className="w-full h-full flex flex-col items-center justify-center text-center p-6">
+                        <p className="text-lg font-semibold text-white mb-4 md:text-base">
+                          {instructor.experience}
+                        </p>
+                        <p className="text-base leading-relaxed text-white/95 mt-4 max-w-[280px] md:text-sm md:max-w-full">
+                          {instructor.description}
+                        </p>
                       </div>
                     </div>
                   </div>
