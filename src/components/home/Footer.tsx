@@ -1,3 +1,5 @@
+import FeatherBackground from './FeatherBackground';
+
 export default function Footer() {
   return (
     <footer className="bg-gradient-to-b from-[#2C3E50] to-[#1a252f] text-white relative overflow-hidden">
@@ -6,6 +8,9 @@ export default function Footer() {
         <div className="absolute top-20 left-20 w-96 h-96 bg-[#5AB1E0] rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-20 w-96 h-96 bg-[#517CA2] rounded-full blur-3xl"></div>
       </div>
+      
+      {/* 羽のアニメーション */}
+      <FeatherBackground />
       
       <div className="relative max-w-[1200px] mx-auto px-4 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
@@ -138,10 +143,9 @@ export default function Footer() {
         {/* コピーライト */}
         <div className="border-t border-white/10 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
-            <p>&copy; 2024 Naritai株式会社. All rights reserved.</p>
+            <p>&copy; 2025 Naritai株式会社. All rights reserved.</p>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-white transition-colors">プライバシーポリシー</a>
-              <a href="#" className="hover:text-white transition-colors">利用規約</a>
+              <a href="/legal/privacy-policy" className="hover:text-white transition-colors">プライバシーポリシー</a>
             </div>
           </div>
         </div>
