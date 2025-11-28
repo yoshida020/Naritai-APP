@@ -17,7 +17,10 @@ export default function AboutUsSection() {
 
         <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-center md:items-stretch justify-center">
           <div className="flex-1 flex flex-col justify-between items-center md:items-start gap-8 md:gap-12 h-full w-full md:pl-4 lg:pl-6">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C3E50] leading-relaxed text-center md:text-left w-full md:max-w-[620px] md:ml-auto md:pr-6">
+            <h3
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#2C3E50] leading-relaxed text-center md:text-left w-full md:max-w-[620px] md:ml-auto md:pr-6"
+              style={{ fontFamily: '"GenEi Koburi Min6", "Noto Serif JP", serif' }}
+            >
               <span className="relative inline-block pr-2">
                 <span className="absolute left-0 bottom-1 h-5 w-full bg-[#5AB1E0]/55 rounded-[6px] pointer-events-none" aria-hidden="true"></span>
                 <span className="relative">個人</span>
