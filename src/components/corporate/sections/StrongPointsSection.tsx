@@ -3,59 +3,45 @@
 import { useEffect, useRef, useState } from 'react';
 
 export default function StrongPointsSection() {
-  const text = 'Strong Points';
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
   const points = [
     {
       title: 'カルテ化による「再現性ある育成」',
+      image: '/Whisk_d4b7e0ce9e01155a5d044813687a9fb6eg.png',
       description: (
         <>
-          可視化することで、感覚や属人的な育成に頼らず、
+          可視化することで、
           <br />
-          誰でも同じ質で育成できる仕組みを実現。
+          感覚や属人的な育成に頼らず、
+          <br />
+          誰でも同じ質で
+          <br />
+          育成できる仕組みを実現。
         </>
       ),
     },
     {
       title: 'Z世代に特化した"共感型コーチング"',
+      image: '/Whisk_926ab63a6059f709874449a5a8ce97c0dr.jpeg',
       description: (
         <>
-          上から「指導」するのではなく、同じ目線で「伴走」。
+          上から「指導」するのではなく、
           <br />
-          Z世代特有の自己理解の浅さや言語化の難しさに寄り添いながら、
+          同じ目線で「伴走」。
           <br />
-          自分の「納得感」を軸に成長できるよう支援します。
+          <br />
+          Z世代特有の自己理解の浅さや
+          <br />
+          言語化の難しさに寄り添いながら、
+          <br />
+          自分の「納得感」を軸に
+          <br />
+          成長できるよう支援します。
         </>
       ),
     },
     {
       title: '代弁者',
+      image: '/Whisk_d0b896c0752c00cbfe74126fc3a6d469dr.jpeg',
       description: (
         <>
           若手が「本当は言いたいこと」。
@@ -68,45 +54,103 @@ export default function StrongPointsSection() {
     },
   ];
 
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section
-      id="strong-points"
-      className="w-full min-h-screen py-20 px-4 bg-[#F9FCFF] flex items-center justify-center md:min-h-auto md:py-16 md:px-4"
+    <section 
+      ref={sectionRef}
+      id="strong-points" 
+      className="w-full py-16 px-4 bg-[#F9FCFF] flex justify-center md:py-20 md:px-4"
     >
-      <div className="max-w-[1200px] w-full mx-auto text-center" ref={containerRef}>
-        <h2 className="corporate-section-title font-['Tangerine',cursive] text-[#2C3E50] mb-4 block md:mb-3">
-          {text.split('').map((char, i) => (
-            <span
-              key={i}
-              className={`inline-block opacity-0 -translate-y-[30px] ${isVisible ? 'animate-slide-in-from-top' : ''}`}
-              style={{
-                animationDelay: `${i * 0.06}s`,
-              }}
-            >
-              {char === ' ' ? '\u00A0' : char}
-            </span>
-          ))}
-        </h2>
-        <p className="text-[26px] font-normal text-[#2C3E50] mb-12 md:text-[18px] md:mb-6">
+      <div className="max-w-[1200px] w-full mx-auto text-center md:max-w-full">
+        <h2 className="corporate-section-title text-[#2C3E50] mb-12 md:mb-6">
           私たちの強み
-        </p>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-6">
+        </h2>
+        {/* モバイル版：縦並び */}
+        <div className="grid grid-cols-1 gap-8 place-items-center sm:hidden">
           {points.map((point, index) => (
             <div 
               key={index} 
-              className="p-8 bg-white rounded-2xl shadow-md transition-all cursor-pointer hover:-translate-y-1 hover:shadow-lg md:p-6 h-auto min-h-[200px] lg:min-h-0 lg:hover:translate-y-0 lg:hover:shadow-md"
+              className="w-full max-w-[320px] mx-auto flex flex-col text-left"
             >
-              <div className="w-[60px] h-[60px] mx-auto mb-4 flex items-center justify-center bg-[#517CA2] text-white rounded-full text-2xl font-bold md:w-[50px] md:h-[50px] md:text-xl">
-                ✓
+              <div className="w-full mb-4 h-[200px] flex items-center justify-center overflow-hidden">
+                <img 
+                  src={point.image} 
+                  alt={point.title} 
+                  className="w-full h-full object-contain"
+                />
               </div>
-              <h3 className="text-xl font-semibold text-[#2C3E50] mb-4">
+              <h3 className="text-xl font-semibold text-[#517CA2] mb-4 pb-4 border-b-2 border-[#517CA2] text-center">
                 {point.title}
               </h3>
-              <p className="text-base leading-relaxed text-[#919CB7]">
+              <p className="text-base leading-relaxed text-[#2C3E50] pt-4 mb-8 md:mb-0">
                 {point.description}
               </p>
             </div>
           ))}
+        </div>
+        {/* PC版：左右交互配置 */}
+        <div className="hidden sm:flex sm:flex-col sm:gap-12 sm:w-full">
+          {points.map((point, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div 
+                key={index} 
+                className="flex flex-row items-center gap-16 w-full"
+                style={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible 
+                    ? `translateY(0)` 
+                    : `translateY(30px)`,
+                  transitionDelay: `${index * 100}ms`,
+                  transition: 'opacity 0.7s ease, transform 0.7s ease',
+                  flexDirection: isEven ? 'row' : 'row-reverse'
+                }}
+              >
+                {/* 画像 */}
+                <div className="flex-shrink-0 w-[45%] aspect-[4/3] flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={point.image} 
+                    alt={point.title} 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                {/* テキスト */}
+                <div className="flex-1 flex flex-col text-left">
+                  <h3 className="text-[22px] md:text-[28px] font-semibold text-[#517CA2] mb-4 pb-4 border-b-2 border-[#517CA2] text-center">
+                    {point.title}
+                  </h3>
+                  <p className="text-[18px] md:text-[24px] leading-relaxed text-[#2C3E50] pt-4 text-center">
+                    {point.description}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
