@@ -2,7 +2,7 @@ import FeatherBackground from './FeatherBackground';
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-b from-[#2C3E50] to-[#1a252f] text-white relative overflow-hidden">
+    <footer className="bg-[#517CA2] text-white relative overflow-hidden">
       {/* 背景装飾 */}
       <div className="absolute top-0 left-0 w-full h-full opacity-5">
         <div className="absolute top-20 left-20 w-96 h-96 bg-[#5AB1E0] rounded-full blur-3xl"></div>
@@ -18,14 +18,14 @@ export default function Footer() {
           <div className="md:col-span-1">
             <div className="mb-6">
               <img 
-                src="/20251113-1222_2c7cdaaec151d3d5e7aabdec1966c120.png" 
+                src="/naritai.png" 
                 alt="Naritai"
-                className="h-12 w-auto object-contain brightness-0 invert"
+                className="h-24 w-auto object-contain"
               />
             </div>
             <h3 className="text-xl font-bold mb-4">Naritai株式会社</h3>
-            <p className="text-sm text-gray-300 leading-relaxed mb-6">
-              あなたの「なりたい」を実現するパートナー
+            <p className="text-sm text-gray-200 leading-relaxed mb-6">
+              あなたの「なりたい」を実現する
             </p>
             {/* ソーシャルメディア */}
             <div className="flex gap-4">
@@ -47,63 +47,63 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* ナビゲーション */}
+          {/* コンテンツ */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">ナビゲーション</h4>
+            <h4 className="text-lg font-semibold mb-6">Contents</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#top" className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group">
-                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  TOP
+                <a href="#top" className="text-gray-200 hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-150"></span>
+                  トップ
                 </a>
               </li>
               <li>
-                <a href="#about" className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group">
-                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  ABOUT US
+                <a href="#about" className="text-gray-200 hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-150"></span>
+                  Naritaiについて
                 </a>
               </li>
               <li>
-                <a href="#message" className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group">
-                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Message
+                <a href="#message" className="text-gray-200 hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-150"></span>
+                  代表メッセージ
                 </a>
               </li>
               <li>
-                <a href="#business" className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group">
-                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Business
+                <a href="#business" className="text-gray-200 hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-150"></span>
+                  事業内容
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* 情報 */}
+          {/* 企業情報 */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">情報</h4>
+            <h4 className="text-lg font-semibold mb-6">Company</h4>
             <ul className="space-y-3 text-sm">
               <li>
-                <a href="#news" className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group">
-                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  News
+                <a href="#news" className="text-gray-200 hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-150"></span>
+                  ニュース
                 </a>
               </li>
               <li>
-                <a href="#faq" className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group">
-                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  FAQ
+                <a href="#faq" className="text-gray-200 hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-150"></span>
+                  よくある質問
                 </a>
               </li>
               <li>
-                <a href="#company" className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group">
-                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Company
+                <a href="#company" className="text-gray-200 hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-150"></span>
+                  会社概要
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 group">
-                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                  Contact
+                <a href="#contact" className="text-gray-200 hover:text-white transition-colors flex items-center gap-2 group">
+                  <span className="w-1 h-1 rounded-full bg-[#5AB1E0] opacity-0 group-hover:opacity-100 transition-opacity group-hover:scale-150"></span>
+                  お問い合わせ
                 </a>
               </li>
             </ul>
@@ -111,14 +111,14 @@ export default function Footer() {
 
           {/* お問い合わせ */}
           <div>
-            <h4 className="text-lg font-semibold mb-6">お問い合わせ</h4>
-            <ul className="space-y-4 text-sm text-gray-300">
+            <h4 className="text-lg font-semibold mb-6">Contact</h4>
+            <ul className="space-y-4 text-sm text-gray-200">
               <li className="flex items-start gap-3">
                 <svg className="w-5 h-5 text-[#5AB1E0] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-                <a href="mailto:info@naritai.co.jp" className="hover:text-white transition-colors">
-                  info@naritai.co.jp
+                <a href="mailto:info@naritai-career.jp" className="hover:text-white transition-colors">
+                  info@naritai-career.jp
                 </a>
               </li>
               <li className="flex items-start gap-3">
@@ -134,7 +134,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span>東京都渋谷区神南1-1-1</span>
+                <span>東京都港区南青山3丁目1番36号</span>
               </li>
             </ul>
           </div>
@@ -142,7 +142,7 @@ export default function Footer() {
 
         {/* コピーライト */}
         <div className="border-t border-white/10 pt-8 mt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-200">
             <p>&copy; 2025 Naritai株式会社. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="/legal/privacy-policy" className="hover:text-white transition-colors">プライバシーポリシー</a>
