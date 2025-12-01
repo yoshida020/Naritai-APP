@@ -33,7 +33,10 @@ export default function NewsSection() {
           <span className="inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4">
             News
           </span>
-          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4">
+          <h2 
+            className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4"
+            style={{ fontFamily: 'Catchy Mager, serif' }}
+          >
             最新情報
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full"></div>
@@ -47,7 +50,8 @@ export default function NewsSection() {
             <div className="hidden lg:flex lg:w-1/4 lg:justify-start py-6">
               <div className="relative">
                 <div
-                  className="text-4xl font-semibold text-gray-900 leading-relaxed font-sans [writing-mode:vertical-rl]"
+                  className="text-4xl font-semibold text-gray-900 leading-relaxed [writing-mode:vertical-rl]"
+                  style={{ fontFamily: 'Catchy Mager, serif' }}
                 >
                   <span className="font-semibold inline-block pr-0 pb-2">
                     <span className="highlight-marker-vertical">

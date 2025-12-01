@@ -77,26 +77,13 @@
     --color-status-info: #5AB1E0;
 
     /* Typography */
-    --font-family-primary: system-u i, -apple-syste m, 'Segoe UI
- ' , Robot
- o, 'Helvetica Neue
- ' , Aria
- l, sans-serif;
-    --font-family-heading: 'Catchy Mager
- ' , seri
- f, system-u i, -apple-syste m, 'Segoe UI
- ' , Robot
- o, 'Helvetica Neue
- ' , Aria
- l, sans-serif;
-    --font-family-mono: 'Courier New
- ' , Courie
- r, monospace;
-    --font-family-catchy: '"Catchy Mager"
- ' , serif;
+    --font-family-primary: system-u i, -apple-syste m, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-heading: 'Catchy Mager' , serif, system-u i, -apple-syste m, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-mono: 'Courier New', Courier, monospace;
+    --font-family-catchy: '"Catchy Mager", serif', system-u i, -apple-syste m, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
       /* Font Sizes */
-      --font-size-xs: 12px;
+    --font-size-xs: 10px;
     --font-size-sm: 14px;
     --font-size-base: 16px;
     --font-size-lg: 18px;
@@ -699,5 +686,25 @@
   .animate-pc-card-fade-in {
     animation: pc-card-fade-in 1s ease-out forwards;
     opacity: 0;
+  }
+
+  /* マーカースタイルのハイライト（縦書き用） */
+  .highlight-marker-vertical {
+    position: relative;
+    display: inline-block;
+  }
+
+  .highlight-marker-vertical::before {
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 180, 0.5);
+    border-radius: 3px;
+    z-index: -1;
+    /* 文字より少し広めに、ただし一部が露出するように */
+    width: calc(100% + 0.3em);
+    height: calc(100% - 0.15em);
+    /* 左側（縦書きでは上側）に少しずらして、右側（下側）が露出するように */
+    left: -0.15em;
+    top: 0.075em;
   }
 }
