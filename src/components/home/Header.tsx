@@ -311,7 +311,7 @@ export default function Header() {
           onClick={closeMobileMenu}
         >
           <nav
-            className="w-full h-full flex flex-col items-center justify-center px-6 py-8"
+            className="w-full h-screen overflow-y-auto flex flex-col items-center justify-center px-6 py-8"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="w-full max-w-md flex flex-col h-full">
