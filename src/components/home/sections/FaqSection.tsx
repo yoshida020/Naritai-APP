@@ -35,12 +35,10 @@ export default function FaqSection() {
 
   return (
     <section id="faq" className="py-24 bg-white relative overflow-hidden">
-      {/* 背景装飾 */}
       <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl">      </div>
       
       <div className="relative max-w-[1200px] mx-auto px-4">
-        {/* セクションタイトル */}
         <div className="text-center mb-16">
           <span className="inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4">
             FAQ
@@ -100,7 +98,6 @@ export default function FaqSection() {
           ))}
         </div>
 
-        {/* 追加のサポート */}
         <div className="mt-12 text-center">
           <p className="text-[#919CB7] mb-4">
             他にご質問がございましたら、お気軽にお問い合わせください

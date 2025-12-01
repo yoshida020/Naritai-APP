@@ -23,7 +23,6 @@ export default function AboutUsSection() {
           if (entry.isIntersecting) {
             setIsVisible(true);
           } else {
-            // セクションが見えなくなったら状態をリセット
             setIsVisible(false);
             setVisibleElements({
               label: false,
@@ -105,7 +104,6 @@ export default function AboutUsSection() {
           <div className={`w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full ${visibleElements.underline ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}></div>
         </div>
 
-        {/* モバイル時の表示 */}
         <div className="min-[1025px]:hidden text-center py-8 relative z-10">
           <h3
             className={`text-2xl sm:text-3xl font-bold text-[#2C3E50] leading-relaxed text-center mb-8 ${visibleElements.mobileTitle ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}
@@ -134,7 +132,7 @@ export default function AboutUsSection() {
           </h3>
           
           <div
-            className={`text-xs md:text-lg text-[#0a0a0a] leading-loose writing-horizontal-tb mx-auto font-medium py-14 ${visibleElements.mobileText ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}
+            className={`text-sm md:text-xl text-[#0a0a0a] leading-loose writing-horizontal-tb mx-auto font-medium py-14 ${visibleElements.mobileText ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}
             style={{
               fontFamily: '"Noto Serif JP", serif',
               maxWidth: '90%',
@@ -152,9 +150,9 @@ export default function AboutUsSection() {
             >
               Naritai
             </span>
-            は、一人ひとりに"
+            は、一人ひとりに
             <span className="font-bold">なりたい自分</span>
-            "を見つけて<br />
+            を見つけて<br />
             自分の道を歩いてほしい。<br />
             なんとなく働く毎日から抜け出してほしい。<br />
             心から納得できる人生を、<br />
@@ -169,7 +167,7 @@ export default function AboutUsSection() {
                 letterSpacing: '0.08em'
               }}
             >
-              "Naritai"
+              Naritai
             </span>
             から未来が動き出します。
           </div>

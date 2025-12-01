@@ -25,12 +25,10 @@ export default function BusinessSection() {
 
   return (
     <section id="business" className="py-24 bg-white relative overflow-hidden">
-      {/* 背景装飾 */}
       <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl">      </div>
       
       <div className="relative max-w-[1200px] mx-auto px-4">
-        {/* セクションタイトル */}
         <div className="text-center mb-16">
           <span className="inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4">
             Business
@@ -53,26 +51,21 @@ export default function BusinessSection() {
               key={index}
               className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-[#E6EAEE] overflow-hidden hover:-translate-y-2 transition-all duration-300"
             >
-              {/* グラデーションヘッダー */}
               <div className={`h-2 bg-gradient-to-r ${business.gradient}`}></div>
               
               <div className="p-8">
-                {/* アイコン */}
                 <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br ${business.gradient} flex items-center justify-center text-2xl sm:text-3xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}>
                   {business.icon}
                 </div>
                 
-                {/* タイトル */}
                 <h3 className="text-2xl font-bold text-[#2C3E50] mb-4 group-hover:text-[#517CA2] transition-colors">
                   {business.title}
                 </h3>
                 
-                {/* 説明 */}
                 <p className="text-[#919CB7] leading-relaxed mb-6">
                   {business.description}
                 </p>
                 
-                {/* リンク */}
                 <a
                   href="#contact"
                   className="inline-flex items-center text-[#517CA2] font-semibold group-hover:text-[#5AB1E0] transition-colors"
@@ -94,13 +87,11 @@ export default function BusinessSection() {
                 </a>
               </div>
               
-              {/* ホバー時の背景グラデーション */}
               <div className={`absolute inset-0 bg-gradient-to-br ${business.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10`}></div>
             </div>
           ))}
         </div>
 
-        {/* CTAセクション */}
         <div className="mt-16 text-center">
           <div className="inline-block bg-gradient-to-r from-[#517CA2] to-[#5AB1E0] rounded-2xl p-8 md:p-12 shadow-xl">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">

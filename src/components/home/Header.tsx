@@ -43,7 +43,6 @@ export default function Header() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Intersection Observerでセクションの表示状態を監視
     const sections = ['#top', '#about', '#message', '#business', '#news', '#faq', '#company', '#contact'];
     const header = headerRef.current;
     const headerHeight = header ? header.offsetHeight : 100;
@@ -62,13 +61,11 @@ export default function Header() {
         sectionStates.set(entry.target.id, entry.isIntersecting);
       });
 
-      // ビューポートに入っているセクションを取得
       const visibleSections = Array.from(sectionStates.entries())
         .filter(([_, isVisible]) => isVisible)
         .map(([id, _]) => id);
 
       if (visibleSections.length > 0) {
-        // セクションの順序を考慮して、最後のセクションを優先
         let activeId = '';
         for (let i = sections.length - 1; i >= 0; i--) {
           const sectionId = sections[i].replace('#', '');
@@ -85,7 +82,6 @@ export default function Header() {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    // 各セクションを監視対象に追加
     sections.forEach(sectionId => {
       const section = document.querySelector(sectionId);
       if (section) {
@@ -93,7 +89,6 @@ export default function Header() {
       }
     });
 
-    // トップセクションの初期判定とスクロール時の判定
     const checkTopSection = () => {
       if (window.scrollY < 100) {
         setActiveSection('#top');

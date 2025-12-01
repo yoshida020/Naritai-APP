@@ -9,12 +9,10 @@ export default function CompanySection() {
 
   return (
     <section id="company" className="py-24 bg-gradient-to-b from-[#FFFFFF] to-white relative overflow-hidden">
-      {/* 背景装飾 */}
       <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl">      </div>
       
       <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        {/* セクションタイトル */}
         <div className="text-center mb-12 md:mb-16">
           <span className="inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4">
             Company
@@ -28,9 +26,7 @@ export default function CompanySection() {
           <div className="w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full"></div>
         </div>
 
-        {/* 会社情報と地図 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-          {/* 会社情報 */}
           <div>
             {companyInfo.map((info, index) => (
               <div
@@ -51,7 +47,6 @@ export default function CompanySection() {
             ))}
           </div>
 
-          {/* 地図 */}
           <div className="w-full">
             <div className="relative w-full" style={{ paddingBottom: '75%' }}>
               <iframe

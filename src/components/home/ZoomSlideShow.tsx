@@ -22,7 +22,6 @@ export default function ZoomSlideShow({
   const [isTransitioning, setIsTransitioning] = useState(false);
   const styleIdRef = useRef<string>(`zoom-slideshow-${zoomScale}-${duration}`);
 
-  // 動的にアニメーションスタイルを生成
   useEffect(() => {
     if (typeof window === "undefined") return;
 
@@ -35,7 +34,7 @@ export default function ZoomSlideShow({
       document.head.appendChild(styleSheet);
     }
 
-    const animationDuration = duration / 1000; // ミリ秒を秒に変換
+    const animationDuration = duration / 1000;
     const sanitizedId = styleId.replace(/[^a-zA-Z0-9]/g, "-");
     const keyframeName = `zoomIn-${sanitizedId}`;
 
@@ -51,15 +50,12 @@ export default function ZoomSlideShow({
     `;
 
     return () => {
-      // クリーンアップはしない（他のインスタンスで使用される可能性があるため）
     };
   }, [duration, zoomScale]);
 
-  // 画像の切り替えとクロスフェード
   useEffect(() => {
     if (images.length === 0 || paused) return;
 
-    // クロスフェード開始タイミング（duration - 2000ms = 最後の2秒）
     const fadeStartTime = duration - 2000;
 
     const fadeTimeout = setTimeout(() => {
@@ -67,7 +63,6 @@ export default function ZoomSlideShow({
       setNextIndex((currentIndex + 1) % images.length);
     }, fadeStartTime);
 
-    // 画像切り替えタイミング
     const switchTimeout = setTimeout(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
       setIsTransitioning(false);
@@ -93,7 +88,6 @@ export default function ZoomSlideShow({
         const isActive = index === currentIndex;
         const isNext = index === nextIndex && isTransitioning;
 
-        // 現在の画像と次の画像（クロスフェード中）のみ表示
         const isVisible = isActive || isNext;
 
         if (!isVisible) return null;

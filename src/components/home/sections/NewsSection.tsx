@@ -7,13 +7,11 @@ import { newsItems } from '@/lib/news';
 export default function NewsSection() {
   const [showAll, setShowAll] = useState(false);
 
-  // 初期表示は3件のみ、もっと見るを押したら全件表示
   const initialDisplayCount = 3;
   const displayedNews = newsItems.slice(0, initialDisplayCount);
   const remainingNews = newsItems.slice(initialDisplayCount);
   const hasMoreNews = remainingNews.length > 0;
 
-  // 日付を年と月日に分割する関数
   const parseDate = (dateString: string) => {
     const [year, month, day] = dateString.split('.');
     const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
@@ -28,7 +26,6 @@ export default function NewsSection() {
   return (
     <section id="news" className="py-24 bg-[#F0F0F0] relative overflow-hidden">
       <div className="relative max-w-[1200px] mx-auto px-4">
-        {/* モバイル: タイトルをカードの外に表示 */}
         <div className="text-center mb-8 lg:hidden">
           <span className="inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4">
             News
@@ -42,11 +39,8 @@ export default function NewsSection() {
           <div className="w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full"></div>
         </div>
 
-        {/* メインコンテナ: 白色背景、角丸、中央寄せ */}
         <div className="bg-white rounded-xl p-8 lg:p-12">
-          {/* レイアウト: 左側に縦書きタイトル、右側にニュースリスト（PCのみ） */}
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-6">
-            {/* 左側: タイトルエリア（PCのみ表示、縦書き） */}
             <div className="hidden lg:flex lg:w-1/4 lg:justify-start py-6">
               <div className="relative">
                 <div
@@ -63,7 +57,6 @@ export default function NewsSection() {
               </div>
             </div>
 
-            {/* 右側: ニュースリスト */}
             <div className="lg:w-3/4">
               <div className="space-y-0">
                 {displayedNews.map((news, index) => {
@@ -75,7 +68,6 @@ export default function NewsSection() {
                         className="block group py-6"
                       >
                         <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
-                          {/* 日付エリア */}
                           <div className="flex-shrink-0">
                             <div className="text-xs text-[#202D5F] mb-1 font-sans">
                               {year}
@@ -196,7 +188,6 @@ export default function NewsSection() {
                 </div>
               )}
 
-              {/* もっと見る / 閉じる ボタン */}
               {hasMoreNews && (
                 <div className={`mt-8 text-center transition-all duration-300 ${showAll ? 'opacity-100' : 'opacity-100'}`}>
                   <button

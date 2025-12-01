@@ -140,7 +140,6 @@ export default function TopSection() {
       <div className="absolute top-20 left-4 sm:left-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#5AB1E0]/10 rounded-full blur-3xl animate-pulse z-[1]"></div>
       <div className="absolute bottom-20 right-4 sm:right-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/10 rounded-full blur-3xl animate-pulse delay-1000 z-[1]"></div>
 
-      {/* Naritai ロゴ - 左下 */}
       <div className="absolute bottom-8 left-4 sm:left-8 md:left-[5%] md:ml-8 z-[4]">
         <h1
           className="drop-shadow-2xl inline-block text-white animate-text-fade-in-down delay-1800"

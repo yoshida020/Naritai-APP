@@ -11,7 +11,6 @@ export default function ContactSection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // フォーム送信処理
     console.log('Form submitted:', formData);
   };
 
@@ -24,12 +23,10 @@ export default function ContactSection() {
 
   return (
     <section id="contact" className="py-24 bg-gradient-to-b from-white to-[#F9FCFF] relative overflow-hidden">
-      {/* 背景装飾 */}
       <div className="absolute top-20 left-4 sm:left-20 w-64 h-64 sm:w-96 sm:h-96 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-4 sm:right-20 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-4 sm:right-20 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl">      </div>
       
       <div className="relative max-w-[1200px] mx-auto px-4">
-        {/* セクションタイトル */}
         <div className="text-center mb-16">
           <span className="inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4">
             Contact
@@ -47,7 +44,6 @@ export default function ContactSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* 左側: 連絡先情報 */}
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-[#2C3E50] mb-6">お問い合わせ方法</h3>
@@ -84,7 +80,6 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* 右側: お問い合わせフォーム */}
           <div className="bg-white p-8 md:p-12 rounded-2xl shadow-xl border border-[#E6EAEE]">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>

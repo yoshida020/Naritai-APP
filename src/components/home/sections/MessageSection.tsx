@@ -1,68 +1,163 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+
 export default function MessageSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [visibleElements, setVisibleElements] = useState({
+    label: false,
+    title: false,
+    underline: false,
+    image: false,
+    background: false,
+    text1: false,
+    text2: false,
+    text3: false,
+    text4: false,
+    text5: false,
+    text6: false,
+    signature: false,
+  });
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          } else {
+            setIsVisible(false);
+            setVisibleElements({
+              label: false,
+              title: false,
+              underline: false,
+              image: false,
+              background: false,
+              text1: false,
+              text2: false,
+              text3: false,
+              text4: false,
+              text5: false,
+              text6: false,
+              signature: false,
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const timers: NodeJS.Timeout[] = [];
+    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, label: true })), 0));
+    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, title: true })), 0));
+    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, underline: true })), 0));
+    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, image: true })), 0));
+    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, background: true })), 0));
+    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text1: true })), 0));
+    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text2: true })), 0));
+    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text3: true })), 0));
+    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text4: true })), 200));
+    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text5: true })), 400));
+    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text6: true })), 600));
+    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, signature: true })), 800));
+
+    return () => {
+      timers.forEach(timer => clearTimeout(timer));
+    };
+  }, [isVisible]);
+
   return (
-    <section id="message" className="py-24 bg-gradient-to-b from-[#F9FCFF] to-white relative overflow-hidden">
-      {/* 背景装飾 */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-4 sm:left-20 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2] rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-4 sm:right-20 w-64 h-64 sm:w-96 sm:h-96 bg-[#5AB1E0] rounded-full blur-3xl"></div>
-      </div>
+    <section 
+      ref={sectionRef}
+      id="message" 
+      className="py-24 bg-gradient-to-b from-[#FFFFFF] to-white relative overflow-hidden"
+    >
+      <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl"></div>
       
-      <div className="relative max-w-[1200px] mx-auto px-4">
-        {/* セクションタイトル */}
-        <div className="text-center mb-16">
-          <span className="inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4">
+      <div className="relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+        <div className="text-center mb-12 md:mb-16">
+          <span 
+            className={`inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4 ${visibleElements.label ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}
+          >
             Message
           </span>
           <h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#2C3E50] mb-4"
+            className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#2C3E50] mb-4 ${visibleElements.title ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}
             style={{ fontFamily: 'Catchy Mager, serif' }}
           >
             代表メッセージ
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full"></div>
+          <div className={`w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full ${visibleElements.underline ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}></div>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative bg-white rounded-2xl shadow-2xl overflow-hidden border border-[#E6EAEE]">
-            {/* グラデーションヘッダー */}
-            <div className="h-2 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed]"></div>
-            
-            <div className="p-6 sm:p-8 md:p-12 lg:p-16">
-              {/* 代表者情報 */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 mb-8 pb-8 border-b border-[#E6EAEE]">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-[#517CA2] to-[#5AB1E0] flex items-center justify-center text-white text-xl sm:text-2xl font-bold shadow-lg flex-shrink-0">
-                  N
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-[#2C3E50] mb-1">
-                    代表取締役
-                  </h3>
-                  <p className="text-[#919CB7]">Naritai株式会社</p>
-                </div>
-              </div>
-
-              {/* メッセージ本文 */}
-              <div className="space-y-6">
-                <p className="text-lg md:text-xl text-[#2C3E50] leading-relaxed font-medium">
-                  「なりたい」を実現する。これは、私たちNaritai株式会社の根幹にある想いです。
+        <div className="grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-0 items-start relative">
+          <div className={`order-2 lg:order-1 bg-[#f0f0f0] sm:-mx-12 md:-mx-16 lg:-mx-24 xl:-mx-32 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 py-8 lg:py-12 ${visibleElements.background ? 'animate-slide-in-from-left' : 'opacity-0'}`}>
+            <div 
+              className="text-sm space-y-6 text-[#2C3E50] max-w-3xl mx-auto px-4 sm:px-8"
+              style={{ fontFamily: '"Noto Serif JP", serif' }}
+            >
+              <p className={` sm:text-lg md:text-xl leading-relaxed ${visibleElements.text1 ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}>
+                私たち自身も、キャリアに悩んだ経験があります。
+              </p>
+              <div className={`space-y-4 pl-4 border-l-2 border-[#5AB1E0]/30 ${visibleElements.text2 ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}>
+                <p className=" sm:text-lg md:text-xl leading-relaxed italic">
+                  「このままでいいのか」
                 </p>
-                <p className="text-base md:text-lg text-[#2C3E50] leading-relaxed">
-                  お客様一人ひとりが持つ「なりたい」という想いを、私たちは真摯に受け止め、共に実現への道を歩んでいきます。
-                  単なるサービス提供ではなく、お客様の成功を共に喜び、共に成長していくパートナーでありたいと考えています。
-                </p>
-                <p className="text-base md:text-lg text-[#2C3E50] leading-relaxed">
-                  最新のテクノロジーと豊富な経験、そして何よりお客様への誠実な姿勢で、
-                  これからもお客様の「なりたい」を実現するお手伝いをさせていただきます。
-                </p>
-                <p className="text-base md:text-lg text-[#919CB7] leading-relaxed italic pt-4 border-t border-[#E6EAEE]">
-                  皆様と共に、より良い未来を創っていきたいと願っています。
+                <p className=" sm:text-lg md:text-xl leading-relaxed italic">
+                  「自分は何がしたいのか」
                 </p>
               </div>
+              <p className={` sm:text-lg md:text-xl leading-relaxed ${visibleElements.text3 ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}>
+                ——そんな問いに向き合い続けた日々がありました。
+              </p>
+              <p className={` sm:text-lg md:text-xl leading-relaxed ${visibleElements.text4 ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}>
+                だからこそ、同じように悩む方々に寄り添い、一緒に答えを探していきたい。
+              </p>
+              <p className={` sm:text-lg md:text-xl leading-relaxed font-medium ${visibleElements.text5 ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}>
+                Naritaiは、そんな想いから生まれた会社です。
+              </p>
+              <p className={` sm:text-lg md:text-xl leading-relaxed ${visibleElements.text6 ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}>
+                あなたの<b>なりたい</b>を、私たちと一緒に見つけませんか。
+              </p>
+              <div className={`pt-6 mt-6 border-t border-[#E6EAEE] ${visibleElements.signature ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}>
+                <p className=" sm:text-lg font-semibold text-[#517CA2]">
+                  代表取締役
+                </p>
+                <p className="text-lg sm:text-xl font-bold text-[#2C3E50] mt-2">
+                  吉田 明加
+                </p>
+              </div>
+            </div>
+          </div>
 
-              {/* 署名 */}
-              <div className="mt-12 pt-8 border-t border-[#E6EAEE] text-right">
-                <p className="text-[#517CA2] font-semibold">Naritai株式会社</p>
-                <p className="text-[#919CB7] text-sm">代表取締役</p>
+          <div className="order-1 lg:order-2 px-4 sm:px-6 md:px-8 lg:px-12 py-8 lg:pt-16">
+            <div className={`relative w-full aspect-square max-w-sm sm:max-w-[480px] mx-auto lg:max-w-[520px] lg:-ml-8 xl:-ml-12 z-10 ${visibleElements.image ? 'animate-slide-in-from-right' : 'opacity-0'}`}>
+              <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src="/hp/message/representative.png"
+                  alt="代表取締役 吉田 明加"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
