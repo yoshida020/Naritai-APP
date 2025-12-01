@@ -49,10 +49,44 @@ export default function CorporateSection() {
     );
   };
 
+  const effects = [
+    {
+      title: '人材定着',
+      description: '早期離職を防ぎ、優秀な人材を定着させます。',
+      image: '/humanResources.png',
+    },
+    {
+      title: '静かな退職防止',
+      description: (
+        <>
+          早期の気づきと対話で、
+          <br />
+          「気づいたら辞めていた」をなくします。
+        </>
+      ),
+      image: '/quietDeparture.png',
+    },
+    {
+      title: '組織全体の成長',
+      description: '社員の成長が組織全体の成長につながります。',
+      image: '/organization.png',
+    },
+    {
+      title: '生産性向上',
+      description: 'モチベーション向上により生産性が向上します。',
+      image: '/productivity.png',
+    },
+    {
+      title: '早期離職防止',
+      description: '早期離職を防ぎ、優秀な人材を定着させます。',
+      image: '/retirementPrevention.png',
+    },
+  ];
+
   return (
     <section
       id="corporate"
-      className="w-full min-h-screen py-20 px-4 bg-white flex items-center justify-center md:min-h-auto md:py-16 md:px-4"
+      className="w-full min-h-screen py-20 px-4 bg-gradient-to-b from-[#F8FAFF] to-[#EFF3FF] flex items-center justify-center md:min-h-auto md:py-16 md:px-4"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center" ref={containerRef}>
         {renderAnimatedTitle()}
@@ -60,47 +94,34 @@ export default function CorporateSection() {
           導入による効果
         </p>
         <div className="mt-0">
-          <div className="grid grid-cols-5 gap-6 md:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 md:gap-4">
-            <div className="p-6 bg-[#F9FCFF] rounded-lg border border-[#E6EAEE] cursor-pointer md:p-5">
-              <h3 className="text-xl font-semibold text-[#517CA2] mb-4">
-                人材定着
-              </h3>
-              <p className="text-base leading-relaxed text-[#2C3E50]">
-                早期離職を防ぎ、優秀な人材を定着させます。
-              </p>
-            </div>
-            <div className="p-6 bg-[#F9FCFF] rounded-lg border border-[#E6EAEE] cursor-pointer md:p-5">
-              <h3 className="text-xl font-semibold text-[#517CA2] mb-4">
-                静かな退職防止
-              </h3>
-              <p className="text-base leading-relaxed text-[#2C3E50]">
-                早期離職を防ぎ、優秀な人材を定着させます。
-              </p>
-            </div>
-            <div className="p-6 bg-[#F9FCFF] rounded-lg border border-[#E6EAEE] cursor-pointer md:p-5">
-              <h3 className="text-xl font-semibold text-[#517CA2] mb-4">
-                組織全体の成長
-              </h3>
-              <p className="text-base leading-relaxed text-[#2C3E50]">
-                社員の成長が組織全体の成長につながります。
-              </p>
-            </div>
-            <div className="p-6 bg-[#F9FCFF] rounded-lg border border-[#E6EAEE] cursor-pointer md:p-5">
-              <h3 className="text-xl font-semibold text-[#517CA2] mb-4">
-                生産性向上
-              </h3>
-              <p className="text-base leading-relaxed text-[#2C3E50]">
-                モチベーション向上により生産性が向上します。
-              </p>
-            </div>
-            <div className="p-6 bg-[#F9FCFF] rounded-lg border border-[#E6EAEE] cursor-pointer md:p-5">
-              <h3 className="text-xl font-semibold text-[#517CA2] mb-4">
-                早期離職防止
-              </h3>
-              <p className="text-base leading-relaxed text-[#2C3E50]">
-                早期離職を防ぎ、優秀な人材を定着させます。
-              </p>
-            </div>
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 md:gap-4">
+            {effects.map((effect, index) => (
+              <div 
+                key={index} 
+                className="group relative p-6 bg-[#F9FCFF] rounded-lg border border-[#E6EAEE] cursor-pointer md:p-5 hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+              >
+                {/* 画像 */}
+                {effect.image ? (
+                  <div className="w-full mb-4 rounded-lg overflow-hidden flex items-center justify-center min-h-[120px] md:min-h-[160px] lg:min-h-[192px]">
+                    <img 
+                      src={effect.image} 
+                      alt={effect.title} 
+                      className="w-full h-auto max-h-[200px] md:max-h-[240px] lg:max-h-[280px] object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-full min-h-[120px] md:min-h-[160px] lg:min-h-[192px] mb-4 bg-[#F9FCFF] rounded-lg flex items-center justify-center border border-[#E6EAEE]">
+                    <span className="text-[#919CB7] text-xs">画像スペース</span>
+                  </div>
+                )}
+                <h3 className="text-xl font-semibold text-[#517CA2] mb-4 group-hover:text-[#5AB1E0] transition-colors">
+                  {effect.title}
+                </h3>
+                <p className="text-base leading-relaxed text-[#2C3E50]">
+                  {effect.description}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
