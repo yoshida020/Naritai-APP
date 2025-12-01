@@ -117,12 +117,14 @@ export default function ProblemsSection() {
   return (
     <section 
       id="problems" 
-      className="w-full min-h-screen py-8 px-4 bg-white flex items-center justify-center md:py-16 md:px-4"
+      className="w-full min-h-screen py-8 px-4 bg-white flex items-center justify-center md:py-16 md:px-4 overflow-x-hidden"
     >
-      <div className="max-w-[1200px] w-full mx-auto text-center md:max-w-full">
-        <h2 className="corporate-section-title text-[#2c3e50] mb-0 text-[clamp(14px,3.5vw,48px)] md:text-[clamp(32px,4vw,48px)] whitespace-nowrap overflow-hidden">
-          Z世代にこんなお悩みありませんか？
-        </h2>
+      <div className="max-w-[1200px] w-full mx-auto text-center md:max-w-full overflow-x-hidden">
+        <div className="w-full overflow-x-hidden box-border px-0 max-w-full">
+          <h2 className="corporate-section-title text-[#2c3e50] mb-8 md:mb-12 !text-[24px] md:!text-[clamp(32px,4vw,48px)] whitespace-nowrap block max-w-full overflow-hidden box-border">
+            Z世代にこんなお悩みありませんか？
+          </h2>
+        </div>
         
         <div className="w-full">
           {/* モバイル版：経営者画像と吹き出し（アニメーション切り替え） */}
@@ -206,62 +208,148 @@ export default function ProblemsSection() {
           </div>
 
           {/* PC版：経営者画像と吹き出し（すべて表示） */}
-          <div className="hidden md:flex md:flex-col md:items-center md:justify-center md:gap-0 md:px-4 2xl:hidden">
-            {/* 吹き出し（上、横一列） */}
-            <div className="flex flex-row gap-4 items-center justify-center flex-nowrap w-full overflow-x-auto">
-              {problems.map((problem, index) => (
+          <div className="hidden md:flex md:flex-col md:items-center md:justify-center md:gap-4 md:px-4 2xl:hidden">
+            {/* 上段：吹き出し3つ */}
+            <div className="flex flex-row gap-4 items-center justify-center flex-nowrap w-full">
+              {problems.slice(0, 3).map((problem, index) => (
                 <div key={index} className="relative flex-shrink-0" style={{ flexShrink: 0 }}>
                   <img 
                     src="/hukidasi.png" 
                     alt="吹き出し" 
                     className="w-auto h-auto"
-                    style={{ minWidth: '280px', maxWidth: '350px', width: 'auto', height: 'auto' }}
+                    style={{ 
+                      minWidth: '280px', 
+                      maxWidth: '350px', 
+                      width: 'auto', 
+                      height: 'auto',
+                      transform: index === 0 ? 'scaleX(-1)' : 'none'
+                    }}
                   />
                   {/* テキスト */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] text-[clamp(15px,1.3vw,18px)] font-medium text-[#2C3E50] text-center leading-relaxed">
+                  <div className="absolute top-[38%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] text-[24px] font-medium text-[#2C3E50] text-center leading-relaxed">
                     {problem}
                   </div>
                 </div>
               ))}
             </div>
             
-            {/* 経営者画像（下、中央揃え） */}
-            <div className="flex-shrink-0 flex items-center justify-center">
-              <img 
-                src="/nayami02.png" 
-                alt="経営者" 
-                className="w-auto h-auto max-w-[600px] max-h-[800px]"
-              />
+            {/* 下段：吹き出し2つと経営者画像（X座標を上段と揃える） */}
+            <div className="flex flex-row gap-4 items-center justify-center flex-nowrap w-full">
+              {/* 左の吹き出し（上段の1つ目とX座標を揃える） */}
+              <div className="relative flex-shrink-0" style={{ flexShrink: 0 }}>
+                <img 
+                  src="/hukidasi.png" 
+                  alt="吹き出し" 
+                  className="w-auto h-auto"
+                  style={{ 
+                    minWidth: '280px', 
+                    maxWidth: '350px', 
+                    width: 'auto', 
+                    height: 'auto',
+                    transform: 'scaleX(-1)'
+                  }}
+                />
+                {/* テキスト */}
+                <div className="absolute top-[38%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] text-[24px] font-medium text-[#2C3E50] text-center leading-relaxed">
+                  {problems[3]}
+                </div>
+              </div>
+              
+              {/* 経営者画像（中央） */}
+              <div className="flex-shrink-0 flex items-center justify-center">
+                <img 
+                  src="/nayami02.png" 
+                  alt="経営者" 
+                  className="w-auto h-auto max-w-[600px] max-h-[800px]"
+                />
+              </div>
+              
+              {/* 右の吹き出し（上段の3つ目とX座標を揃える） */}
+              <div className="relative flex-shrink-0" style={{ flexShrink: 0 }}>
+                <img 
+                  src="/hukidasi.png" 
+                  alt="吹き出し" 
+                  className="w-auto h-auto"
+                  style={{ minWidth: '280px', maxWidth: '350px', width: 'auto', height: 'auto' }}
+                />
+                {/* テキスト */}
+                <div className="absolute top-[38%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] text-[24px] font-medium text-[#2C3E50] text-center leading-relaxed">
+                  {problems[4]}
+                </div>
+              </div>
             </div>
           </div>
 
           {/* 広いPC版：経営者画像と吹き出し（すべて1行に） */}
-          <div className="hidden 2xl:flex 2xl:flex-col 2xl:items-center 2xl:justify-center 2xl:gap-0 2xl:px-4">
-            {/* 吹き出し（上、横一列） */}
+          <div className="hidden 2xl:flex 2xl:flex-col 2xl:items-center 2xl:justify-center 2xl:gap-4 2xl:px-4">
+            {/* 上段：吹き出し3つ */}
             <div className="flex flex-row gap-4 items-center justify-center flex-nowrap w-full">
-              {problems.map((problem, index) => (
+              {problems.slice(0, 3).map((problem, index) => (
                 <div key={index} className="relative flex-shrink-0" style={{ flexShrink: 0 }}>
                   <img 
                     src="/hukidasi.png" 
                     alt="吹き出し" 
                     className="w-auto h-auto"
-                    style={{ minWidth: '300px', maxWidth: '400px', width: 'auto', height: 'auto' }}
+                    style={{ 
+                      minWidth: '300px', 
+                      maxWidth: '400px', 
+                      width: 'auto', 
+                      height: 'auto',
+                      transform: index === 0 ? 'scaleX(-1)' : 'none'
+                    }}
                   />
                   {/* テキスト */}
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] text-[clamp(14px,1.1vw,16px)] font-medium text-[#2C3E50] text-center leading-relaxed">
+                  <div className="absolute top-[38%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] text-[24px] font-medium text-[#2C3E50] text-center leading-relaxed">
                     {problem}
                   </div>
                 </div>
               ))}
             </div>
             
-            {/* 経営者画像（下、中央揃え） */}
-            <div className="flex-shrink-0 flex items-center justify-center">
-              <img 
-                src="/nayami02.png" 
-                alt="経営者" 
-                className="w-auto h-auto max-w-[700px] max-h-[900px]"
-              />
+            {/* 下段：吹き出し2つと経営者画像 */}
+            <div className="flex flex-row gap-4 items-center justify-center flex-nowrap w-full">
+              {/* 左の吹き出し */}
+              <div className="relative flex-shrink-0" style={{ flexShrink: 0 }}>
+                <img 
+                  src="/hukidasi.png" 
+                  alt="吹き出し" 
+                  className="w-auto h-auto"
+                  style={{ 
+                    minWidth: '300px', 
+                    maxWidth: '400px', 
+                    width: 'auto', 
+                    height: 'auto',
+                    transform: 'scaleX(-1)'
+                  }}
+                />
+                {/* テキスト */}
+                <div className="absolute top-[38%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] text-[24px] font-medium text-[#2C3E50] text-center leading-relaxed">
+                  {problems[3]}
+                </div>
+              </div>
+              
+              {/* 経営者画像（中央） */}
+              <div className="flex-shrink-0 flex items-center justify-center">
+                <img 
+                  src="/nayami02.png" 
+                  alt="経営者" 
+                  className="w-auto h-auto max-w-[700px] max-h-[900px]"
+                />
+              </div>
+              
+              {/* 右の吹き出し */}
+              <div className="relative flex-shrink-0" style={{ flexShrink: 0 }}>
+                <img 
+                  src="/hukidasi.png" 
+                  alt="吹き出し" 
+                  className="w-auto h-auto"
+                  style={{ minWidth: '300px', maxWidth: '400px', width: 'auto', height: 'auto' }}
+                />
+                {/* テキスト */}
+                <div className="absolute top-[38%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[80%] text-[24px] font-medium text-[#2C3E50] text-center leading-relaxed">
+                  {problems[4]}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -273,7 +361,7 @@ export default function ProblemsSection() {
               className="w-full h-full object-contain"
             />
           </div>
-          <p className="text-[clamp(32px,8vw,96px)] md:text-[clamp(48px,6vw,120px)] font-bold text-[#517ca2] m-0 w-full whitespace-nowrap">
+          <p className="text-[clamp(32px,8vw,48px)] md:text-[clamp(48px,6vw,48px)] font-bold text-[#517ca2] m-0 w-full whitespace-nowrap">
             Naritaiがすべて解決します
           </p>
         </div>
