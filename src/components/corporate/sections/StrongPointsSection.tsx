@@ -84,73 +84,105 @@ export default function StrongPointsSection() {
     <section 
       ref={sectionRef}
       id="strong-points" 
-      className="w-full py-16 px-4 bg-[#F9FCFF] flex justify-center md:py-20 md:px-4"
+      className="w-full py-16 px-4 bg-gradient-to-b from-[#F8FAFF] to-[#EFF3FF] flex justify-center md:py-20 md:px-4"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center md:max-w-full">
-        <h2 className="corporate-section-title text-[#2C3E50] mb-12 md:mb-6">
-          私たちの強み
-        </h2>
-        {/* モバイル版：縦並び */}
-        <div className="grid grid-cols-1 gap-8 place-items-center sm:hidden">
+        {/* モバイル版：縦並び（1300px未満） */}
+        <div className="grid grid-cols-1 place-items-center xl:hidden" style={{ gap: '40px' }}>
+          <h2 className={`corporate-section-title text-[#2C3E50] mb-12 md:mb-6 ${isVisible ? 'hero-slide-up' : ''}`}>
+            私たちの強み
+          </h2>
           {points.map((point, index) => (
             <div 
               key={index} 
-              className="w-full max-w-[320px] mx-auto flex flex-col text-left"
+              className="w-full max-w-[320px] mx-auto flex flex-col text-left relative bg-white rounded-lg p-6"
             >
-              <div className="w-full mb-4 h-[200px] flex items-center justify-center overflow-hidden">
-                <img 
-                  src={point.image} 
-                  alt={point.title} 
-                  className="w-full h-full object-contain"
-                />
+              {/* ナンバリング - 右上固定、カードから飛び出すように大きく */}
+              <div 
+                className="absolute text-black font-bold"
+                style={{
+                  fontSize: '80px',
+                  lineHeight: '1',
+                  top: '-60px',
+                  right: '-20px',
+                  zIndex: 10,
+                  opacity: 0.3
+                }}
+              >
+                {String(index + 1).padStart(2, '0')}
               </div>
-              <h3 className="text-xl font-semibold text-[#517CA2] mb-4 pb-4 border-b-2 border-[#517CA2] text-center">
+              <h3 className="text-xl font-semibold text-[#517CA2] mb-4 text-center relative z-10">
                 {point.title}
               </h3>
-              <p className="text-base leading-relaxed text-[#2C3E50] pt-4 mb-8 md:mb-0">
+              <p className="text-base leading-relaxed text-[#2C3E50] mb-8 md:mb-0 relative z-10 text-center">
                 {point.description}
               </p>
             </div>
           ))}
         </div>
-        {/* PC版：左右交互配置 */}
-        <div className="hidden sm:flex sm:flex-col sm:gap-12 sm:w-full">
-          {points.map((point, index) => {
-            const isEven = index % 2 === 0;
-            return (
-              <div 
-                key={index} 
-                className="flex flex-row items-center gap-16 w-full"
-                style={{
-                  opacity: isVisible ? 1 : 0,
-                  transform: isVisible 
-                    ? `translateY(0)` 
-                    : `translateY(30px)`,
-                  transitionDelay: `${index * 100}ms`,
-                  transition: 'opacity 0.7s ease, transform 0.7s ease',
-                  flexDirection: isEven ? 'row' : 'row-reverse'
-                }}
-              >
-                {/* 画像 */}
-                <div className="flex-shrink-0 w-[45%] aspect-[4/3] flex items-center justify-center overflow-hidden">
-                  <img 
-                    src={point.image} 
-                    alt={point.title} 
-                    className="w-full h-full object-contain"
-                  />
+        {/* PC版（1300px以上） */}
+        <div className="hidden xl:block xl:w-full">
+          {/* タイトルと画像を横並び */}
+          <div className="flex flex-row items-center gap-16 mb-12">
+            <div className="flex-shrink-0 w-[50%] aspect-[4/3] flex items-center justify-center overflow-hidden">
+              <img 
+                src="/Whisk_926ab63a6059f709874449a5a8ce97c0dr.jpeg" 
+                alt="私たちの強み" 
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <div className="flex-1 w-[50%] flex items-center justify-center">
+              <h2 className={`corporate-section-title text-[#2C3E50] text-center ${isVisible ? 'hero-slide-up' : ''}`}>
+                私たちの強み
+              </h2>
+            </div>
+          </div>
+          {/* カード */}
+          <div className="relative w-full flex justify-center" style={{ minHeight: '600px' }}>
+            {points.map((point, index) => {
+              const isEven = index % 2 === 0;
+              // 右左右の配置を維持しつつ、中央寄せにする
+              const offsetX = isEven ? 350 : -350; // 右、左、右の配置（距離をさらに広げる）
+              // 1番目と3番目のカード（右側）は高さ方向にも離す、さらに120px上に移動
+              const offsetY = isEven ? index * 200 - 120 : index * 50; // 右側のカードは高さ方向に200px間隔、120px上に移動
+              return (
+                <div 
+                  key={index} 
+                  className="absolute"
+                  style={{
+                    transform: `translate(${offsetX}px, ${offsetY}px)`,
+                    left: '50%',
+                    marginLeft: '-250px', // カード幅の半分で中央に配置
+                    zIndex: points.length - index
+                  }}
+                >
+                  {/* テキストカード */}
+                  <div className="group w-[500px] flex flex-col text-left relative bg-white rounded-lg p-8 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 cursor-pointer">
+                    {/* ナンバリング - 右上固定、カードから飛び出すように大きく */}
+                    <div 
+                      className="absolute text-black font-bold transition-all duration-300 group-hover:opacity-0.5 group-hover:scale-110"
+                      style={{
+                        fontSize: '120px',
+                        lineHeight: '1',
+                        top: '-80px',
+                        right: '-40px',
+                        zIndex: 10,
+                        opacity: 0.3
+                      }}
+                    >
+                      {String(index + 1).padStart(2, '0')}
+                    </div>
+                    <h3 className="text-[22px] md:text-[28px] font-semibold text-[#517CA2] mb-4 text-center relative z-10 transition-colors duration-300 group-hover:text-[#5AB1E0]">
+                      {point.title}
+                    </h3>
+                    <p className="text-[18px] md:text-[24px] leading-relaxed text-[#2C3E50] text-center relative z-10 transition-opacity duration-300 group-hover:opacity-90">
+                      {point.description}
+                    </p>
+                  </div>
                 </div>
-                {/* テキスト */}
-                <div className="flex-1 flex flex-col text-left">
-                  <h3 className="text-[22px] md:text-[28px] font-semibold text-[#517CA2] mb-4 pb-4 border-b-2 border-[#517CA2] text-center">
-                    {point.title}
-                  </h3>
-                  <p className="text-[18px] md:text-[24px] leading-relaxed text-[#2C3E50] pt-4 text-center">
-                    {point.description}
-                  </p>
-                </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

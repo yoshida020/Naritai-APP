@@ -50,29 +50,29 @@ export default function FlowSection() {
               
               {/* カード（モバイル版：最大幅400px、PC・タブレット版：正方形、横幅を小さく、レスポンシブ） */}
               <div className="w-full max-w-[400px] md:max-w-none md:w-[180px] md:h-[180px] lg:w-[200px] lg:h-[200px] flex flex-col items-center justify-center relative border border-black rounded-lg p-4 flex-shrink-0">
-                {/* モバイル版：左右レイアウト */}
-                <div className="w-full flex flex-row items-center gap-4 md:hidden">
-                  {/* 左側：画像フィールド（中央揃え） */}
-                  <div className="flex-shrink-0 w-24 h-24 flex items-center justify-center overflow-hidden">
-                    {step.image ? (
-                      <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
-                    ) : (
-                      <span className="text-gray-400 text-xs">画像</span>
-                    )}
+              {/* モバイル版：左右レイアウト */}
+              <div className="w-full flex flex-row items-center gap-4 md:hidden">
+                {/* 左側：画像フィールド（中央揃え） */}
+                <div className="flex-shrink-0 w-24 h-24 flex items-center justify-center overflow-hidden">
+                  {step.image ? (
+                    <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
+                  ) : (
+                    <span className="text-gray-400 text-xs">画像</span>
+                  )}
+                </div>
+                
+                {/* 右側：STEP番号と本文（中央揃え） */}
+                <div className="flex-1 flex flex-col items-center justify-center">
+                  {/* STEP番号表示（上部） */}
+                  <div className="w-auto h-auto flex items-center justify-center bg-transparent text-[#517CA2] text-lg font-semibold mb-2">
+                    STEP {step.number}
                   </div>
-                  
-                  {/* 右側：STEP番号と本文（中央揃え） */}
-                  <div className="flex-1 flex flex-col items-center justify-center">
-                    {/* STEP番号表示（上部） */}
-                    <div className="w-auto h-auto flex items-center justify-center bg-transparent text-[#517CA2] text-lg font-semibold mb-2">
-                      STEP {step.number}
-                    </div>
-                    {/* タイトルと説明（下部） */}
-                    <div className="flex flex-col items-center">
-                      <h3 className="text-lg font-semibold text-[#2C3E50] mb-1">
-                        {step.title}
-                      </h3>
-                      <p className="text-sm leading-relaxed text-[#919CB7] text-center">
+                  {/* タイトルと説明（下部） */}
+                  <div className="flex flex-col items-center">
+                    <h3 className="text-lg font-semibold text-[#2C3E50] mb-1">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-[#919CB7] text-center">
                         {Array.isArray(step.description) ? (
                           <>
                             {step.description[0]}
@@ -117,12 +117,12 @@ export default function FlowSection() {
                 <>
                   {/* モバイル版：下向き矢印 */}
                   <div className="absolute bottom-[-48px] left-1/2 transform -translate-x-1/2 w-12 h-12 flex items-center justify-center md:hidden">
-                    <img 
-                      src="/allow.png" 
-                      alt="矢印" 
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
+                  <img 
+                    src="/allow.png" 
+                    alt="矢印" 
+                    className="w-full h-full object-contain"
+                  />
+                </div>
                   {/* PC・タブレット版：左向き矢印（カードの中央に配置、レスポンシブ、少し低め） */}
                   <div className="hidden md:flex absolute right-[-30px] top-[calc(160px+16px+90px+20px)] lg:top-[calc(192px+16px+100px+20px)] transform -translate-y-1/2 w-12 h-12 items-center justify-center">
                     <img 
