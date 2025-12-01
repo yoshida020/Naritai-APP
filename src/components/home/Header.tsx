@@ -142,17 +142,17 @@ export default function Header() {
 
   return (
     <>
-      <div className="fixed top-0 right-0 w-[60px] h-[60px] md:w-[160px] md:h-[90px] lg:w-[175px] lg:h-[100px] bg-[#202D5F] z-[1001] rounded-bl-3xl flex flex-col items-center justify-center overflow-hidden hover:bg-[#2a3a6f] hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
+      <div className="fixed top-0 right-0 w-[60px] h-[60px] lg:w-[160px] lg:h-[90px] xl:w-[175px] xl:h-[100px] bg-[#202D5F] z-[1001] rounded-bl-3xl flex flex-col items-center justify-center overflow-hidden hover:bg-[#2a3a6f] hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer">
         <a
           href="#contact"
-          className="hidden md:flex flex-col items-center justify-center w-full h-full"
+          className="hidden lg:flex flex-col items-center justify-center w-full h-full"
           onClick={(e) => handleLinkClick(e, '#contact')}
         >
           <span className="text-white font-bold text-base" style={{ fontFamily: '"游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif' }}>INVOICE</span>
           <span className="text-white font-bold text-base" style={{ fontFamily: '"游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif' }}>資料請求</span>
         </a>
         <button
-          className="md:hidden flex items-center justify-center w-full h-full relative"
+          className="lg:hidden flex items-center justify-center w-full h-full relative"
           onClick={toggleMobileMenu}
           aria-label={isMobileMenuOpen ? "メニューを閉じる" : "メニューを開く"}
         >
@@ -182,7 +182,7 @@ export default function Header() {
         <div className="w-full py-2 flex items-center justify-between flex-wrap gap-4">
           <a
             href="/"
-            className="flex items-center transition-opacity duration-300 hover:opacity-80 pl-4 md:pl-8"
+            className="flex items-center transition-opacity duration-300 hover:opacity-80 pl-4 lg:pl-8"
             onClick={(e) => {
               e.preventDefault();
               window.location.href = '/';
@@ -191,10 +191,10 @@ export default function Header() {
             <img
               src="/naritai.png"
               alt="Naritai"
-              className="h-[30px] md:h-[50px] lg:h-[60px] w-auto object-contain"
+              className="h-[30px] lg:h-[50px] xl:h-[60px] w-auto object-contain"
             />
           </a>
-          <nav className="hidden md:block pr-[180px] lg:pr-[195px]">
+          <nav className="hidden lg:block pr-[180px] xl:pr-[195px]">
             <ul className="flex list-none gap-0 m-0 p-0 items-center flex-wrap justify-end">
               <li className="flex items-center">
                 <a
@@ -304,7 +304,7 @@ export default function Header() {
         </div>
 
         <div
-          className={`fixed top-0 left-0 w-full h-screen bg-white z-[999] flex items-center justify-center md:hidden transition-transform duration-300 ease-in-out ${isMobileMenuOpen
+          className={`fixed top-0 left-0 w-full h-screen bg-white z-[999] flex items-center justify-center lg:hidden transition-transform duration-300 ease-in-out ${isMobileMenuOpen
             ? 'translate-x-0'
             : 'translate-x-full pointer-events-none'
             }`}
