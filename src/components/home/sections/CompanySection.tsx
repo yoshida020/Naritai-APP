@@ -1,3 +1,5 @@
+import { SectionTitle } from '../SectionTitle';
+
 export default function CompanySection() {
   const companyInfo = [
     { label: '会社名', value: 'Naritai' },
@@ -8,22 +10,13 @@ export default function CompanySection() {
   ];
 
   return (
-    <section id="company" className="py-24 bg-gradient-to-b from-[#FFFFFF] to-white relative overflow-hidden">
+    <section id="company" className="py-24 bg-[#f0f0f0] relative overflow-hidden">
       <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl">      </div>
       
       <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="text-center mb-12 md:mb-16">
-          <span className="inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4">
-            Company
-          </span>
-          <h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#2C3E50] mb-4"
-            style={{ fontFamily: 'Catchy Mager, serif' }}
-          >
-            会社情報
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full"></div>
+        <div className="mb-12 md:mb-16">
+          <SectionTitle enTitle="Company" jaTitle="会社情報" />
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">

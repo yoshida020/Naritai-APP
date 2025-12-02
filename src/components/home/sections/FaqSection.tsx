@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { SectionTitle } from '../SectionTitle';
 
 interface FaqItem {
   question: string;
@@ -8,6 +9,8 @@ interface FaqItem {
 }
 
 export default function FaqSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const faqItems: FaqItem[] = [
@@ -29,88 +32,92 @@ export default function FaqSection() {
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section id="faq" className="py-24 bg-white relative overflow-hidden">
+    <section ref={sectionRef} id="faq" className="py-24 bg-white relative overflow-hidden">
+      {/* 背景装飾 */}
       <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl">      </div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl"></div>
       
-      <div className="relative max-w-[1200px] mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4">
-            FAQ
-          </span>
-          <h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#2C3E50] mb-4"
-            style={{ fontFamily: 'Catchy Mager, serif' }}
-          >
-            よくある質問
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full"></div>
-          <p className="mt-6 text-lg text-[#919CB7] max-w-2xl mx-auto">
-            お客様からよくいただくご質問と回答をまとめました
-          </p>
+      <div className="relative max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8">
+        {/* ヘッダー */}
+        <div className={`mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <SectionTitle enTitle="FAQ" jaTitle="よくある質問" />
         </div>
 
-        <div className="max-w-3xl mx-auto space-y-4">
-          {faqItems.map((faq, index) => (
-            <div
+        <div className="space-y-4">
+          {faqItems.map((item, index) => (
+            <div 
               key={index}
-              className="group border-2 border-[#E6EAEE] rounded-xl overflow-hidden bg-white hover:border-[#5AB1E0] hover:shadow-lg transition-all duration-300"
+              className={`bg-white rounded-2xl border border-gray-100 shadow-sm transition-all duration-700 hover:shadow-md ${
+                isVisible 
+                  ? 'opacity-100 translate-y-0' 
+                  : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <button
                 onClick={() => toggleFaq(index)}
-                className="w-full p-6 md:p-8 text-left flex justify-between items-center hover:bg-[#F9FCFF] transition-colors"
+                className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group"
+                aria-expanded={openIndex === index}
               >
-                <span className="text-lg md:text-xl font-semibold text-[#2C3E50] pr-4 group-hover:text-[#517CA2] transition-colors">
-                  {faq.question}
+                <span className="text-lg font-bold text-[#2C3E50] group-hover:text-[#5AB1E0] transition-colors duration-300 pr-8">
+                  {item.question}
                 </span>
-                <div className={`flex-shrink-0 w-10 h-10 rounded-full bg-[#F9FCFF] group-hover:bg-[#5AB1E0] flex items-center justify-center transition-all duration-300 ${
-                  openIndex === index ? 'bg-[#5AB1E0]' : ''
-                }`}>
-                  <svg
-                    className={`w-5 h-5 text-[#517CA2] transition-all duration-300 ${
-                      openIndex === index ? 'rotate-180 text-white' : 'group-hover:text-white'
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </div>
+                <span className="relative flex-shrink-0 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#5AB1E0]/10 transition-colors duration-300">
+                  {/* プラス/マイナスアイコンのアニメーション */}
+                  <span className={`absolute w-4 h-0.5 bg-[#5AB1E0] transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}></span>
+                  <span className={`absolute w-4 h-0.5 bg-[#5AB1E0] transition-transform duration-300 ${openIndex === index ? 'rotate-180 opacity-0' : 'rotate-90'}`}></span>
+                </span>
               </button>
-              <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+              
+              <div 
+                className={`grid transition-[grid-template-rows] duration-300 ease-out ${
+                  openIndex === index ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
                 }`}
               >
-                <div className="p-6 md:p-8 pt-0 bg-[#F9FCFF] border-t border-[#E6EAEE]">
-                  <p className="text-base md:text-lg text-[#2C3E50] leading-relaxed">
-                    {faq.answer}
-                  </p>
+                <div className="overflow-hidden">
+                  <div className="px-6 pb-6 pt-0 text-[#4a5568] leading-relaxed">
+                    <div className="pt-4 border-t border-gray-100">
+                       {item.answer}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-
-        <div className="mt-12 text-center">
-          <p className="text-[#919CB7] mb-4">
-            他にご質問がございましたら、お気軽にお問い合わせください
-          </p>
-          <a
-            href="#contact"
-            className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#517CA2] to-[#5AB1E0] text-white text-sm sm:text-base font-semibold rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
-          >
-            お問い合わせはこちら
-          </a>
-        </div>
       </div>
     </section>
   );
 }
-

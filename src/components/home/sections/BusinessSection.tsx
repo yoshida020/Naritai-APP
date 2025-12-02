@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { SectionTitle } from '../SectionTitle';
 
 export default function BusinessSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -71,17 +72,8 @@ export default function BusinessSection() {
       <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl"></div>
       
       <div className="relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="text-center mb-16">
-          <span className="inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4">
-            Business
-          </span>
-          <h2 
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#2C3E50] mb-4"
-            style={{ fontFamily: 'Catchy Mager, serif' }}
-          >
-            事業内容
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full"></div>
+        <div className="mb-16">
+          <SectionTitle enTitle="Business" jaTitle="事業内容" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { newsItems } from '@/lib/news';
+import { SectionTitle } from '../SectionTitle';
 
 export default function NewsSection() {
   const [showAll, setShowAll] = useState(false);
@@ -26,17 +27,8 @@ export default function NewsSection() {
   return (
     <section id="news" className="py-24 bg-[#F0F0F0] relative overflow-hidden">
       <div className="relative max-w-[1200px] mx-auto px-4">
-        <div className="text-center mb-8 lg:hidden">
-          <span className="inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4">
-            News
-          </span>
-          <h2 
-            className="text-3xl sm:text-4xl font-semibold text-gray-900 mb-4"
-            style={{ fontFamily: 'Catchy Mager, serif' }}
-          >
-            最新情報
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full"></div>
+        <div className="mb-8 lg:hidden">
+          <SectionTitle enTitle="News" jaTitle="最新情報" />
         </div>
 
         <div className="bg-white rounded-xl p-8 lg:p-12">
