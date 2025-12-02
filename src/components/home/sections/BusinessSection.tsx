@@ -1,34 +1,76 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
+
 export default function BusinessSection() {
-  const businesses = [
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [visibleCards, setVisibleCards] = useState<boolean[]>([false, false]);
+
+  const services = [
     {
-      icon: '💼',
-      title: 'コンサルティング事業',
-      description: 'ビジネス戦略から実行まで、トータルサポートを提供します。',
-      gradient: 'from-[#517CA2] to-[#5AB1E0]',
-      bgGradient: 'from-[#F9FCFF] to-[#E6EAEE]',
+      title: '個人向けサービス',
+      description: 'モヤモヤを言葉にする為の1on1。<br />次の一歩を一緒に。<br />キャリアに悩む20代後半～30代の社会人の方へ。国家資格を持つコーチが、あなたの思いを丁寧に引き出し、納得の行くキャリア選択をサポートします。',
+      image: '/service01.png',
+      link: '/individual',
     },
     {
-      icon: '💻',
-      title: 'システム開発',
-      description: '最新技術を活用した、高品質なシステム開発サービスです。',
-      gradient: 'from-[#5AB1E0] to-[#517CA2]',
-      bgGradient: 'from-[#F9FCFF] to-white',
-    },
-    {
-      icon: '📈',
-      title: 'デジタルマーケティング',
-      description: 'データドリブンなアプローチで、成果を最大化します。',
-      gradient: 'from-[#517CA2] to-[#6AA5CE]',
-      bgGradient: 'from-[#E6EAEE] to-[#F9FCFF]',
+      title: '法人向けサービス',
+      description: '離職を防ぎ、納得感あるキャリアを育む<br />個人支援プログラム。<br />若手社員の離職防止とキャリア自立を支援。1on1コーチングを通じて、社員一人ひとりが自分らしいキャリアを描ける環境づくりをお手伝いします。',
+      image: '/service02.png',
+      link: '/corporate',
     },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          } else {
+            setIsVisible(false);
+            setVisibleCards([false, false]);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    const timers: NodeJS.Timeout[] = [];
+    timers.push(setTimeout(() => setVisibleCards([true, false]), 200));
+    timers.push(setTimeout(() => setVisibleCards([true, true]), 400));
+
+    return () => {
+      timers.forEach(timer => clearTimeout(timer));
+    };
+  }, [isVisible]);
+
   return (
-    <section id="business" className="py-24 bg-white relative overflow-hidden">
+    <section ref={sectionRef} id="business" className="py-24 bg-white relative overflow-hidden">
       <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl">      </div>
+      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl"></div>
       
-      <div className="relative max-w-[1200px] mx-auto px-4">
+      <div className="relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="text-center mb-16">
           <span className="inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4">
             Business
@@ -40,74 +82,60 @@ export default function BusinessSection() {
             事業内容
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full"></div>
-          <p className="mt-6 text-lg text-[#919CB7] max-w-2xl mx-auto">
-            お客様のビジネス成長をサポートする、多様なサービスを提供しています
-          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {businesses.map((business, index) => (
-            <div
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+          {services.map((service, index) => (
+            <Link
               key={index}
-              className="group relative bg-white rounded-2xl shadow-lg hover:shadow-2xl border border-[#E6EAEE] overflow-hidden hover:-translate-y-2 transition-all duration-300"
+              href={service.link}
+              className={`group block transition-all duration-700 ${
+                visibleCards[index]
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 translate-y-8'
+              }`}
             >
-              <div className={`h-2 bg-gradient-to-r ${business.gradient}`}></div>
-              
-              <div className="p-8">
-                <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-xl bg-gradient-to-br ${business.gradient} flex items-center justify-center text-2xl sm:text-3xl mb-6 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300 shadow-lg`}>
-                  {business.icon}
+              <div className="bg-white rounded-lg overflow-hidden shadow-md">
+                <div className="relative w-full h-64 md:h-80 lg:h-96 overflow-hidden bg-[#F9FCFF]">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-[#2C3E50] mb-4 group-hover:text-[#517CA2] transition-colors">
-                  {business.title}
-                </h3>
-                
-                <p className="text-[#919CB7] leading-relaxed mb-6">
-                  {business.description}
-                </p>
-                
-                <a
-                  href="#contact"
-                  className="inline-flex items-center text-[#517CA2] font-semibold group-hover:text-[#5AB1E0] transition-colors"
-                >
-                  詳しく見る
-                  <svg
-                    className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </a>
+                <div className="p-6 md:p-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl md:text-xl font-bold text-[#2C3E50] group-hover:text-[#5AB1E0] transition-colors">
+                      {service.title}
+                    </h3>
+                    <svg
+                      className="w-6 h-6 text-[#2C3E50] group-hover:text-[#5AB1E0] transition-all duration-300 group-hover:translate-x-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
+                  <p className="text-base md:text-lg text-[#2C3E50] leading-relaxed">
+                    {service.description.split('<br />').map((text, index, array) => (
+                      <span key={index}>
+                        {text}
+                        {index < array.length - 1 && <br />}
+                      </span>
+                    ))}
+                  </p>
+                </div>
               </div>
-              
-              <div className={`absolute inset-0 bg-gradient-to-br ${business.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10`}></div>
-            </div>
+            </Link>
           ))}
-        </div>
-
-        <div className="mt-16 text-center">
-          <div className="inline-block bg-gradient-to-r from-[#517CA2] to-[#5AB1E0] rounded-2xl p-8 md:p-12 shadow-xl">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
-              お客様のビジネスをサポートします
-            </h3>
-            <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-              どのサービスも、お客様の成功を第一に考えて提供しています。
-              お気軽にお問い合わせください。
-            </p>
-            <a
-              href="#contact"
-              className="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#517CA2] font-semibold rounded-full hover:bg-gray-100 hover:-translate-y-1 transition-all duration-300 shadow-lg"
-            >
-              お問い合わせはこちら
-            </a>
-          </div>
         </div>
       </div>
     </section>

@@ -99,7 +99,16 @@ export default function Header() {
     window.addEventListener('scroll', checkTopSection, { passive: true });
 
     const handleHashScroll = () => {
-      if (window.location.hash) {
+      const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+      const isReload = navigation?.type === 'reload';
+      
+      if (isReload && window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname);
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        return;
+      }
+    
+      if (!isReload && window.location.hash) {
         const hash = window.location.hash;
         const scrollToHash = () => {
           scrollToSection(hash);
