@@ -10,7 +10,7 @@ export default function Footer() {
       
       <FeatherBackground />
       
-      <div className="relative max-w-[1200px] mx-auto px-4 py-16">
+      <div className="relative max-w-[1200px] mx-auto px-4 py-8 md:py-16">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
           <div className="col-span-2 md:col-span-1">
             <div className="mb-6">
@@ -105,7 +105,7 @@ export default function Footer() {
         </div>
 
         <div className="border-t border-white/10 pt-8 mt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-200">
+          <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-4 text-sm text-gray-200">
             <p>&copy; 2025 Naritai株式会社. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="/legal/privacy-policy" className="hover:text-white transition-colors">プライバシーポリシー</a>

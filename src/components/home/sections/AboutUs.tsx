@@ -264,7 +264,7 @@ export default function AboutUsSection() {
                       letterSpacing: '0.08em'
                     }}
                   >
-                    "Naritai"
+                    Naritai
                   </span>
                   から未来が動き出します。
                 </div>
