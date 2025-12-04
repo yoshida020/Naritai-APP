@@ -242,7 +242,7 @@ export default function Header({ config }: HeaderProps) {
             />
           </a>
           <nav className="hidden lg:block pr-[180px] xl:pr-[195px]">
-            <ul className="flex list-none gap-0 m-0 p-0 items-center flex-wrap justify-end">
+            <ul className="flex list-none gap-8 items-center flex-wrap justify-end m-0 p-0">
               {config.headerLinks.map((link, index) => (
                 <li key={link.href} className="flex items-center">
                   <a
@@ -255,9 +255,6 @@ export default function Header({ config }: HeaderProps) {
                     <span className={`absolute bottom-0 left-1/2 h-[1px] bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] transform -translate-x-1/2 ${activeSection === link.href ? 'w-full' : 'w-0 group-hover:w-full'
                       }`}></span>
                   </a>
-                  {index < config.headerLinks.length - 1 && (
-                    <span className="text-[17px] text-[var(--header-text)] mx-2">/</span>
-                  )}
                 </li>
               ))}
             </ul>
