@@ -1,6 +1,12 @@
+'use client';
+
+import { useEffect, useRef, useState } from 'react';
 import { SectionTitle } from '../SectionTitle';
 
 export default function CompanySection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  
   const companyInfo = [
     { label: '会社名', value: 'Naritai' },
     { label: '所在地', value: '東京都港区南青山3丁目1番36号' },
@@ -9,25 +15,53 @@ export default function CompanySection() {
     { label: '代表', value: '吉田 明加' },
   ];
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section id="company" className="py-24 bg-[#f0f0f0] relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl">      </div>
-      
+    <section ref={sectionRef} id="company" className="py-24 bg-[#f0f0f0] relative overflow-hidden">
       <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="mb-12 md:mb-16">
+        <div className={`mb-12 md:mb-16 transition-all duration-700 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`}>
           <SectionTitle enTitle="Company" jaTitle="会社情報" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start transition-all duration-700 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        }`} style={{ transitionDelay: '200ms' }}>
           <div>
             {companyInfo.map((info, index) => (
               <div
                 key={index}
-                className={`grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 py-4 md:py-6 ${index !== companyInfo.length - 1 ? 'border-b border-[#E6EAEE]' : ''}`}
+                className={`grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 py-4 md:py-6 ${index !== companyInfo.length - 1 ? 'border-b-2 border-dotted border-[#517CA2]' : ''}`}
               >
                 <div className="md:col-span-1">
-                  <h3 className="text-sm sm:text-base font-semibold text-[#5AB1E0] uppercase tracking-wider">
+                  <h3 className="text-sm sm:text-base font-semibold text-[#517CA2] uppercase tracking-wider">
                     {info.label}
                   </h3>
                 </div>

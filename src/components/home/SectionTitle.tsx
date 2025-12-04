@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface SectionTitleProps {
+type SectionTitleProps = {
   enTitle: string;
   jaTitle: string;
   className?: string;
@@ -15,7 +15,7 @@ export const SectionTitle = ({
   jaTitle,
   className = '',
   titleColor = 'text-[#2C3E50]',
-  enColor = 'text-[#202D5F]/10',
+  enColor = 'text-[#202D5F]/5',
   enClassName = '',
   jaClassName = ''
 }: SectionTitleProps) => {
@@ -33,6 +33,7 @@ export const SectionTitle = ({
             whiteSpace: 'nowrap',
             lineHeight: 1,
             width: '100%',
+            letterSpacing: '-0.02em',
           }}
         >
           {enTitle}
@@ -40,8 +41,8 @@ export const SectionTitle = ({
       </div>
 
       <h2
-        className={`col-start-1 row-start-1 relative z-10 text-xl sm:text-3xl md:text-4xl font-bold ${titleColor} tracking-wider translate-y-1 sm:translate-y-2 md:translate-y-3 ${jaClassName}`}
-        style={{ fontFamily: 'Catchy Mager, serif', lineHeight: 1 }}
+        className={`col-start-1 row-start-1 relative z-10 font-bold ${titleColor} tracking-wider translate-y-1 sm:translate-y-2 md:translate-y-3 ${jaClassName}`}
+        style={{ fontFamily: 'Catchy Mager, serif', lineHeight: 1, fontSize: '22px' }}
       >
         {jaTitle}
       </h2>

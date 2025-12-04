@@ -1,11 +1,13 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { newsItems } from '@/lib/news';
 import { SectionTitle } from '../SectionTitle';
 
 export default function NewsSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
   const [showAll, setShowAll] = useState(false);
 
   const initialDisplayCount = 3;
@@ -24,8 +26,35 @@ export default function NewsSection() {
     };
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
+
   return (
-    <section id="news" className="py-24 bg-[#F0F0F0] relative overflow-hidden">
+    <section ref={sectionRef} id="news" className="py-24 bg-[#F0F0F0] relative overflow-hidden">
       <div className="relative max-w-[1200px] mx-auto px-4">
         <div className="mb-8 lg:hidden">
           <SectionTitle enTitle="News" jaTitle="最新情報" />

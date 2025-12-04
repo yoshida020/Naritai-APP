@@ -65,10 +65,6 @@ export default function FaqSection() {
 
   return (
     <section ref={sectionRef} id="faq" className="py-24 bg-white relative overflow-hidden">
-      {/* 背景装飾 */}
-      <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl"></div>
-      
       <div className="relative max-w-[1000px] mx-auto px-4 sm:px-6 md:px-8">
         {/* ヘッダー */}
         <div className={`mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
@@ -76,13 +72,15 @@ export default function FaqSection() {
         </div>
 
         <div className="space-y-4">
-          {faqItems.map((item, index) => (
+          {faqItems.map((item, index) => {
+            const isEven = index % 2 === 0;
+            return (
             <div 
               key={index}
               className={`bg-white rounded-2xl border border-gray-100 shadow-sm transition-all duration-700 hover:shadow-md ${
                 isVisible 
-                  ? 'opacity-100 translate-y-0' 
-                  : 'opacity-0 translate-y-8'
+                  ? 'opacity-100 translate-x-0' 
+                  : `opacity-0 ${isEven ? '-translate-x-12' : 'translate-x-12'}`
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
@@ -91,13 +89,13 @@ export default function FaqSection() {
                 className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none group"
                 aria-expanded={openIndex === index}
               >
-                <span className="text-lg font-bold text-[#2C3E50] group-hover:text-[#5AB1E0] transition-colors duration-300 pr-8">
+                <span className="text-lg font-bold text-[#2C3E50] group-hover:text-[#517CA2] transition-colors duration-300 pr-8">
                   {item.question}
                 </span>
-                <span className="relative flex-shrink-0 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#5AB1E0]/10 transition-colors duration-300">
+                <span className="relative flex-shrink-0 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#517CA2]/10 transition-colors duration-300">
                   {/* プラス/マイナスアイコンのアニメーション */}
-                  <span className={`absolute w-4 h-0.5 bg-[#5AB1E0] transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}></span>
-                  <span className={`absolute w-4 h-0.5 bg-[#5AB1E0] transition-transform duration-300 ${openIndex === index ? 'rotate-180 opacity-0' : 'rotate-90'}`}></span>
+                  <span className={`absolute w-4 h-0.5 bg-[#517CA2] transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}></span>
+                  <span className={`absolute w-4 h-0.5 bg-[#517CA2] transition-transform duration-300 ${openIndex === index ? 'rotate-180 opacity-0' : 'rotate-90'}`}></span>
                 </span>
               </button>
               
@@ -115,7 +113,8 @@ export default function FaqSection() {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

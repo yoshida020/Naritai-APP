@@ -45,7 +45,7 @@
     /* Colors - Brand */
     --color-brand-primary: #517CA2;
     --color-brand-secondary: #6AA5CE;
-    --color-brand-accent: #5AB1E0;
+    --color-brand-accent: #517CA2;
     --color-brand-light: #5B87AE;
     --color-brand-dark: #517CA2;
 
@@ -74,7 +74,7 @@
     --color-status-success: #22C55E;
     --color-status-warning: #F59E0B;
     --color-status-error: #EF4444;
-    --color-status-info: #5AB1E0;
+    --color-status-info: #517CA2;
 
     /* Typography */
     --font-family-primary: system-u i, -apple-syste m, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;

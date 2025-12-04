@@ -6,6 +6,7 @@ import { SectionTitle } from '../SectionTitle';
 export default function MessageSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const hasAnimatedRef = useRef(false);
   const [visibleElements, setVisibleElements] = useState({
     label: false,
     title: false,
@@ -29,20 +30,23 @@ export default function MessageSection() {
             setIsVisible(true);
           } else {
             setIsVisible(false);
-            setVisibleElements({
-              label: false,
-              title: false,
-              underline: false,
-              image: false,
-              background: false,
-              text1: false,
-              text2: false,
-              text3: false,
-              text4: false,
-              text5: false,
-              text6: false,
-              signature: false,
-            });
+            // 一度アニメーションが実行されたら、リセットしない
+            if (!hasAnimatedRef.current) {
+              setVisibleElements({
+                label: false,
+                title: false,
+                underline: false,
+                image: false,
+                background: false,
+                text1: false,
+                text2: false,
+                text3: false,
+                text4: false,
+                text5: false,
+                text6: false,
+                signature: false,
+              });
+            }
           }
         });
       },
@@ -65,21 +69,29 @@ export default function MessageSection() {
   }, []);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible || hasAnimatedRef.current) return;
 
+    // アニメーションが開始されたことを記録
+    hasAnimatedRef.current = true;
+
+    // バッチ1: 即座に表示する要素（1回のsetStateで処理）
+    setVisibleElements(prev => ({
+      ...prev,
+      label: true,
+      title: true,
+      underline: true,
+      image: true,
+      background: true,
+      text1: true,
+      text2: true,
+      text3: true,
+    }));
+
+    // バッチ2-4: 段階的に表示する要素（タイマー数を削減）
     const timers: NodeJS.Timeout[] = [];
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, label: true })), 0));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, title: true })), 0));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, underline: true })), 0));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, image: true })), 0));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, background: true })), 0));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text1: true })), 0));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text2: true })), 0));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text3: true })), 0));
     timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text4: true })), 200));
     timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text5: true })), 400));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text6: true })), 600));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, signature: true })), 800));
+    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text6: true, signature: true })), 600));
 
     return () => {
       timers.forEach(timer => clearTimeout(timer));
@@ -91,10 +103,7 @@ export default function MessageSection() {
       ref={sectionRef}
       id="message" 
       className="py-24 bg-gradient-to-b from-[#FFFFFF] to-white relative overflow-hidden"
-    >
-      <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl"></div>
-      
+    > 
       <div className="relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="mb-12 md:mb-16">
           <SectionTitle
@@ -114,7 +123,7 @@ export default function MessageSection() {
               <p className={` sm:text-lg md:text-xl leading-relaxed ${visibleElements.text1 ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}>
                 私たち自身も、キャリアに悩んだ経験があります。
               </p>
-              <div className={`space-y-4 pl-4 border-l-2 border-[#5AB1E0]/30 ${visibleElements.text2 ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}>
+              <div className={`space-y-4 pl-4 border-l-2 border-[#517CA2]/30 ${visibleElements.text2 ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}>
                 <p className=" sm:text-lg md:text-xl leading-relaxed italic">
                   「このままでいいのか」
                 </p>

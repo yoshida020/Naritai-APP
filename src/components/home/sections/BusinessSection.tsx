@@ -30,9 +30,6 @@ export default function BusinessSection() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-          } else {
-            setIsVisible(false);
-            setVisibleCards([false, false]);
           }
         });
       },
@@ -57,20 +54,16 @@ export default function BusinessSection() {
   useEffect(() => {
     if (!isVisible) return;
 
-    const timers: NodeJS.Timeout[] = [];
-    timers.push(setTimeout(() => setVisibleCards([true, false]), 200));
-    timers.push(setTimeout(() => setVisibleCards([true, true]), 400));
+    // 1つのタイマーで両方のカードを表示（バッチ処理）
+    const timer = setTimeout(() => setVisibleCards([true, true]), 200);
 
     return () => {
-      timers.forEach(timer => clearTimeout(timer));
+      clearTimeout(timer);
     };
   }, [isVisible]);
 
   return (
     <section ref={sectionRef} id="business" className="py-24 bg-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/5 rounded-full blur-3xl"></div>
-      
       <div className="relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="mb-16">
           <SectionTitle enTitle="Business" jaTitle="事業内容" />
@@ -98,11 +91,12 @@ export default function BusinessSection() {
                 
                 <div className="p-6 md:p-8">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl md:text-xl font-bold text-[#2C3E50] group-hover:text-[#5AB1E0] transition-colors">
+                    <h3 className="text-xl md:text-xl font-bold text-[#2C3E50] group-hover:text-[#517CA2] transition-colors relative w-fit">
                       {service.title}
+                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#517CA2] transition-all duration-300 group-hover:w-full"></span>
                     </h3>
                     <svg
-                      className="w-6 h-6 text-[#2C3E50] group-hover:text-[#5AB1E0] transition-all duration-300 group-hover:translate-x-2"
+                      className="w-6 h-6 text-[#2C3E50] group-hover:text-[#517CA2] transition-all duration-300 group-hover:translate-x-2"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
