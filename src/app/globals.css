@@ -707,4 +707,14 @@
     left: -0.15em;
     top: 0.075em;
   }
+
+  /* スクロールバー非表示ユーティリティ */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
 }

@@ -8,6 +8,7 @@ import NewsSection from '@/components/home/sections/NewsSection';
 import FaqSection from '@/components/home/sections/FaqSection';
 import CompanySection from '@/components/home/sections/CompanySection';
 import ContactSection from '@/components/home/sections/ContactSection';
+import FormSuccessToast from '@/components/common/FormSuccessToast';
 
 export default function HomePage() {
   return (
@@ -24,6 +25,7 @@ export default function HomePage() {
         <ContactSection />
       </main>
       <Footer />
+      <FormSuccessToast />
     </>
   );
 }

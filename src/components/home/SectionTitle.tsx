@@ -41,8 +41,8 @@ export const SectionTitle = ({
       </div>
 
       <h2
-        className={`col-start-1 row-start-1 relative z-10 font-bold ${titleColor} tracking-wider translate-y-1 sm:translate-y-2 md:translate-y-3 ${jaClassName}`}
-        style={{ fontFamily: 'Catchy Mager, serif', lineHeight: 1, fontSize: '22px' }}
+        className={`col-start-1 row-start-1 relative z-10 text-xl sm:text-3xl md:text-4xl font-bold ${titleColor} tracking-wider translate-y-1 sm:translate-y-2 md:translate-y-3 ${jaClassName}`}
+        style={{ fontFamily: 'Catchy Mager, serif', lineHeight: 1 }}
       >
         {jaTitle}
       </h2>
