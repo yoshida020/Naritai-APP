@@ -1,8 +1,7 @@
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getNewsById } from '@/lib/news';
-import Header from '@/components/home/Header';
-import Footer from '@/components/home/Footer';
+import { Header, Footer, homeNavigationConfig } from '@/components/common/navigation';
 
 interface NewsDetailPageProps {
   params: {
@@ -19,7 +18,7 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
 
   return (
     <>
-      <Header />
+      <Header config={homeNavigationConfig} />
       <main>
         <article className="py-24 bg-white relative overflow-hidden min-h-screen">
           <div className="absolute top-0 right-0 w-64 h-64 sm:w-96 sm:h-96 bg-[#202D5F]/5 rounded-full blur-3xl"></div>
@@ -83,7 +82,7 @@ export default function NewsDetailPage({ params }: NewsDetailPageProps) {
           </div>
         </article>
       </main>
-      <Footer />
+      <Footer config={homeNavigationConfig} />
     </>
   );
 }
