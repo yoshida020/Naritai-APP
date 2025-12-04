@@ -64,7 +64,7 @@ export default function BusinessSection() {
 
   return (
     <section ref={sectionRef} id="business" className="py-24 bg-white relative overflow-hidden">
-      <div className="relative mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+      <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
         <div className="mb-16">
           <SectionTitle enTitle="Business" jaTitle="事業内容" />
         </div>

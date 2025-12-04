@@ -6,8 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useRouter } from 'next/navigation';
 import emailjs from '@emailjs/browser';
-import Header from '@/components/home/Header';
-import Footer from '@/components/home/Footer';
+import { Header, Footer, homeNavigationConfig } from '@/components/common/navigation';
 import Toast from '@/components/common/Toast';
 import ConfirmModal from '@/components/common/ConfirmModal';
 
@@ -115,7 +114,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <Header />
+      <Header config={homeNavigationConfig} />
       <main className="min-h-screen bg-gradient-to-b from-white to-[#F9FCFF] pt-32 pb-24">
         <div className="max-w-[800px] mx-auto px-4">
           {/* ページタイトル */}
@@ -240,7 +239,7 @@ export default function ContactPage() {
           </form>
         </div>
       </main>
-      <Footer />
+      <Footer config={homeNavigationConfig} />
 
       {/* 確認モーダル */}
       <ConfirmModal

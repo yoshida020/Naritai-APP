@@ -7,14 +7,12 @@ import StrongPointsSection from '@/components/corporate/sections/StrongPointsSec
 import FlowSection from '@/components/corporate/sections/FlowSection';
 import PricingSection from '@/components/corporate/sections/PricingSection';
 import ContactSection from '@/components/corporate/sections/ContactSection';
-import NaritaiSection from '@/components/corporate/sections/NaritaiSection';
 import styles from './page.module.css';
 
 export default function ContactPage() {
   return (
     <div className={styles.container}>
       <HeroSection />
-
       <ProblemsSection />
       <ServicesSection />
       <InstructorsSection />
@@ -23,7 +21,6 @@ export default function ContactPage() {
       <PricingSection />
       <FlowSection />
       <ContactSection />
-      <NaritaiSection />
     </div>
   );
 }

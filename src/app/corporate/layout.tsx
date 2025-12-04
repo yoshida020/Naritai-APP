@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Header from '@/components/corporate/Header';
+import { Header, Footer, corporateNavigationConfig } from '@/components/common/navigation';
 
 export const metadata: Metadata = {
   title: 'Naritai株式会社 - お問い合わせ',
@@ -16,8 +16,9 @@ export default function CorporateLayout({
 }) {
   return (
     <>
-      <Header />
+      <Header config={corporateNavigationConfig} />
       {children}
+      <Footer config={corporateNavigationConfig} />
     </>
   );
 }
