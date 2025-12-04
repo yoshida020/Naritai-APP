@@ -43,7 +43,6 @@ export default function Header() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Intersection Observerでセクションの表示状態を監視
     const sections = ['#top', '#about', '#message', '#business', '#news', '#faq', '#company', '#contact'];
     const header = headerRef.current;
     const headerHeight = header ? header.offsetHeight : 100;
@@ -62,13 +61,11 @@ export default function Header() {
         sectionStates.set(entry.target.id, entry.isIntersecting);
       });
 
-      // ビューポートに入っているセクションを取得
       const visibleSections = Array.from(sectionStates.entries())
         .filter(([_, isVisible]) => isVisible)
         .map(([id, _]) => id);
 
       if (visibleSections.length > 0) {
-        // セクションの順序を考慮して、最後のセクションを優先
         let activeId = '';
         for (let i = sections.length - 1; i >= 0; i--) {
           const sectionId = sections[i].replace('#', '');
@@ -85,7 +82,6 @@ export default function Header() {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    // 各セクションを監視対象に追加
     sections.forEach(sectionId => {
       const section = document.querySelector(sectionId);
       if (section) {
@@ -93,7 +89,6 @@ export default function Header() {
       }
     });
 
-    // トップセクションの初期判定とスクロール時の判定
     const checkTopSection = () => {
       if (window.scrollY < 100) {
         setActiveSection('#top');
@@ -104,7 +99,16 @@ export default function Header() {
     window.addEventListener('scroll', checkTopSection, { passive: true });
 
     const handleHashScroll = () => {
-      if (window.location.hash) {
+      const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
+      const isReload = navigation?.type === 'reload';
+      
+      if (isReload && window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname);
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        return;
+      }
+    
+      if (!isReload && window.location.hash) {
         const hash = window.location.hash;
         const scrollToHash = () => {
           scrollToSection(hash);
@@ -199,7 +203,7 @@ export default function Header() {
               <li className="flex items-center">
                 <a
                   href="#top"
-                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#5AB1E0] ${activeSection === '#top' ? 'text-[#5AB1E0]' : 'text-[#2C3E50]'
+                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#517CA2] ${activeSection === '#top' ? 'text-[#517CA2]' : 'text-[#2C3E50]'
                     }`}
                   onClick={(e) => handleLinkClick(e, '#top')}
                 >
@@ -212,7 +216,7 @@ export default function Header() {
               <li className="flex items-center">
                 <a
                   href="#about"
-                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#5AB1E0] ${activeSection === '#about' ? 'text-[#5AB1E0]' : 'text-[#2C3E50]'
+                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#517CA2] ${activeSection === '#about' ? 'text-[#517CA2]' : 'text-[#2C3E50]'
                     }`}
                   onClick={(e) => handleLinkClick(e, '#about')}
                 >
@@ -225,7 +229,7 @@ export default function Header() {
               <li className="flex items-center">
                 <a
                   href="#message"
-                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#5AB1E0] ${activeSection === '#message' ? 'text-[#5AB1E0]' : 'text-[#2C3E50]'
+                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#517CA2] ${activeSection === '#message' ? 'text-[#517CA2]' : 'text-[#2C3E50]'
                     }`}
                   onClick={(e) => handleLinkClick(e, '#message')}
                 >
@@ -238,7 +242,7 @@ export default function Header() {
               <li className="flex items-center">
                 <a
                   href="#business"
-                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#5AB1E0] ${activeSection === '#business' ? 'text-[#5AB1E0]' : 'text-[#2C3E50]'
+                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#517CA2] ${activeSection === '#business' ? 'text-[#517CA2]' : 'text-[#2C3E50]'
                     }`}
                   onClick={(e) => handleLinkClick(e, '#business')}
                 >
@@ -251,7 +255,7 @@ export default function Header() {
               <li className="flex items-center">
                 <a
                   href="#news"
-                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#5AB1E0] ${activeSection === '#news' ? 'text-[#5AB1E0]' : 'text-[#2C3E50]'
+                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#517CA2] ${activeSection === '#news' ? 'text-[#517CA2]' : 'text-[#2C3E50]'
                     }`}
                   onClick={(e) => handleLinkClick(e, '#news')}
                 >
@@ -264,7 +268,7 @@ export default function Header() {
               <li className="flex items-center">
                 <a
                   href="#faq"
-                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#5AB1E0] ${activeSection === '#faq' ? 'text-[#5AB1E0]' : 'text-[#2C3E50]'
+                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#517CA2] ${activeSection === '#faq' ? 'text-[#517CA2]' : 'text-[#2C3E50]'
                     }`}
                   onClick={(e) => handleLinkClick(e, '#faq')}
                 >
@@ -277,7 +281,7 @@ export default function Header() {
               <li className="flex items-center">
                 <a
                   href="#company"
-                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#5AB1E0] ${activeSection === '#company' ? 'text-[#5AB1E0]' : 'text-[#2C3E50]'
+                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#517CA2] ${activeSection === '#company' ? 'text-[#517CA2]' : 'text-[#2C3E50]'
                     }`}
                   onClick={(e) => handleLinkClick(e, '#company')}
                 >
@@ -290,7 +294,7 @@ export default function Header() {
               <li>
                 <a
                   href="#contact"
-                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#5AB1E0] ${activeSection === '#contact' ? 'text-[#5AB1E0]' : 'text-[#2C3E50]'
+                  className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[#517CA2] ${activeSection === '#contact' ? 'text-[#517CA2]' : 'text-[#2C3E50]'
                     }`}
                   onClick={(e) => handleLinkClick(e, '#contact')}
                 >
@@ -311,7 +315,7 @@ export default function Header() {
           onClick={closeMobileMenu}
         >
           <nav
-            className="w-full h-full flex flex-col items-center justify-center px-6 py-8"
+            className="w-full h-screen overflow-y-auto flex flex-col items-center justify-center px-6 py-8"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="w-full max-w-md flex flex-col h-full">
@@ -319,7 +323,7 @@ export default function Header() {
                 <li>
                   <a
                     href="#top"
-                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#5AB1E0] text-center"
+                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#517CA2] text-center"
                     onClick={(e) => handleLinkClick(e, '#top')}
                   >
                     <div className="flex flex-col items-center">
@@ -331,7 +335,7 @@ export default function Header() {
                 <li>
                   <a
                     href="#about"
-                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#5AB1E0] text-center"
+                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#517CA2] text-center"
                     onClick={(e) => handleLinkClick(e, '#about')}
                   >
                     <div className="flex flex-col items-center">
@@ -343,7 +347,7 @@ export default function Header() {
                 <li>
                   <a
                     href="#message"
-                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#5AB1E0] text-center"
+                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#517CA2] text-center"
                     onClick={(e) => handleLinkClick(e, '#message')}
                   >
                     <div className="flex flex-col items-center">
@@ -355,7 +359,7 @@ export default function Header() {
                 <li>
                   <a
                     href="#business"
-                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#5AB1E0] text-center"
+                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#517CA2] text-center"
                     onClick={(e) => handleLinkClick(e, '#business')}
                   >
                     <div className="flex flex-col items-center">
@@ -367,7 +371,7 @@ export default function Header() {
                 <li>
                   <a
                     href="#news"
-                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#5AB1E0] text-center"
+                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#517CA2] text-center"
                     onClick={(e) => handleLinkClick(e, '#news')}
                   >
                     <div className="flex flex-col items-center">
@@ -379,7 +383,7 @@ export default function Header() {
                 <li>
                   <a
                     href="#faq"
-                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#5AB1E0] text-center"
+                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#517CA2] text-center"
                     onClick={(e) => handleLinkClick(e, '#faq')}
                   >
                     <div className="flex flex-col items-center">
@@ -391,7 +395,7 @@ export default function Header() {
                 <li>
                   <a
                     href="#company"
-                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#5AB1E0] text-center"
+                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#517CA2] text-center"
                     onClick={(e) => handleLinkClick(e, '#company')}
                   >
                     <div className="flex flex-col items-center">
@@ -403,7 +407,7 @@ export default function Header() {
                 <li>
                   <a
                     href="#contact"
-                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#5AB1E0] text-center"
+                    className="text-[21px] font-medium text-[#2C3E50] no-underline py-3 block transition-colors duration-300 hover:text-[#517CA2] text-center"
                     onClick={(e) => handleLinkClick(e, '#contact')}
                   >
                     <div className="flex flex-col items-center">

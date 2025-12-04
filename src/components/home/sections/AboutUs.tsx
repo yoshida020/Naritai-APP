@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { SectionTitle } from '../SectionTitle';
 
 export default function AboutUsSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const hasAnimatedRef = useRef(false);
   const [visibleElements, setVisibleElements] = useState({
     label: false,
     title: false,
@@ -23,18 +25,20 @@ export default function AboutUsSection() {
           if (entry.isIntersecting) {
             setIsVisible(true);
           } else {
-            // セクションが見えなくなったら状態をリセット
             setIsVisible(false);
-            setVisibleElements({
-              label: false,
-              title: false,
-              underline: false,
-              mobileTitle: false,
-              mobileText: false,
-              pcTitle: false,
-              pcImage: false,
-              pcCard: false,
-            });
+            // 一度アニメーションが実行されたら、リセットしない
+            if (!hasAnimatedRef.current) {
+              setVisibleElements({
+                label: false,
+                title: false,
+                underline: false,
+                mobileTitle: false,
+                mobileText: false,
+                pcTitle: false,
+                pcImage: false,
+                pcCard: false,
+              });
+            }
           }
         });
       },
@@ -57,17 +61,32 @@ export default function AboutUsSection() {
   }, []);
 
   useEffect(() => {
-    if (!isVisible) return;
+    if (!isVisible || hasAnimatedRef.current) return;
 
-    const timers: NodeJS.Timeout[] = []
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, label: true })), 0));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, title: true })), 200));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, underline: true })), 400));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, mobileTitle: true })), 600));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, mobileText: true })), 800));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, pcTitle: true })), 200));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, pcImage: true })), 400));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, pcCard: true })), 600));
+    // アニメーションが開始されたことを記録
+    hasAnimatedRef.current = true;
+
+    // バッチ1: 即座に表示する要素（1回のsetStateで処理）
+    setVisibleElements(prev => ({
+      ...prev,
+      label: true,
+      title: true,
+      pcTitle: true,
+    }));
+
+    // バッチ2-3: 段階的に表示する要素（タイマー数を削減）
+    const timers: NodeJS.Timeout[] = [];
+    timers.push(setTimeout(() => setVisibleElements(prev => ({
+      ...prev,
+      underline: true,
+      pcImage: true,
+      mobileTitle: true,
+    })), 200));
+    timers.push(setTimeout(() => setVisibleElements(prev => ({
+      ...prev,
+      pcCard: true,
+      mobileText: true,
+    })), 400));
 
     return () => {
       timers.forEach(timer => clearTimeout(timer));
@@ -90,29 +109,23 @@ export default function AboutUsSection() {
           opacity: 0.15
         }}
       ></div>
-      
-      <div className="absolute top-0 right-0 w-64 h-64 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#517CA2]/5 rounded-full blur-3xl"></div>
-
       <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-12">
-        <div className="text-center mb-3 min-[1025px]:mb-16">
-          <span className={`inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4 ${visibleElements.label ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}>
-            About Us
-          </span>
-          <h2 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#2C3E50] mb-4 text-center ${visibleElements.title ? 'animate-mobile-fade-in-up' : 'opacity-0'}`} style={{ fontFamily: 'Catchy Mager, serif' }}>
-            Naritaiについて
-          </h2>
-          <div className={`w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full ${visibleElements.underline ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}></div>
+        <div className="mb-3 min-[1025px]:mb-16">
+          <SectionTitle
+            enTitle="About Us"
+            jaTitle="Naritaiについて"
+            enClassName={visibleElements.label ? 'animate-mobile-fade-in-up' : 'opacity-0'}
+            jaClassName={visibleElements.title ? 'animate-mobile-fade-in-up' : 'opacity-0'}
+          />
         </div>
 
-        {/* モバイル時の表示 */}
         <div className="min-[1025px]:hidden text-center py-8 relative z-10">
           <h3
             className={`text-2xl sm:text-3xl font-bold text-[#2C3E50] leading-relaxed text-center mb-8 ${visibleElements.mobileTitle ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}
             style={{ fontFamily: '"GenEi Koburi Min6", "Noto Serif JP", serif' }}
           >
             <span className="relative inline-block pr-2">
-              <span className="absolute left-0 bottom-1 h-5 w-full bg-[#5AB1E0]/55 rounded-[6px] pointer-events-none" aria-hidden="true"></span>
+              <span className="absolute left-0 bottom-1 h-5 w-full bg-[#8FD3F4]/60 rounded-[6px] pointer-events-none" aria-hidden="true"></span>
               <span className="relative">個人</span>
             </span>
             の「
@@ -134,7 +147,7 @@ export default function AboutUsSection() {
           </h3>
           
           <div
-            className={`text-xs md:text-lg text-[#0a0a0a] leading-loose writing-horizontal-tb mx-auto font-medium py-14 ${visibleElements.mobileText ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}
+            className={`text-sm md:text-xl text-[#0a0a0a] leading-loose writing-horizontal-tb mx-auto font-medium py-14 ${visibleElements.mobileText ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}
             style={{
               fontFamily: '"Noto Serif JP", serif',
               maxWidth: '90%',
@@ -152,9 +165,9 @@ export default function AboutUsSection() {
             >
               Naritai
             </span>
-            は、一人ひとりに"
+            は、一人ひとりに
             <span className="font-bold">なりたい自分</span>
-            "を見つけて<br />
+            を見つけて<br />
             自分の道を歩いてほしい。<br />
             なんとなく働く毎日から抜け出してほしい。<br />
             心から納得できる人生を、<br />
@@ -169,7 +182,7 @@ export default function AboutUsSection() {
                 letterSpacing: '0.08em'
               }}
             >
-              "Naritai"
+              Naritai
             </span>
             から未来が動き出します。
           </div>
@@ -182,7 +195,7 @@ export default function AboutUsSection() {
               style={{ fontFamily: '"GenEi Koburi Min6", "Noto Serif JP", serif' }}
             >
               <span className="relative inline-block pr-2">
-                <span className="absolute left-0 bottom-1 h-5 w-full bg-[#5AB1E0]/55 rounded-[6px] pointer-events-none" aria-hidden="true"></span>
+                <span className="absolute left-0 bottom-1 h-5 w-full bg-[#8FD3F4]/60 rounded-[6px] pointer-events-none" aria-hidden="true"></span>
                 <span className="relative">個人</span>
               </span>
               の「
@@ -266,7 +279,7 @@ export default function AboutUsSection() {
                       letterSpacing: '0.08em'
                     }}
                   >
-                    "Naritai"
+                    Naritai
                   </span>
                   から未来が動き出します。
                 </div>

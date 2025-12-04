@@ -1,116 +1,244 @@
+'use client';
+
+import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { newsItems } from '@/lib/news';
+import { SectionTitle } from '../SectionTitle';
+
 export default function NewsSection() {
-  const newsItems = [
-    { 
-      date: '2024.01.15', 
-      title: '新サービス「Naritai Pro」の提供を開始いたしました', 
-      category: 'お知らせ',
-      excerpt: 'より高度な機能を備えた新サービスをリリースしました。',
-    },
-    { 
-      date: '2024.01.10', 
-      title: 'セミナー「デジタル変革の最前線」を開催いたします', 
-      category: 'イベント',
-      excerpt: '最新のデジタルトレンドについてお話しするセミナーです。',
-    },
-    { 
-      date: '2024.01.05', 
-      title: '2024年度の新卒採用を開始いたしました', 
-      category: '採用',
-      excerpt: '一緒に成長していく仲間を募集しています。',
-    },
-  ];
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+
+  const initialDisplayCount = 3;
+  const displayedNews = newsItems.slice(0, initialDisplayCount);
+  const remainingNews = newsItems.slice(initialDisplayCount);
+  const hasMoreNews = remainingNews.length > 0;
+
+  const parseDate = (dateString: string) => {
+    const [year, month, day] = dateString.split('.');
+    const date = new Date(parseInt(year), parseInt(month) - 1, parseInt(day));
+    const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const weekday = weekdays[date.getDay()];
+    return {
+      year: `${year}[${weekday}]`,
+      monthDay: `${month}.${day}`,
+    };
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible(true);
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+      observer.disconnect();
+    };
+  }, []);
 
   return (
-    <section id="news" className="py-24 bg-gradient-to-b from-[#F9FCFF] to-white relative overflow-hidden">
-      {/* 背景装飾 */}
-      <div className="absolute top-20 right-4 sm:right-20 w-48 h-48 sm:w-64 sm:h-64 bg-[#5AB1E0]/5 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 left-4 sm:left-20 w-48 h-48 sm:w-64 sm:h-64 bg-[#517CA2]/5 rounded-full blur-3xl"></div>
-      
+    <section ref={sectionRef} id="news" className="py-24 bg-[#F0F0F0] relative overflow-hidden">
       <div className="relative max-w-[1200px] mx-auto px-4">
-        {/* セクションタイトル */}
-        <div className="text-center mb-16">
-          <span className="inline-block text-sm font-semibold text-[#5AB1E0] uppercase tracking-wider mb-4">
-            News
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#2C3E50] mb-4">
-            お知らせ
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] mx-auto rounded-full"></div>
+        <div className="mb-8 lg:hidden">
+          <SectionTitle enTitle="News" jaTitle="最新情報" />
         </div>
 
-        <div className="space-y-6">
-          {newsItems.map((news, index) => (
-            <div
-              key={index}
-              className="group bg-white rounded-xl shadow-md hover:shadow-xl border border-[#E6EAEE] hover:border-[#5AB1E0] transition-all duration-300 overflow-hidden hover:-translate-y-1"
-            >
-              <div className="p-6 md:p-8">
-                <div className="flex flex-col md:flex-row md:items-start gap-4">
-                  {/* 日付とカテゴリー */}
-                  <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-4 flex-shrink-0">
-                    <span className="text-base font-semibold text-[#517CA2] whitespace-nowrap">
-                      {news.date}
+        <div className="bg-white rounded-xl p-8 lg:p-12">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-6">
+            <div className="hidden lg:flex lg:w-1/4 lg:justify-start py-6">
+              <div className="relative">
+                <div
+                  className="text-4xl font-semibold text-gray-900 leading-relaxed [writing-mode:vertical-rl]"
+                  style={{ fontFamily: 'Catchy Mager, serif' }}
+                >
+                  <span className="font-semibold inline-block pr-0 pb-2">
+                    <span className="highlight-marker-vertical">
+                      最新情報
                     </span>
-                    <span className="inline-block text-sm bg-gradient-to-r from-[#5AB1E0] to-[#517CA2] text-white px-4 py-1.5 rounded-full whitespace-nowrap font-medium shadow-sm">
-                      {news.category}
-                    </span>
-                  </div>
-                  
-                  {/* タイトルと説明 */}
-                  <div className="flex-1">
-                    <h3 className="text-lg md:text-xl font-semibold text-[#2C3E50] mb-2 group-hover:text-[#517CA2] transition-colors">
-                      {news.title}
-                    </h3>
-                    <p className="text-[#919CB7] text-sm md:text-base">
-                      {news.excerpt}
-                    </p>
-                  </div>
-                  
-                  {/* 矢印アイコン */}
-                  <div className="flex-shrink-0 self-center">
-                    <div className="w-10 h-10 rounded-full bg-[#F9FCFF] group-hover:bg-[#5AB1E0] flex items-center justify-center transition-colors">
-                      <svg
-                        className="w-5 h-5 text-[#517CA2] group-hover:text-white group-hover:translate-x-1 transition-all"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M9 5l7 7-7 7"
-                        />
-                      </svg>
-                    </div>
-                  </div>
+                  </span>
+                  <span className="text-xl font-normal mt-0 ml-4 block font-sans">News</span>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
 
-        {/* もっと見るボタン */}
-        <div className="text-center mt-12">
-          <a
-            href="#news"
-            className="inline-flex items-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-[#517CA2] text-sm sm:text-base font-semibold rounded-full border-2 border-[#517CA2] hover:bg-[#517CA2] hover:text-white hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-lg"
-          >
-            すべてのお知らせを見る
-            <svg
-              className="w-5 h-5 ml-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
-          </a>
+            <div className="lg:w-3/4">
+              <div className="space-y-0">
+                {displayedNews.map((news, index) => {
+                  const { year, monthDay } = parseDate(news.date);
+                  return (
+                    <div key={news.id}>
+                      <Link
+                        href={`/news/${news.id}`}
+                        className="block group py-6"
+                      >
+                        <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+                          <div className="flex-shrink-0">
+                            <div className="text-xs text-[#202D5F] mb-1 font-sans">
+                              {year}
+                            </div>
+                            <div className="text-2xl sm:text-3xl font-semibold text-[#202D5F] font-sans">
+                              {monthDay}
+                            </div>
+                          </div>
+                          <div className="flex-1 pt-1">
+                            <h3 className="text-lg sm:text-xl font-normal text-gray-900 group-hover:text-gray-700 transition-colors font-sans relative inline-block pb-1">
+                              {news.title}
+                              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#202D5F] group-hover:w-full transition-all duration-500 ease-in-out"></span>
+                            </h3>
+                            <p className="text-xs text-gray-500 mt-2 line-clamp-1">
+                              {news.excerpt}
+                            </p>
+                          </div>
+                        </div>
+                      </Link>
+                      {index < displayedNews.length - 1 && (
+                        <div 
+                          className="h-px relative"
+                          style={{
+                            backgroundImage: 'radial-gradient(circle, #202D5F 1px, transparent 1px)',
+                            backgroundSize: '8px 1px',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'repeat-x',
+                            opacity: 0.5
+                          }}
+                        ></div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+
+              {hasMoreNews && (
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    showAll 
+                      ? 'max-h-[2000px] opacity-100' 
+                      : 'max-h-0 opacity-0'
+                  }`}
+                >
+                  <div 
+                    className={`space-y-0 relative transition-all duration-500 ease-in-out ${
+                      showAll 
+                        ? 'translate-y-0 opacity-100' 
+                        : '-translate-y-4 opacity-0'
+                    }`}
+                  >
+                    <div 
+                      className="h-px relative"
+                      style={{
+                        backgroundImage: 'radial-gradient(circle, #202D5F 1px, transparent 1px)',
+                        backgroundSize: '8px 1px',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'repeat-x',
+                        opacity: 0.5
+                      }}
+                    ></div>
+                    {remainingNews.map((news, index) => {
+                      const { year, monthDay } = parseDate(news.date);
+                      return (
+                        <div 
+                          key={news.id}
+                          className={`transition-all duration-500 ease-in-out ${
+                            showAll 
+                              ? 'translate-y-0 opacity-100' 
+                              : '-translate-y-4 opacity-0'
+                          }`}
+                          style={{
+                            transitionDelay: showAll ? `${index * 100}ms` : '0ms'
+                          }}
+                        >
+                          <Link
+                            href={`/news/${news.id}`}
+                            className="block group py-6"
+                          >
+                            <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-6">
+                              <div className="flex-shrink-0">
+                                <div className="text-xs text-[#202D5F] mb-1 font-sans">
+                                  {year}
+                                </div>
+                                <div className="text-2xl sm:text-3xl font-semibold text-[#202D5F] font-sans">
+                                  {monthDay}
+                                </div>
+                              </div>
+
+                              <div className="flex-1 pt-1">
+                                <h3 className="text-lg sm:text-xl font-normal text-gray-900 group-hover:text-gray-700 transition-colors font-sans relative inline-block pb-1">
+                                  {news.title}
+                                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#202D5F] group-hover:w-full transition-all duration-500 ease-in-out"></span>
+                                </h3>
+                                <p className="text-sm text-gray-500 mt-2 line-clamp-1">
+                                  {news.excerpt}
+                                </p>
+                              </div>
+                            </div>
+                          </Link>
+
+                          {index < remainingNews.length - 1 && (
+                            <div 
+                              className="h-px relative"
+                              style={{
+                                backgroundImage: 'radial-gradient(circle, #d4e157 0.5px, transparent 0.5px)',
+                                backgroundSize: '3px 1px',
+                                backgroundPosition: 'center',
+                                backgroundRepeat: 'repeat-x',
+                                opacity: 0.5
+                              }}
+                            ></div>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {hasMoreNews && (
+                <div className={`mt-8 text-center transition-all duration-300 ${showAll ? 'opacity-100' : 'opacity-100'}`}>
+                  <button
+                    onClick={() => setShowAll(!showAll)}
+                    className={`inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 text-sm sm:text-base font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${
+                      showAll
+                        ? 'border-2 border-[#202D5F] text-[#202D5F] bg-white hover:bg-[#202D5F] hover:text-white hover:-translate-y-1'
+                        : 'bg-gradient-to-r from-[#202D5F] to-[#3A4A7F] text-white hover:-translate-y-1'
+                    }`}
+                  >
+                    <span>{showAll ? '閉じる' : 'もっと見る'}</span>
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="20" 
+                      height="20" 
+                      viewBox="0 0 24 24" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      strokeWidth="2" 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round"
+                      className={`ml-2 transition-transform duration-300 ${showAll ? 'rotate-180' : ''}`}
+                    >
+                      <path d="M6 9l6 6 6-6"/>
+                    </svg>
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     </section>

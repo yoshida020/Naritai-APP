@@ -80,7 +80,7 @@ export default function PrivacyPolicy() {
                 </div>
                 <div className="flex flex-col sm:flex-row sm:gap-4">
                   <dt className="font-bold text-gray-900 min-w-[120px]">メールアドレス：</dt>
-                  <dd><a href="mailto:info@naritai-career.jp" className="text-[#5AB1E0] hover:underline">info@naritai-career.jp</a></dd>
+                  <dd><a href="mailto:info@naritai-career.jp" className="text-[#517CA2] hover:underline">info@naritai-career.jp</a></dd>
                 </div>
               </dl>
             </div>

@@ -67,7 +67,7 @@ export default function TopSection() {
     <section
       id="top"
       ref={sectionRef}
-      className="relative min-h-[600px] md:min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16"
+      className="relative h-screen md:min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[#F9FCFF] via-white to-[#E6EAEE] z-0"></div>
       <div className="absolute left-0 top-0 w-[5%] h-full z-[2] hidden md:block" style={{ overflow: 'visible' }}>
@@ -99,7 +99,7 @@ export default function TopSection() {
           paused={!isVisible}
         />
       </div>
-      <div className="absolute right-0 bottom-0 md:top-0 w-[28%] md:w-[22%] h-auto md:h-full z-[3] flex items-end md:items-center justify-center pointer-events-none px-1 md:px-0 pb-8 md:pb-0">
+      <div className="absolute right-4 md:right-0 bottom-40 md:top-0 w-[28%] md:w-[22%] h-auto md:h-full z-[3] flex items-end md:items-center justify-center pointer-events-none px-1 md:px-0 pb-8 md:pb-0">
         <div
           className="flex flex-col items-center gap-3 md:gap-6 md:mt-20"
           style={{
@@ -137,10 +137,9 @@ export default function TopSection() {
           </div>
         </div>
       </div>
-      <div className="absolute top-20 left-4 sm:left-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#5AB1E0]/10 rounded-full blur-3xl animate-pulse z-[1]"></div>
-      <div className="absolute bottom-20 right-4 sm:right-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/10 rounded-full blur-3xl animate-pulse delay-1000 z-[1]"></div>
+      <div className="absolute top-20 left-4 sm:left-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#517CA2]/10 rounded-full blur-xl z-[1]"></div>
+      <div className="absolute bottom-20 right-4 sm:right-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/10 rounded-full blur-xl z-[1]"></div>
 
-      {/* Naritai ロゴ - 左下 */}
       <div className="absolute bottom-8 left-4 sm:left-8 md:left-[5%] md:ml-8 z-[4]">
         <h1
           className="drop-shadow-2xl inline-block text-white animate-text-fade-in-down delay-1800"
