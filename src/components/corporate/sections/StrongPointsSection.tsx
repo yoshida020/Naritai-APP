@@ -122,19 +122,23 @@ export default function StrongPointsSection() {
         </div>
         {/* PC版（1300px以上） */}
         <div className="hidden xl:block xl:w-full">
-          {/* タイトルと画像を横並び */}
-          <div className="flex flex-row items-center gap-16 mb-12">
-            <div className="flex-shrink-0 w-[50%] aspect-[4/3] flex items-center justify-center overflow-hidden">
-              <img 
-                src="/Whisk_926ab63a6059f709874449a5a8ce97c0dr.jpeg" 
-                alt="私たちの強み" 
-                className="w-full h-full object-contain"
-              />
-            </div>
-            <div className="flex-1 w-[50%] flex items-center justify-center">
+          {/* タイトルと画像を縦並び */}
+          <div className="flex flex-col mb-12">
+            {/* タイトル（中央揃え） */}
+            <div className="flex justify-center mb-12">
               <h2 className={`corporate-section-title text-[#2C3E50] text-center ${isVisible ? 'hero-slide-up' : ''}`}>
                 私たちの強み
               </h2>
+            </div>
+            {/* 画像（左寄せ） */}
+            <div className="flex justify-start">
+              <div className="flex-shrink-0 w-[50%] aspect-[4/3] flex items-center justify-start overflow-hidden">
+                <img 
+                  src="/Whisk_926ab63a6059f709874449a5a8ce97c0dr.jpeg" 
+                  alt="私たちの強み" 
+                  className="w-full h-full object-contain"
+                />
+              </div>
             </div>
           </div>
           {/* カード */}
