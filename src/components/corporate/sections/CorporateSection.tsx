@@ -90,7 +90,7 @@ export default function CorporateSection() {
     >
       <div className="max-w-[1200px] w-full mx-auto text-center" ref={containerRef}>
         {renderAnimatedTitle()}
-        <p className="text-[26px] font-normal text-[#2C3E50] mb-12 md:text-[18px] md:mb-6">
+        <p className="text-[clamp(24px,4vw,36px)] font-normal text-[#2C3E50] mb-12 md:text-[clamp(22px,2.5vw,28px)] md:mb-6">
           導入による効果
         </p>
         <div className="mt-0">
