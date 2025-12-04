@@ -35,7 +35,7 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden py-12 px-6 md:py-16 md:px-4"
+      className="relative w-full flex items-center justify-center overflow-hidden py-12 px-6 md:py-16 md:px-4"
       style={{
         background: 'linear-gradient(135deg, #6AA5CE 0%, #6AA5CE 40%, #517CA2 100%)'
       }}

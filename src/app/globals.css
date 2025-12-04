@@ -717,4 +717,17 @@
   .scrollbar-hide::-webkit-scrollbar {
     display: none;  /* Chrome, Safari and Opera */
   }
+
+  /* 画像の下部分を透過させるマスク（モバイル・タブレット用） */
+  .image-bottom-fade {
+    mask-image: linear-gradient(to top, transparent 0%, transparent 20%, black 40%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, transparent 20%, black 40%);
+  }
+
+  @media (min-width: 1024px) {
+    .image-bottom-fade {
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+  }
 }
