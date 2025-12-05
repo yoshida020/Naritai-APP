@@ -14,10 +14,13 @@ export default function Header({ config }: HeaderProps) {
   const headerRef = useRef<HTMLElement>(null);
 
   const headerColors = config.colors?.header;
+  const headerTextColor = headerColors?.textColor || '#2C3E50';
+  const headerActiveColor = headerColors?.activeTextColor || '#517CA2';
+  const headerBtnBgColor = headerColors?.buttonBackgroundColor || '#202D5F';
   const cssVars = {
-    '--header-text': headerColors?.textColor || '#2C3E50',
-    '--header-active': headerColors?.activeTextColor || '#517CA2',
-    '--header-btn-bg': headerColors?.buttonBackgroundColor || '#202D5F',
+    '--header-text': headerTextColor,
+    '--header-active': headerActiveColor,
+    '--header-btn-bg': headerBtnBgColor,
   } as React.CSSProperties;
 
   const scrollToSection = useCallback((href: string) => {
@@ -182,14 +185,14 @@ export default function Header({ config }: HeaderProps) {
   const customBgStyle = headerColors?.backgroundColor ? { backgroundColor: headerColors.backgroundColor } : {};
 
   const backgroundClass = headerColors?.backgroundColor
-    ? (isScrolled ? 'shadow-md border-[#E6EAEE]' : 'border-transparent')
-    : (isScrolled ? 'bg-white/98 shadow-md border-[#E6EAEE]' : 'bg-white/95 backdrop-blur-[10px] border-transparent');
+    ? (isScrolled ? 'shadow-[0_4px_20px_rgba(0,0,0,0.15)] border-[#E6EAEE]' : 'border-transparent shadow-none')
+    : (isScrolled ? 'bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] border-[#E6EAEE]' : 'bg-white/95 backdrop-blur-[10px] border-transparent shadow-none');
 
   return (
     <>
       <div 
         className="fixed top-0 right-0 w-[60px] h-[60px] lg:w-[160px] lg:h-[90px] xl:w-[175px] xl:h-[100px] z-[1001] rounded-bl-3xl flex flex-col items-center justify-center overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer"
-        style={{ backgroundColor: cssVars['--header-btn-bg'] as string }}
+        style={{ backgroundColor: headerBtnBgColor }}
       >
         {config.documentRequestLink && config.documentRequestLabel ? (
           <a
@@ -295,7 +298,7 @@ export default function Header({ config }: HeaderProps) {
                 <div className="mt-auto pb-8">
                   <a
                     href={config.documentRequestLink}
-                    style={{ backgroundColor: cssVars['--header-btn-bg'] as string }}
+                    style={{ backgroundColor: headerBtnBgColor }}
                     className="block w-full hover:opacity-90 text-white text-center py-4 px-6 rounded-3xl transition-colors duration-300 font-medium"
                     onClick={(e) => handleLinkClick(e, config.documentRequestLink!)}
                   >

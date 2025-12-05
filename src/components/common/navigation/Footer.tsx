@@ -9,10 +9,13 @@ interface FooterProps {
 
 export default function Footer({ config }: FooterProps) {
   const footerColors = config.colors?.footer;
+  const footerBgColor = footerColors?.backgroundColor || '#517CA2';
+  const footerTextColor = footerColors?.textColor || '#ffffff';
+  const footerMutedColor = footerColors?.mutedTextColor || '#e5e7eb';
   const cssVars = {
-    '--footer-bg': footerColors?.backgroundColor || '#517CA2',
-    '--footer-text': footerColors?.textColor || '#ffffff',
-    '--footer-muted': footerColors?.mutedTextColor || '#e5e7eb', // gray-200 matches #e5e7eb roughly (actually tailwind gray-200 is #e5e7eb)
+    '--footer-bg': footerBgColor,
+    '--footer-text': footerTextColor,
+    '--footer-muted': footerMutedColor,
   } as React.CSSProperties;
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -44,14 +47,14 @@ export default function Footer({ config }: FooterProps) {
 
   return (
     <footer
-      style={{ backgroundColor: cssVars['--footer-bg'] as string, ...cssVars }}
+      style={{ backgroundColor: footerBgColor, ...cssVars }}
       className="text-[var(--footer-text)] relative overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-full opacity-5">
         <div className="absolute top-20 left-20 w-96 h-96 bg-[#202D5F] rounded-full blur-3xl"></div>
         <div
           className="absolute bottom-20 right-20 w-96 h-96 rounded-full blur-3xl"
-          style={{ backgroundColor: cssVars['--footer-bg'] as string }}
+          style={{ backgroundColor: footerBgColor }}
         ></div>
       </div>
 
