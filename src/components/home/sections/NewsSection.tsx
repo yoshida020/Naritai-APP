@@ -62,7 +62,7 @@ export default function NewsSection() {
 
         <div className="bg-white rounded-xl p-8 lg:p-12">
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-6">
-            <div className="hidden lg:flex lg:w-1/4 lg:justify-start py-6">
+            <div className="hidden lg:flex lg:w-1/4 lg:justify-start py-6 border-r border-gray-200">
               <div className="relative">
                 <div
                   className="text-4xl font-semibold text-gray-900 leading-relaxed [writing-mode:vertical-rl]"
