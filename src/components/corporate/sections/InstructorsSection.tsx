@@ -9,7 +9,6 @@ export default function InstructorsSection() {
   const [swipeStartX, setSwipeStartX] = useState(0);
   const [swipeOffset, setSwipeOffset] = useState(0);
   const [hasSwiped, setHasSwiped] = useState(false);
-  const [isTabletOrLarger, setIsTabletOrLarger] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const swipeStartXRef = useRef(0);
   const swipeOffsetRef = useRef(0);
@@ -130,6 +129,27 @@ export default function InstructorsSection() {
     }
   };
 
+  const handleDotClick = (index: number) => {
+    if (isSwiping || hasSwiped) {
+      return;
+    }
+    // 選択中のドットをタップした場合はカードを裏返す
+    if (index === currentIndex) {
+      setFlippedCards((prev) => {
+        const newSet = new Set(prev);
+        if (newSet.has(index)) {
+          newSet.delete(index);
+        } else {
+          newSet.add(index);
+        }
+        return newSet;
+      });
+    } else {
+      // それ以外のドットをタップした場合はカードを切り替え
+      setCurrentIndex(index);
+    }
+  };
+
   // マウスイベントをグローバルに追加
   useEffect(() => {
     if (!isSwiping) return;
@@ -177,20 +197,6 @@ export default function InstructorsSection() {
       window.removeEventListener('mouseup', handleGlobalMouseUp);
     };
   }, [isSwiping, currentIndex, instructors.length]);
-
-  // 画面幅を検出してタブレット以上かどうかを判定
-  useEffect(() => {
-    const checkScreenSize = () => {
-      setIsTabletOrLarger(window.innerWidth >= 768);
-    };
-    
-    checkScreenSize();
-    window.addEventListener('resize', checkScreenSize);
-    
-    return () => {
-      window.removeEventListener('resize', checkScreenSize);
-    };
-  }, []);
 
   return (
     <section
@@ -241,9 +247,7 @@ export default function InstructorsSection() {
               const offsetX = isActive ? swipeOffset : 0;
               // カードの位置オフセット（中央配置を維持）
               // relativePositionが0の時は中央、±1の時は左右に移動
-              // タブレット以上では50%見えるように200px、モバイルでは120px
-              const cardSpacing = isTabletOrLarger ? 200 : 120;
-              const baseOffset = relativePosition * cardSpacing;
+              const baseOffset = relativePosition * 120; // カード間の距離（px）
               
               // カードの位置に応じたスタイルを計算
               const cardStyle: React.CSSProperties = {
@@ -336,6 +340,28 @@ export default function InstructorsSection() {
               );
             })}
           </div>
+        </div>
+        {/* ページネーション・ドット */}
+        <div className="flex items-center justify-center gap-4 mt-8">
+          {instructors.map((_, index) => {
+            const isActive = index === currentIndex;
+            const isFlipped = flippedCards.has(index);
+            return (
+              <button
+                key={index}
+                onClick={() => handleDotClick(index)}
+                className={`rounded-full transition-all duration-300 ease-in-out ${
+                  isActive
+                    ? isFlipped
+                      ? 'w-8 h-8 bg-white border-2 border-[#517CA2] shadow-md hover:border-[#6AA5CE]'
+                      : 'w-8 h-8 bg-[#517CA2] shadow-md hover:bg-[#6AA5CE]'
+                    : 'w-4 h-4 bg-[#DCE5F1] hover:bg-[#B8C9E0]'
+                }`}
+                aria-label={isActive ? 'カードを裏返す' : `カード ${index + 1} に切り替え`}
+                aria-current={isActive ? 'true' : 'false'}
+              />
+            );
+          })}
         </div>
       </div>
     </section>
