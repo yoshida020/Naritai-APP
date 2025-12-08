@@ -14,7 +14,7 @@ export default function BusinessSection() {
       title: '個人向けサービス',
       description: 'モヤモヤを言葉にする為の1on1。<br />次の一歩を一緒に。<br />キャリアに悩む20代後半～30代の社会人の方へ。国家資格を持つコーチが、あなたの思いを丁寧に引き出し、納得の行くキャリア選択をサポートします。',
       image: '/service01.png',
-      link: '/individual',
+      link: 'https://www.naritai-career.com/',
     },
     {
       title: '法人向けサービス',

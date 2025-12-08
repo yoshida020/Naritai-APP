@@ -191,23 +191,23 @@ export default function Header({ config }: HeaderProps) {
   return (
     <>
       <div 
-        className="fixed top-0 right-0 w-[60px] h-[60px] lg:w-[160px] lg:h-[90px] xl:w-[175px] xl:h-[100px] z-[1001] rounded-bl-3xl flex flex-col items-center justify-center overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer"
+        className="fixed top-0 right-0 w-[60px] h-[60px] min-[1025px]:w-[160px] min-[1025px]:h-[90px] xl:w-[175px] xl:h-[100px] z-[1001] rounded-bl-3xl flex flex-col items-center justify-center overflow-hidden hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer"
         style={{ backgroundColor: headerBtnBgColor }}
       >
         {config.documentRequestLink && config.documentRequestLabel ? (
           <a
             href={config.documentRequestLink}
-            className="hidden lg:flex flex-col items-center justify-center w-full h-full"
+            className="hidden min-[1025px]:flex flex-col items-center justify-center w-full h-full"
             onClick={(e) => handleLinkClick(e, config.documentRequestLink!)}
           >
             <span className="text-white font-bold text-base" style={{ fontFamily: '"游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif' }}>{config.documentRequestLabel.line1}</span>
             <span className="text-white font-bold text-base" style={{ fontFamily: '"游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", sans-serif' }}>{config.documentRequestLabel.line2}</span>
           </a>
         ) : (
-          <div className="hidden lg:block" />
+          <div className="hidden min-[1025px]:block" />
         )}
         <button
-          className="lg:hidden flex items-center justify-center w-full h-full relative"
+          className="flex min-[1025px]:hidden items-center justify-center w-full h-full relative"
           onClick={toggleMobileMenu}
           aria-label={isMobileMenuOpen ? "メニューを閉じる" : "メニューを開く"}
         >
@@ -235,16 +235,16 @@ export default function Header({ config }: HeaderProps) {
         <div className="w-full py-2 flex items-center justify-between flex-wrap gap-4">
           <a
             href={config.basePath}
-            className="flex items-center transition-opacity duration-300 hover:opacity-80 pl-4 lg:pl-8"
+            className="flex items-center transition-opacity duration-300 hover:opacity-80 pl-4 min-[1025px]:pl-8"
             onClick={handleLogoClick}
           >
             <img
               src="/naritai.png"
               alt="Naritai"
-              className="h-[30px] lg:h-[50px] xl:h-[60px] w-auto object-contain"
+              className="h-[30px] min-[1025px]:h-[50px] xl:h-[60px] w-auto object-contain"
             />
           </a>
-          <nav className="hidden lg:block pr-[180px] xl:pr-[195px]">
+          <nav className="hidden min-[1025px]:block pr-[180px] xl:pr-[195px]">
             <ul className="flex list-none gap-8 items-center flex-wrap justify-end m-0 p-0">
               {config.headerLinks.map((link, index) => (
                 <li key={link.href} className="flex items-center">
@@ -265,7 +265,7 @@ export default function Header({ config }: HeaderProps) {
         </div>
 
         <div
-          className={`fixed top-0 left-0 w-full h-screen bg-white z-[999] flex items-center justify-center lg:hidden transition-transform duration-300 ease-in-out ${isMobileMenuOpen
+          className={`fixed top-0 left-0 w-full h-screen bg-white z-[999] flex items-center justify-center min-[1025px]:hidden transition-transform duration-300 ease-in-out ${isMobileMenuOpen
             ? 'translate-x-0'
             : 'translate-x-full pointer-events-none'
             }`}
