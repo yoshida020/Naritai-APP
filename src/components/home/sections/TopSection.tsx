@@ -29,7 +29,7 @@ export default function TopSection() {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 450);
+      setIsMobile(window.innerWidth < 1025);
     };
 
     checkMobile();
@@ -137,9 +137,7 @@ export default function TopSection() {
           </div>
         </div>
       </div>
-      <div className="absolute top-20 left-4 sm:left-10 w-48 h-48 sm:w-72 sm:h-72 bg-[#517CA2]/10 rounded-full blur-xl z-[1]"></div>
-      <div className="absolute bottom-20 right-4 sm:right-10 w-64 h-64 sm:w-96 sm:h-96 bg-[#517CA2]/10 rounded-full blur-xl z-[1]"></div>
-
+      
       <div className="absolute bottom-8 left-4 sm:left-8 md:left-[5%] md:ml-8 z-[4]">
         <h1
           className="drop-shadow-2xl inline-block text-white animate-text-fade-in-down delay-1800"
