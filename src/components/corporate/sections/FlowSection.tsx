@@ -64,10 +64,10 @@ export default function FlowSection() {
       {/* --- 背景装飾（ワンポイント） --- */}
       
       {/* 左上の装飾: 開始を示す緩やかな波 */}
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 z-0"></div>
+      <div className="hidden md:block absolute -top-20 -left-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 z-0"></div>
       
       {/* 右下の装飾: 完了を示すシェイプ */}
-      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 z-0"></div>
+      <div className="hidden md:block absolute -bottom-20 -right-20 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 z-0"></div>
 
       {/* （オプション）中央をつなぐ薄いライン（SVG） */}
       <svg className="absolute top-1/2 left-0 w-full h-20 -translate-y-1/2 opacity-10 pointer-events-none hidden lg:block z-0" aria-hidden="true">

@@ -9,6 +9,7 @@ export default function InstructorsSection() {
   const [swipeStartX, setSwipeStartX] = useState(0);
   const [swipeOffset, setSwipeOffset] = useState(0);
   const [hasSwiped, setHasSwiped] = useState(false);
+  const [isTabletOrLarger, setIsTabletOrLarger] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const swipeStartXRef = useRef(0);
   const swipeOffsetRef = useRef(0);
@@ -21,6 +22,7 @@ export default function InstructorsSection() {
       specialties: ['人材育成', '組織開発', '離職防止'],
       description: '多数の企業で若手社員の定着と成長を支援してきました。',
       backInfo: '大手企業での人材育成プロジェクトを多数手がけ、離職率を平均30%削減する実績を持ちます。',
+      image: '/human02.jpeg',
     },
     {
       name: '佐藤 花子',
@@ -29,6 +31,7 @@ export default function InstructorsSection() {
       specialties: ['モチベーション向上', 'チームビルディング', '生産性向上'],
       description: '組織全体の活性化と生産性向上を実現する専門家です。',
       backInfo: '心理学の知見を活かし、チームの結束力と生産性を向上させる独自のメソッドを開発しました。',
+      image: '/human03.jpeg',
     },
     {
       name: '鈴木 一郎',
@@ -37,6 +40,7 @@ export default function InstructorsSection() {
       specialties: ['研修プログラム設計', 'キャリアパス設計', 'メンタリング'],
       description: '一人ひとりの成長をサポートする個別対応が得意です。',
       backInfo: '個別のキャリア相談を年間200件以上実施し、社員の満足度向上に貢献しています。',
+      image: '/human01.jpeg',
     },
   ];
 
@@ -174,6 +178,20 @@ export default function InstructorsSection() {
     };
   }, [isSwiping, currentIndex, instructors.length]);
 
+  // 画面幅を検出してタブレット以上かどうかを判定
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsTabletOrLarger(window.innerWidth >= 768);
+    };
+    
+    checkScreenSize();
+    window.addEventListener('resize', checkScreenSize);
+    
+    return () => {
+      window.removeEventListener('resize', checkScreenSize);
+    };
+  }, []);
+
   return (
     <section
       id="instructors"
@@ -192,7 +210,7 @@ export default function InstructorsSection() {
         </p>
         <div
           ref={containerRef}
-          className="relative w-[400px] mx-auto overflow-visible touch-pan-y select-none h-[500px] flex items-center justify-center"
+          className="relative w-[80%] md:w-[400px] mx-auto overflow-visible touch-pan-y select-none h-[600px] flex items-center justify-center"
           style={{ perspective: '1200px', perspectiveOrigin: 'center center' }}
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
@@ -223,7 +241,9 @@ export default function InstructorsSection() {
               const offsetX = isActive ? swipeOffset : 0;
               // カードの位置オフセット（中央配置を維持）
               // relativePositionが0の時は中央、±1の時は左右に移動
-              const baseOffset = relativePosition * 120; // カード間の距離（px）
+              // タブレット以上では50%見えるように200px、モバイルでは120px
+              const cardSpacing = isTabletOrLarger ? 200 : 120;
+              const baseOffset = relativePosition * cardSpacing;
               
               // カードの位置に応じたスタイルを計算
               const cardStyle: React.CSSProperties = {
@@ -240,34 +260,39 @@ export default function InstructorsSection() {
                 filter: isActive ? 'none' : `blur(${Math.min(5, distance * 2)}px)`,
                 pointerEvents: isActive ? 'auto' : 'none',
                 transition: isSwiping ? 'none' : 'transform 0.5s cubic-bezier(0.4, 0.0, 0.2, 1), opacity 0.5s cubic-bezier(0.4, 0.0, 0.2, 1), filter 0.5s cubic-bezier(0.4, 0.0, 0.2, 1)',
+                height: '550px',
               };
               
               return (
                 <div
                   key={index}
-                  className="w-[400px] box-border"
-                  style={{ ...cardStyle, perspective: '1000px', height: '400px', minHeight: '400px', transformStyle: 'preserve-3d' }}
+                  className="w-full md:w-[400px] box-border"
+                  style={{ ...cardStyle, perspective: '1000px', height: '550px', minHeight: '550px', transformStyle: 'preserve-3d' }}
                   onClick={(e) => handleCardClick(index, e)}
                 >
                   <div
-                    className={`relative w-full h-full min-h-[400px] cursor-pointer transition-transform duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] md:min-h-[350px] ${
+                    className={`relative w-full h-full min-h-[550px] cursor-pointer transition-transform duration-[600ms] ease-[cubic-bezier(0.4,0,0.2,1)] md:min-h-[500px] ${
                       isFlipped ? '[transform:rotateY(180deg)]' : ''
                     } ${isActive ? 'cursor-pointer' : ''}`}
                     style={{ transformStyle: 'preserve-3d' }}
                   >
                     {/* カードの前面 */}
                     <div 
-                      className={`absolute w-full h-full rounded-2xl shadow-lg p-8 bg-[#F9FCFF] flex flex-col items-center transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] z-[2] ${
+                      className={`absolute w-full h-full rounded-2xl shadow-lg bg-[#F9FCFF] flex flex-col overflow-hidden transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] z-[2] ${
                         isActive && !isFlipped ? 'hover:-translate-y-1 hover:shadow-xl md:hover:-translate-y-0.5' : ''
                       }`}
                       style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden', transform: 'rotateY(0deg) translateZ(0)' }}
                     >
-                      <div className="mb-8 flex-shrink-0">
-                        <div className="w-[150px] h-[150px] rounded-full bg-gradient-to-br from-[#517CA2] to-[#6AA5CE] flex items-center justify-center text-white text-5xl font-bold mx-auto shadow-md">
-                          {instructor.name.charAt(0)}
-                        </div>
+                      {/* 画像部分（上部） */}
+                      <div className="w-full h-[250px] flex-shrink-0 overflow-hidden">
+                        <img 
+                          src={instructor.image} 
+                          alt={instructor.name}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
-                      <div className="w-full text-center flex-grow flex flex-col justify-center">
+                      {/* 紹介文部分（下部） */}
+                      <div className="w-full flex-grow p-6 text-center flex flex-col justify-center">
                         <h3 className="text-2xl font-semibold text-[#2C3E50] mb-3">
                           {instructor.name}
                         </h3>
