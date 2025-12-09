@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { SectionTitle } from '../../home/SectionTitle';
 
 export default function FlowSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -82,9 +83,9 @@ export default function FlowSection() {
 
       {/* --- メインコンテンツ（既存） --- */}
       <div className="max-w-[1200px] w-full mx-auto text-center relative z-10">
-        <h2 className="corporate-section-title text-[#2C3E50] mb-12 md:mb-6">
-          ご利用の流れ
-        </h2>
+        <div className="mb-12 md:mb-6">
+          <SectionTitle enTitle="Flow" jaTitle="ご利用の流れ" />
+        </div>
         <div className="flex flex-col gap-10 md:flex-row md:gap-6 md:justify-between relative md:flex-wrap md:justify-center">
           {steps.map((step, index) => {
             // 登場アニメーションクラス（全デバイス共通）

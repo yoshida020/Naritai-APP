@@ -2,38 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import { SectionTitle } from '../../home/SectionTitle';
 
 export default function CorporateSection() {
-  const text = 'For Corporate';
   const containerRef = useRef<HTMLDivElement>(null);
   const itemsRef = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
   const [itemsVisible, setItemsVisible] = useState(false);
-
-  // タイトル用のIntersectionObserver
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.disconnect();
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-      }
-    );
-
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   // アイテム用のIntersectionObserver
   useEffect(() => {
@@ -57,24 +31,6 @@ export default function CorporateSection() {
       observer.disconnect();
     };
   }, []);
-
-  const renderAnimatedTitle = () => {
-    return (
-      <h2 className="corporate-section-title font-['Tangerine',cursive] text-[#2C3E50] mb-4 block md:mb-3">
-        {text.split('').map((char, i) => (
-          <span
-            key={i}
-            className={`inline-block opacity-0 -translate-y-[30px] ${isVisible ? 'animate-slide-in-from-top' : ''}`}
-            style={{
-              animationDelay: `${i * 0.06}s`,
-            }}
-          >
-            {char === ' ' ? '\u00A0' : char}
-          </span>
-        ))}
-      </h2>
-    );
-  };
 
   const effects = [
     {
@@ -125,10 +81,7 @@ export default function CorporateSection() {
       <div className="max-w-[1200px] w-full mx-auto relative" ref={containerRef}>
         {/* タイトルエリア */}
         <div className="text-center mb-20 relative z-10">
-          {renderAnimatedTitle()}
-          <p className="text-[clamp(20px,3vw,28px)] font-normal text-[#2C3E50] mt-2">
-            導入による効果
-          </p>
+          <SectionTitle enTitle="Effects" jaTitle="導入による効果" />
         </div>
 
         {/* PC用の接続線（SVG背景） - 右肩上がりの基準線 */}
@@ -155,7 +108,7 @@ export default function CorporateSection() {
         {/* アイテムリスト */}
         <div 
           ref={itemsRef}
-          className="flex flex-col lg:grid lg:grid-cols-5 gap-16 lg:gap-4 xl:gap-8 relative z-10 px-6 lg:px-0 items-center"
+          className="flex flex-col lg:grid lg:grid-cols-5 gap-16 lg:gap-6 xl:gap-10 relative z-10 px-6 lg:px-0 items-center"
         >
           {effects.map((effect, index) => {
             // モバイル・タブレット用: 偶数番目（index 1, 3）は右寄せ、奇数番目（index 0, 2, 4）は左寄せ
@@ -179,7 +132,7 @@ export default function CorporateSection() {
                   w-[75%] md:w-[60%]
                   ${isEven ? 'ml-auto' : 'mr-auto'}
                   /* PC: 右肩上がり配置 */
-                  lg:w-auto lg:mx-0
+                  lg:w-full lg:max-w-[400px] xl:max-w-[500px] lg:mx-auto
                   lg:flex lg:flex-col lg:items-center
                   ${pcTranslate}
                 `}
@@ -193,7 +146,7 @@ export default function CorporateSection() {
                   style={{ transitionDelay: `${index * 300}ms` }}
                 >
                 {/* 画像エリア（コンテナ） - PCでサイズアップ、アスペクト比維持 */}
-                <div className="relative w-full rounded-2xl overflow-hidden shadow-md lg:w-full lg:max-w-[200px] xl:max-w-[256px] lg:h-auto z-10 bg-white">
+                <div className="relative w-full rounded-2xl overflow-hidden shadow-md lg:w-full lg:aspect-[4/3] z-10 bg-white">
                   {/* モバイル・タブレット用画像 */}
                   <Image
                     src={effect.image}
@@ -203,35 +156,21 @@ export default function CorporateSection() {
                     className="w-full h-full transition-transform duration-500 group-hover:scale-105 image-bottom-fade lg:hidden object-cover"
                     style={{ objectFit: 'cover' }}
                   />
-                  {/* PC用画像（アスペクト比を維持、余白なし） */}
+                  {/* PC用画像（モバイル版と同じスタイル） */}
                   <Image
                     src={effect.image}
                     alt={effect.title}
                     width={256}
                     height={256}
-                    className="hidden lg:block w-full h-auto transition-transform duration-500 group-hover:scale-105"
-                    style={{ objectFit: 'contain' }}
+                    className="hidden lg:block w-full h-full transition-transform duration-500 group-hover:scale-105 image-bottom-fade object-cover"
                   />
 
-                  {/* テキストエリア（モバイル・タブレット用：画像内部の右下に配置） */}
-                  <div className={`
-                    lg:hidden
-                    absolute bottom-0 right-0 z-20
-                    w-[90%]
-                    p-4
-                    rounded-tl-2xl
-                  `}>
-                    <h3 className="font-bold text-base md:text-lg text-black leading-tight text-right">
+                  {/* テキストエリア（全サイズ共通：画像内部の右下に配置） */}
+                  <div className="absolute bottom-0 right-0 z-20 w-[90%] p-4 rounded-tl-2xl">
+                    <h3 className="font-bold text-base md:text-lg lg:text-xl text-black leading-tight text-right">
                       {effect.title}
                     </h3>
                   </div>
-                </div>
-
-                {/* テキストエリア（PC用：画像の直下） */}
-                <div className="hidden lg:block mt-6 text-center max-w-[16rem]">
-                  <h3 className="font-bold text-xl text-blue-900 tracking-wide">
-                    {effect.title}
-                  </h3>
                 </div>
                 </div>
               </div>

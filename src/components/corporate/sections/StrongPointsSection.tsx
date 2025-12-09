@@ -1,12 +1,18 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { SectionTitle } from '../../home/SectionTitle';
 
 export default function StrongPointsSection() {
   const points = [
     {
-      title: 'カルテ化による「再現性ある育成」',
-      image: '/Whisk_d4b7e0ce9e01155a5d044813687a9fb6eg.png',
+      title: (
+        <>
+          カルテ化による
+          <br />
+          「再現性ある育成」
+        </>
+      ),
       description: (
         <>
           可視化することで、
@@ -20,8 +26,13 @@ export default function StrongPointsSection() {
       ),
     },
     {
-      title: 'Z世代に特化した"共感型コーチング"',
-      image: '/Whisk_926ab63a6059f709874449a5a8ce97c0dr.jpeg',
+      title: (
+        <>
+          Z世代に特化した
+          <br />
+          "共感型コーチング"
+        </>
+      ),
       description: (
         <>
           上から「指導」するのではなく、
@@ -41,7 +52,6 @@ export default function StrongPointsSection() {
     },
     {
       title: '代弁者',
-      image: '/Whisk_d0b896c0752c00cbfe74126fc3a6d469dr.jpeg',
       description: (
         <>
           若手が「本当は言いたいこと」。
@@ -84,29 +94,29 @@ export default function StrongPointsSection() {
     <section 
       ref={sectionRef}
       id="strong-points" 
-      className="w-full py-16 px-4 bg-gradient-to-b from-[#F8FAFF] to-[#EFF3FF] flex justify-center md:py-20 md:px-4"
+      className="w-full py-16 px-4 bg-gradient-to-b from-[#F8FAFF] to-[#EFF3FF] md:py-24 xl:py-32"
     >
-      <div className="max-w-[1200px] w-full mx-auto text-center md:max-w-full">
+      <div className="max-w-[1200px] w-full mx-auto text-center">
         {/* モバイル版：縦並び（1300px未満） */}
-        <div className="grid grid-cols-1 place-items-center xl:hidden" style={{ gap: '40px' }}>
-          <h2 className={`corporate-section-title text-[#2C3E50] mb-12 md:mb-6 ${isVisible ? 'hero-slide-up' : ''}`}>
-            私たちの強み
-          </h2>
+        <div className="grid grid-cols-1 place-items-center xl:hidden gap-12 md:gap-16">
+          <div className={isVisible ? 'hero-slide-up' : ''}>
+            <SectionTitle enTitle="Strong Points" jaTitle="私たちの強み" />
+          </div>
           {points.map((point, index) => (
             <div 
               key={index} 
               className="w-full max-w-[320px] mx-auto flex flex-col text-left relative bg-white rounded-lg p-6"
             >
-              {/* ナンバリング - 右上固定、カードから飛び出すように大きく */}
+              {/* ナンバリング - カードの背景 */}
               <div 
                 className="absolute text-black font-bold"
                 style={{
-                  fontSize: '80px',
+                  fontSize: '120px',
                   lineHeight: '1',
-                  top: '-60px',
-                  right: '-20px',
-                  zIndex: 10,
-                  opacity: 0.3
+                  top: '20px',
+                  right: '20px',
+                  zIndex: 0,
+                  opacity: 0.08
                 }}
               >
                 {String(index + 1).padStart(2, '0')}
@@ -114,41 +124,26 @@ export default function StrongPointsSection() {
               <h3 className="text-xl font-semibold text-[#517CA2] mb-4 text-center relative z-10">
                 {point.title}
               </h3>
-              <p className="text-base leading-relaxed text-[#2C3E50] mb-8 md:mb-0 relative z-10 text-center">
+              <p className="text-base leading-relaxed text-[#2C3E50] relative z-10 text-center">
                 {point.description}
               </p>
             </div>
           ))}
         </div>
         {/* PC版（1300px以上） */}
-        <div className="hidden xl:block xl:w-full">
-          {/* タイトルと画像を縦並び */}
-          <div className="flex flex-col mb-12">
-            {/* タイトル（中央揃え） */}
-            <div className="flex justify-center mb-12">
-              <h2 className={`corporate-section-title text-[#2C3E50] text-center ${isVisible ? 'hero-slide-up' : ''}`}>
-                私たちの強み
-              </h2>
-            </div>
-            {/* 画像（左寄せ） */}
-            <div className="flex justify-start">
-              <div className="flex-shrink-0 w-[50%] aspect-[4/3] flex items-center justify-start overflow-hidden">
-                <img 
-                  src="/Whisk_926ab63a6059f709874449a5a8ce97c0dr.jpeg" 
-                  alt="私たちの強み" 
-                  className="w-full h-full object-contain"
-                />
-              </div>
-            </div>
+        <div className="hidden xl:block">
+          {/* タイトル */}
+          <div className={`mb-16 ${isVisible ? 'hero-slide-up' : ''}`}>
+            <SectionTitle enTitle="Strong Points" jaTitle="私たちの強み" />
           </div>
           {/* カード */}
-          <div className="relative w-full flex justify-center" style={{ minHeight: '600px' }}>
+          <div className="relative w-full flex justify-center" style={{ minHeight: '700px' }}>
             {points.map((point, index) => {
               const isEven = index % 2 === 0;
               // 右左右の配置を維持しつつ、中央寄せにする
               const offsetX = isEven ? 350 : -350; // 右、左、右の配置（距離をさらに広げる）
-              // 1番目と3番目のカード（右側）は高さ方向にも離す、さらに120px上に移動
-              const offsetY = isEven ? index * 200 - 120 : index * 50; // 右側のカードは高さ方向に200px間隔、120px上に移動
+              // 1番目と3番目のカード（右側）は高さ方向にも離す
+              const offsetY = isEven ? index * 200 : index * 50; // 右側のカードは高さ方向に200px間隔
               return (
                 <div 
                   key={index} 
@@ -161,17 +156,17 @@ export default function StrongPointsSection() {
                   }}
                 >
                   {/* テキストカード */}
-                  <div className="group w-[500px] flex flex-col text-left relative bg-white rounded-lg p-8 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 cursor-pointer">
-                    {/* ナンバリング - 右上固定、カードから飛び出すように大きく */}
+                  <div className="group w-[500px] flex flex-col text-left relative bg-white rounded-lg p-8 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 cursor-pointer overflow-hidden">
+                    {/* ナンバリング - カードの背景 */}
                     <div 
-                      className="absolute text-black font-bold transition-all duration-300 group-hover:opacity-0.5 group-hover:scale-110"
+                      className="absolute text-black font-bold transition-all duration-300"
                       style={{
-                        fontSize: '120px',
+                        fontSize: '180px',
                         lineHeight: '1',
-                        top: '-80px',
-                        right: '-40px',
-                        zIndex: 10,
-                        opacity: 0.3
+                        top: '20px',
+                        right: '20px',
+                        zIndex: 0,
+                        opacity: 0.08
                       }}
                     >
                       {String(index + 1).padStart(2, '0')}

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { SectionTitle } from '../../home/SectionTitle';
 
 export default function InstructorsSection() {
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
@@ -130,8 +131,12 @@ export default function InstructorsSection() {
   };
 
   const handleDotClick = (index: number) => {
-    if (isSwiping || hasSwiped) {
+    if (isSwiping) {
       return;
+    }
+    // スワイプフラグをリセット
+    if (hasSwiped) {
+      setHasSwiped(false);
     }
     // 選択中のドットをタップした場合はカードを裏返す
     if (index === currentIndex) {
@@ -201,12 +206,12 @@ export default function InstructorsSection() {
   return (
     <section
       id="instructors"
-      className="w-full min-h-screen py-20 px-4 bg-white flex items-center justify-center md:py-12 md:px-4"
+      className="w-full min-h-screen py-20 px-4 bg-[#F9FCFF] flex items-center justify-center md:py-12 md:px-4"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center flex flex-col items-center">
-        <h2 className="corporate-section-title text-[#2C3E50] mb-4">
-          講師紹介
-        </h2>
+        <div className="mb-4">
+          <SectionTitle enTitle="Instructors" jaTitle="講師紹介" />
+        </div>
         <p className="text-lg leading-relaxed text-[#919CB7] mb-12 max-w-[800px] mx-auto text-center md:text-base md:mb-8">
           経験豊富な講師陣が、お客様の組織に最適なサポートを提供します。
           <br />

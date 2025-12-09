@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Button from '../../common/Button';
+import { SectionTitle } from '../../home/SectionTitle';
 
 export default function PricingSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -64,9 +65,9 @@ export default function PricingSection() {
       className="w-full min-h-screen px-4 bg-[#202D5F] flex items-center justify-center overflow-hidden md:py-16 md:px-4 md:overflow-visible"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center h-full flex flex-col justify-center py-8 md:h-auto md:py-0">
-        <h2 className="corporate-section-title text-white mb-8 md:mb-6">
-          料金
-        </h2>
+        <div className="mb-8 md:mb-6">
+          <SectionTitle enTitle="Pricing" jaTitle="料金" titleColor="text-white" enColor="text-white/5" />
+        </div>
         <div className="bg-gradient-to-br from-[#517CA2] to-white/10 border-[3px] border-[#517CA2] rounded-3xl py-6 px-10 mb-8 text-center shadow-[0_8px_24px_rgba(0,0,0,0.3)] max-w-[700px] mx-auto relative overflow-visible lg:py-6 lg:px-6 xl:py-4 xl:px-6 md:py-6 md:px-6 md:mb-8 md:border-2">
           <div className={`text-4xl font-bold text-white mb-0 tracking-wide relative inline-block pb-1 z-[1] lg:text-3xl xl:text-2xl md:text-xl md:text-3xl ${isVisible ? 'animate-slide-in-from-top' : ''}`} style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
             初期費用0
