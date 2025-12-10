@@ -1,0 +1,726 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap');
+
+/* Catchy Mager フォント定義 */
+@font-face {
+  font-family: 'Catchy Mager';
+  src: url('/hp/fonts/Catchy Mager.otf') format('opentype'),
+    url('/hp/fonts/Catchy Mager.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 花鳥風月 フォント定義 */
+@font-face {
+  font-family: '花鳥風月';
+  src: url('/hp/fonts/花鳥風月.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+/* 源暎こぶり明朝 フォント定義 */
+@font-face {
+  font-family: 'GenEi Koburi Min6';
+  src: url('/hp/fonts/GenEiKoburiMin6-R.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Noto Serif JP フォント定義 */
+@font-face {
+  font-family: 'Noto Serif JP';
+  src: url('/hp/fonts/NotoSerifJP-VariableFont_wght.ttf') format('truetype');
+  font-weight: 200 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer theme {
+  :root {
+    /* Colors - Brand */
+    --color-brand-primary: #517CA2;
+    --color-brand-secondary: #6AA5CE;
+    --color-brand-accent: #517CA2;
+    --color-brand-light: #5B87AE;
+    --color-brand-dark: #517CA2;
+
+    /* Colors - Text */
+    --color-text-primary: #2C3E50;
+    --color-text-secondary: #919CB7;
+    --color-text-tertiary: #919CB7;
+    --color-text-inverse: #FFFFFF;
+    --color-text-disabled: #D4DDEB;
+
+    /* Colors - Background */
+    --color-bg-default: #FFFFFF;
+    --color-bg-secondary: #F9FCFF;
+    --color-bg-tertiary: #DCE5F1;
+    --color-bg-quaternary: #D4DDEB;
+    --color-bg-light: #E6EAEE;
+    --color-bg-overlay: rgba(81, 124, 162, 0.5);
+
+    /* Colors - Border */
+    --color-border-default: #D4DDEB;
+    --color-border-light: #E6EAEE;
+    --color-border-focus: #517CA2;
+    --color-border-error: #EF4444;
+
+    /* Colors - Status */
+    --color-status-success: #22C55E;
+    --color-status-warning: #F59E0B;
+    --color-status-error: #EF4444;
+    --color-status-info: #517CA2;
+
+    /* Typography */
+    --font-family-primary: system-u i, -apple-syste m, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-heading: 'Catchy Mager' , serif, system-u i, -apple-syste m, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    --font-family-mono: 'Courier New', Courier, monospace;
+    --font-family-catchy: '"Catchy Mager", serif', system-u i, -apple-syste m, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+      /* Font Sizes */
+    --font-size-xs: 10px;
+    --font-size-sm: 14px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+    --font-size-3xl: 30px;
+    --font-size-4xl: 36px;
+    --font-size-5xl: 48px;
+    --font-size-6xl: 60px;
+
+    /* Font Weights */
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    /* Line Heights */
+    --line-height-tight: 1.2;
+    --line-height-normal: 1.5;
+    --line-height-relaxed: 1.75;
+    --line-height-loose: 2;
+
+    /* Letter Spacing */
+    --letter-spacing-tighter: -0.05em;
+    --letter-spacing-tight: -0.025em;
+    --letter-spacing-normal: 0em;
+    --letter-spacing-wide: 0.025em;
+    --letter-spacing-wider: 0.05em;
+
+    /* Spacing */
+    --spacing-0: 0px;
+    --spacing-1: 4px;
+    --spacing-2: 8px;
+    --spacing-3: 12px;
+    --spacing-4: 16px;
+    --spacing-5: 20px;
+    --spacing-6: 24px;
+    --spacing-8: 32px;
+    --spacing-10: 40px;
+    --spacing-12: 48px;
+    --spacing-16: 64px;
+    --spacing-20: 80px;
+    --spacing-24: 96px;
+
+    /* Border Radius */
+    --border-radius-none: 0px;
+    --border-radius-sm: 4px;
+    --border-radius-base: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+    --border-radius-xl: 24px;
+    --border-radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-base: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+    /* Transitions */
+    --transition-fast: 150ms ease-in-out;
+    --transition-base: 200ms ease-in-out;
+    --transition-slow: 300ms ease-in-out;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border-default);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--color-bg-default);
+    color: var(--color-text-primary);
+    font-family: var(--font-family-primary);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-normal);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    height: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Next.js specific */
+  #__next {
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* Section scroll offset for fixed header */
+  section {
+    scroll-margin-top: 100px;
+  }
+
+  /* Ensure proper box-sizing */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Remove default margins and paddings */
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Link styles */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  /* Button styles */
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  /* Form element styles */
+  input,
+  textarea,
+  select {
+    font-family: inherit;
+    font-size: inherit;
+  }
+}
+
+@layer utilities {
+
+  /* カスタムアニメーション */
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 1s ease-out forwards;
+    opacity: 0;
+  }
+
+.delay-100 {
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+  .delay-150 {
+    animation-delay: 0.15s;
+    animation-fill-mode: both;
+  }
+
+  .delay-200 {
+    animation-delay: 0.2s;
+    animation-fill-mode: both;
+  }
+
+  .delay-250 {
+    animation-delay: 0.25s;
+    animation-fill-mode: both;
+  }
+
+  .delay-300 {
+    animation-delay: 0.3s;
+    animation-fill-mode: both;
+  }
+
+  .delay-350 {
+    animation-delay: 0.35s;
+    animation-fill-mode: both;
+  }
+
+.delay-400 {
+  animation-delay: 0.4s;
+  animation-fill-mode: both;
+}
+
+.delay-450 {
+  animation-delay: 0.45s;
+  animation-fill-mode: both;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+.delay-550 {
+  animation-delay: 0.55s;
+  animation-fill-mode: both;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+  animation-fill-mode: both;
+}
+
+.delay-650 {
+  animation-delay: 0.65s;
+  animation-fill-mode: both;
+}
+
+.delay-700 {
+  animation-delay: 0.7s;
+  animation-fill-mode: both;
+}
+
+.delay-800 {
+  animation-delay: 0.8s;
+  animation-fill-mode: both;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+  animation-fill-mode: both;
+}
+
+.delay-1200 {
+  animation-delay: 1.2s;
+  animation-fill-mode: both;
+}
+
+.delay-1400 {
+  animation-delay: 1.4s;
+  animation-fill-mode: both;
+}
+
+.delay-1600 {
+  animation-delay: 1.6s;
+  animation-fill-mode: both;
+}
+
+.delay-1800 {
+  animation-delay: 1.8s;
+  animation-fill-mode: both;
+}
+
+.delay-2000 {
+  animation-delay: 2s;
+  animation-fill-mode: both;
+}
+
+.delay-2200 {
+  animation-delay: 2.2s;
+  animation-fill-mode: both;
+}
+
+.delay-2400 {
+  animation-delay: 2.4s;
+  animation-fill-mode: both;
+}
+
+.delay-2600 {
+  animation-delay: 2.6s;
+  animation-fill-mode: both;
+}
+
+.delay-2800 {
+  animation-delay: 2.8s;
+  animation-fill-mode: both;
+}
+
+.delay-3000 {
+  animation-delay: 3s;
+  animation-fill-mode: both;
+}
+
+/* Custom animations for section titles */
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in-from-top {
+  animation: slideInFromTop 0.4s ease-out forwards;
+}
+
+.animate-slide-in-from-bottom {
+  animation: slideInFromBottom 0.6s ease-out forwards;
+}
+
+@keyframes heroSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: var(--hero-slide-up-opacity, 1);
+    transform: translateY(0);
+  }
+}
+
+.hero-slide-up {
+  --hero-slide-up-opacity: 1;
+  --hero-slide-up-duration: 1.2s;
+  animation: heroSlideUp var(--hero-slide-up-duration, 1.2s) ease-out forwards;
+}
+
+.hero-slide-up-soft {
+  --hero-slide-up-opacity: 0.95;
+}
+
+.corporate-section-title {
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+/* Underline animation for pricing section */
+.animate-underline {
+  animation: underlineExpand 0.8s ease-out forwards;
+}
+
+.animate-underline-delayed {
+  animation: underlineExpand 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes underlineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Text animation for problems section */
+.char {
+  display: inline-block;
+  opacity: var(--opacity, 0);
+  transition: opacity 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+  transition-delay: calc(0.05s * var(--char-index));
+}
+
+.is-active .char {
+  --opacity: 1;
+}
+
+  /* 手書き風アニメーション */
+  @keyframes handwriting {
+    0% {
+      opacity: 0;
+      transform: translateY(30px) scale(0.7);
+      clip-path: inset(100% 0 0 0);
+    }
+
+    30% {
+      opacity: 0.3;
+      transform: translateY(15px) scale(0.85);
+    }
+
+    60% {
+      opacity: 0.7;
+      transform: translateY(5px) scale(0.95);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      clip-path: inset(0 0 0 0);
+    }
+  }
+
+  .animate-handwriting {
+    animation: handwriting 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  /* 画像アップアニメーション */
+  @keyframes slideUpZoom {
+    0% {
+      opacity: 0;
+      transform: translateY(40px) scale(1.15);
+    }
+
+    50% {
+      opacity: 0.8;
+      transform: translateY(10px) scale(1.05);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .animate-slide-up-zoom {
+    animation: slideUpZoom 0.8s ease-out forwards;
+  }
+
+  /* ズームインアニメーション */
+  @keyframes zoom-in {
+    0% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(1.1);
+    }
+  }
+
+  .animate-zoom-in {
+    animation: zoom-in 4s ease-out forwards;
+  }
+
+  /* テキスト出現アニメーション（上から下へ） */
+  @keyframes text-fade-in-down {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-text-fade-in-down {
+    animation: text-fade-in-down 1.2s ease-out forwards;
+  }
+
+  .delay-600 {
+    animation-delay: 0.6s;
+    animation-fill-mode: both;
+  }
+
+  .delay-1200 {
+    animation-delay: 1.2s;
+    animation-fill-mode: both;
+  }
+
+  .delay-1800 {
+    animation-delay: 1.8s;
+    animation-fill-mode: both;
+  }
+
+  /* ギザギザパターン */
+  .zigzag-bottom {
+    position: relative;
+  }
+
+  .zigzag-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: inherit;
+    clip-path: polygon(0 0, 8% 100%, 16% 0, 24% 100%, 32% 0, 40% 100%, 48% 0, 56% 100%, 64% 0, 72% 100%, 80% 0, 88% 100%, 96% 0, 100% 100%, 100% 0);
+  }
+
+  /* Writing mode utilities */
+  .writing-horizontal-tb {
+    writing-mode: horizontal-tb;
+  }
+
+  @media (min-width: 1025px) {
+    .min-\[1025px\]\:writing-vertical-rl {
+      writing-mode: vertical-rl;
+    }
+
+    .min-\[1025px\]\:text-orientation-upright {
+      text-orientation: upright;
+    }
+  }
+
+  /* AboutUs セクション用アニメーション */
+  /* モバイル用: フェードイン・スライドアップ */
+  @keyframes mobile-fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-mobile-fade-in-up {
+    animation: mobile-fade-in-up 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* PC用: 左から右へスライドイン */
+  @keyframes slide-in-from-left {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in-from-left {
+    animation: slide-in-from-left 0.7s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* PC用: 右から左へスライドイン */
+  @keyframes slide-in-from-right {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-slide-in-from-right {
+    animation: slide-in-from-right 0.7s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* PC用: 画像の透明度フェードイン */
+  @keyframes pc-image-fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 0.9;
+    }
+  }
+
+  .animate-pc-image-fade-in {
+    animation: pc-image-fade-in 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* PC用: カードのフェードイン・スケール */
+  @keyframes pc-card-fade-in {
+    from {
+      opacity: 0;
+      transform: scale(0.95) translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  .animate-pc-card-fade-in {
+    animation: pc-card-fade-in 0.5s ease-out forwards;
+    opacity: 0;
+  }
+
+  /* マーカースタイルのハイライト（縦書き用） */
+  .highlight-marker-vertical {
+    position: relative;
+    display: inline-block;
+  }
+
+  .highlight-marker-vertical::before {
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 180, 0.5);
+    border-radius: 3px;
+    z-index: -1;
+    /* 文字より少し広めに、ただし一部が露出するように */
+    width: calc(100% + 0.3em);
+    height: calc(100% - 0.15em);
+    /* 左側（縦書きでは上側）に少しずらして、右側（下側）が露出するように */
+    left: -0.15em;
+    top: 0.075em;
+  }
+
+  /* スクロールバー非表示ユーティリティ */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+
+  /* 画像の下部分を透過させるマスク（全サイズ共通） */
+  .image-bottom-fade {
+    mask-image: linear-gradient(to top, transparent 0%, transparent 20%, black 40%);
+    -webkit-mask-image: linear-gradient(to top, transparent 0%, transparent 20%, black 40%);
+  }
+}
