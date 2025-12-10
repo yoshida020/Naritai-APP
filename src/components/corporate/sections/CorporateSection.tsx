@@ -76,11 +76,11 @@ export default function CorporateSection() {
   return (
     <section
       id="corporate"
-      className="relative w-full py-24 px-4 bg-gradient-to-b from-white to-blue-50 text-slate-800"
+      className="relative w-full pt-24 pb-16 md:pb-36 px-4 bg-gradient-to-b from-white to-blue-50 text-slate-800"
     >
       <div className="max-w-[1200px] w-full mx-auto relative" ref={containerRef}>
         {/* タイトルエリア */}
-        <div className="text-center mb-20 relative z-10">
+        <div className="text-center mb-16 relative z-10">
           <SectionTitle enTitle="Effects" jaTitle="導入による効果" />
         </div>
 

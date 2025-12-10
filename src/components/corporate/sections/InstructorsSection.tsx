@@ -209,7 +209,7 @@ export default function InstructorsSection() {
       className="w-full min-h-screen py-20 px-4 bg-[#F9FCFF] flex items-center justify-center md:py-12 md:px-4"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center flex flex-col items-center">
-        <div className="mb-4">
+        <div className="mb-16">
           <SectionTitle enTitle="Instructors" jaTitle="講師紹介" />
         </div>
         <p className="text-lg leading-relaxed text-[#919CB7] mb-12 max-w-[800px] mx-auto text-center md:text-base md:mb-8">

@@ -80,7 +80,7 @@ export default function ServicesSection() {
       className="w-full py-16 px-4 bg-[#F9FCFF] flex justify-center md:py-20 md:px-4"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center md:max-w-full">
-        <div className="mb-12 md:mb-6">
+        <div className="mb-16">
           <SectionTitle enTitle="Services" jaTitle="サービス内容" />
         </div>
         {/* モバイル版：縦並び */}
@@ -103,6 +103,11 @@ export default function ServicesSection() {
               textDelay = 7500; // 前の写真終了 + 1500ms
             }
             
+            // PC版と同じように交互に左右から登場
+            const isEven = index % 2 === 0;
+            const imageFromLeft = isEven;
+            const textFromLeft = isEven;
+            
             return (
               <div 
                 key={index} 
@@ -113,8 +118,8 @@ export default function ServicesSection() {
                   style={{
                     opacity: isVisible ? 1 : 0,
                     transform: isVisible 
-                      ? 'translateY(0)' 
-                      : 'translateY(-100px)',
+                      ? 'translateX(0)' 
+                      : `translateX(${imageFromLeft ? '-100px' : '100px'})`,
                     transitionDelay: `${imageDelay}ms`,
                     transition: 'opacity 1.2s ease, transform 1.2s ease',
                   }}
@@ -129,8 +134,8 @@ export default function ServicesSection() {
                   style={{
                     opacity: isVisible ? 1 : 0,
                     transform: isVisible 
-                      ? 'translateY(0)' 
-                      : 'translateY(100px)',
+                      ? 'translateX(0)' 
+                      : `translateX(${textFromLeft ? '-100px' : '100px'})`,
                     transitionDelay: `${textDelay}ms`,
                     transition: 'opacity 1.2s ease, transform 1.2s ease',
                   }}

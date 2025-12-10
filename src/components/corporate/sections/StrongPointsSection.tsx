@@ -99,8 +99,8 @@ export default function StrongPointsSection() {
       <div className="max-w-[1200px] w-full mx-auto text-center">
         {/* モバイル版：縦並び（1300px未満） */}
         <div className="grid grid-cols-1 place-items-center xl:hidden gap-12 md:gap-16">
-          <div className={isVisible ? 'hero-slide-up' : ''}>
-            <SectionTitle enTitle="Strong Points" jaTitle="私たちの強み" />
+          <div className={`mb-16 ${isVisible ? 'hero-slide-up' : ''}`}>
+            <SectionTitle enTitle="Strengths" jaTitle="私たちの強み" />
           </div>
           {points.map((point, index) => (
             <div 
@@ -134,7 +134,7 @@ export default function StrongPointsSection() {
         <div className="hidden xl:block">
           {/* タイトル */}
           <div className={`mb-16 ${isVisible ? 'hero-slide-up' : ''}`}>
-            <SectionTitle enTitle="Strong Points" jaTitle="私たちの強み" />
+            <SectionTitle enTitle="Strengths" jaTitle="私たちの強み" />
           </div>
           {/* カード */}
           <div className="relative w-full flex justify-center" style={{ minHeight: '700px' }}>

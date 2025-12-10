@@ -62,32 +62,32 @@ export default function PricingSection() {
     <section
       id="pricing"
       ref={sectionRef}
-      className="w-full min-h-screen px-4 bg-[#202D5F] flex items-center justify-center overflow-hidden md:py-16 md:px-4 md:overflow-visible"
+      className="w-full min-h-screen px-4 bg-gradient-to-b from-[#F8FAFF] to-[#EFF3FF] flex items-center justify-center overflow-hidden md:py-16 md:px-4 md:overflow-visible"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center h-full flex flex-col justify-center py-8 md:h-auto md:py-0">
-        <div className="mb-8 md:mb-6">
-          <SectionTitle enTitle="Pricing" jaTitle="料金" titleColor="text-white" enColor="text-white/5" />
+        <div className="mb-16">
+          <SectionTitle enTitle="Pricing" jaTitle="料金" />
         </div>
-        <div className="bg-gradient-to-br from-[#517CA2] to-white/10 border-[3px] border-[#517CA2] rounded-3xl py-6 px-10 mb-8 text-center shadow-[0_8px_24px_rgba(0,0,0,0.3)] max-w-[700px] mx-auto relative overflow-visible lg:py-6 lg:px-6 xl:py-4 xl:px-6 md:py-6 md:px-6 md:mb-8 md:border-2">
-          <div className={`text-4xl font-bold text-white mb-0 tracking-wide relative inline-block pb-1 z-[1] lg:text-3xl xl:text-2xl md:text-xl md:text-3xl ${isVisible ? 'animate-slide-in-from-top' : ''}`} style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+        <div className="bg-white border-[3px] border-[#517CA2] rounded-3xl py-6 px-10 mb-8 text-center shadow-md max-w-[700px] mx-auto relative overflow-visible lg:py-6 lg:px-6 xl:py-4 xl:px-6 md:py-6 md:px-6 md:mb-8 md:border-2">
+          <div className={`text-4xl font-bold text-[#2C3E50] mb-0 tracking-wide relative inline-block pb-1 z-[1] lg:text-3xl xl:text-2xl md:text-xl md:text-3xl ${isVisible ? 'animate-slide-in-from-top' : ''}`}>
             初期費用0
             <span className={`absolute bottom-0 left-0 h-[14px] bg-gradient-to-r from-yellow-400/80 to-yellow-400/40 rounded-sm -skew-y-1 z-0 pointer-events-none transition-all duration-500 ${isVisible ? 'w-full' : 'w-0'}`} style={{ transitionDelay: '0s' }} />
           </div>
           <br />
-          <div className={`text-4xl font-bold text-white tracking-wide relative inline-block mt-4 pb-1 z-[1] lg:text-3xl xl:text-2xl md:text-xl md:text-3xl ${isVisible ? 'animate-slide-in-from-top' : ''}`} style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+          <div className={`text-4xl font-bold text-[#2C3E50] tracking-wide relative inline-block mt-4 pb-1 z-[1] lg:text-3xl xl:text-2xl md:text-xl md:text-3xl ${isVisible ? 'animate-slide-in-from-top' : ''}`}>
             今だけ毎月5社初回無料
             <span className={`absolute bottom-0 left-0 h-[14px] bg-gradient-to-r from-yellow-400/80 to-yellow-400/40 rounded-sm -skew-y-1 z-0 pointer-events-none transition-all duration-500 ${isVisible ? 'w-full' : 'w-0'}`} style={{ transitionDelay: '0.3s' }} />
           </div>
         </div>
         
         <div className="flex flex-col gap-6 items-stretch justify-center mb-8 max-w-[1100px] mx-auto px-4 lg:flex-row lg:gap-8 xl:gap-6 md:mb-8">
-          <div className="p-6 bg-white/5 rounded-2xl w-full max-w-full flex flex-col lg:flex-[0_0_240px] lg:max-w-[240px] lg:p-4 xl:flex-[0_0_200px] xl:max-w-[200px] xl:p-3">
-            <h3 className="text-2xl font-semibold text-white mb-4 text-center lg:text-xl xl:text-lg md:text-base md:text-xl md:mb-4">
+          <div className="p-6 bg-white rounded-2xl w-full max-w-full flex flex-col shadow-md lg:flex-[0_0_240px] lg:max-w-[240px] lg:p-4 xl:flex-[0_0_200px] xl:max-w-[200px] xl:p-3">
+            <h3 className="text-2xl font-semibold text-[#2C3E50] mb-4 text-center lg:text-xl xl:text-lg md:text-base md:text-xl md:mb-4">
               プラン内容
             </h3>
             <ul className="list-none text-center m-0 p-0">
               {features.map((feature, index) => (
-                <li key={index} className="py-2 text-lg text-white border-b border-white/20 last:border-b-0 md:text-base md:py-2">
+                <li key={index} className="py-2 text-lg text-[#2C3E50] border-b border-[#D4DDEB] last:border-b-0 md:text-base md:py-2">
                   {feature}
                 </li>
               ))}
