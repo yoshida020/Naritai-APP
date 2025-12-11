@@ -297,7 +297,7 @@ export default function ProblemsSection() {
             />
           </div>
           <p className="text-[24px] md:text-[clamp(48px,6vw,48px)] font-bold text-[#517ca2] m-0 w-full whitespace-nowrap">
-            Naritaiがすべて解決します
+            Naritaiがすべて解決します!
           </p>
         </div>
       </div>
