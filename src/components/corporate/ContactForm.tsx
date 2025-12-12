@@ -116,7 +116,7 @@ export default function ContactForm() {
             value={formData.company}
             onChange={handleChange}
             className="w-full px-4 py-4 text-base leading-normal text-[#2C3E50] bg-white border border-[#D4DDEB] rounded-lg transition-all focus:outline-none focus:border-[#517CA2] focus:shadow-[0_0_0_3px_rgba(81,124,162,0.1)] placeholder:text-[#919CB7]"
-            placeholder="株式会社〇〇"
+            placeholder="Naritai"
           />
         </div>
       </div>

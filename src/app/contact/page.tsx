@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import emailjs from '@emailjs/browser';
-import { Header, Footer, homeNavigationConfig } from '@/components/common/navigation';
+import { Header, Footer, homeNavigationConfig, corporateNavigationConfig } from '@/components/common/navigation';
 import Toast from '@/components/common/Toast';
 import ConfirmModal from '@/components/common/ConfirmModal';
 
@@ -28,6 +28,10 @@ type ContactFormData = z.infer<typeof contactSchema>;
 
 export default function ContactPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const isFromLP = searchParams.get('from') === 'lp';
+  const navigationConfig = isFromLP ? corporateNavigationConfig : homeNavigationConfig;
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState<ContactFormData | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -77,7 +81,7 @@ export default function ContactPage() {
 
       // sessionStorageに成功メッセージを保存してTOP画面に遷移
       sessionStorage.setItem('formSuccessMessage', 'お問い合わせを送信しました');
-      router.push('/');
+      router.push(isFromLP ? '/corporate' : '/');
 
     } catch (error) {
       console.error('EmailJS Error:', error);
@@ -114,7 +118,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <Header config={homeNavigationConfig} />
+      <Header config={navigationConfig} />
       <main className="min-h-screen bg-gradient-to-b from-white to-[#F9FCFF] pt-32 pb-24">
         <div className="max-w-[800px] mx-auto px-4">
           {/* ページタイトル */}
@@ -148,7 +152,7 @@ export default function ContactPage() {
                 className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#517CA2] transition-all ${
                   errors.companyName ? 'border-red-500' : 'border-[#D4DDEB]'
                 }`}
-                placeholder="例：株式会社Naritai"
+                placeholder="例：Naritai"
               />
               {errors.companyName && (
                 <p className="mt-1 text-red-500 text-sm">{errors.companyName.message}</p>
@@ -239,7 +243,7 @@ export default function ContactPage() {
           </form>
         </div>
       </main>
-      <Footer config={homeNavigationConfig} />
+      <Footer config={navigationConfig} />
 
       {/* 確認モーダル */}
       <ConfirmModal

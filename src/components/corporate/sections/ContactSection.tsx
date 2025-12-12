@@ -53,13 +53,13 @@ export default function ContactSection() {
           
           <div className="flex flex-col sm:flex-row gap-6 w-full max-w-2xl justify-center px-4 mt-4">
             <a
-              href="/blank"
+              href="/blank?from=lp"
               className="flex-1 bg-[#202D5F] hover:bg-[#1a2449] text-white text-center py-5 rounded-full transition-colors duration-300 font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
             >
               資料請求
             </a>
-            <a 
-              href="/contact" 
+            <a
+              href="/contact?from=lp"
               className="flex-1 bg-white border-2 border-[#202D5F] text-[#202D5F] hover:bg-gray-50 text-center py-5 rounded-full transition-colors duration-300 font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
             >
               無料相談

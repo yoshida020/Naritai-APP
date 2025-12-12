@@ -7,8 +7,8 @@ const CursorHoverEffect = dynamic(() => import('@/components/common/CursorHoverE
 });
 
 export const metadata: Metadata = {
-  title: 'Naritai株式会社',
-  description: 'Naritai株式会社の公式サイト',
+  title: 'Naritai',
+  description: 'Naritaiの公式サイト',
   icons: {
     icon: '/20251113-1222_f62354075cc7b78cbe63d9d572b3e147.png',
   },
