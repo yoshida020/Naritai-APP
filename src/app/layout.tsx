@@ -9,7 +9,7 @@ const CursorHoverEffect = dynamic(() => import('@/components/common/CursorHoverE
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Naritai株式会社',
+    template: 'Naritai株式会社',
     default: 'Naritai株式会社',
   },
   description: 'Naritai株式会社の公式サイト',

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import { SectionTitle } from '../../home/SectionTitle';
+import { SectionTitle } from '@/components/common/SectionTitle';
 
 // アニメーション設定定数
 const ANIMATION_CONFIG = {

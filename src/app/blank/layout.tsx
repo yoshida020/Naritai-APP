@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Naritai株式会社 - 資料請求',
-  description: 'Naritai株式会社の資料請求ページ',
+  title: 'Naritai - 資料請求',
+  description: 'Naritaiの資料請求ページ',
   robots: {
     index: true,
     follow: true,

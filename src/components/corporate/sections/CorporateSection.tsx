@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
-import { SectionTitle } from '../../home/SectionTitle';
+import { SectionTitle } from '@/components/common/SectionTitle';
 
 export default function CorporateSection() {
   const containerRef = useRef<HTMLDivElement>(null);

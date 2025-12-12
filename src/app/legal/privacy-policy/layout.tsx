@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Header, homeNavigationConfig } from '@/components/common/navigation';
 
 export const metadata: Metadata = {
-  title: 'Naritai株式会社 - お問い合わせ',
-  description: 'Naritai株式会社へのお問い合わせページ',
+  title: 'Naritai - プライバシーポリシー',
+  description: 'Naritaiのプライバシーポリシー',
   robots: {
     index: true,
     follow: true,

@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import emailjs from '@emailjs/browser';
-import { Header, Footer, homeNavigationConfig } from '@/components/common/navigation';
+import { Header, Footer, homeNavigationConfig, corporateNavigationConfig } from '@/components/common/navigation';
 import Toast from '@/components/common/Toast';
 import ConfirmModal from '@/components/common/ConfirmModal';
 
@@ -30,6 +30,10 @@ type DocumentRequestFormData = z.infer<typeof documentRequestSchema>;
 
 export default function BlankPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const isFromLP = searchParams.get('from') === 'lp';
+  const navigationConfig = isFromLP ? corporateNavigationConfig : homeNavigationConfig;
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [formData, setFormData] = useState<DocumentRequestFormData | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -81,7 +85,7 @@ export default function BlankPage() {
 
       // sessionStorageに成功メッセージを保存してTOP画面に遷移
       sessionStorage.setItem('formSuccessMessage', '資料請求を送信しました');
-      router.push('/');
+      router.push(isFromLP ? '/corporate' : '/');
 
     } catch (error) {
       console.error('EmailJS Error:', error);
@@ -117,7 +121,7 @@ export default function BlankPage() {
 
   return (
     <>
-      <Header config={homeNavigationConfig} />
+      <Header config={navigationConfig} />
       <main className="min-h-screen bg-gradient-to-b from-white to-[#F9FCFF] pt-32 pb-24">
         <div className="max-w-[800px] mx-auto px-4">
           {/* ページタイトル */}
@@ -152,7 +156,7 @@ export default function BlankPage() {
                 className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#517CA2] transition-all ${
                   errors.companyName ? 'border-red-500' : 'border-[#D4DDEB]'
                 }`}
-                placeholder="例：株式会社Naritai"
+                placeholder="例：Naritai"
               />
               {errors.companyName && (
                 <p className="mt-1 text-red-500 text-sm">{errors.companyName.message}</p>
@@ -242,7 +246,7 @@ export default function BlankPage() {
           </form>
         </div>
       </main>
-      <Footer config={homeNavigationConfig} />
+      <Footer config={navigationConfig} />
 
       {/* 確認モーダル */}
       <ConfirmModal

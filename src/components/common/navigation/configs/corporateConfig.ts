@@ -33,7 +33,7 @@ export const corporateNavigationConfig: NavigationConfig = {
       ],
     },
   ],
-  documentRequestLink: '/blank',
+  documentRequestLink: '/blank?from=lp',
   documentRequestLabel: {
     line1: 'INVOICE',
     line2: '資料請求',

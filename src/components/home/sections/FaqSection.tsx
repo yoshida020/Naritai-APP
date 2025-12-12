@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { SectionTitle } from '../SectionTitle';
+import { SectionTitle } from '@/components/common/SectionTitle';
 
 interface FaqItem {
   question: string;

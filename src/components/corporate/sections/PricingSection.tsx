@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Button from '../../common/Button';
-import { SectionTitle } from '../../home/SectionTitle';
+import { SectionTitle } from '@/components/common/SectionTitle';
 
 export default function PricingSection() {
   const [isVisible, setIsVisible] = useState(false);
