@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { SectionTitle } from '../../home/SectionTitle';
 
 export default function FlowSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -64,10 +65,10 @@ export default function FlowSection() {
       {/* --- 背景装飾（ワンポイント） --- */}
       
       {/* 左上の装飾: 開始を示す緩やかな波 */}
-      <div className="absolute -top-20 -left-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 z-0"></div>
+      <div className="hidden md:block absolute -top-20 -left-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 z-0"></div>
       
       {/* 右下の装飾: 完了を示すシェイプ */}
-      <div className="absolute -bottom-20 -right-20 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 z-0"></div>
+      <div className="hidden md:block absolute -bottom-20 -right-20 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 z-0"></div>
 
       {/* （オプション）中央をつなぐ薄いライン（SVG） */}
       <svg className="absolute top-1/2 left-0 w-full h-20 -translate-y-1/2 opacity-10 pointer-events-none hidden lg:block z-0" aria-hidden="true">
@@ -82,9 +83,9 @@ export default function FlowSection() {
 
       {/* --- メインコンテンツ（既存） --- */}
       <div className="max-w-[1200px] w-full mx-auto text-center relative z-10">
-        <h2 className="corporate-section-title text-[#2C3E50] mb-12 md:mb-6">
-          ご利用の流れ
-        </h2>
+        <div className="mb-16">
+          <SectionTitle enTitle="Flow" jaTitle="ご利用の流れ" />
+        </div>
         <div className="flex flex-col gap-10 md:flex-row md:gap-6 md:justify-between relative md:flex-wrap md:justify-center">
           {steps.map((step, index) => {
             // 登場アニメーションクラス（全デバイス共通）
