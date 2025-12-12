@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { newsItems } from '@/lib/news';
-import { SectionTitle } from '../SectionTitle';
+import { SectionTitle } from '@/components/common/SectionTitle';
 
 export default function NewsSection() {
   const sectionRef = useRef<HTMLElement>(null);
