@@ -185,8 +185,8 @@ export default function Header({ config }: HeaderProps) {
   const customBgStyle = headerColors?.backgroundColor ? { backgroundColor: headerColors.backgroundColor } : {};
 
   const backgroundClass = headerColors?.backgroundColor
-    ? (isScrolled ? 'shadow-[0_4px_20px_rgba(0,0,0,0.15)] border-[#E6EAEE]' : 'border-transparent shadow-none')
-    : (isScrolled ? 'bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] border-[#E6EAEE]' : 'bg-white/95 backdrop-blur-[10px] border-transparent shadow-none');
+    ? (isScrolled ? 'shadow-[0_4px_20px_rgba(0,0,0,0.15)] border-[#E6EAEE]' : 'shadow-[0_2px_10px_rgba(0,0,0,0.1)] border-transparent')
+    : (isScrolled ? 'bg-white shadow-[0_4px_20px_rgba(0,0,0,0.15)] border-[#E6EAEE]' : 'bg-white/95 backdrop-blur-[10px] shadow-[0_2px_10px_rgba(0,0,0,0.1)] border-transparent');
 
   return (
     <>
