@@ -233,8 +233,8 @@ NEXT_PUBLIC_EMAILJS_PUBLIC_KEY=your_public_key
 | 変数名 | 説明 |
 |--------|------|
 | `NEXT_PUBLIC_EMAILJS_SERVICE_ID` | EmailJSのサービスID |
-| `NEXT_PUBLIC_EMAILJS_ADMIN_TEMPLATE_ID` | 管理者向けメールテンプレートID（お問い合わせ用） |
-| `NEXT_PUBLIC_EMAILJS_USER_TEMPLATE_ID` | ユーザー向けメールテンプレートID（資料請求用） |
+| `NEXT_PUBLIC_EMAILJS_ADMIN_TEMPLATE_ID` | お問い合わせ用メールテンプレートID |
+| `NEXT_PUBLIC_EMAILJS_USER_TEMPLATE_ID` | 資料請求用メールテンプレートID |
 | `NEXT_PUBLIC_EMAILJS_PUBLIC_KEY` | EmailJSの公開キー |
 
 ## ブランチ戦略
