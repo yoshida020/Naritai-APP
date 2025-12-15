@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import FeatherBackground from '@/components/home/FeatherBackground';
 import { NavigationConfig } from './types';
 
@@ -65,7 +66,7 @@ export default function Footer({ config }: FooterProps) {
           <div className="col-span-2 md:col-span-1">
             <div className="mb-6">
               <img
-                src="/naritai.png"
+                src="/images/logo/naritai.png"
                 alt="Naritai"
                 className="h-24 w-auto object-contain"
               />

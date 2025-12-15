@@ -7,7 +7,7 @@ export default function ServicesSection() {
   const services = [
     {
       title: '個人コーチングセッション',
-      image: '/service01.png',
+      image: '/images/services/service01.png',
       description: (
         <>
           若手社員1人ひとりに専属コーチが伴走し、
@@ -18,7 +18,7 @@ export default function ServicesSection() {
     },
     {
       title: 'カルテ設計・可視化シート',
-      image: '/service02.png',
+      image: '/images/services/service02.png',
       description: (
         <>
           各セッションで抽出した想いや目標を「個人カルテ」にまとめ、
@@ -34,7 +34,7 @@ export default function ServicesSection() {
     },
     {
       title: 'フォローアップセッション',
-      image: '/service03.jpeg',
+      image: '/images/services/service03.jpeg',
       description: (
         <>
           セッションから一定期間後に再面談を実施。

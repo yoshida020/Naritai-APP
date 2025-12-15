@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -28,7 +28,8 @@ const documentRequestSchema = z.object({
 
 type DocumentRequestFormData = z.infer<typeof documentRequestSchema>;
 
-export default function BlankPage() {
+// Suspense境界内で使用するコンテンツコンポーネント
+function BlankPageContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const isFromLP = searchParams.get('from') === 'lp';
@@ -265,5 +266,23 @@ export default function BlankPage() {
         onClose={closeToast}
       />
     </>
+  );
+}
+
+// ローディングフォールバック
+function BlankPageLoading() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white to-[#F9FCFF] flex items-center justify-center">
+      <div className="animate-pulse text-[#517CA2]">読み込み中...</div>
+    </div>
+  );
+}
+
+// メインエクスポート - Suspenseでラップ
+export default function BlankPage() {
+  return (
+    <Suspense fallback={<BlankPageLoading />}>
+      <BlankPageContent />
+    </Suspense>
   );
 }

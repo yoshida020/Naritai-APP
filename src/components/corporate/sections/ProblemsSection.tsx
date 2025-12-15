@@ -50,12 +50,12 @@ const problems: Problem[] = [
         急に辞める
       </>
     ),
-    icon: '/nayami01.jpeg',
+    icon: '/images/problems/nayami01.jpeg',
   },
   {
     text: '本音で話してくれない',
     textMobile: '本音で話してくれない',
-    icon: '/nayami02.jpeg',
+    icon: '/images/problems/nayami02.jpeg',
   },
   {
     text: (
@@ -72,7 +72,7 @@ const problems: Problem[] = [
         リソースがない
       </>
     ),
-    icon: '/nayami03.jpeg',
+    icon: '/images/problems/nayami03.jpeg',
   },
   {
     text: (
@@ -89,12 +89,12 @@ const problems: Problem[] = [
         主体的に動かない
       </>
     ),
-    icon: '/nayami04.jpeg',
+    icon: '/images/problems/nayami04.jpeg',
   },
   {
     text: '飲み会に来ない',
     textMobile: '飲み会に来ない',
-    icon: '/nayami05.jpeg',
+    icon: '/images/problems/nayami05.jpeg',
   },
 ];
 
@@ -291,7 +291,7 @@ export default function ProblemsSection() {
         <div className="mt-8 md:mt-12 text-center flex flex-col items-center gap-4 md:gap-6 w-full">
           <div className="w-[clamp(56px,7vw,80px)] h-[clamp(56px,7vw,80px)] md:w-[clamp(64px,6vw,96px)] md:h-[clamp(64px,6vw,96px)] flex items-center justify-center">
             <img
-              src="/allow.png"
+              src="/images/flow/allow.png"
               alt="矢印"
               className="w-full h-full object-contain"
             />

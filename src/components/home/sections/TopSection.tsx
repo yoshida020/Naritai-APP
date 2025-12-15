@@ -5,14 +5,14 @@ import Lottie from "lottie-react";
 import ZoomSlideShow from "@/components/home/ZoomSlideShow";
 
 const desktopImages = [
-  "/hp/hero/hero-city.webp",
-  "/hp/hero/hero-coaching.jpeg",
-  "/hp/hero/hero-commute.jpeg"];
+  "/images/hero/hero-city.webp",
+  "/images/hero/hero-coaching.jpeg",
+  "/images/hero/hero-commute.jpeg"];
 
 const mobileImages = [
-  "/hp/hero/hero-city.webp",
-  "/hp/hero/hero-coaching-mobile.png",
-  "/hp/hero/hero-commute.jpeg"];
+  "/images/hero/hero-city.webp",
+  "/images/hero/hero-coaching-mobile.png",
+  "/images/hero/hero-commute.jpeg"];
 
 export default function TopSection() {
   const [animationData, setAnimationData] = useState(null);
@@ -21,7 +21,7 @@ export default function TopSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    fetch("/scroll%20down.json")
+    fetch("/animations/scroll-down.json")
       .then((response) => response.json())
       .then((data) => setAnimationData(data))
       .catch((error) => console.error("Error loading animation:", error));

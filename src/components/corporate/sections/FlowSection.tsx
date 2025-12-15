@@ -34,25 +34,25 @@ export default function FlowSection() {
       number: '01',
       title: 'お問い合わせ',
       description: ['まずはお気軽に', 'お問い合わせください。'],
-      image: '/Contact.png',
+      image: '/images/flow/Contact.png',
     },
     {
       number: '02',
       title: 'ヒアリング',
       description: ['お客様の課題やニーズを', '詳しくヒアリングします。'],
-      image: '/Hearing.png',
+      image: '/images/flow/Hearing.png',
     },
     {
       number: '03',
       title: '提案',
       description: ['お客様に最適なソリューション', 'を提案します。'],
-      image: '/Suggestion.png',
+      image: '/images/flow/Suggestion.png',
     },
     {
       number: '04',
       title: '実施・フォローアップ',
       description: ['プログラムを実施し、', '継続的にサポートします。'],
-      image: '/FollowUp.png',
+      image: '/images/flow/FollowUp.png',
     },
   ];
 
@@ -184,7 +184,7 @@ export default function FlowSection() {
                   {/* モバイル版：下向き矢印 */}
                   <div className="absolute bottom-[-48px] left-1/2 transform -translate-x-1/2 w-12 h-12 flex items-center justify-center md:hidden">
                   <img 
-                    src="/allow.png" 
+                    src="/images/flow/allow.png" 
                     alt="矢印" 
                     className="w-full h-full object-contain"
                   />
@@ -192,7 +192,7 @@ export default function FlowSection() {
                   {/* PC・タブレット版：左向き矢印（カードの中央に配置、レスポンシブ、少し低め） */}
                   <div className="hidden md:flex absolute right-[-36px] top-[calc(160px+16px+90px+10px)] lg:top-[calc(190px+20px+100px+10px)] xl:top-[calc(200px+20px+100px+10px)] transform -translate-y-1/2 w-12 h-12 items-center justify-center">
                     <img 
-                      src="/allow.png" 
+                      src="/images/flow/allow.png" 
                       alt="矢印" 
                       className="w-full h-full object-contain -rotate-90"
                     />

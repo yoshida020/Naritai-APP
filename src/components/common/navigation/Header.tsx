@@ -1,13 +1,18 @@
 'use client';
 
 import { useState, useEffect, useRef, useCallback } from 'react';
+import { useRouter } from 'next/navigation';
 import { NavigationConfig } from './types';
+
+// body要素のスクロール位置を取得（globals.cssでbodyがスクロールコンテナになっているため）
+const getScrollY = () => document.body.scrollTop;
 
 interface HeaderProps {
   config: NavigationConfig;
 }
 
 export default function Header({ config }: HeaderProps) {
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState<string>('');
@@ -37,12 +42,12 @@ export default function Header({ config }: HeaderProps) {
       });
 
       setTimeout(() => {
-        const elementTop = element.getBoundingClientRect().top + window.pageYOffset;
+        const elementTop = element.getBoundingClientRect().top + getScrollY();
         const targetPosition = elementTop - headerHeight;
-        const currentScrollY = window.pageYOffset;
+        const currentScrollY = getScrollY();
 
         if (Math.abs(targetPosition - currentScrollY) > 1) {
-          window.scrollTo({
+          document.body.scrollTo({
             top: Math.max(0, targetPosition),
             behavior: 'smooth',
           });
@@ -53,10 +58,10 @@ export default function Header({ config }: HeaderProps) {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(getScrollY() > 50);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    document.body.addEventListener('scroll', handleScroll, { passive: true });
 
     // セクションIDをconfigから取得
     const sections = config.headerLinks.map(link => link.href);
@@ -106,7 +111,7 @@ export default function Header({ config }: HeaderProps) {
     });
 
     const checkTopSection = () => {
-      if (window.scrollY < 100) {
+      if (getScrollY() < 100) {
         const firstSection = sections[0];
         if (firstSection) {
           setActiveSection(firstSection);
@@ -115,7 +120,7 @@ export default function Header({ config }: HeaderProps) {
     };
 
     checkTopSection();
-    window.addEventListener('scroll', checkTopSection, { passive: true });
+    document.body.addEventListener('scroll', checkTopSection, { passive: true });
 
     const handleHashScroll = () => {
       const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming;
@@ -123,7 +128,7 @@ export default function Header({ config }: HeaderProps) {
 
       if (isReload && window.location.hash) {
         window.history.replaceState(null, '', window.location.pathname);
-        window.scrollTo({ top: 0, behavior: 'instant' });
+        document.body.scrollTo({ top: 0, behavior: 'instant' });
         return;
       }
 
@@ -143,8 +148,8 @@ export default function Header({ config }: HeaderProps) {
     handleHashScroll();
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('scroll', checkTopSection);
+      document.body.removeEventListener('scroll', handleScroll);
+      document.body.removeEventListener('scroll', checkTopSection);
       observer.disconnect();
     };
   }, [scrollToSection, config.headerLinks]);
@@ -161,15 +166,15 @@ export default function Header({ config }: HeaderProps) {
     e.preventDefault();
     closeMobileMenu();
 
-    // 外部リンク（/で始まるパス）の場合は通常遷移
+    // 外部リンク（/で始まるパス）の場合はNext.jsルーターで遷移
     if (href.startsWith('/') && !href.startsWith('/#')) {
-      window.location.href = href;
+      router.push(href);
       return;
     }
 
     // 現在のページがbasePathでない場合はbasePathに遷移してからスクロール
     if (window.location.pathname !== config.basePath) {
-      window.location.href = config.basePath + href;
+      router.push(config.basePath + href);
       return;
     }
 
@@ -179,7 +184,7 @@ export default function Header({ config }: HeaderProps) {
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    window.location.href = config.basePath;
+    router.push(config.basePath);
   };
 
   const customBgStyle = headerColors?.backgroundColor ? { backgroundColor: headerColors.backgroundColor } : {};
@@ -239,7 +244,7 @@ export default function Header({ config }: HeaderProps) {
             onClick={handleLogoClick}
           >
             <img
-              src="/naritai.png"
+              src="/images/logo/naritai.png"
               alt="Naritai"
               className="h-[30px] min-[1025px]:h-[50px] xl:h-[60px] w-auto object-contain"
             />

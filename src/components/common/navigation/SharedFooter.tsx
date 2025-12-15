@@ -49,7 +49,7 @@ export default function SharedFooter({ config }: SharedFooterProps) {
           <div className="col-span-2 md:col-span-1">
             <div className="mb-6">
               <img
-                src="/naritai.png"
+                src="/images/logo/naritai.png"
                 alt="Naritai"
                 className="h-24 w-auto object-contain"
               />

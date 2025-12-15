@@ -129,7 +129,7 @@ export default function MessageSection() {
             <div className={`relative w-full aspect-square max-w-sm sm:max-w-[480px] mx-auto lg:max-w-[520px] lg:-ml-8 xl:-ml-12 z-10 ${visibleElements.image ? 'animate-slide-in-from-right' : 'opacity-0'}`}>
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/hp/message/representative.png"
+                  src="/images/message/representative.png"
                   alt="代表取締役 吉田 明加"
                   className="w-full h-full object-cover"
                 />

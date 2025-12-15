@@ -8,6 +8,7 @@ import FaqSection from '@/components/home/sections/FaqSection';
 import CompanySection from '@/components/home/sections/CompanySection';
 import ContactSection from '@/components/home/sections/ContactSection';
 import FormSuccessToast from '@/components/common/FormSuccessToast';
+import MobileStickyButton from '@/components/common/MobileStickyButton';
 
 export default function HomePage() {
   return (
@@ -25,6 +26,7 @@ export default function HomePage() {
       </main>
       <Footer config={homeNavigationConfig} />
       <FormSuccessToast />
+      <MobileStickyButton />
     </>
   );
 }

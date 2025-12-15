@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   icons: {
-    icon: '/20251113-1222_f62354075cc7b78cbe63d9d572b3e147.png',
+    icon: '/images/logo/favicon.png',
   },
 };
 

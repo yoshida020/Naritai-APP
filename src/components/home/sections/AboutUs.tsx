@@ -77,7 +77,7 @@ export default function AboutUsSection() {
       <div 
         className="absolute inset-0 min-[1025px]:hidden"
         style={{
-          backgroundImage: 'url(/hp/aboutUs/cloud.png)',
+          backgroundImage: 'url(/images/about/cloud.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -192,7 +192,7 @@ export default function AboutUsSection() {
             </h3>
             <div className="hidden sm:flex w-full flex-1 min-h-[320px] sm:min-h-[420px] md:min-h-[520px] lg:min-h-[620px] bg-gradient-to-t from-[#cfdcee] via-[#dfe9f6] to-[#f4f7fb] items-center justify-center rounded-[32px] overflow-hidden relative">
               <img
-                src="/hp/aboutUs/cloud.png"
+                src="/images/about/cloud.png"
                 alt="Cloud illustration"
                 className={`absolute inset-0 h-full w-full object-cover ${visibleElements.pcImage ? 'animate-pc-image-fade-in' : 'opacity-0'}`}
               />
@@ -206,7 +206,7 @@ export default function AboutUsSection() {
                 className={`relative rounded-[36px] px-8 py-10 min-[1025px]:px-12 min-[1025px]:py-14 border border-white/70 bg-white/80 shadow-[0_20px_45px_rgba(81,124,162,0.18)] backdrop-blur-sm ${visibleElements.pcCard ? 'animate-slide-in-from-right' : 'opacity-0'}`}
                 style={{
                   backgroundImage:
-                    'linear-gradient(180deg, rgba(255,255,255,0.94), rgba(226,241,251,0.92)), url(/hp/aboutUs/cloud.png)',
+                    'linear-gradient(180deg, rgba(255,255,255,0.94), rgba(226,241,251,0.92)), url(/images/about/cloud.png)',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat'

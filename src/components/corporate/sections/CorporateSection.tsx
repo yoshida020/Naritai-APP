@@ -35,23 +35,23 @@ export default function CorporateSection() {
   const effects = [
     {
       title: '人材定着',
-      image: '/人材定着.jpeg',
+      image: '/images/corporate/人材定着.jpeg',
     },
     {
       title: '静かな退職防止',
-      image: '/静かな退職防止.jpeg',
+      image: '/images/corporate/静かな退職防止.jpeg',
     },
     {
       title: '早期離職防止',
-      image: '/早期離職防止.png',
+      image: '/images/corporate/早期離職防止.png',
     },
     {
       title: '生産性向上',
-      image: '/生産性向上.jpeg',
+      image: '/images/corporate/生産性向上.jpeg',
     },
     {
       title: '組織全体の成長',
-      image: '/組織全体の成長.jpeg',
+      image: '/images/corporate/組織全体の成長.jpeg',
     },
   ];
 
