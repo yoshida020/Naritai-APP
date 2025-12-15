@@ -97,7 +97,7 @@ export default function AboutUsSection() {
     <section 
       ref={sectionRef}
       id="about" 
-      className="py-24 bg-[#F0F0F0] relative overflow-hidden"
+      className="py-10 min-[1025px]:py-24 bg-[#F0F0F0] relative overflow-hidden"
     >
       <div 
         className="absolute inset-0 min-[1025px]:hidden"
@@ -147,7 +147,7 @@ export default function AboutUsSection() {
           </h3>
           
           <div
-            className={`text-sm md:text-xl text-[#0a0a0a] leading-loose writing-horizontal-tb mx-auto font-medium py-14 ${visibleElements.mobileText ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}
+            className={`text-sm md:text-xl text-[#0a0a0a] leading-loose writing-horizontal-tb mx-auto font-medium ${visibleElements.mobileText ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}
             style={{
               fontFamily: '"Noto Serif JP", serif',
               maxWidth: '90%',
