@@ -106,7 +106,7 @@ export default function AboutUsSection() {
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.15
+          opacity: 0.35
         }}
       ></div>
       <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-12">
