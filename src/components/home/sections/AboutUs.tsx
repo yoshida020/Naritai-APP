@@ -10,7 +10,6 @@ export default function AboutUsSection() {
   const [visibleElements, setVisibleElements] = useState({
     label: false,
     title: false,
-    underline: false,
     mobileTitle: false,
     mobileText: false,
     pcTitle: false,
@@ -24,21 +23,6 @@ export default function AboutUsSection() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-          } else {
-            setIsVisible(false);
-            // 一度アニメーションが実行されたら、リセットしない
-            if (!hasAnimatedRef.current) {
-              setVisibleElements({
-                label: false,
-                title: false,
-                underline: false,
-                mobileTitle: false,
-                mobileText: false,
-                pcTitle: false,
-                pcImage: false,
-                pcCard: false,
-              });
-            }
           }
         });
       },
@@ -63,10 +47,8 @@ export default function AboutUsSection() {
   useEffect(() => {
     if (!isVisible || hasAnimatedRef.current) return;
 
-    // アニメーションが開始されたことを記録
     hasAnimatedRef.current = true;
 
-    // バッチ1: 即座に表示する要素（1回のsetStateで処理）
     setVisibleElements(prev => ({
       ...prev,
       label: true,
@@ -74,23 +56,16 @@ export default function AboutUsSection() {
       pcTitle: true,
     }));
 
-    // バッチ2-3: 段階的に表示する要素（タイマー数を削減）
-    const timers: NodeJS.Timeout[] = [];
-    timers.push(setTimeout(() => setVisibleElements(prev => ({
+    setTimeout(() => setVisibleElements(prev => ({
       ...prev,
-      underline: true,
       pcImage: true,
       mobileTitle: true,
-    })), 200));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({
+    })), 200);
+    setTimeout(() => setVisibleElements(prev => ({
       ...prev,
       pcCard: true,
       mobileText: true,
-    })), 400));
-
-    return () => {
-      timers.forEach(timer => clearTimeout(timer));
-    };
+    })), 400);
   }, [isVisible]);
 
   return (

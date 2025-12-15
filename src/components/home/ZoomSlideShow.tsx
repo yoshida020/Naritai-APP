@@ -48,9 +48,6 @@ export default function ZoomSlideShow({
         }
       }
     `;
-
-    return () => {
-    };
   }, [duration, zoomScale]);
 
   useEffect(() => {
