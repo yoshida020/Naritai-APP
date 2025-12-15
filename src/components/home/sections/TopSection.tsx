@@ -67,7 +67,7 @@ export default function TopSection() {
     <section
       id="top"
       ref={sectionRef}
-      className="relative h-screen md:min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16"
+      className="relative h-[100dvh] min-h-[100dvh] flex items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[#F9FCFF] via-white to-[#E6EAEE] z-0"></div>
       <div className="absolute left-0 top-0 w-[5%] h-full z-[2] hidden md:block" style={{ overflow: 'visible' }}>
