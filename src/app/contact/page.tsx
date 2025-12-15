@@ -11,9 +11,9 @@ import Toast from '@/components/common/Toast';
 import ConfirmModal from '@/components/common/ConfirmModal';
 
 // EmailJS設定
-const EMAILJS_SERVICE_ID = 'service_3xnlysc';
-const EMAILJS_ADMIN_TEMPLATE_ID = 'template_9za97q5';
-const EMAILJS_PUBLIC_KEY = '2n0_fs4DOkbU0obbZ';
+const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!;
+const EMAILJS_ADMIN_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_ADMIN_TEMPLATE_ID!;
+const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!;
 
 // バリデーションスキーマ
 const contactSchema = z.object({
