@@ -1,5 +1,6 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import FeatherBackground from '@/components/home/FeatherBackground';
 import { NavigationConfig } from './types';
 
@@ -65,12 +66,12 @@ export default function Footer({ config }: FooterProps) {
           <div className="col-span-2 md:col-span-1">
             <div className="mb-6">
               <img
-                src="/naritai.png"
+                src="/images/logo/naritai.png"
                 alt="Naritai"
                 className="h-24 w-auto object-contain"
               />
             </div>
-            <h3 className="text-xl font-bold mb-4">Naritai株式会社</h3>
+            <h3 className="text-xl font-bold mb-4">Naritai</h3>
             <p className="text-sm text-[var(--footer-muted)] leading-relaxed mb-6">
               あなたの「なりたい」を実現する
             </p>
@@ -116,7 +117,7 @@ export default function Footer({ config }: FooterProps) {
 
       <div className="border-t border-white/10 pt-8 mt-8">
         <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-4 text-sm text-[var(--footer-muted)]">
-          <p>&copy; 2025 Naritai株式会社. All rights reserved.</p>
+          <p>&copy; 2025 Naritai. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="/legal/privacy-policy" className="hover:text-[var(--footer-text)] transition-colors">プライバシーポリシー</a>
           </div>

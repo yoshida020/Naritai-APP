@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { SectionTitle } from '../SectionTitle';
+import { SectionTitle } from '@/components/common/SectionTitle';
 
 export default function MessageSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -10,7 +10,6 @@ export default function MessageSection() {
   const [visibleElements, setVisibleElements] = useState({
     label: false,
     title: false,
-    underline: false,
     image: false,
     background: false,
     text1: false,
@@ -28,25 +27,6 @@ export default function MessageSection() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-          } else {
-            setIsVisible(false);
-            // 一度アニメーションが実行されたら、リセットしない
-            if (!hasAnimatedRef.current) {
-              setVisibleElements({
-                label: false,
-                title: false,
-                underline: false,
-                image: false,
-                background: false,
-                text1: false,
-                text2: false,
-                text3: false,
-                text4: false,
-                text5: false,
-                text6: false,
-                signature: false,
-              });
-            }
           }
         });
       },
@@ -71,15 +51,12 @@ export default function MessageSection() {
   useEffect(() => {
     if (!isVisible || hasAnimatedRef.current) return;
 
-    // アニメーションが開始されたことを記録
     hasAnimatedRef.current = true;
 
-    // バッチ1: 即座に表示する要素（1回のsetStateで処理）
     setVisibleElements(prev => ({
       ...prev,
       label: true,
       title: true,
-      underline: true,
       image: true,
       background: true,
       text1: true,
@@ -87,15 +64,9 @@ export default function MessageSection() {
       text3: true,
     }));
 
-    // バッチ2-4: 段階的に表示する要素（タイマー数を削減）
-    const timers: NodeJS.Timeout[] = [];
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text4: true })), 200));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text5: true })), 400));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({ ...prev, text6: true, signature: true })), 600));
-
-    return () => {
-      timers.forEach(timer => clearTimeout(timer));
-    };
+    setTimeout(() => setVisibleElements(prev => ({ ...prev, text4: true })), 200);
+    setTimeout(() => setVisibleElements(prev => ({ ...prev, text5: true })), 400);
+    setTimeout(() => setVisibleElements(prev => ({ ...prev, text6: true, signature: true })), 600);
   }, [isVisible]);
 
   return (
@@ -158,7 +129,7 @@ export default function MessageSection() {
             <div className={`relative w-full aspect-square max-w-sm sm:max-w-[480px] mx-auto lg:max-w-[520px] lg:-ml-8 xl:-ml-12 z-10 ${visibleElements.image ? 'animate-slide-in-from-right' : 'opacity-0'}`}>
               <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src="/hp/message/representative.png"
+                  src="/images/message/representative.png"
                   alt="代表取締役 吉田 明加"
                   className="w-full h-full object-cover"
                 />

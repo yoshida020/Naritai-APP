@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { SectionTitle } from '../SectionTitle';
+import { SectionTitle } from '@/components/common/SectionTitle';
 
 export default function AboutUsSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -10,7 +10,6 @@ export default function AboutUsSection() {
   const [visibleElements, setVisibleElements] = useState({
     label: false,
     title: false,
-    underline: false,
     mobileTitle: false,
     mobileText: false,
     pcTitle: false,
@@ -24,21 +23,6 @@ export default function AboutUsSection() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setIsVisible(true);
-          } else {
-            setIsVisible(false);
-            // 一度アニメーションが実行されたら、リセットしない
-            if (!hasAnimatedRef.current) {
-              setVisibleElements({
-                label: false,
-                title: false,
-                underline: false,
-                mobileTitle: false,
-                mobileText: false,
-                pcTitle: false,
-                pcImage: false,
-                pcCard: false,
-              });
-            }
           }
         });
       },
@@ -63,10 +47,8 @@ export default function AboutUsSection() {
   useEffect(() => {
     if (!isVisible || hasAnimatedRef.current) return;
 
-    // アニメーションが開始されたことを記録
     hasAnimatedRef.current = true;
 
-    // バッチ1: 即座に表示する要素（1回のsetStateで処理）
     setVisibleElements(prev => ({
       ...prev,
       label: true,
@@ -74,39 +56,32 @@ export default function AboutUsSection() {
       pcTitle: true,
     }));
 
-    // バッチ2-3: 段階的に表示する要素（タイマー数を削減）
-    const timers: NodeJS.Timeout[] = [];
-    timers.push(setTimeout(() => setVisibleElements(prev => ({
+    setTimeout(() => setVisibleElements(prev => ({
       ...prev,
-      underline: true,
       pcImage: true,
       mobileTitle: true,
-    })), 200));
-    timers.push(setTimeout(() => setVisibleElements(prev => ({
+    })), 200);
+    setTimeout(() => setVisibleElements(prev => ({
       ...prev,
       pcCard: true,
       mobileText: true,
-    })), 400));
-
-    return () => {
-      timers.forEach(timer => clearTimeout(timer));
-    };
+    })), 400);
   }, [isVisible]);
 
   return (
     <section 
       ref={sectionRef}
       id="about" 
-      className="py-24 bg-[#F0F0F0] relative overflow-hidden"
+      className="py-10 min-[1025px]:py-24 bg-[#F0F0F0] relative overflow-hidden"
     >
       <div 
         className="absolute inset-0 min-[1025px]:hidden"
         style={{
-          backgroundImage: 'url(/hp/aboutUs/cloud.png)',
+          backgroundImage: 'url(/images/about/cloud.png)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.15
+          opacity: 0.35
         }}
       ></div>
       <div className="relative w-full px-4 sm:px-6 md:px-8 lg:px-12">
@@ -147,7 +122,7 @@ export default function AboutUsSection() {
           </h3>
           
           <div
-            className={`text-sm md:text-xl text-[#0a0a0a] leading-loose writing-horizontal-tb mx-auto font-medium py-14 ${visibleElements.mobileText ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}
+            className={`text-sm md:text-xl text-[#0a0a0a] leading-loose writing-horizontal-tb mx-auto font-medium ${visibleElements.mobileText ? 'animate-mobile-fade-in-up' : 'opacity-0'}`}
             style={{
               fontFamily: '"Noto Serif JP", serif',
               maxWidth: '90%',
@@ -217,7 +192,7 @@ export default function AboutUsSection() {
             </h3>
             <div className="hidden sm:flex w-full flex-1 min-h-[320px] sm:min-h-[420px] md:min-h-[520px] lg:min-h-[620px] bg-gradient-to-t from-[#cfdcee] via-[#dfe9f6] to-[#f4f7fb] items-center justify-center rounded-[32px] overflow-hidden relative">
               <img
-                src="/hp/aboutUs/cloud.png"
+                src="/images/about/cloud.png"
                 alt="Cloud illustration"
                 className={`absolute inset-0 h-full w-full object-cover ${visibleElements.pcImage ? 'animate-pc-image-fade-in' : 'opacity-0'}`}
               />
@@ -231,7 +206,7 @@ export default function AboutUsSection() {
                 className={`relative rounded-[36px] px-8 py-10 min-[1025px]:px-12 min-[1025px]:py-14 border border-white/70 bg-white/80 shadow-[0_20px_45px_rgba(81,124,162,0.18)] backdrop-blur-sm ${visibleElements.pcCard ? 'animate-slide-in-from-right' : 'opacity-0'}`}
                 style={{
                   backgroundImage:
-                    'linear-gradient(180deg, rgba(255,255,255,0.94), rgba(226,241,251,0.92)), url(/hp/aboutUs/cloud.png)',
+                    'linear-gradient(180deg, rgba(255,255,255,0.94), rgba(226,241,251,0.92)), url(/images/about/cloud.png)',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat'

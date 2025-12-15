@@ -5,14 +5,14 @@ import Lottie from "lottie-react";
 import ZoomSlideShow from "@/components/home/ZoomSlideShow";
 
 const desktopImages = [
-  "/hp/hero/hero-city.webp",
-  "/hp/hero/hero-coaching.jpeg",
-  "/hp/hero/hero-commute.jpeg"];
+  "/images/hero/hero-city.webp",
+  "/images/hero/hero-coaching.jpeg",
+  "/images/hero/hero-commute.jpeg"];
 
 const mobileImages = [
-  "/hp/hero/hero-city.webp",
-  "/hp/hero/hero-coaching-mobile.png",
-  "/hp/hero/hero-commute.jpeg"];
+  "/images/hero/hero-city.webp",
+  "/images/hero/hero-coaching-mobile.png",
+  "/images/hero/hero-commute.jpeg"];
 
 export default function TopSection() {
   const [animationData, setAnimationData] = useState(null);
@@ -21,7 +21,7 @@ export default function TopSection() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    fetch("/scroll%20down.json")
+    fetch("/animations/scroll-down.json")
       .then((response) => response.json())
       .then((data) => setAnimationData(data))
       .catch((error) => console.error("Error loading animation:", error));
@@ -67,7 +67,7 @@ export default function TopSection() {
     <section
       id="top"
       ref={sectionRef}
-      className="relative h-screen md:min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16"
+      className="relative h-[100dvh] min-h-[100dvh] flex items-center justify-center overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-[#F9FCFF] via-white to-[#E6EAEE] z-0"></div>
       <div className="absolute left-0 top-0 w-[5%] h-full z-[2] hidden md:block" style={{ overflow: 'visible' }}>

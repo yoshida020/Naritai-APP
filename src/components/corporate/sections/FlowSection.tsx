@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { SectionTitle } from '../../home/SectionTitle';
+import { SectionTitle } from '@/components/common/SectionTitle';
 
 export default function FlowSection() {
   const [isVisible, setIsVisible] = useState(false);
@@ -34,25 +34,25 @@ export default function FlowSection() {
       number: '01',
       title: 'お問い合わせ',
       description: ['まずはお気軽に', 'お問い合わせください。'],
-      image: '/Contact.png',
+      image: '/images/flow/Contact.png',
     },
     {
       number: '02',
       title: 'ヒアリング',
       description: ['お客様の課題やニーズを', '詳しくヒアリングします。'],
-      image: '/Hearing.png',
+      image: '/images/flow/Hearing.png',
     },
     {
       number: '03',
       title: '提案',
       description: ['お客様に最適なソリューション', 'を提案します。'],
-      image: '/Suggestion.png',
+      image: '/images/flow/Suggestion.png',
     },
     {
       number: '04',
       title: '実施・フォローアップ',
       description: ['プログラムを実施し、', '継続的にサポートします。'],
-      image: '/FollowUp.png',
+      image: '/images/flow/FollowUp.png',
     },
   ];
 
@@ -83,7 +83,7 @@ export default function FlowSection() {
 
       {/* --- メインコンテンツ（既存） --- */}
       <div className="max-w-[1200px] w-full mx-auto text-center relative z-10">
-        <div className="mb-12 md:mb-6">
+        <div className="mb-16">
           <SectionTitle enTitle="Flow" jaTitle="ご利用の流れ" />
         </div>
         <div className="flex flex-col gap-10 md:flex-row md:gap-6 md:justify-between relative md:flex-wrap md:justify-center">
@@ -184,7 +184,7 @@ export default function FlowSection() {
                   {/* モバイル版：下向き矢印 */}
                   <div className="absolute bottom-[-48px] left-1/2 transform -translate-x-1/2 w-12 h-12 flex items-center justify-center md:hidden">
                   <img 
-                    src="/allow.png" 
+                    src="/images/flow/allow.png" 
                     alt="矢印" 
                     className="w-full h-full object-contain"
                   />
@@ -192,7 +192,7 @@ export default function FlowSection() {
                   {/* PC・タブレット版：左向き矢印（カードの中央に配置、レスポンシブ、少し低め） */}
                   <div className="hidden md:flex absolute right-[-36px] top-[calc(160px+16px+90px+10px)] lg:top-[calc(190px+20px+100px+10px)] xl:top-[calc(200px+20px+100px+10px)] transform -translate-y-1/2 w-12 h-12 items-center justify-center">
                     <img 
-                      src="/allow.png" 
+                      src="/images/flow/allow.png" 
                       alt="矢印" 
                       className="w-full h-full object-contain -rotate-90"
                     />

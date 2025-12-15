@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { SectionTitle } from '../SectionTitle';
+import { SectionTitle } from '@/components/common/SectionTitle';
 
 interface FaqItem {
   question: string;
@@ -16,19 +16,19 @@ export default function FaqSection() {
   const faqItems: FaqItem[] = [
     {
       question: 'どのようなサービスを提供していますか？',
-      answer: '私たちは、コンサルティング事業、システム開発、デジタルマーケティングなど、お客様のビジネス成長をサポートする多様なサービスを提供しています。お客様のニーズに合わせて、最適なソリューションをご提案いたします。',
+      answer: 'Z世代〜30代の社会人を対象としたキャリアコーチングと、企業向けの若手定着支援プログラムを提供しています。1on1の対話を通して、強み・価値観・キャリアの方向性を言語化し、「個人カルテ」として可視化することで、ご本人の納得感と、組織としての育成を両立します。',
     },
     {
-      question: 'お問い合わせから対応までどのくらいかかりますか？',
-      answer: 'お問い合わせいただいた内容により異なりますが、通常は2営業日以内にご返信いたします。緊急のご相談がございましたら、お電話でもお気軽にお問い合わせください。',
+      question: 'どのような課題をお持ちの方・企業に向いていますか？',
+      answer: '「このまま今の会社にいていいのか不安」「頑張っているのに評価されていない気がする」と感じている20〜30代の方に多くご利用いただいています。企業様では、若手社員の早期離職やモチベーション低下、管理職の育成負担の増大にお悩みの人事・経営者の方に導入いただいています。',
     },
     {
-      question: '初回相談は無料ですか？',
-      answer: 'はい、初回相談は無料で承っております。お客様のご要望や課題をお聞かせいただき、最適なソリューションをご提案させていただきます。お気軽にお問い合わせください。',
+      question: 'お問い合わせから実施までどのくらいかかりますか？',
+      answer: '個人セッションは、日程が合えば 1〜2週間以内 の実施が可能です。法人プログラムは、ヒアリング〜ご提案まで通常 1〜2週間程度 を目安にしています。',
     },
     {
-      question: '対応可能な業種はありますか？',
-      answer: '様々な業種のお客様にご利用いただいております。製造業、小売業、サービス業、IT業界など、幅広い業種に対応可能です。まずはお気軽にご相談ください。',
+      question: '実施方法・エリアを教えてください。',
+      answer: 'すべてオンライン（Zoom等）で実施しているため、全国どこからでもご利用いただけます。法人様向けには、オンラインに加えて、状況に応じて訪問でのご相談も承っています。',
     },
   ];
 
@@ -93,7 +93,6 @@ export default function FaqSection() {
                   {item.question}
                 </span>
                 <span className="relative flex-shrink-0 w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center group-hover:bg-[#517CA2]/10 transition-colors duration-300">
-                  {/* プラス/マイナスアイコンのアニメーション */}
                   <span className={`absolute w-4 h-0.5 bg-[#517CA2] transition-transform duration-300 ${openIndex === index ? 'rotate-180' : ''}`}></span>
                   <span className={`absolute w-4 h-0.5 bg-[#517CA2] transition-transform duration-300 ${openIndex === index ? 'rotate-180 opacity-0' : 'rotate-90'}`}></span>
                 </span>

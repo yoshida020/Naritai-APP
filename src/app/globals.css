@@ -6,8 +6,7 @@
 /* Catchy Mager フォント定義 */
 @font-face {
   font-family: 'Catchy Mager';
-  src: url('/hp/fonts/Catchy Mager.otf') format('opentype'),
-    url('/hp/fonts/Catchy Mager.ttf') format('truetype');
+  src: url('/fonts/Catchy Mager.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -16,7 +15,7 @@
 /* 花鳥風月 フォント定義 */
 @font-face {
   font-family: '花鳥風月';
-  src: url('/hp/fonts/花鳥風月.ttf') format('truetype');
+  src: url('/fonts/花鳥風月.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,7 +24,7 @@
 /* 源暎こぶり明朝 フォント定義 */
 @font-face {
   font-family: 'GenEi Koburi Min6';
-  src: url('/hp/fonts/GenEiKoburiMin6-R.ttf') format('truetype');
+  src: url('/fonts/GenEiKoburiMin6-R.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -34,7 +33,7 @@
 /* Noto Serif JP フォント定義 */
 @font-face {
   font-family: 'Noto Serif JP';
-  src: url('/hp/fonts/NotoSerifJP-VariableFont_wght.ttf') format('truetype');
+  src: url('/fonts/NotoSerifJP-VariableFont_wght.ttf') format('truetype');
   font-weight: 200 900;
   font-style: normal;
   font-display: swap;

@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { SectionTitle } from '../../home/SectionTitle';
+import { SectionTitle } from '@/components/common/SectionTitle';
 
 export default function InstructorsSection() {
   const [flippedCards, setFlippedCards] = useState<Set<number>>(new Set());
@@ -22,7 +22,7 @@ export default function InstructorsSection() {
       specialties: ['人材育成', '組織開発', '離職防止'],
       description: '多数の企業で若手社員の定着と成長を支援してきました。',
       backInfo: '大手企業での人材育成プロジェクトを多数手がけ、離職率を平均30%削減する実績を持ちます。',
-      image: '/human02.jpeg',
+      image: '/images/instructors/human02.jpeg',
     },
     {
       name: '佐藤 花子',
@@ -31,7 +31,7 @@ export default function InstructorsSection() {
       specialties: ['モチベーション向上', 'チームビルディング', '生産性向上'],
       description: '組織全体の活性化と生産性向上を実現する専門家です。',
       backInfo: '心理学の知見を活かし、チームの結束力と生産性を向上させる独自のメソッドを開発しました。',
-      image: '/human03.jpeg',
+      image: '/images/instructors/human03.jpeg',
     },
     {
       name: '鈴木 一郎',
@@ -40,7 +40,7 @@ export default function InstructorsSection() {
       specialties: ['研修プログラム設計', 'キャリアパス設計', 'メンタリング'],
       description: '一人ひとりの成長をサポートする個別対応が得意です。',
       backInfo: '個別のキャリア相談を年間200件以上実施し、社員の満足度向上に貢献しています。',
-      image: '/human01.jpeg',
+      image: '/images/instructors/human01.jpeg',
     },
   ];
 
@@ -209,7 +209,7 @@ export default function InstructorsSection() {
       className="w-full min-h-screen py-20 px-4 bg-[#F9FCFF] flex items-center justify-center md:py-12 md:px-4"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center flex flex-col items-center">
-        <div className="mb-4">
+        <div className="mb-16">
           <SectionTitle enTitle="Instructors" jaTitle="講師紹介" />
         </div>
         <p className="text-lg leading-relaxed text-[#919CB7] mb-12 max-w-[800px] mx-auto text-center md:text-base md:mb-8">

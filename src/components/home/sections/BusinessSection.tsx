@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { SectionTitle } from '../SectionTitle';
+import { SectionTitle } from '@/components/common/SectionTitle';
 
 export default function BusinessSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -12,14 +12,14 @@ export default function BusinessSection() {
   const services = [
     {
       title: '個人向けサービス',
-      description: 'モヤモヤを言葉にする為の1on1。<br />次の一歩を一緒に。<br />キャリアに悩む20代後半～30代の社会人の方へ。国家資格を持つコーチが、あなたの思いを丁寧に引き出し、納得の行くキャリア選択をサポートします。',
-      image: '/service01.png',
+      description: 'モヤモヤを言葉にし、「この先どう働くか」を整理する1on1。<br />昇進・異動・転職など選択が増える20代後半〜30代の社会人の方へ。<br />国家資格を持つコーチが、強みや価値観を丁寧に引き出し、「辞める／残る」だけに頼らない、納得感のあるキャリア選択をサポートします。',
+      image: '/images/services/service01.png',
       link: 'https://www.naritai-career.com/',
     },
     {
       title: '法人向けサービス',
-      description: '離職を防ぎ、納得感あるキャリアを育む<br />個人支援プログラム。<br />若手社員の離職防止とキャリア自立を支援。1on1コーチングを通じて、社員一人ひとりが自分らしいキャリアを描ける環境づくりをお手伝いします。',
-      image: '/service02.png',
+      description: '若手の早期離職と「静かな退職」を防ぐ、Z世代特化の1on1プログラム。<br />採用・育成にかけた投資を守りつつ、現場管理職の指導・面談負担を軽減します。<br />専任コーチが若手社員の本音とキャリア観を言語化し、上司との1on1や評価面談に活かせる「個人カルテ」を作成。<br />人材の定着と戦力化を同時にサポートします。',
+      image: '/images/services/service02.png',
       link: '/corporate',
     },
   ];
