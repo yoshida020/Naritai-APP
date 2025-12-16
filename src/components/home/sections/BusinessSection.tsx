@@ -12,13 +12,13 @@ export default function BusinessSection() {
   const services = [
     {
       title: '個人向けサービス',
-      description: 'モヤモヤを言葉にし、「この先どう働くか」を整理する1on1。<br />昇進・異動・転職など選択が増える20代後半〜30代の社会人の方へ。<br />国家資格を持つコーチが、強みや価値観を丁寧に引き出し、「辞める／残る」だけに頼らない、納得感のあるキャリア選択をサポートします。',
+      description: 'モヤモヤを言葉にし、<br />「この先どう働くか」を整理する1on1。<br />昇進・異動・転職など選択が増える20代後半〜30代の社会人の方へ。<br />資格を持つコーチが、強みや価値観を丁寧に引き出し、「辞める／残る」だけに頼らない、<br />納得感のあるキャリア選択をサポートします。',
       image: '/images/services/service01.png',
       link: 'https://www.naritai-career.com/',
     },
     {
       title: '法人向けサービス',
-      description: '若手の早期離職と「静かな退職」を防ぐ、Z世代特化の1on1プログラム。<br />採用・育成にかけた投資を守りつつ、現場管理職の指導・面談負担を軽減します。<br />専任コーチが若手社員の本音とキャリア観を言語化し、上司との1on1や評価面談に活かせる「個人カルテ」を作成。<br />人材の定着と戦力化を同時にサポートします。',
+      description: '若手の早期離職と「静かな退職」を防ぐ、<br />Z世代特化の1on1プログラム。<br />採用・育成投資を守りつつ、現場管理職の面談負担を軽減します。<br />資格を持つコーチ、が若手社員の本音とキャリア観を言語化し、上司との1on1や評価面談に活かせる「個人カルテ」を作成。<br />人材の定着と戦力化を同時にサポートします。',
       image: '/images/services/service02.png',
       link: '/corporate',
     },
@@ -74,13 +74,13 @@ export default function BusinessSection() {
             <Link
               key={index}
               href={service.link}
-              className={`group block transition-all duration-700 ${
+              className={`group block h-full transition-all duration-700 ${
                 visibleCards[index]
                   ? 'opacity-100 translate-y-0'
                   : 'opacity-0 translate-y-8'
               }`}
             >
-              <div className="bg-white rounded-lg overflow-hidden shadow-md">
+              <div className="bg-white rounded-lg overflow-hidden shadow-md h-full flex flex-col">
                 <div className="relative w-full h-64 md:h-80 lg:h-96 overflow-hidden bg-[#F9FCFF]">
                   <img
                     src={service.image}
@@ -89,7 +89,7 @@ export default function BusinessSection() {
                   />
                 </div>
                 
-                <div className="p-6 md:p-8">
+                <div className="p-6 md:p-8 flex-1 flex flex-col">
                   <div className="flex items-center justify-between mb-4">
                     <h3 className="text-xl md:text-xl font-bold text-[#2C3E50] group-hover:text-[#517CA2] transition-colors relative w-fit">
                       {service.title}
