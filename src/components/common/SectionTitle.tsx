@@ -15,7 +15,7 @@ export const SectionTitle = ({
   jaTitle,
   className = '',
   titleColor = 'text-[#2C3E50]',
-  enColor = 'text-[#202D5F]/5',
+  enColor = 'text-[#517CA2]/30',
   enClassName = '',
   jaClassName = ''
 }: SectionTitleProps) => {
