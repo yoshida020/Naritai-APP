@@ -111,7 +111,7 @@ export default function ServicesSection() {
             return (
               <div 
                 key={index} 
-                className="w-full max-w-[320px] mx-auto flex flex-col text-left"
+                className="w-full max-w-[280px] mx-auto flex flex-col text-left"
               >
                 <div 
                   className="w-full mb-4 h-[200px] flex items-center justify-center overflow-hidden"
@@ -187,7 +187,7 @@ export default function ServicesSection() {
               >
                 {/* 画像 */}
                 <div 
-                  className="flex-shrink-0 w-[45%] aspect-[4/3] flex items-center justify-center overflow-hidden"
+                  className="flex-shrink-0 w-[40%] aspect-[4/3] flex items-center justify-center overflow-hidden"
                   style={{
                     opacity: isVisible ? 1 : 0,
                     transform: isVisible 
