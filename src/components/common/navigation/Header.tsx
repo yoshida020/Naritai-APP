@@ -166,7 +166,12 @@ export default function Header({ config }: HeaderProps) {
     e.preventDefault();
     closeMobileMenu();
 
-    // 外部リンク（/で始まるパス）の場合はNext.jsルーターで遷移
+    if (href.startsWith('http://') || href.startsWith('https://')) {
+      window.open(href, '_blank', 'noopener,noreferrer');
+      return;
+    }
+
+    // 内部リンク（/で始まるパス）の場合はNext.jsルーターで遷移
     if (href.startsWith('/') && !href.startsWith('/#')) {
       router.push(href);
       return;
@@ -184,7 +189,7 @@ export default function Header({ config }: HeaderProps) {
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    router.push(config.basePath);
+    router.push('/');
   };
 
   const customBgStyle = headerColors?.backgroundColor ? { backgroundColor: headerColors.backgroundColor } : {};
@@ -239,7 +244,7 @@ export default function Header({ config }: HeaderProps) {
       >
         <div className="w-full py-2 flex items-center justify-between flex-wrap gap-4">
           <a
-            href={config.basePath}
+            href="/"
             className="flex items-center transition-opacity duration-300 hover:opacity-80 pl-4 min-[1025px]:pl-8"
             onClick={handleLogoClick}
           >
@@ -251,18 +256,49 @@ export default function Header({ config }: HeaderProps) {
           </a>
           <nav className="hidden min-[1025px]:block pr-[180px] xl:pr-[195px]">
             <ul className="flex list-none gap-8 items-center flex-wrap justify-end m-0 p-0">
-              {config.headerLinks.map((link, index) => (
-                <li key={link.href} className="flex items-center">
+              {config.headerLinks.map((link) => (
+                <li key={link.href} className="flex items-center relative group/nav">
                   <a
                     href={link.href}
-                    className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap block group hover:text-[var(--header-active)] ${activeSection === link.href ? 'text-[var(--header-active)]' : 'text-[var(--header-text)]'
+                    className={`text-[17px] font-medium no-underline transition-colors duration-300 relative py-2 whitespace-nowrap flex items-center gap-1 group hover:text-[var(--header-active)] ${activeSection === link.href ? 'text-[var(--header-active)]' : 'text-[var(--header-text)]'
                       }`}
                     onClick={(e) => handleLinkClick(e, link.href)}
                   >
                     {link.label}
+                    {link.subLinks && link.subLinks.length > 0 && (
+                      <svg
+                        className="w-4 h-4 transition-transform duration-200 group-hover/nav:rotate-180"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    )}
                     <span className={`absolute bottom-0 left-1/2 h-[1px] bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] transform -translate-x-1/2 ${activeSection === link.href ? 'w-full' : 'w-0 group-hover:w-full'
                       }`}></span>
                   </a>
+                  {link.subLinks && link.subLinks.length > 0 && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 pt-3 opacity-0 invisible group-hover/nav:opacity-100 group-hover/nav:visible transition-all duration-200">
+                      <ul className="bg-white rounded-xl shadow-[0_4px_20px_rgba(0,0,0,0.12)] border border-gray-100 py-3 px-2 min-w-[140px]">
+                        {link.subLinks.map((subLink, index) => (
+                          <li key={subLink.href}>
+                            <a
+                              href={subLink.href}
+                              className="block px-4 py-2.5 text-[15px] font-medium text-[var(--header-text)] hover:text-[var(--header-active)] transition-all duration-200 whitespace-nowrap text-center relative group/sub"
+                              onClick={(e) => handleLinkClick(e, subLink.href)}
+                            >
+                              {subLink.label}
+                              <span className="absolute bottom-1 left-1/2 h-[1px] w-0 bg-gradient-to-r from-[#362ae0] via-[#3b79cc] to-[#42d3ed] transition-all duration-300 ease-out transform -translate-x-1/2 group-hover/sub:w-[80%]"></span>
+                            </a>
+                            {index < link.subLinks!.length - 1 && (
+                              <div className="mx-3 my-1 border-b border-gray-100"></div>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </li>
               ))}
             </ul>
@@ -296,6 +332,23 @@ export default function Header({ config }: HeaderProps) {
                         )}
                       </div>
                     </a>
+                    {link.subLinks && link.subLinks.length > 0 && (
+                      <div className="flex flex-col items-center gap-2 mt-3 pl-4 border-l-2 border-gray-200 ml-auto mr-auto w-fit">
+                        {link.subLinks.map((subLink) => (
+                          <a
+                            key={subLink.href}
+                            href={subLink.href}
+                            className="flex items-center gap-2 text-[15px] font-medium text-[var(--header-text)] hover:text-[var(--header-active)] transition-all duration-200 py-1.5 px-3 rounded-lg hover:bg-gray-50"
+                            onClick={(e) => handleLinkClick(e, subLink.href)}
+                          >
+                            <svg className="w-4 h-4 text-[var(--header-active)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                            </svg>
+                            {subLink.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
                   </li>
                 ))}
               </ul>
