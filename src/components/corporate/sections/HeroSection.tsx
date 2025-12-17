@@ -6,9 +6,9 @@ export default function HeroSection() {
   return (
     <div
       id="top"
-      className="relative w-full min-h-screen m-0 pt-20 box-border bg-[url('/images/hero/hero-bg.png')] bg-[length:auto_100%] bg-[position:77%_center] bg-no-repeat md:bg-cover md:bg-center flex items-end md:items-center justify-start text-[#2C3E50] overflow-hidden scroll-mt-20 md:pt-20 pb-8 md:pb-0"
+      className="relative w-full min-h-screen m-0 pt-20 box-border bg-[url('/images/hero/hero-bg.png')] bg-[length:auto_100%] bg-[position:77%_center] bg-no-repeat md:bg-cover md:bg-center flex items-center md:items-center justify-center md:justify-start text-[#2C3E50] overflow-hidden scroll-mt-20 md:pt-20 pb-8 md:pb-0"
     >
-      <div className="relative z-10 max-w-[1400px] w-full flex flex-col gap-6 items-center p-8 px-4 mx-auto h-full md:items-start md:gap-10 md:p-6 md:px-4">
+      <div className="relative z-10 max-w-[1400px] w-full flex flex-col gap-6 items-center p-8 px-4 mx-auto md:items-start md:gap-10 md:p-6 md:px-4">
         <div className="flex flex-col gap-4 md:gap-4 max-w-2xl mx-auto md:ml-12">
           <h1 className="font-bold leading-tight tracking-tight text-[#2C3E50] hero-slide-up">
             <span 

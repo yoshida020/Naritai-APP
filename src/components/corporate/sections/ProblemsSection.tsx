@@ -254,7 +254,7 @@ export default function ProblemsSection() {
     >
       <div className="max-w-7xl w-full mx-auto">
         <div className="mb-16">
-          <SectionTitle enTitle="Problems" jaTitle="Z世代にこんなお悩みありませんか？" />
+          <SectionTitle enTitle="Problems" jaTitle="Z世代にこんなお悩みありませんか？" enColor="text-[#9DCBE8]" />
         </div>
 
         {/* PC版: 横一列（5列） */}
@@ -296,7 +296,7 @@ export default function ProblemsSection() {
               className="w-full h-full object-contain"
             />
           </div>
-          <p className="text-[24px] md:text-[clamp(48px,6vw,48px)] font-bold text-[#517ca2] m-0 w-full whitespace-nowrap">
+          <p className="text-[24px] md:text-[clamp(48px,6vw,48px)] font-bold text-yellow-500 m-0 w-full whitespace-nowrap">
             Naritaiがすべて解決します!
           </p>
         </div>

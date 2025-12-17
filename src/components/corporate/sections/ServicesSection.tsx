@@ -81,7 +81,7 @@ export default function ServicesSection() {
     >
       <div className="max-w-[1200px] w-full mx-auto text-center md:max-w-full">
         <div className="mb-16">
-          <SectionTitle enTitle="Services" jaTitle="サービス内容" />
+          <SectionTitle enTitle="Services" jaTitle="サービス内容" enColor="text-[#9DCBE8]" />
         </div>
         {/* モバイル版：縦並び */}
         <div className="grid grid-cols-1 gap-8 place-items-center sm:hidden">

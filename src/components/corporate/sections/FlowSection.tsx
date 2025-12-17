@@ -84,7 +84,7 @@ export default function FlowSection() {
       {/* --- メインコンテンツ（既存） --- */}
       <div className="max-w-[1200px] w-full mx-auto text-center relative z-10">
         <div className="mb-16">
-          <SectionTitle enTitle="Flow" jaTitle="ご利用の流れ" />
+          <SectionTitle enTitle="Flow" jaTitle="ご利用の流れ" enColor="text-[#9DCBE8]" />
         </div>
         <div className="flex flex-col gap-10 md:flex-row md:gap-6 md:justify-between relative md:flex-wrap md:justify-center">
           {steps.map((step, index) => {

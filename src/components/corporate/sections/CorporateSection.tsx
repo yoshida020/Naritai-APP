@@ -81,7 +81,7 @@ export default function CorporateSection() {
       <div className="max-w-[1200px] w-full mx-auto relative" ref={containerRef}>
         {/* タイトルエリア */}
         <div className="text-center mb-16 relative z-10">
-          <SectionTitle enTitle="Effects" jaTitle="導入による効果" />
+          <SectionTitle enTitle="Effects" jaTitle="導入による効果" enColor="text-[#9DCBE8]" />
         </div>
 
         {/* PC用の接続線（SVG背景） - 右肩上がりの基準線 */}

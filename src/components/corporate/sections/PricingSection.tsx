@@ -66,7 +66,7 @@ export default function PricingSection() {
     >
       <div className="max-w-[1200px] w-full mx-auto text-center h-full flex flex-col justify-center py-8 md:h-auto md:py-0">
         <div className="mb-16">
-          <SectionTitle enTitle="Pricing" jaTitle="料金" />
+          <SectionTitle enTitle="Pricing" jaTitle="料金" enColor="text-[#9DCBE8]" />
         </div>
         <div className="bg-white border-[3px] border-[#517CA2] rounded-3xl py-6 px-10 mb-8 text-center shadow-md max-w-[700px] mx-auto relative overflow-visible lg:py-6 lg:px-6 xl:py-4 xl:px-6 md:py-6 md:px-6 md:mb-8 md:border-2">
           <div className={`text-4xl font-bold text-[#2C3E50] mb-0 tracking-wide relative inline-block pb-1 z-[1] lg:text-3xl xl:text-2xl md:text-xl md:text-3xl ${isVisible ? 'animate-slide-in-from-top' : ''}`}>
