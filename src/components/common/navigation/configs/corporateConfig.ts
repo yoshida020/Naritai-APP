@@ -6,7 +6,7 @@ export const corporateNavigationConfig: NavigationConfig = {
     { href: '#top', label: 'トップ', labelEn: 'Top' },
     { href: '#problems', label: '課題', labelEn: 'Problems' },
     { href: '#services', label: 'サービス内容', labelEn: 'Services' },
-    { href: '#instructors', label: '講師紹介', labelEn: 'Instructors' },
+    { href: '#business', label: '事業紹介', labelEn: 'Business' },
     { href: '#corporate', label: '導入効果', labelEn: 'Effects' },
     { href: '#strong-points', label: '強み', labelEn: 'Strengths' },
     { href: '#pricing', label: '料金', labelEn: 'Pricing' },
@@ -19,7 +19,7 @@ export const corporateNavigationConfig: NavigationConfig = {
       links: [
         { href: '#problems', label: '課題' },
         { href: '#services', label: 'サービス内容' },
-        { href: '#instructors', label: '講師紹介' },
+        { href: '#business', label: '事業紹介' },
         { href: '#corporate', label: '導入効果' },
       ],
     },

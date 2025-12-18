@@ -6,7 +6,15 @@ export const homeNavigationConfig: NavigationConfig = {
     { href: '#top', label: 'トップ', labelEn: 'Top' },
     { href: '#about', label: 'Naritaiについて', labelEn: 'About' },
     { href: '#message', label: 'メッセージ', labelEn: 'Message' },
-    { href: '#business', label: '事業内容', labelEn: 'Business' },
+    {
+      href: '#business',
+      label: '事業内容',
+      labelEn: 'Business',
+      subLinks: [
+        { href: 'https://www.naritai-career.com/', label: '個人向け' },
+        { href: '/corporate', label: '法人向け' },
+      ],
+    },
     { href: '#news', label: 'News', labelEn: 'News' },
     { href: '#faq', label: 'よくある質問', labelEn: 'FAQ' },
     { href: '#company', label: '会社概要', labelEn: 'Company' },

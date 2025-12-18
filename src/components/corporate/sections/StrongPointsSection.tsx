@@ -97,11 +97,12 @@ export default function StrongPointsSection() {
       className="w-full py-16 px-4 bg-gradient-to-b from-[#F8FAFF] to-[#EFF3FF] md:py-24 xl:py-32"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center">
+        {/* タイトル（共通） */}
+        <div className={`mb-16 ${isVisible ? 'hero-slide-up' : ''}`}>
+          <SectionTitle enTitle="Strengths" jaTitle="私たちの強み" enColor="text-[#9DCBE8]" />
+        </div>
         {/* モバイル版：縦並び（1300px未満） */}
         <div className="grid grid-cols-1 place-items-center xl:hidden gap-12 md:gap-16">
-          <div className={`mb-16 ${isVisible ? 'hero-slide-up' : ''}`}>
-            <SectionTitle enTitle="Strengths" jaTitle="私たちの強み" />
-          </div>
           {points.map((point, index) => (
             <div 
               key={index} 
@@ -109,14 +110,15 @@ export default function StrongPointsSection() {
             >
               {/* ナンバリング - カードの背景 */}
               <div 
-                className="absolute text-black font-bold"
+                className="absolute font-bold"
                 style={{
                   fontSize: '120px',
                   lineHeight: '1',
                   top: '20px',
                   right: '20px',
                   zIndex: 0,
-                  opacity: 0.08
+                  opacity: 0.12,
+                  color: '#F97316' // 鮮やかなオレンジ（orange-500相当）
                 }}
               >
                 {String(index + 1).padStart(2, '0')}
@@ -132,10 +134,6 @@ export default function StrongPointsSection() {
         </div>
         {/* PC版（1300px以上） */}
         <div className="hidden xl:block">
-          {/* タイトル */}
-          <div className={`mb-16 ${isVisible ? 'hero-slide-up' : ''}`}>
-            <SectionTitle enTitle="Strengths" jaTitle="私たちの強み" />
-          </div>
           {/* カード */}
           <div className="relative w-full flex justify-center" style={{ minHeight: '700px' }}>
             {points.map((point, index) => {
@@ -159,14 +157,15 @@ export default function StrongPointsSection() {
                   <div className="group w-[500px] flex flex-col text-left relative bg-white rounded-lg p-8 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 cursor-pointer overflow-hidden">
                     {/* ナンバリング - カードの背景 */}
                     <div 
-                      className="absolute text-black font-bold transition-all duration-300"
+                      className="absolute font-bold transition-all duration-300"
                       style={{
                         fontSize: '180px',
                         lineHeight: '1',
                         top: '20px',
                         right: '20px',
                         zIndex: 0,
-                        opacity: 0.08
+                        opacity: 0.12,
+                        color: '#F97316' // 鮮やかなオレンジ（orange-500相当）
                       }}
                     >
                       {String(index + 1).padStart(2, '0')}

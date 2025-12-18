@@ -210,7 +210,7 @@ export default function InstructorsSection() {
     >
       <div className="max-w-[1200px] w-full mx-auto text-center flex flex-col items-center">
         <div className="mb-16">
-          <SectionTitle enTitle="Instructors" jaTitle="講師紹介" />
+          <SectionTitle enTitle="Instructors" jaTitle="講師紹介" enColor="text-[#9DCBE8]" />
         </div>
         <p className="text-lg leading-relaxed text-[#919CB7] mb-12 max-w-[800px] mx-auto text-center md:text-base md:mb-8">
           経験豊富な講師陣が、お客様の組織に最適なサポートを提供します。

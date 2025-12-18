@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 
 export default function MobileStickyButton() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const lastScrollY = useRef(0);
 
   useEffect(() => {
@@ -15,7 +15,7 @@ export default function MobileStickyButton() {
       const scrollDiff = currentScrollY - lastScrollY.current;
 
       if (Math.abs(scrollDiff) >= 5) {
-        setIsVisible(scrollDiff < 0);
+        setIsExpanded(scrollDiff < 0);
         lastScrollY.current = currentScrollY;
       }
     };
@@ -29,14 +29,14 @@ export default function MobileStickyButton() {
   }, []);
 
   return (
-    <div
-      className={`fixed bottom-0 left-0 right-0 z-50 p-4 from-white via-white to-transparent md:hidden transition-all duration-300 ${
-        isVisible ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
-      }`}
-    >
+    <div className="fixed bottom-4 right-4 z-50 md:hidden">
       <Link
         href="/blank"
-        className="block w-full bg-[#202D5F] text-white font-bold py-4 px-6 rounded-xl shadow-[0_8px_20px_rgba(32,45,95,0.4)] hover:bg-[#1a2449] active:scale-[0.98] transition-all duration-200 text-center"
+        className={`flex items-center justify-center bg-[#202D5F] text-white font-bold shadow-[0_8px_20px_rgba(32,45,95,0.4)] hover:bg-[#1a2449] active:scale-[0.98] transition-all duration-300 ease-out overflow-hidden whitespace-nowrap rounded-full ${
+          isExpanded
+            ? 'w-[calc(100vw-32px)] h-14 text-base'
+            : 'w-20 h-20 text-xs'
+        }`}
       >
         資料請求
       </Link>

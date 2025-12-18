@@ -40,7 +40,7 @@ export default function ContactSection() {
         <div className={`mb-16 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
         }`}>
-          <SectionTitle enTitle="Contact" jaTitle="お問い合わせ" />
+          <SectionTitle enTitle="Contact" jaTitle="お問い合わせ" enColor="text-[#9DCBE8]" />
         </div>
         
         <div className={`flex flex-col items-center gap-10 transition-all duration-700 ${

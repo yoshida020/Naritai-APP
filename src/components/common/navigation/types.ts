@@ -1,8 +1,15 @@
+// サブメニューリンクの型定義
+export interface SubNavLink {
+  href: string;
+  label: string;
+}
+
 // ナビゲーションリンクの型定義
 export interface NavLink {
   href: string;
   label: string;
   labelEn?: string; // モバイルメニュー用の英語ラベル
+  subLinks?: SubNavLink[]; // ドロップダウンサブメニュー
 }
 
 // フッターリンクグループの型定義

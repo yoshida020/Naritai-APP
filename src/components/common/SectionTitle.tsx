@@ -15,7 +15,7 @@ export const SectionTitle = ({
   jaTitle,
   className = '',
   titleColor = 'text-[#2C3E50]',
-  enColor = 'text-[#202D5F]/5',
+  enColor = 'text-[#517CA2]/30',
   enClassName = '',
   jaClassName = ''
 }: SectionTitleProps) => {
@@ -29,7 +29,7 @@ export const SectionTitle = ({
           className={`inline-block font-bold uppercase tracking-widest ${enColor} ${enClassName}`}
           style={{
             fontSize: 'clamp(3.5rem, 13vw, 8rem)',
-            fontFamily: 'Futura, "Century Gothic", sans-serif',
+            fontFamily: 'sans-serif',
             whiteSpace: 'nowrap',
             lineHeight: 1,
             width: '100%',

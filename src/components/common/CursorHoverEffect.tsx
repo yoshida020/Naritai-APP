@@ -111,7 +111,7 @@ export default function CursorHoverEffect() {
   return (
     <div
       ref={cursorRef}
-      className={`fixed w-6 h-6 aspect-square bg-[#517CA2] rounded-full pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-[9999] mix-blend-normal opacity-50 hidden lg:block ${
+      className={`fixed w-6 h-6 aspect-square bg-[#517CA2] rounded-full pointer-events-none transform -translate-x-1/2 -translate-y-1/2 z-[9999] mix-blend-normal opacity-30 hidden lg:block ${
         isHovering ? 'w-10 h-10 bg-transparent border-2 border-[#517CA2] opacity-70' : ''
       }`}
       style={{
