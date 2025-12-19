@@ -63,7 +63,7 @@ export default function CoachingSection() {
                 {/* 画像エリア */}
                 <div className="w-full mb-4 flex items-center justify-center">
                   <img
-                    src="/images/corporate/人材定着.jpeg"
+                    src="/images/coaching/コーチング03.png"
                     alt=""
                     className="w-full h-auto object-contain rounded-lg"
                   />
@@ -76,7 +76,7 @@ export default function CoachingSection() {
                 {/* 画像エリア */}
                 <div className="w-full mb-4 flex items-center justify-center">
                   <img
-                    src="/images/corporate/早期離職防止.png"
+                    src="/images/coaching/コーチング04.png"
                     alt=""
                     className="w-full h-auto object-contain rounded-lg"
                   />
