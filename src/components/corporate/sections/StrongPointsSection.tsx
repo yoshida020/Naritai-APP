@@ -94,7 +94,7 @@ export default function StrongPointsSection() {
     <section 
       ref={sectionRef}
       id="strong-points" 
-      className="w-full py-16 px-4 bg-gradient-to-b from-[#F8FAFF] to-[#EFF3FF] md:py-24 xl:py-32"
+      className="w-full py-16 px-4 md:py-24 xl:py-32"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center">
         {/* タイトル（共通） */}

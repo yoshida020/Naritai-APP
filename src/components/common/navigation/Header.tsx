@@ -240,7 +240,7 @@ export default function Header({ config }: HeaderProps) {
       <header
         ref={headerRef}
         style={{ ...cssVars, ...customBgStyle }}
-        className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-300 ease-in-out border-b ${backgroundClass}`}
+        className={`corporate-header fixed top-0 left-0 w-full z-[1000] transition-all duration-300 ease-in-out border-b ${backgroundClass}`}
       >
         <div className="w-full py-2 flex items-center justify-between flex-wrap gap-4">
           <a

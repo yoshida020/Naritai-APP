@@ -26,7 +26,7 @@ export const SectionTitle = ({
         aria-hidden="true"
       >
         <span
-          className={`inline-block font-bold uppercase tracking-widest ${enColor} ${enClassName}`}
+          className={`section-title-en inline-block font-bold uppercase tracking-widest ${enColor} ${enClassName}`}
           style={{
             fontSize: 'clamp(3.5rem, 13vw, 8rem)',
             fontFamily: 'sans-serif',

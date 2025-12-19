@@ -9,8 +9,8 @@ export default function CoachingSection() {
   return (
     <section
       ref={sectionRef}
-      id="business"
-      className="w-full min-h-screen py-20 px-4 bg-gradient-to-b from-[#F8FAFF] to-[#EFF3FF] flex items-center justify-center md:py-12 md:px-4"
+      id="coaching-section"
+      className="w-full min-h-screen py-20 px-4 flex items-center justify-center md:py-12 md:px-4"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center flex flex-col items-center">
         <div className="mb-16">
@@ -26,10 +26,11 @@ export default function CoachingSection() {
                 コーチングとは
               </h3>
               <div className="text-base md:text-lg leading-relaxed text-[#2C3E50] text-left">
-                <p className="mb-4">
-                  一方的に答えを教えるティーチングやコンサルティングとは異なり、<br />
-                  コーチとの対話を通じて、社員一人ひとりが自らのキャリアや課題に対する<br />
-                  「気づき」を得て、主体的な「行動」へつなげるプロセスです。
+                <p id="coaching-trigger" className="mb-4">
+                  一方的に答えを教えるティーチングや<br />コンサルティングとは異なり、<br /> 
+                  コーチとの対話を通じて、社員一人ひとりが<br />
+                  自らのキャリアや課題に対する「気づき」を得て、<br />
+                  主体的な「行動」へつなげるプロセスです。
                 </p>
               </div>
             </div>
@@ -42,16 +43,15 @@ export default function CoachingSection() {
             </div>
           </div>
 
-          {/* Naritaiのコーチングタイトル */}
-          <div className="mb-8 md:mb-12">
-            <h3 className="text-[48px] font-semibold text-yellow-500 text-center">
+          <div id="naritai-coaching" className="mb-8 md:mb-12">
+            <h3 className="text-[24px] md:text-[48px] font-semibold text-[#517CA2] text-center">
               Naritaiのコーチング
             </h3>
           </div>
 
           {/* Naritaiのコーチングセクション */}
           <div className="w-full text-base md:text-lg leading-relaxed text-[#2C3E50] text-center space-y-6">
-            <p className="mb-4">
+            <p className="mb-4 text-left md:text-center">
               Naritaiが提供するのは、
               特にZ世代の価値観や思考特性に最適化されたコーチングです。<br />
               上から指導するのではなく同じ目線で伴走し、価値観・強み・不安を言語化して、<br />
@@ -68,7 +68,7 @@ export default function CoachingSection() {
                     className="w-full h-auto object-contain rounded-lg"
                   />
                 </div>
-                <p className="text-center">
+                <p className="text-left md:text-center">
                   若手社員が抱えがちな「このままでいいのか」<br />という将来の不安を整理し、<br />今の環境で伸ばす軸／次に選ぶ軸を明確にする
                 </p>
               </div>
@@ -81,12 +81,12 @@ export default function CoachingSection() {
                     className="w-full h-auto object-contain rounded-lg"
                   />
                 </div>
-                <p className="text-center">
+                <p className="text-left md:text-center">
                   会社を転々としてしまう理由<br />（合わない／人間関係／評価への不満など）<br />を構造化し、同じ悩みを繰り返さない<br />選び方・行動・伝え方に落とし込む
                 </p>
               </div>
             </div>
-            <p className="mt-18">
+            <p className="mt-18 text-left md:text-center">
               さらに、この対話プロセスを「個人カルテ」として可視化・体系化することで、<br />
               感覚的になりがちな育成を再現性のある仕組みへ。<br />
               若手の成長を組織の成果につなげます。
@@ -94,6 +94,7 @@ export default function CoachingSection() {
             {/* 画像 */}
             <div className="w-full flex items-center justify-center mt-6">
               <img
+                id="coaching-image-trigger"
                 src="/images/coaching/コーチング01.png"
                 alt=""
                 className="w-full h-auto object-contain rounded-lg max-w-4xl"

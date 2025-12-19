@@ -163,28 +163,102 @@
     -moz-osx-font-smoothing: grayscale;
     height: 100%;
     overflow-x: hidden;
+    background-color: #F8FAFF;
+    transition: background-color 1s ease-in-out;
+  }
+
+  html.is-dark-theme {
+    background-color: #2C5282;
   }
 
   body {
-    background-color: var(--color-bg-default);
-    color: var(--color-text-primary);
+    background-color: #F8FAFF;
+    color: #333333;
     font-family: var(--font-family-primary);
     font-size: var(--font-size-base);
     line-height: var(--line-height-normal);
     font-feature-settings: "rlig" 1, "calt" 1;
     height: 100%;
     overflow-x: hidden;
+    transition: background-color 1s ease-in-out, color 1s ease-in-out;
+  }
+
+  /* すべてのテキスト要素にカラートランジションを適用 */
+  * {
+    transition: color 0.9s ease;
+  }
+
+  body.is-dark-theme {
+    background-color: #2C5282;
+    color: #FFFFFF;
+  }
+
+  /* ダークモード時、テキスト要素を白色に（ただし、特定の要素は除外） */
+  body.is-dark-theme section *:not(img):not(svg):not(path):not(circle):not(rect):not(line):not(polygon):not(ellipse):not(.section-title-en):not(header):not(header *),
+  body.is-dark-theme div *:not(img):not(svg):not(path):not(circle):not(rect):not(line):not(polygon):not(ellipse):not(.section-title-en):not(header):not(header *),
+  body.is-dark-theme p:not(.section-title-en):not(header *),
+  body.is-dark-theme span:not(.section-title-en):not(header *),
+  body.is-dark-theme h1:not(.section-title-en):not(header *),
+  body.is-dark-theme h2:not(.section-title-en):not(header *),
+  body.is-dark-theme h3:not(.section-title-en):not(header *),
+  body.is-dark-theme h4:not(.section-title-en):not(header *),
+  body.is-dark-theme h5:not(.section-title-en):not(header *),
+  body.is-dark-theme h6:not(.section-title-en):not(header *),
+  body.is-dark-theme a:not(header *):not(.section-title-en),
+  body.is-dark-theme li:not(header *):not(.section-title-en),
+  body.is-dark-theme td:not(header *):not(.section-title-en),
+  body.is-dark-theme th:not(header *):not(.section-title-en) {
+    color: #FFFFFF !important;
+  }
+
+  /* ヘッダーとその子要素は元の色を維持（CSS変数を使用、詳細度を上げる） */
+  body.is-dark-theme header,
+  body.is-dark-theme header *,
+  body.is-dark-theme .corporate-header,
+  body.is-dark-theme .corporate-header *,
+  body.is-dark-theme header a,
+  body.is-dark-theme header span,
+  body.is-dark-theme header p,
+  body.is-dark-theme header li,
+  body.is-dark-theme header div,
+  body.is-dark-theme header button {
+    color: var(--header-text, #2C3E50) !important;
   }
 
   /* Next.js specific */
   #__next {
     min-height: 100vh;
     position: relative;
+    background-color: #F8FAFF;
+    transition: background-color 1s ease-in-out;
+  }
+
+  body.is-dark-theme #__next,
+  html.is-dark-theme #__next {
+    background-color: #2C5282;
+  }
+
+  /* ダークモード時、すべてのセクションの背景色を透明にしてbodyの背景色を透過させる */
+  body.is-dark-theme section,
+  html.is-dark-theme section {
+    background-color: transparent;
+  }
+
+  /* ダークモード時、セクション内のdivの背景色も透明にしてbodyの背景色を透過させる */
+  body.is-dark-theme section > div,
+  html.is-dark-theme section > div {
+    background-color: transparent;
   }
 
   /* Section scroll offset for fixed header */
   section {
     scroll-margin-top: 100px;
+    transition: background-color 1s ease-in-out;
+  }
+
+  /* セクション内のdivにもトランジションを適用 */
+  section > div {
+    transition: background-color 1s ease-in-out;
   }
 
   /* Ensure proper box-sizing */

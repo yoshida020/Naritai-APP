@@ -7,11 +7,13 @@ import StrongPointsSection from '@/components/corporate/sections/StrongPointsSec
 import FlowSection from '@/components/corporate/sections/FlowSection';
 import PricingSection from '@/components/corporate/sections/PricingSection';
 import ContactSection from '@/components/corporate/sections/ContactSection';
+import DarkThemeObserver from '@/components/corporate/DarkThemeObserver';
 import styles from './page.module.css';
 
 export default function ContactPage() {
   return (
     <div className={styles.container}>
+      <DarkThemeObserver />
       <HeroSection />
       <ProblemsSection />
       <ServicesSection />

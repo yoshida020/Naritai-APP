@@ -47,33 +47,62 @@ export default function ServicesSection() {
     },
   ];
 
-  const [visibleElements, setVisibleElements] = useState<Set<number>>(new Set());
+  const [visibleMobileElements, setVisibleMobileElements] = useState<Set<number>>(new Set());
+  const [visiblePCElements, setVisiblePCElements] = useState<Set<number>>(new Set());
   const sectionRef = useRef<HTMLElement>(null);
-  const elementRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const mobileElementRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const pcElementRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
 
-    elementRefs.current.forEach((element, index) => {
-      if (!element) return;
+    const setupObservers = () => {
+      // モバイル版のObserver設定
+      mobileElementRefs.current.forEach((element, index) => {
+        if (!element) return;
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              setVisibleElements((prev) => new Set(prev).add(index));
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.1 }
-      );
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setVisibleMobileElements((prev) => new Set(prev).add(index));
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
 
-      observer.observe(element);
-      observers.push(observer);
-    });
+        observer.observe(element);
+        observers.push(observer);
+      });
+
+      // PC版のObserver設定
+      pcElementRefs.current.forEach((element, index) => {
+        if (!element) return;
+
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                setVisiblePCElements((prev) => new Set(prev).add(index));
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1 }
+        );
+
+        observer.observe(element);
+        observers.push(observer);
+      });
+    };
+
+    // DOMが完全にレンダリングされた後にObserverを設定
+    const timeoutId = setTimeout(setupObservers, 100);
 
     return () => {
+      clearTimeout(timeoutId);
       observers.forEach((observer) => observer.disconnect());
     };
   }, []);
@@ -82,7 +111,7 @@ export default function ServicesSection() {
     <section 
       ref={sectionRef}
       id="services" 
-      className="w-full py-16 px-4 bg-[#F9FCFF] flex justify-center md:py-20 md:px-4"
+      className="w-full py-16 px-4 flex justify-center md:py-20 md:px-4"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center md:max-w-full">
         <div className="mb-16">
@@ -91,7 +120,7 @@ export default function ServicesSection() {
         {/* モバイル版：縦並び */}
         <div className="grid grid-cols-1 gap-8 place-items-center sm:hidden">
           {services.map((service, index) => {
-            const isVisible = visibleElements.has(index);
+            const isVisible = visibleMobileElements.has(index);
             const isEven = index % 2 === 0;
             const imageFromLeft = isEven;
             const textFromLeft = isEven;
@@ -103,7 +132,7 @@ export default function ServicesSection() {
             return (
               <div 
                 key={index} 
-                ref={(el) => { elementRefs.current[index] = el; }}
+                ref={(el) => { mobileElementRefs.current[index] = el; }}
                 className="w-full max-w-[280px] mx-auto flex flex-col text-left"
               >
                 <div 
@@ -147,7 +176,7 @@ export default function ServicesSection() {
         {/* PC版：左右交互配置 */}
         <div className="hidden sm:flex sm:flex-col sm:gap-12 sm:w-full">
           {services.map((service, index) => {
-            const isVisible = visibleElements.has(index);
+            const isVisible = visiblePCElements.has(index);
             const isEven = index % 2 === 0;
             // 左側の要素（画像が左の場合は画像、テキストが左の場合はテキスト）は左から
             // 右側の要素（画像が右の場合は画像、テキストが右の場合はテキスト）は右から
@@ -161,7 +190,7 @@ export default function ServicesSection() {
             return (
               <div 
                 key={index} 
-                ref={(el) => { elementRefs.current[index] = el; }}
+                ref={(el) => { pcElementRefs.current[index] = el; }}
                 className="flex flex-row items-center gap-16 w-full"
                 style={{
                   flexDirection: isEven ? 'row' : 'row-reverse'
