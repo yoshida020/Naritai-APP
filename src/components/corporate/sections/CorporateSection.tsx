@@ -126,12 +126,11 @@ export default function CorporateSection() {
                 className={`relative group w-[75%] md:w-[60%] ${isEven ? 'ml-auto' : 'mr-auto'} lg:w-full lg:max-w-[400px] xl:max-w-[500px] lg:mx-auto lg:flex lg:flex-col lg:items-center ${pcTranslate}`}
               >
                 <div
-                  className={`transition-all duration-700 ease-out ${
-                    itemsVisible 
-                      ? 'opacity-100 translate-y-0' 
-                      : 'opacity-0 translate-y-12'
-                  }`}
-                  style={{ transitionDelay: `${index * 200}ms` }}
+                  className={`
+                    transition-all duration-[1500ms] ease-out
+                    ${itemsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}
+                  `}
+                  style={{ transitionDelay: `${index * 300}ms` }}
                 >
                   <div className="relative w-full rounded-2xl overflow-hidden shadow-md lg:w-full lg:aspect-[4/3] z-10 bg-white">
                     <Image
@@ -139,18 +138,19 @@ export default function CorporateSection() {
                       alt={effect.title}
                       width={400}
                       height={300}
-                      className="w-full h-full transition-transform duration-500 group-hover:scale-105 lg:hidden object-cover"
+                      className="w-full h-full transition-transform duration-500 group-hover:scale-105 image-bottom-fade lg:hidden object-cover"
+                      style={{ objectFit: 'cover' }}
                     />
                     <Image
                       src={effect.image}
                       alt={effect.title}
-                      width={400}
-                      height={300}
-                      className="hidden lg:block w-full h-full transition-transform duration-500 group-hover:scale-105 object-cover"
+                      width={256}
+                      height={256}
+                      className="hidden lg:block w-full h-full transition-transform duration-500 group-hover:scale-105 image-bottom-fade object-cover"
                     />
 
-                    <div className="absolute bottom-0 right-0 z-20 w-[90%] p-4 rounded-tl-2xl bg-gradient-to-t from-black/60 to-transparent">
-                      <h3 className="font-bold text-base md:text-lg lg:text-xl text-white leading-tight text-right drop-shadow-lg">
+                    <div className="absolute bottom-0 right-0 z-20 w-[90%] p-4 rounded-tl-2xl">
+                      <h3 className="font-bold text-base md:text-lg lg:text-xl text-black leading-tight text-right">
                         {effect.title}
                       </h3>
                     </div>
