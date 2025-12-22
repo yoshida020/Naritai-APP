@@ -35,7 +35,7 @@ export default function ContactSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} id="contact" className="py-24 bg-white relative overflow-hidden">
+    <section ref={sectionRef} id="contact" className="py-24 relative overflow-hidden">
       <div className="relative max-w-[1200px] mx-auto px-4">
         <div className={`mb-16 transition-all duration-700 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'

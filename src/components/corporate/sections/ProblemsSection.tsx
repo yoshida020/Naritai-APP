@@ -250,11 +250,16 @@ export default function ProblemsSection() {
   return (
     <section
       id="problems"
-      className="w-full py-8 px-4 bg-[#F9FCFF] flex items-center justify-center md:py-16 md:px-4"
+      className="w-full py-8 px-4 flex items-center justify-center md:py-16 md:px-4"
     >
       <div className="max-w-7xl w-full mx-auto">
         <div className="mb-16">
-          <SectionTitle enTitle="Problems" jaTitle="Z世代にこんなお悩みありませんか？" enColor="text-[#9DCBE8]" />
+          <SectionTitle 
+            enTitle="Problems" 
+            jaTitle="Z世代にこんなお悩みありませんか？" 
+            enColor="text-[#9DCBE8]"
+            jaClassName="text-base md:text-4xl"
+          />
         </div>
 
         {/* PC版: 横一列（5列） */}

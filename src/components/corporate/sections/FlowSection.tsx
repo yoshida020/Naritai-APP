@@ -60,27 +60,8 @@ export default function FlowSection() {
     <section
       ref={sectionRef}
       id="flow"
-      className="relative w-full min-h-screen py-20 px-4 bg-blue-50 flex items-center justify-center md:min-h-screen md:py-16 md:px-4 overflow-hidden"
+      className="relative w-full min-h-screen py-20 px-4 flex items-center justify-center md:min-h-screen md:py-16 md:px-4 overflow-hidden"
     >
-      {/* --- 背景装飾（ワンポイント） --- */}
-      
-      {/* 左上の装飾: 開始を示す緩やかな波 */}
-      <div className="hidden md:block absolute -top-20 -left-20 w-96 h-96 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-30 z-0"></div>
-      
-      {/* 右下の装飾: 完了を示すシェイプ */}
-      <div className="hidden md:block absolute -bottom-20 -right-20 w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-30 z-0"></div>
-
-      {/* （オプション）中央をつなぐ薄いライン（SVG） */}
-      <svg className="absolute top-1/2 left-0 w-full h-20 -translate-y-1/2 opacity-10 pointer-events-none hidden lg:block z-0" aria-hidden="true">
-        <path 
-          d="M0,10 Q400,50 800,10 T1600,10" 
-          fill="none" 
-          stroke="currentColor" 
-          strokeWidth="2" 
-          className="text-blue-300" 
-        />
-      </svg>
-
       {/* --- メインコンテンツ（既存） --- */}
       <div className="max-w-[1200px] w-full mx-auto text-center relative z-10">
         <div className="mb-16">

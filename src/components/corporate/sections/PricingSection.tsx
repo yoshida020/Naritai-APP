@@ -31,26 +31,10 @@ export default function PricingSection() {
       observer.disconnect();
     };
   }, []);
-  const plans = [
-    {
-      name: '3か月',
-      price: '150,000円',
-      period: '',
-      monthlyPrice: '50,000',
-    },
-    {
-      name: '6か月',
-      price: '270,000円',
-      period: '',
-      monthlyPrice: '45,000',
-    },
-    {
-      name: '12か月',
-      price: '480,000円',
-      period: '',
-      monthlyPrice: '40,000',
-    },
-  ];
+  const plan = {
+    name: '1カ月',
+    price: '140,000～',
+  };
 
   const features = [
     'キャリア開発支援',
@@ -62,7 +46,7 @@ export default function PricingSection() {
     <section
       id="pricing"
       ref={sectionRef}
-      className="w-full min-h-screen px-4 bg-gradient-to-b from-[#F8FAFF] to-[#EFF3FF] flex items-center justify-center overflow-hidden md:py-16 md:px-4 md:overflow-visible"
+      className="w-full min-h-screen px-4 flex items-center justify-center overflow-hidden md:py-16 md:px-4 md:overflow-visible"
     >
       <div className="max-w-[1200px] w-full mx-auto text-center h-full flex flex-col justify-center py-8 md:h-auto md:py-0">
         <div className="mb-16">
@@ -80,48 +64,31 @@ export default function PricingSection() {
           </div>
         </div>
         
-        <div className="flex flex-col gap-6 items-stretch justify-center mb-8 max-w-[1100px] mx-auto px-4 lg:flex-row lg:gap-8 xl:gap-6 md:mb-8">
-          <div className="p-6 bg-white rounded-2xl w-full max-w-full flex flex-col shadow-md lg:flex-[0_0_240px] lg:max-w-[240px] lg:p-4 xl:flex-[0_0_200px] xl:max-w-[200px] xl:p-3">
-            <h3 className="text-2xl font-semibold text-[#2C3E50] mb-4 text-center lg:text-xl xl:text-lg md:text-base md:text-xl md:mb-4">
-              プラン内容
-            </h3>
-            <ul className="list-none text-center m-0 p-0">
-              {features.map((feature, index) => (
-                <li key={index} className="py-2 text-lg text-[#2C3E50] border-b border-[#D4DDEB] last:border-b-0 md:text-base md:py-2">
-                  {feature}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="flex justify-center w-full max-w-full items-stretch lg:flex-1 lg:min-w-[480px] lg:max-w-[800px] xl:max-w-[700px]">
-            <div className="flex flex-col w-full">
-              <div className="pt-[calc(32px+60px)] px-6 pb-8 bg-white rounded-3xl shadow-lg flex flex-col items-stretch gap-4 transition-all flex-grow w-full max-w-full box-border overflow-visible mx-auto md:pt-9 md:px-6 md:pb-3 lg:flex-row lg:items-stretch lg:justify-around lg:gap-4 lg:pt-[calc(24px+50px)] lg:px-5 lg:pb-6 xl:pt-[calc(20px+45px)] xl:px-4 xl:pb-5">
-                {plans.map((plan, index) => (
-                  <div key={index} className="flex flex-col items-center justify-center flex-1 p-4 min-w-0 relative lg:p-3 xl:p-2 md:p-3 md:rounded-lg md:w-full md:overflow-visible">
-                    <div className="text-center m-0 flex flex-col items-center gap-2 md:flex-row md:justify-center md:items-baseline md:gap-4">
-                      <span className="text-2xl font-semibold text-[#2C3E50] mb-0 block relative lg:text-xl xl:text-lg md:text-base md:flex-shrink-0 md:static">
-                        {plan.name}
-                        {plan.monthlyPrice && (
-                          <div className="absolute -top-[45px] left-1/2 -translate-x-1/2 bg-[#517CA2] text-white py-2 px-4 rounded-lg text-sm font-semibold whitespace-nowrap shadow-[0_4px_12px_rgba(0,0,0,0.15)] z-10 lg:-top-[40px] xl:-top-[32px] xl:py-1 xl:px-3 xl:rounded-md xl:text-xs xl:max-w-[calc(100vw-32px)] md:-top-8">
-                            ひと月あたり<span className="font-semibold">{plan.monthlyPrice}円</span>/月
-                            <div 
-                              className="absolute -bottom-1.5 left-1/2 -translate-x-1/2 w-0 h-0"
-                              style={{
-                                borderLeft: '6px solid transparent',
-                                borderRight: '6px solid transparent',
-                                borderTop: '6px solid #517CA2'
-                              }}
-                            />
-                          </div>
-                        )}
-                      </span>
-                      <span className="text-5xl font-bold text-[#517CA2] leading-tight relative whitespace-nowrap lg:text-4xl xl:text-3xl md:text-2xl md:flex-shrink-0 md:whitespace-normal md:text-center">
-                        {plan.price}
-                      </span>
-                    </div>
-                  </div>
+        <div className="flex justify-center mb-8 max-w-[1100px] mx-auto px-4">
+          <div className="w-full max-w-[800px] flex flex-col gap-8">
+            {/* プラン内容 */}
+            <div className="flex-1">
+              <h3 className="text-2xl font-semibold text-[#2C3E50] mb-4 text-center lg:text-3xl xl:text-4xl md:text-xl">
+                プラン内容
+              </h3>
+              <ul className="list-none text-center m-0 p-0 flex flex-col sm:flex-row sm:justify-center sm:gap-6 gap-2">
+                {features.map((feature, index) => (
+                  <li key={index} className="py-2 text-lg text-[#2C3E50] lg:text-xl xl:text-2xl md:text-base md:py-2">
+                    {feature}
+                  </li>
                 ))}
+              </ul>
+            </div>
+
+            {/* 金額 */}
+            <div className="flex-1 flex flex-col items-center justify-center">
+              <div className="text-center flex flex-col items-center gap-2">
+                <span className="text-2xl font-semibold text-[#2C3E50] lg:text-3xl xl:text-4xl md:text-base">
+                  {plan.name}
+                </span>
+                <span className="text-5xl font-bold text-[#517CA2] leading-tight lg:text-6xl xl:text-7xl md:text-2xl">
+                  {plan.price}
+                </span>
               </div>
             </div>
           </div>

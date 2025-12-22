@@ -4,6 +4,8 @@
   padding: 0 !important;
   overflow-x: hidden;
   position: relative;
+  background-color: inherit;
+  transition: background-color 0.9s ease;
 }
 
 .content {
