@@ -54,7 +54,7 @@ export default function CoachingSection() {
             <p className="mb-4 text-left md:text-center">
               Naritaiが提供するのは、
               特にZ世代の価値観や思考特性に最適化されたコーチングです。<br />
-              上から指導するのではなく同じ目線で伴走し、価値観・強み・不安を言語化して、<br />
+              上から指導するのではなく同じ目線で伴走し、<br className="md:hidden" />価値観・強み・不安を言語化して、<br />
               「納得できる選択」と「次の一歩」を明確にします。
             </p>
             {/* 横並びテキスト */}
