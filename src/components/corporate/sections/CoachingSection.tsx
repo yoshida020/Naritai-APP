@@ -25,7 +25,7 @@ export default function CoachingSection() {
               <h3 className="text-2xl md:text-3xl font-semibold text-[#517CA2] mb-4 md:mb-6">
                 コーチングとは
               </h3>
-              <div className="text-base md:text-lg leading-relaxed text-[#2C3E50] text-left">
+              <div className="text-base md:text-lg leading-relaxed text-[#2C3E50] text-center">
                 <p id="coaching-trigger" className="mb-4">
                   一方的に答えを教えるティーチングや<br />コンサルティングとは異なり、<br /> 
                   コーチとの対話を通じて、社員一人ひとりが<br />
@@ -51,7 +51,7 @@ export default function CoachingSection() {
 
           {/* Naritaiのコーチングセクション */}
           <div className="w-full text-base md:text-lg leading-relaxed text-[#2C3E50] text-center space-y-6">
-            <p className="mb-4 text-left md:text-center">
+            <p className="mb-4 text-center">
               Naritaiが提供するのは、
               特にZ世代の価値観や思考特性に最適化されたコーチングです。<br />
               上から指導するのではなく同じ目線で伴走し、<br className="md:hidden" />価値観・強み・不安を言語化して、<br />
@@ -68,7 +68,7 @@ export default function CoachingSection() {
                     className="w-full h-auto object-contain rounded-lg"
                   />
                 </div>
-                <p className="text-left md:text-center">
+                <p className="text-center">
                   若手社員が抱えがちな「このままでいいのか」<br />という将来の不安を整理し、<br />今の環境で伸ばす軸／次に選ぶ軸を明確にする
                 </p>
               </div>
@@ -81,12 +81,12 @@ export default function CoachingSection() {
                     className="w-full h-auto object-contain rounded-lg"
                   />
                 </div>
-                <p className="text-left md:text-center">
+                <p className="text-center">
                   会社を転々としてしまう理由<br />（合わない／人間関係／評価への不満など）<br />を構造化し、同じ悩みを繰り返さない<br />選び方・行動・伝え方に落とし込む
                 </p>
               </div>
             </div>
-            <p className="mt-18 text-left md:text-center">
+            <p className="mt-18 text-center">
               さらに、この対話プロセスを「個人カルテ」として可視化・体系化することで、<br />
               感覚的になりがちな育成を再現性のある仕組みへ。<br />
               若手の成長を組織の成果につなげます。

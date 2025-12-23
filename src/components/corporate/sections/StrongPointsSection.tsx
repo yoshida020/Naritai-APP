@@ -110,7 +110,7 @@ export default function StrongPointsSection() {
             >
               {/* ナンバリング - カードの背景 */}
               <div 
-                className="absolute font-bold"
+                className="strong-points-card-number absolute font-bold"
                 style={{
                   fontSize: '120px',
                   lineHeight: '1',
@@ -123,10 +123,10 @@ export default function StrongPointsSection() {
               >
                 {String(index + 1).padStart(2, '0')}
               </div>
-              <h3 className="text-xl font-semibold text-[#517CA2] mb-4 text-center relative z-10">
+              <h3 className="strong-points-card-title text-xl font-semibold text-[#517CA2] mb-4 text-center relative z-10">
                 {point.title}
               </h3>
-              <p className="text-base leading-relaxed text-[#2C3E50] relative z-10 text-center">
+              <p className="strong-points-card-text text-base leading-relaxed text-[#2C3E50] relative z-10 text-center">
                 {point.description}
               </p>
             </div>
@@ -157,7 +157,7 @@ export default function StrongPointsSection() {
                   <div className="group w-[500px] flex flex-col text-left relative bg-white rounded-lg p-8 shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:scale-105 cursor-pointer overflow-hidden">
                     {/* ナンバリング - カードの背景 */}
                     <div 
-                      className="absolute font-bold transition-all duration-300"
+                      className="strong-points-card-number absolute font-bold transition-all duration-300"
                       style={{
                         fontSize: '180px',
                         lineHeight: '1',
@@ -170,10 +170,10 @@ export default function StrongPointsSection() {
                     >
                       {String(index + 1).padStart(2, '0')}
                     </div>
-                    <h3 className="text-[22px] md:text-[28px] font-semibold text-[#517CA2] mb-4 text-center relative z-10 transition-colors duration-300 group-hover:text-[#5AB1E0]">
+                    <h3 className="strong-points-card-title text-[22px] md:text-[28px] font-semibold text-[#517CA2] mb-4 text-center relative z-10 transition-colors duration-300 group-hover:text-[#5AB1E0]">
                       {point.title}
                     </h3>
-                    <p className="text-[18px] md:text-[24px] leading-relaxed text-[#2C3E50] text-center relative z-10 transition-opacity duration-300 group-hover:opacity-90">
+                    <p className="strong-points-card-text text-[18px] md:text-[24px] leading-relaxed text-[#2C3E50] text-center relative z-10 transition-opacity duration-300 group-hover:opacity-90">
                       {point.description}
                     </p>
                   </div>

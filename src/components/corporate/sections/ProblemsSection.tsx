@@ -160,10 +160,10 @@ const PCCard: React.FC<PCCardProps> = ({
     ? 'opacity-100 translate-y-0'
     : 'opacity-0 translate-y-8';
 
-  // 登場アニメーション時のみ1000ms、それ以外は300ms
+  // 登場アニメーション時のみENTRANCE.DURATION、それ以外はHOVER.DURATION
   const transitionDuration = isVisible
-    ? ANIMATION_CONFIG.HOVER.DURATION
-    : ANIMATION_CONFIG.ENTRANCE.DURATION;
+    ? ANIMATION_CONFIG.ENTRANCE.DURATION
+    : ANIMATION_CONFIG.HOVER.DURATION;
 
   return (
     <div
@@ -171,7 +171,7 @@ const PCCard: React.FC<PCCardProps> = ({
       className={`bg-white rounded-3xl shadow-md flex flex-col items-center justify-start overflow-hidden gap-8 h-full transition-all ${ANIMATION_CONFIG.ENTRANCE.EASING} hover:scale-105 hover:shadow-xl hover:-translate-y-2 ${animationClasses}`}
       style={{
         transitionDuration: `${transitionDuration}ms`,
-        transitionDelay: isVisible ? '0ms' : `${index * ANIMATION_CONFIG.ENTRANCE.DELAY_STEP}ms`,
+        transitionDelay: isVisible ? `${index * ANIMATION_CONFIG.ENTRANCE.DELAY_STEP}ms` : '0ms',
         backfaceVisibility: ANIMATION_CONFIG.PERFORMANCE.BACKFACE_VISIBILITY,
         perspective: ANIMATION_CONFIG.PERFORMANCE.PERSPECTIVE,
         willChange: ANIMATION_CONFIG.PERFORMANCE.WILL_CHANGE,
@@ -209,10 +209,10 @@ const MobileCard: React.FC<MobileCardProps> = ({
     ? 'opacity-100 translate-x-0'
     : 'opacity-0 -translate-x-8';
 
-  // 登場アニメーション時のみ1000ms、それ以外は300ms
+  // 登場アニメーション時のみENTRANCE.DURATION、それ以外はHOVER.DURATION
   const transitionDuration = isVisible
-    ? ANIMATION_CONFIG.HOVER.DURATION
-    : ANIMATION_CONFIG.ENTRANCE.DURATION;
+    ? ANIMATION_CONFIG.ENTRANCE.DURATION
+    : ANIMATION_CONFIG.HOVER.DURATION;
 
   return (
     <div
@@ -220,7 +220,7 @@ const MobileCard: React.FC<MobileCardProps> = ({
       className={`bg-white rounded-3xl shadow-md flex flex-row items-stretch overflow-hidden transition-all ${ANIMATION_CONFIG.ENTRANCE.EASING} hover:scale-[1.02] hover:shadow-xl h-[80px] md:h-[160px] w-full max-w-[500px] mx-auto ${animationClasses}`}
       style={{
         transitionDuration: `${transitionDuration}ms`,
-        transitionDelay: isVisible ? '0ms' : `${index * ANIMATION_CONFIG.ENTRANCE.DELAY_STEP}ms`,
+        transitionDelay: isVisible ? `${index * ANIMATION_CONFIG.ENTRANCE.DELAY_STEP}ms` : '0ms',
         backfaceVisibility: ANIMATION_CONFIG.PERFORMANCE.BACKFACE_VISIBILITY,
         perspective: ANIMATION_CONFIG.PERFORMANCE.PERSPECTIVE,
         willChange: ANIMATION_CONFIG.PERFORMANCE.WILL_CHANGE,

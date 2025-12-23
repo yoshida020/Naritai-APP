@@ -194,20 +194,20 @@
   }
 
   /* ダークモード時、テキスト要素を白色に（ただし、特定の要素は除外） */
-  body.is-dark-theme section *:not(img):not(svg):not(path):not(circle):not(rect):not(line):not(polygon):not(ellipse):not(.section-title-en):not(header):not(header *),
-  body.is-dark-theme div *:not(img):not(svg):not(path):not(circle):not(rect):not(line):not(polygon):not(ellipse):not(.section-title-en):not(header):not(header *),
-  body.is-dark-theme p:not(.section-title-en):not(header *),
-  body.is-dark-theme span:not(.section-title-en):not(header *),
-  body.is-dark-theme h1:not(.section-title-en):not(header *),
-  body.is-dark-theme h2:not(.section-title-en):not(header *),
-  body.is-dark-theme h3:not(.section-title-en):not(header *),
-  body.is-dark-theme h4:not(.section-title-en):not(header *),
-  body.is-dark-theme h5:not(.section-title-en):not(header *),
-  body.is-dark-theme h6:not(.section-title-en):not(header *),
-  body.is-dark-theme a:not(header *):not(.section-title-en),
-  body.is-dark-theme li:not(header *):not(.section-title-en),
-  body.is-dark-theme td:not(header *):not(.section-title-en),
-  body.is-dark-theme th:not(header *):not(.section-title-en) {
+  body.is-dark-theme section *:not(img):not(svg):not(path):not(circle):not(rect):not(line):not(polygon):not(ellipse):not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-number):not(.strong-points-card-title):not(.strong-points-card-text):not(header):not(header *),
+  body.is-dark-theme div *:not(img):not(svg):not(path):not(circle):not(rect):not(line):not(polygon):not(ellipse):not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-number):not(.strong-points-card-title):not(.strong-points-card-text):not(header):not(header *),
+  body.is-dark-theme p:not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-text):not(header *),
+  body.is-dark-theme span:not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-number):not(.strong-points-card-title):not(.strong-points-card-text):not(header *),
+  body.is-dark-theme h1:not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-title):not(header *),
+  body.is-dark-theme h2:not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-title):not(header *),
+  body.is-dark-theme h3:not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-title):not(header *),
+  body.is-dark-theme h4:not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-title):not(header *),
+  body.is-dark-theme h5:not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-title):not(header *),
+  body.is-dark-theme h6:not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-title):not(header *),
+  body.is-dark-theme a:not(header *):not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-title):not(.strong-points-card-text),
+  body.is-dark-theme li:not(header *):not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-text),
+  body.is-dark-theme td:not(header *):not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-text),
+  body.is-dark-theme th:not(header *):not(.section-title-en):not(.corporate-effect-title):not(.strong-points-card-title) {
     color: #FFFFFF !important;
   }
 
