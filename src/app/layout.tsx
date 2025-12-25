@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import dynamic from 'next/dynamic';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
 import './globals.css';
 
 const CursorHoverEffect = dynamic(() => import('@/components/common/CursorHoverEffect'), {
@@ -9,10 +9,10 @@ const CursorHoverEffect = dynamic(() => import('@/components/common/CursorHoverE
 
 export const metadata: Metadata = {
   title: {
-    template: 'Naritai株式会社',
-    default: 'Naritai株式会社',
+    template: 'Naritai',
+    default: 'Naritai',
   },
-  description: 'Naritai株式会社の公式サイト',
+  description: 'Naritaiの公式サイト',
   robots: {
     index: true,
     follow: true,
@@ -44,6 +44,9 @@ export default function RootLayout({
       </body>
       {process.env.NEXT_PUBLIC_GA_ID && (
         <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+      )}
+      {process.env.NEXT_PUBLIC_GTM_ID && (
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
       )}
     </html>
   );

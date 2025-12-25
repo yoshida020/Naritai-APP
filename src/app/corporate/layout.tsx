@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import { Header, Footer, corporateNavigationConfig } from '@/components/common/navigation';
 
 export const metadata: Metadata = {
-  title: 'Naritai株式会社 - 企業向けサービス',
-  description: 'Naritai株式会社の企業向けキャリア支援サービス',
+  title: 'Naritai - 企業向けサービス',
+  description: 'Naritaiの企業向けキャリア支援サービス',
   robots: {
     index: true,
     follow: true,

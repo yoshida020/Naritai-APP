@@ -150,7 +150,7 @@ export default function CorporateSection() {
                     />
 
                     <div className="absolute bottom-0 right-0 z-20 w-[90%] p-4 rounded-tl-2xl">
-                      <h3 className="font-bold text-base md:text-lg lg:text-xl text-black leading-tight text-right">
+                      <h3 className="corporate-effect-title font-bold text-base md:text-lg lg:text-xl text-black leading-tight text-right">
                         {effect.title}
                       </h3>
                     </div>

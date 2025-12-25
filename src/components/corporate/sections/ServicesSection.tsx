@@ -163,7 +163,15 @@ export default function ServicesSection() {
                   }}
                 >
                   <h3 className="text-2xl font-semibold text-[#517CA2] mb-4 pb-4 border-b-2 border-[#517CA2] text-center">
-                    {service.title}
+                    {service.title === '個人コーチングセッション' ? (
+                      <>個人コーチング<br />セッション</>
+                    ) : service.title === 'カルテ設計・可視化シート' ? (
+                      <>カルテ設計<br />可視化シート</>
+                    ) : service.title === 'フォローアップセッション' ? (
+                      <>フォローアップ<br />セッション</>
+                    ) : (
+                      service.title
+                    )}
                   </h3>
                   <p className="text-base leading-relaxed text-[#2C3E50] pt-4 mb-8 md:mb-0">
                     {service.description}
