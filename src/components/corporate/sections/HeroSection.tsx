@@ -1,8 +1,11 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import Button from '../../common/Button';
 
 export default function HeroSection() {
+  const router = useRouter();
+
   return (
     <div
       id="top"
@@ -38,10 +41,7 @@ export default function HeroSection() {
               size="lg"
               fullWidth
               onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
+                router.push('/blank?from=lp');
               }}
               className="whitespace-nowrap"
             >
@@ -54,10 +54,7 @@ export default function HeroSection() {
               size="lg"
               fullWidth
               onClick={() => {
-                const contactSection = document.getElementById('contact');
-                if (contactSection) {
-                  contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
+                router.push('/contact?from=lp');
               }}
             >
               お問い合わせ
