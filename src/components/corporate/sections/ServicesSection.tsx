@@ -15,6 +15,13 @@ export default function ServicesSection() {
           価値観・不安・強み・目標を整理。
         </>
       ),
+      mobileDescription: (
+        <>
+          若手社員1人ひとりに専属コーチが
+          <br />
+          伴走し、価値観・不安・強み・目標を整理。
+        </>
+      ),
     },
     {
       title: 'カルテ設計・可視化シート',
@@ -24,6 +31,20 @@ export default function ServicesSection() {
           各セッションで抽出した想いや目標を「個人カルテ」にまとめ、
           <br />
           上司・人事に共有できる形で可視化します。
+          <br />
+          配属後の1on1・評価・育成にそのまま活用可能。
+          <br />
+          <br />
+          外部の人間だから本音を話せる環境を提供します。
+        </>
+      ),
+      mobileDescription: (
+        <>
+          各セッションで抽出した想いや目標を「個人カルテ」にまとめ、
+          <br />
+          上司・人事に共有できる形で
+          <br />
+          可視化します。
           <br />
           配属後の1on1・評価・育成にそのまま活用可能。
           <br />
@@ -42,6 +63,15 @@ export default function ServicesSection() {
           成長の定着やモチベーション変化を確認し、
           <br />
           現場への適応・再設定を支援します。
+        </>
+      ),
+      mobileDescription: (
+        <>
+          セッションから一定期間後に再面談を実施。
+          <br />
+          成長の定着やモチベーション変化を
+          <br />
+          確認し、現場への適応・再設定を支援します。
         </>
       ),
     },
@@ -174,7 +204,7 @@ export default function ServicesSection() {
                     )}
                   </h3>
                   <p className="text-base leading-relaxed text-[#2C3E50] pt-4 mb-8 md:mb-0">
-                    {service.description}
+                    {service.mobileDescription || service.description}
                   </p>
                 </div>
               </div>

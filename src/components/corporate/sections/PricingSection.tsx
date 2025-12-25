@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Button from '../../common/Button';
 import { SectionTitle } from '@/components/common/SectionTitle';
 
 export default function PricingSection() {
+  const router = useRouter();
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
 
@@ -116,6 +118,9 @@ export default function PricingSection() {
             <Button
               variant="primary"
               size="md"
+              onClick={() => {
+                router.push('/contact?from=lp');
+              }}
             >
               お問い合わせ
             </Button>

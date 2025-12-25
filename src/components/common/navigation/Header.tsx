@@ -189,6 +189,14 @@ export default function Header({ config }: HeaderProps) {
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
+    
+    // LP画面（corporate）にいる場合は先頭にスクロール
+    if (window.location.pathname === config.basePath || window.location.pathname.startsWith(config.basePath + '/')) {
+      scrollToSection('#top');
+      return;
+    }
+    
+    // それ以外の場合はHPに遷移
     router.push('/');
   };
 
