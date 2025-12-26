@@ -28,7 +28,7 @@ export const SectionTitle = ({
         <span
           className={`section-title-en inline-block font-bold uppercase tracking-widest ${enColor} ${enClassName}`}
           style={{
-            fontSize: 'clamp(3.5rem, 13vw, 8rem)',
+            fontSize: 'clamp(3.2rem, 13vw, 8rem)',
             fontFamily: 'sans-serif',
             whiteSpace: 'nowrap',
             lineHeight: 1,
