@@ -314,14 +314,14 @@ export default function Header({ config }: HeaderProps) {
         </div>
 
         <div
-          className={`fixed top-0 left-0 w-full h-screen bg-white z-[999] flex items-center justify-center min-[1025px]:hidden transition-transform duration-300 ease-in-out ${isMobileMenuOpen
+          className={`fixed top-0 left-0 w-full h-[100dvh] bg-white z-[999] flex items-center justify-center min-[1025px]:hidden transition-transform duration-300 ease-in-out ${isMobileMenuOpen
             ? 'translate-x-0'
             : 'translate-x-full pointer-events-none'
             }`}
           onClick={closeMobileMenu}
         >
           <nav
-            className="w-full h-screen overflow-y-auto flex flex-col items-center justify-center px-6 py-8"
+            className="w-full h-[100dvh] overflow-y-auto flex flex-col items-center justify-center px-6 py-8"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="w-full max-w-md flex flex-col h-full">
