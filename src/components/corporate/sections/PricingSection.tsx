@@ -63,7 +63,7 @@ export default function PricingSection() {
               <span className="text-[200px] font-bold leading-none bg-gradient-to-r from-[#517CA2] to-[#9DCBE8] bg-clip-text text-transparent lg:text-[300px] xl:text-[300px] md:text-[80px]">
                 0
               </span>
-              <span className="text-4xl font-bold text-[#2C3E50] lg:text-3xl xl:text-2xl md:text-xl md:text-3xl">
+              <span className="text-xl font-bold text-[#2C3E50] lg:text-[36px]">
                 円
               </span>
               <span className={`absolute bottom-0 left-0 h-[24px] bg-gradient-to-r from-yellow-400/80 to-yellow-400/40 rounded-sm -skew-y-1 z-0 pointer-events-none transition-all duration-500 ${isVisible ? 'w-full' : 'w-0'}`} style={{ transitionDelay: '0s' }} />
