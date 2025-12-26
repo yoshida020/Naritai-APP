@@ -124,7 +124,10 @@ function ContactPageContent() {
         <div className="max-w-[800px] mx-auto px-4">
           {/* ページタイトル */}
           <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4">
+            <h1
+              className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4"
+              style={{ fontFamily: 'Catchy Mager, serif' }}
+            >
               お問い合わせ
             </h1>
             <p className="text-[#919CB7] text-sm md:text-base">

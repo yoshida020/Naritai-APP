@@ -117,7 +117,7 @@ export default function Footer({ config }: FooterProps) {
 
       <div className="border-t border-white/10 pt-8 mt-8">
         <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-4 text-sm text-[var(--footer-muted)]">
-          <p>&copy; 2025 Naritai. All rights reserved.</p>
+          <p>&copy; 2026 Naritai. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="/legal/privacy-policy" className="hover:text-[var(--footer-text)] transition-colors">プライバシーポリシー</a>
           </div>
