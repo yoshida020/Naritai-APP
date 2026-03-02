@@ -258,7 +258,7 @@ export default function ProblemsSection() {
             enTitle="Problems" 
             jaTitle="Z世代にこんなお悩みありませんか？" 
             enColor="text-[#9DCBE8]"
-            jaClassName="text-base md:text-4xl"
+            jaClassName="text-[18px] md:text-4xl"
           />
         </div>
 

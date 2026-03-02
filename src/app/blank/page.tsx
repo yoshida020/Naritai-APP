@@ -127,7 +127,10 @@ function BlankPageContent() {
         <div className="max-w-[800px] mx-auto px-4">
           {/* ページタイトル */}
           <div className="text-center mb-12">
-            <h1 className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4">
+            <h1
+              className="text-3xl md:text-4xl font-bold text-[#2C3E50] mb-4"
+              style={{ fontFamily: 'Catchy Mager, serif' }}
+            >
               資料請求
             </h1>
             <p className="text-[#919CB7] text-sm md:text-base">
@@ -140,7 +143,7 @@ function BlankPageContent() {
             <p className="text-center text-[#2C3E50] text-sm md:text-base leading-relaxed">
               Naritaiサービスについての資料はこちら。<br />
               ご不明点がございましたら、<br className="md:hidden" />
-              お気軽にお問合せフォームまたはお電話でも対応可能です。
+              お気軽にお問合せフォームからお問い合わせください。
             </p>
           </div>
 

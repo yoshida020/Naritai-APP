@@ -100,7 +100,7 @@ export default function SharedFooter({ config }: SharedFooterProps) {
 
         <div className="border-t border-white/10 pt-8 mt-8">
           <div className="flex flex-col-reverse md:flex-row justify-between items-center gap-4 text-sm text-gray-200">
-            <p>&copy; 2025 Naritai. All rights reserved.</p>
+            <p>&copy; 2026 Naritai. All rights reserved.</p>
             <div className="flex gap-6">
               <a href="/legal/privacy-policy" className="hover:text-white transition-colors">プライバシーポリシー</a>
             </div>

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: 'Naritai',
     default: 'Naritai',
   },
-  description: 'Naritaiの公式サイト',
+  description: '正解がない時代。 誰かと比べて焦り、. 将来に不安を感じてもがいている人がいる。 Naritaiは、一人ひとりに“なりたい自分”を見つけて. 自分の道を歩いてほしい。',
   robots: {
     index: true,
     follow: true,
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     icon: '/images/logo/favicon.png',
   },
   openGraph: {
-    title: 'Naritai - 企業向けサービス',
-    description: 'Naritaiの企業向けキャリア支援サービス',
+    title: 'Naritai',
+    description: '「戦い方」(スキル)を教える前に、「戦う意味」を共有できていますか？育成方法も進化する時代',
     images: [
       {
         url: '/images/logo/seo01.png',
         width: 1200,
         height: 630,
-        alt: 'Naritai - 企業向けサービス',
+        alt: 'Naritai',
       },
     ],
     type: 'website',
@@ -36,8 +36,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Naritai - 企業向けサービス',
-    description: 'Naritaiの企業向けキャリア支援サービス',
+    title: 'Naritai',
+    description: '正解がない時代。 誰かと比べて焦り、. 将来に不安を感じてもがいている人がいる。 Naritaiは、一人ひとりに“なりたい自分”を見つけて. 自分の道を歩いてほしい。',
     images: ['/images/logo/seo01.png'],
   },
 };

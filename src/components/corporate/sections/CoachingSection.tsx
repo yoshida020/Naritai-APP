@@ -29,7 +29,7 @@ export default function CoachingSection() {
                 <p id="coaching-trigger" className="mb-4">
                   一方的に答えを教えるティーチングや<br />コンサルティングとは異なり、<br /> 
                   コーチとの対話を通じて、社員一人ひとりが<br />
-                  自らのキャリアや課題に対する「気づき」を得て、<br />
+                  自らのキャリアや課題に対する<br />「気づき」を得て、<br />
                   主体的な「行動」へつなげるプロセスです。
                 </p>
               </div>
@@ -56,7 +56,7 @@ export default function CoachingSection() {
               特にZ世代の価値観や思考特性に最適化されたコーチングです。<br />
               上から指導するのではなく同じ目線で伴走し、<br className="md:hidden" />価値観・強み・不安を言語化して、<br className="hidden md:inline" />
               <span className="md:hidden">
-                「納得できる選択」と「次の一歩」を<br />
+                <br />「納得できる選択」と「次の一歩」を<br />
                 明確にします。
               </span>
               <span className="hidden md:inline">
@@ -94,7 +94,7 @@ export default function CoachingSection() {
             </div>
             <p className="mt-18 text-center">
               さらに、この対話プロセスを「個人カルテ」として可視化・体系化することで、<br />
-              感覚的になりがちな育成を再現性のある仕組みへ。<br />
+              感覚的になりがちな育成を<br className="md:hidden" />再現性のある仕組みへ。<br />
               若手の成長を組織の成果につなげます。
             </p>
             {/* 画像 */}
