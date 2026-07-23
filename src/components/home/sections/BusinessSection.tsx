@@ -14,7 +14,7 @@ export default function BusinessSection() {
       title: '個人向けサービス',
       description: 'モヤモヤを言葉にし、<br />「この先どう働くか」を整理する1on1。<br />昇進・異動・転職など選択が増える20代後半〜30代の社会人の方へ。<br />資格を持つコーチが、強みや価値観を丁寧に引き出し、「辞める／残る」だけに頼らない、<br />納得感のあるキャリア選択をサポートします。',
       image: '/images/services/service01.png',
-      link: 'https://www.naritai-career.com/',
+      link: 'https://yoshidaasuka020.wixsite.com/mysite',
     },
     {
       title: '法人向けサービス',
