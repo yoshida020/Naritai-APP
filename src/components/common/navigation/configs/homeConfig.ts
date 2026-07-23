@@ -11,7 +11,7 @@ export const homeNavigationConfig: NavigationConfig = {
       label: '事業内容',
       labelEn: 'Business',
       subLinks: [
-        { href: 'https://www.naritai-career.com/', label: '個人向け' },
+        { href: 'https://yoshidaasuka020.wixsite.com/mysite', label: '個人向け' },
         { href: '/corporate', label: '法人向け' },
       ],
     },
