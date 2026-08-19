@@ -247,7 +247,7 @@ export default function LpPage() {
               <a href="https://www.naritai-career-official.com/" target="_blank" rel="noopener">会社概要</a>
             </div>
           </div>
-          <div className="foot-bottom">© 2026 Naritai Career. All rights reserved.</div>
+          <div className="foot-bottom">© 2026 Naritai. All rights reserved.</div>
         </div>
       </footer>
     </div>
