@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Edit(**/.env)",
+      "Edit(**/.env.*)",
+      "Read(//**/.env)",
+      "Read(//**/.env.*)",
+      "Edit(//**/.env)",
+      "Edit(//**/.env.*)",
+      "Bash(vercel)",
+      "Bash(vercel *)",
+      "Bash(npx vercel*)",
+      "Bash(netlify deploy*)",
+      "Bash(npm run deploy*)",
+      "Bash(yarn deploy*)",
+      "Bash(pnpm deploy*)",
+      "Bash(git push origin main*)",
+      "Bash(git push origin master*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f *)"
+    ]
+  }
+}
