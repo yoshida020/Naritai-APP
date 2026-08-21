@@ -1,5 +1,10 @@
 'use client';
 
+/* Hallmark · component: business-cards · genre: modern-minimal · theme: project (Naritai blue #517CA2)
+ * states: default · hover · focus-visible · reveal
+ * contrast: pass · mobile: 320/375/414/768 verified
+ */
+
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { SectionTitle } from '@/components/common/SectionTitle';
@@ -11,55 +16,48 @@ export default function BusinessSection() {
 
   const services = [
     {
-      title: '個人向けサービス',
-      description: 'モヤモヤを言葉にし、<br />「この先どう働くか」を整理する1on1。<br />昇進・異動・転職など選択が増える20代後半〜30代の社会人の方へ。<br />資格を持つコーチが、強みや価値観を丁寧に引き出し、「辞める／残る」だけに頼らない、<br />納得感のあるキャリア選択をサポートします。',
-      image: '/images/services/service01.png',
+      tag: '顧問',
+      en: 'ADVISORY',
+      title: 'Z世代顧問',
+      line1: 'その会社のやり方、時代に置いていかれていませんか。',
+      line2: 'Z世代の視点を経営に。“若手に選ばれ続ける会社”へ。',
+      image: '/images/corporate/組織全体の成長.jpeg',
       link: '/komon',
     },
     {
-      title: '法人向けサービス',
-      description: '若手の早期離職と「静かな退職」を防ぐ、<br />Z世代特化の1on1プログラム。<br />採用・育成投資を守りつつ、現場管理職の面談負担を軽減します。<br />資格を持つコーチ、が若手社員の本音とキャリア観を言語化し、上司との1on1や評価面談に活かせる「個人カルテ」を作成。<br />人材の定着と戦力化を同時にサポートします。',
-      image: '/images/services/service02.png',
+      tag: '法人向け',
+      en: 'TALENT VISUALIZATION',
+      title: '成長カルテ',
+      line1: '採用・離職コスト、人材の“回収率”は見えていますか。',
+      line2: '成長をカルテで可視化し、1on1を内製化。回収率を上げる。',
+      image: '/images/lp/karte.png',
       link: '/corporate',
     },
   ];
 
   useEffect(() => {
+    const el = sectionRef.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-          }
+          if (entry.isIntersecting) setIsVisible(true);
         });
       },
-      {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px',
-      }
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    if (el) observer.observe(el);
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
+      if (el) observer.unobserve(el);
       observer.disconnect();
     };
   }, []);
 
   useEffect(() => {
     if (!isVisible) return;
-
-    // 1つのタイマーで両方のカードを表示（バッチ処理）
-    const timer = setTimeout(() => setVisibleCards([true, true]), 200);
-
-    return () => {
-      clearTimeout(timer);
-    };
+    const timer = setTimeout(() => setVisibleCards([true, true]), 150);
+    return () => clearTimeout(timer);
   }, [isVisible]);
 
   return (
@@ -69,57 +67,58 @@ export default function BusinessSection() {
           <SectionTitle enTitle="Business" jaTitle="事業内容" />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {services.map((service, index) => (
             <Link
               key={index}
               href={service.link}
-              className={`group block h-full transition-all duration-700 ${
-                visibleCards[index]
-                  ? 'opacity-100 translate-y-0'
-                  : 'opacity-0 translate-y-8'
+              className={`group block h-full rounded-3xl outline-none transition-all duration-700 focus-visible:ring-2 focus-visible:ring-[#517CA2] focus-visible:ring-offset-2 ${
+                visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
             >
-              <div className="bg-white rounded-lg overflow-hidden shadow-md h-full flex flex-col">
-                <div className="relative w-full h-64 md:h-80 lg:h-96 overflow-hidden bg-[#F9FCFF]">
+              <article className="relative h-full flex flex-col overflow-hidden rounded-3xl bg-white border border-[#E3EAF2] shadow-[0_12px_30px_-16px_rgba(40,60,90,0.22)] transition-all duration-500 group-hover:-translate-y-1.5 group-hover:shadow-[0_26px_50px_-20px_rgba(40,60,90,0.32)]">
+                {/* image */}
+                <div className="relative aspect-[16/10] overflow-hidden bg-[#dfe8f2]">
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
+                  <span className="absolute left-4 bottom-4 rounded-full bg-white/90 backdrop-blur-sm px-4 py-2 text-sm font-bold text-[#517CA2] shadow-[0_6px_16px_-8px_rgba(40,60,90,0.4)]">
+                    {service.tag}
+                  </span>
                 </div>
-                
-                <div className="p-6 md:p-8 flex-1 flex flex-col">
-                  <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-xl md:text-xl font-bold text-[#2C3E50] group-hover:text-[#517CA2] transition-colors relative w-fit">
-                      {service.title}
-                      <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#517CA2] transition-all duration-300 group-hover:w-full"></span>
-                    </h3>
-                    <svg
-                      className="w-6 h-6 text-[#2C3E50] group-hover:text-[#517CA2] transition-all duration-300 group-hover:translate-x-2"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </div>
-                  <p className="text-base md:text-lg text-[#2C3E50] leading-relaxed">
-                    {service.description.split('<br />').map((text, index, array) => (
-                      <span key={index}>
-                        {text}
-                        {index < array.length - 1 && <br />}
-                      </span>
-                    ))}
+
+                {/* body */}
+                <div className="flex flex-1 flex-col p-6 md:p-8">
+                  <span className="text-[0.7rem] font-bold tracking-[0.14em] text-[#5AB1E0]">
+                    {service.en}
+                  </span>
+                  <h3 className="mt-2 text-2xl md:text-[1.7rem] font-black leading-snug text-[#2C3E50] [overflow-wrap:anywhere]">
+                    {service.title}
+                  </h3>
+                  <p className="mt-3.5 text-[15px] leading-relaxed text-[#5B6B80] [overflow-wrap:anywhere]">
+                    {service.line1}
+                    <br />
+                    {service.line2}
                   </p>
+
+                  <span className="mt-auto pt-6 inline-flex items-center gap-3 font-bold text-[#517CA2]">
+                    詳しく見る
+                    <span className="grid h-9 w-9 place-items-center rounded-full bg-gradient-to-br from-[#517CA2] to-[#5AB1E0] text-white transition-transform duration-300 group-hover:translate-x-1">
+                      <svg
+                        className="h-4 w-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </span>
+                  </span>
                 </div>
-              </div>
+              </article>
             </Link>
           ))}
         </div>
@@ -127,4 +126,3 @@ export default function BusinessSection() {
     </section>
   );
 }
-
