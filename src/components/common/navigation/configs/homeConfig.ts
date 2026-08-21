@@ -11,8 +11,8 @@ export const homeNavigationConfig: NavigationConfig = {
       label: '事業内容',
       labelEn: 'Business',
       subLinks: [
-        { href: 'https://yoshidaasuka020.wixsite.com/mysite', label: '個人向け' },
-        { href: '/corporate', label: '法人向け' },
+        { href: '/komon', label: 'Z世代顧問' },
+        { href: '/corporate', label: '成長カルテ' },
       ],
     },
     { href: '#news', label: 'News', labelEn: 'News' },
