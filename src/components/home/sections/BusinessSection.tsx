@@ -16,7 +16,6 @@ export default function BusinessSection() {
 
   const services = [
     {
-      tag: '顧問',
       en: 'ADVISORY',
       title: 'Z世代顧問',
       line1: 'その会社のやり方、時代に置いていかれていませんか。',
@@ -25,7 +24,6 @@ export default function BusinessSection() {
       link: '/komon',
     },
     {
-      tag: '法人向け',
       en: 'TALENT VISUALIZATION',
       title: '成長カルテ',
       line1: '採用・離職コスト、人材の“回収率”は見えていますか。',
@@ -84,9 +82,6 @@ export default function BusinessSection() {
                     alt={service.title}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <span className="absolute left-4 bottom-4 rounded-full bg-white/90 backdrop-blur-sm px-4 py-2 text-sm font-bold text-[#517CA2] shadow-[0_6px_16px_-8px_rgba(40,60,90,0.4)]">
-                    {service.tag}
-                  </span>
                 </div>
 
                 {/* body */}
