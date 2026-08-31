@@ -1,0 +1,30 @@
+# ライブラリに脆弱性が見つかったとき、更新の Pull Request を自動で作らせる設定。
+# 週1回チェックし、種類ごとにまとめて PR にする（毎日バラバラに来ると読まなくなるため）。
+#
+# 注意: main への push がそのまま本番反映される設定なので、
+#       Dependabot の PR は必ず内容を確認してからマージすること。自動マージにしない。
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Asia/Tokyo"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "deps"
+    groups:
+      # 表示に影響しない開発ツール類は1本にまとめる
+      dev-dependencies:
+        dependency-type: "development"
+        patterns:
+          - "*"
+      # 本番で動くものは patch/minor だけまとめる。
+      # メジャー更新（Next 14→16 など）は表示崩れの可能性があるので個別の PR にする
+      production-minor:
+        dependency-type: "production"
+        update-types:
+          - "minor"
+          - "patch"

@@ -224,9 +224,9 @@ export default function LpPage() {
         <div className="wrap">
           <div className="final-card reveal">
             <h2>その"未回収"、<br />放置していいですか。</h2>
-            <p>人材投資の回収率を見える化し、引き上げるところまで。まずは無料相談から始めましょう。</p>
+            <p>年間いくら「離職・採用ミスマッチ」で損しているかを可視化。まずは無料診断から。</p>
             <div className="hero-cta">
-              <a href="https://www.naritai-career-official.com/contact?from=lp" className="btn btn-dark btn-lg">無料相談を予約する</a>
+              <a href="https://www.naritai-career-official.com/contact?from=lp" className="btn btn-dark btn-lg">無料診断</a>
               <a href="https://www.naritai-career-official.com/blank?from=lp" className="btn btn-ghost-d btn-lg" style={{background:'oklch(96% 0.05 84 / .4)',borderColor:'oklch(40% 0.06 70 / .4)',color:'oklch(26% 0.06 70)'}}>資料を請求する</a>
             </div>
           </div>
