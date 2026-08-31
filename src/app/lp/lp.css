@@ -307,3 +307,5 @@ footer{border-top:1px solid var(--line-d); padding:var(--space-lg) 0 40px;}
   .marquee-track{animation:none;}
   *{scroll-behavior:auto;}
 }
+
+.final-card .hero-cta .btn{min-width:236px; justify-content:center;}
