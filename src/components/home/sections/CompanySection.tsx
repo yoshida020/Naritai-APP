@@ -10,8 +10,8 @@ export default function CompanySection() {
   const companyInfo = [
     { label: '会社名', value: 'Naritai' },
     { label: '所在地', value: '東京都港区南青山3丁目1番36号' },
-    { label: '事業内容', value: 'コーチング業' },
-    { label: 'メールアドレス', value: 'info@naritai-career.jp' },
+    { label: '事業内容', value: '人材育成・定着支援、成長カルテ（HRシステム）の開発・提供' },
+    { label: 'メールアドレス', value: 'info@naritai-career.com' },
     { label: '代表', value: '吉田 明加' },
   ];
 
