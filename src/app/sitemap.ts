@@ -1,7 +1,15 @@
 import { MetadataRoute } from 'next';
+import { getAllColumns } from '@/lib/columns';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+
+  const columnEntries: MetadataRoute.Sitemap = getAllColumns().map((c) => ({
+    url: `${baseUrl}/column/${c.slug}`,
+    lastModified: c.updatedIso ? new Date(c.updatedIso) : new Date(c.isoDate),
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
 
   return [
     {
@@ -34,6 +42,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.5,
     },
+    {
+      url: `${baseUrl}/column`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
+    ...columnEntries,
   ];
 }
 
