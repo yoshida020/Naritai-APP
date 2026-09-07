@@ -33,3 +33,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+
+# 一時作業ファイル・生成物（Gitに含めない）
+.tmp/
+deliverables/
+HANDOFF.md
+**/node_modules/

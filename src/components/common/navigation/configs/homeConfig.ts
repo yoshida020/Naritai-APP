@@ -16,6 +16,7 @@ export const homeNavigationConfig: NavigationConfig = {
       ],
     },
     { href: '#news', label: 'News', labelEn: 'News' },
+    { href: '/column', label: 'コラム', labelEn: 'Column' },
     { href: '#faq', label: 'よくある質問', labelEn: 'FAQ' },
     { href: '#company', label: '会社概要', labelEn: 'Company' },
     { href: '#contact', label: 'お問い合わせ', labelEn: 'Contact' },
@@ -34,6 +35,7 @@ export const homeNavigationConfig: NavigationConfig = {
       title: 'Company',
       links: [
         { href: '#news', label: 'ニュース' },
+        { href: '/column', label: 'コラム' },
         { href: '#faq', label: 'よくある質問' },
         { href: '#company', label: '会社概要' },
         { href: '#contact', label: 'お問い合わせ' },
