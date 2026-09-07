@@ -1,0 +1,224 @@
+{"kind":"deck","id":"pr/wd8hdc","name":"Deck"}
+{"kind":"layout","layoutId":"42158029-3b11-4d40-8f2b-e3e123b8516e","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"fbfb80e8-1988-4d69-819c-7acf6bfbf054","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/aovn4s","slide":1,"title":"INVESTMENT RECOVERY / 01","textShapes":12}
+{"kind":"shape","id":"sh/l0vq1kj6","slide":1,"bbox":[64,42,44,3]}
+{"kind":"textbox","id":"sh/yxkr65kv","slide":1,"text":"INVESTMENT RECOVERY / 01","textPreview":"INVESTMENT RECOVERY / 01","textChars":24,"textLines":1,"bbox":[120,32,500,22]}
+{"kind":"textbox","id":"sh/jyt8za10","slide":1,"text":"Naritai / 成長カルテ","textPreview":"Naritai / 成長カルテ","textChars":15,"textLines":1,"bbox":[64,680,240,16]}
+{"kind":"textbox","id":"sh/83m9cf2x","slide":1,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[1160,676,56,18]}
+{"kind":"textbox","id":"sh/t4vq5kji","slide":1,"text":"人材投資を\n「掛け捨て」にしない。","textPreview":"人材投資を | 「掛け捨て」にしない。","textChars":17,"textLines":2,"bbox":[64,148,700,160]}
+{"kind":"textbox","id":"sh/614rapkr","slide":1,"text":"未回収コストをゼロにする組織へ。","textPreview":"未回収コストをゼロにする組織へ。","textChars":16,"textLines":1,"bbox":[64,330,730,50]}
+{"kind":"textbox","id":"sh/72d83u1c","slide":1,"text":"若手の離職リスクを見える化し、独自の1on1で\n成長力へ変える『成長カルテ』","textPreview":"若手の離職リスクを見える化し、独自の1on1で | 成長力へ変える『成長カルテ』","textChars":38,"textLines":2,"bbox":[68,422,570,70]}
+{"kind":"shape","id":"sh/g7m9gz2t","slide":1,"bbox":[850,136,300,390]}
+{"kind":"textbox","id":"sh/hsfa94je","slide":1,"text":"RECOVERY DASHBOARD","textPreview":"RECOVERY DASHBOARD","textChars":18,"textLines":1,"bbox":[882,170,300,20]}
+{"kind":"textbox","id":"sh/5wbex4zq","slide":1,"text":"未回収\nコスト","textPreview":"未回収 | コスト","textChars":7,"textLines":2,"bbox":[882,218,210,100]}
+{"kind":"shape","id":"sh/4v2xozi5","slide":1,"bbox":[882,346,220,2]}
+{"kind":"textbox","id":"sh/jutwvuhk","slide":1,"text":"RISK","textPreview":"RISK","textChars":4,"textLines":1,"bbox":[882,374,80,20]}
+{"kind":"textbox","id":"sh/itkfmp0z","slide":1,"text":"早期検知","textPreview":"早期検知","textChars":4,"textLines":1,"bbox":[882,404,140,36]}
+{"kind":"shape","id":"sh/t0ve14zm","slide":1,"bbox":[1070,412,14,14]}
+{"kind":"textbox","id":"sh/szmxszi1","slide":1,"text":"成長カルテ","textPreview":"成長カルテ","textChars":5,"textLines":1,"bbox":[64,574,440,40]}
+{"kind":"textbox","id":"sh/rydwzuhw","slide":1,"text":"Business introduction","textPreview":"Business introduction","textChars":21,"textLines":1,"bbox":[64,624,280,20]}
+{"kind":"notes","id":"nt/aovn4s","slide":1,"text":""}
+{"kind":"slide","id":"sl/s3kce4","slide":2,"title":"ISSUE / 02","textShapes":15}
+{"kind":"shape","id":"sh/x4ny983i","slide":2,"bbox":[64,42,44,3]}
+{"kind":"textbox","id":"sh/a1cfyd47","slide":2,"text":"ISSUE / 02","textPreview":"ISSUE / 02","textChars":10,"textLines":1,"bbox":[120,32,500,22]}
+{"kind":"textbox","id":"sh/b2lg7yls","slide":2,"text":"Naritai / 成長カルテ","textPreview":"Naritai / 成長カルテ","textChars":15,"textLines":1,"bbox":[64,680,240,16]}
+{"kind":"textbox","id":"sh/kreh4nm9","slide":2,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1160,676,56,18]}
+{"kind":"textbox","id":"sh/lsnyxs3u","slide":2,"text":"「戦力化する直前」に辞められる。","textPreview":"「戦力化する直前」に辞められる。","textChars":16,"textLines":1,"bbox":[64,78,1080,94]}
+{"kind":"textbox","id":"sh/y5wf2d43","slide":2,"text":"一番高い教育費の掛け捨てが、静かに利益を削る。","textPreview":"一番高い教育費の掛け捨てが、静かに利益を削る。","textChars":23,"textLines":1,"bbox":[64,183,980,36]}
+{"kind":"shape","id":"sh/zq5gvilo","slide":2,"bbox":[64,335,14,14]}
+{"kind":"shape","id":"sh/8veh8n25","slide":2,"bbox":[78,341,270,2]}
+{"kind":"textbox","id":"sh/tw7y1s3q","slide":2,"text":"採用","textPreview":"採用","textChars":2,"textLines":1,"bbox":[64,375,190,34]}
+{"kind":"textbox","id":"sh/1sne10be","slide":2,"text":"コスト発生","textPreview":"コスト発生","textChars":5,"textLines":1,"bbox":[64,420,215,28]}
+{"kind":"shape","id":"sh/0rex8vut","slide":2,"bbox":[386,335,14,14]}
+{"kind":"shape","id":"sh/fq5wzqt8","slide":2,"bbox":[400,341,270,2]}
+{"kind":"textbox","id":"sh/epcv6lcn","slide":2,"text":"教育","textPreview":"教育","textChars":2,"textLines":1,"bbox":[386,375,190,34]}
+{"kind":"textbox","id":"sh/9wne50ba","slide":2,"text":"時間投資","textPreview":"時間投資","textChars":4,"textLines":1,"bbox":[386,420,215,28]}
+{"kind":"shape","id":"sh/ovexcvup","slide":2,"bbox":[708,335,14,14]}
+{"kind":"shape","id":"sh/nu5w3at4","slide":2,"bbox":[722,341,270,2]}
+{"kind":"textbox","id":"sh/2twfa5cz","slide":2,"text":"戦力化","textPreview":"戦力化","textChars":3,"textLines":1,"bbox":[708,375,190,34]}
+{"kind":"textbox","id":"sh/503etgb6","slide":2,"text":"成果が出る直前","textPreview":"成果が出る直前","textChars":7,"textLines":1,"bbox":[708,420,215,28]}
+{"kind":"shape","id":"sh/4zud0bul","slide":2,"bbox":[1030,335,14,14]}
+{"kind":"shape","id":"sh/w3exgb2h","slide":2,"bbox":[1044,341,110,2]}
+{"kind":"textbox","id":"sh/h47e9gj2","slide":2,"text":"離職","textPreview":"離職","textChars":2,"textLines":1,"bbox":[1030,375,190,34]}
+{"kind":"textbox","id":"sh/uhwfe1kb","slide":2,"text":"投資がリセット","textPreview":"投資がリセット","textChars":7,"textLines":1,"bbox":[1030,420,215,28]}
+{"kind":"shape","id":"sh/vi5w76lw","slide":2,"bbox":[64,520,1084,92]}
+{"kind":"textbox","id":"sh/47yxkv2d","slide":2,"text":"採用費・教育費をかけても、成果が出る前にリセットされる。","textPreview":"採用費・教育費をかけても、成果が出る前にリセットされる。","textChars":28,"textLines":1,"bbox":[92,544,780,34]}
+{"kind":"textbox","id":"sh/587ed0jy","slide":2,"text":"止めるべきは「感情的な離職」ではなく、財務的損失。","textPreview":"止めるべきは「感情的な離職」ではなく、財務的損失。","textChars":25,"textLines":1,"bbox":[92,580,800,22]}
+{"kind":"notes","id":"nt/s3kce4","slide":2,"text":""}
+{"kind":"slide","id":"sl/yly7m2","slide":3,"title":"FINANCIAL KPI / 03","textShapes":13}
+{"kind":"shape","id":"sh/wzelkr2d","slide":3,"bbox":[64,42,44,3]}
+{"kind":"textbox","id":"sh/vy5kbm1s","slide":3,"text":"FINANCIAL KPI / 03","textPreview":"FINANCIAL KPI / 03","textChars":18,"textLines":1,"bbox":[120,32,500,22]}
+{"kind":"textbox","id":"sh/uxw3ihkn","slide":3,"text":"Naritai / 成長カルテ","textPreview":"Naritai / 成長カルテ","textChars":15,"textLines":1,"bbox":[64,680,240,16]}
+{"kind":"textbox","id":"sh/9wn29cj2","slide":3,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1160,676,56,18]}
+{"kind":"textbox","id":"sh/8belg72h","slide":3,"text":"辞めた社員に、いくら投資して、いくら未回収ですか？","textPreview":"辞めた社員に、いくら投資して、いくら未回収ですか？","textChars":25,"textLines":1,"bbox":[64,78,1080,94]}
+{"kind":"textbox","id":"sh/7alk72lw","slide":3,"text":"人材投資を「費用」ではなく、回収すべき資産として捉え直す。","textPreview":"人材投資を「費用」ではなく、回収すべき資産として捉え直す。","textChars":29,"textLines":1,"bbox":[64,183,980,36]}
+{"kind":"shape","id":"sh/m9c3exkb","slide":3,"bbox":[64,295,330,172]}
+{"kind":"textbox","id":"sh/l8325c3q","slide":3,"text":"¥ —","textPreview":"¥ —","textChars":3,"textLines":1,"bbox":[88,323,282,66]}
+{"kind":"textbox","id":"sh/k7ulc725","slide":3,"text":"① 離職コスト（回収不能額）","textPreview":"① 離職コスト（回収不能額）","textChars":14,"textLines":1,"bbox":[88,407,282,38]}
+{"kind":"shape","id":"sh/e1kfq9g3","slide":3,"bbox":[417,295,330,172]}
+{"kind":"textbox","id":"sh/z2dwzeho","slide":3,"text":"— ヶ月","textPreview":"— ヶ月","textChars":4,"textLines":1,"bbox":[441,323,282,66]}
+{"kind":"textbox","id":"sh/03mxsjyt","slide":3,"text":"② 損益分岐点（回収まで）","textPreview":"② 損益分岐点（回収まで）","textChars":13,"textLines":1,"bbox":[441,407,282,38]}
+{"kind":"shape","id":"sh/14ve1oze","slide":3,"bbox":[770,295,378,172]}
+{"kind":"textbox","id":"sh/qxkfm9gr","slide":3,"text":"¥ —","textPreview":"¥ —","textChars":3,"textLines":1,"bbox":[794,323,330,66]}
+{"kind":"textbox","id":"sh/rytwvehc","slide":3,"text":"③ 全社想定損失","textPreview":"③ 全社想定損失","textChars":8,"textLines":1,"bbox":[794,407,330,38]}
+{"kind":"textbox","id":"sh/cz2xojyx","slide":3,"text":"まずは無料診断で、貴社固有の未回収コストを可視化します。","textPreview":"まずは無料診断で、貴社固有の未回収コストを可視化します。","textChars":28,"textLines":1,"bbox":[64,526,780,28]}
+{"kind":"textbox","id":"sh/d0bexozi","slide":3,"text":"INPUT → 採用・教育・配置・離職データ","textPreview":"INPUT → 採用・教育・配置・離職データ","textChars":22,"textLines":1,"bbox":[64,578,620,18]}
+{"kind":"notes","id":"nt/yly7m2","slide":3,"text":""}
+{"kind":"slide","id":"sl/peid8z","slide":4,"title":"ROOT CAUSE / 04","textShapes":13}
+{"kind":"shape","id":"sh/ilwz6hkz","slide":4,"bbox":[64,42,44,3]}
+{"kind":"textbox","id":"sh/5ony1cja","slide":4,"text":"ROOT CAUSE / 04","textPreview":"ROOT CAUSE / 04","textChars":15,"textLines":1,"bbox":[120,32,500,22]}
+{"kind":"textbox","id":"sh/4neh87ip","slide":4,"text":"Naritai / 成長カルテ","textPreview":"Naritai / 成長カルテ","textChars":15,"textLines":1,"bbox":[64,680,240,16]}
+{"kind":"textbox","id":"sh/vilgv218","slide":4,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1160,676,56,18]}
+{"kind":"textbox","id":"sh/uhcz2xkn","slide":4,"text":"社内の1on1やサーベイだけでは、防げない。","textPreview":"社内の1on1やサーベイだけでは、防げない。","textChars":22,"textLines":1,"bbox":[64,78,1080,94]}
+{"kind":"textbox","id":"sh/hknyxcje","slide":4,"text":"水面下にある「本音」と「キャリアの迷い」が、離職の予兆になる。","textPreview":"水面下にある「本音」と「キャリアの迷い」が、離職の予兆になる。","textChars":31,"textLines":1,"bbox":[64,183,980,36]}
+{"kind":"shape","id":"sh/gjuh472t","slide":4,"bbox":[64,398,1084,3]}
+{"kind":"textbox","id":"sh/7elgri1w","slide":4,"text":"水面","textPreview":"水面","textChars":2,"textLines":1,"bbox":[64,374,70,18]}
+{"kind":"shape","id":"sh/6tczyxkr","slide":4,"bbox":[175,244,380,150]}
+{"kind":"textbox","id":"sh/wnal876l","slide":4,"text":"10%  業務報告","textPreview":"10%  業務報告","textChars":9,"textLines":1,"bbox":[246,300,240,30]}
+{"kind":"textbox","id":"sh/xojm1cn6","slide":4,"text":"社内上司の1on1が見える領域","textPreview":"社内上司の1on1が見える領域","textChars":15,"textLines":1,"bbox":[202,341,330,20]}
+{"kind":"shape","id":"sh/a1836xof","slide":4,"bbox":[175,402,380,195]}
+{"kind":"textbox","id":"sh/bmhkz250","slide":4,"text":"90%","textPreview":"90%","textChars":3,"textLines":1,"bbox":[315,455,105,48]}
+{"kind":"textbox","id":"sh/ozql4n69","slide":4,"text":"本音・キャリア・葛藤","textPreview":"本音・キャリア・葛藤","textChars":10,"textLines":1,"bbox":[244,505,260,26]}
+{"kind":"shape","id":"sh/90z2xsnu","slide":4,"bbox":[680,294,468,262]}
+{"kind":"textbox","id":"sh/mx832xoj","slide":4,"text":"NARITAI'S ROLE","textPreview":"NARITAI'S ROLE","textChars":14,"textLines":1,"bbox":[714,326,300,20]}
+{"kind":"textbox","id":"sh/nyhkv25o","slide":4,"text":"第三者だから届く\n「働く理由」へ再接続","textPreview":"第三者だから届く | 「働く理由」へ再接続","textChars":19,"textLines":2,"bbox":[714,366,360,76]}
+{"kind":"textbox","id":"sh/8vulgr6t","slide":4,"text":"プロが引き出し、組織が動ける言葉に翻訳する。","textPreview":"プロが引き出し、組織が動ける言葉に翻訳する。","textChars":22,"textLines":1,"bbox":[714,475,350,42]}
+{"kind":"notes","id":"nt/peid8z","slide":4,"text":""}
+{"kind":"slide","id":"sl/kiut31","slide":5,"title":"SOLUTION / 05","textShapes":17}
+{"kind":"shape","id":"sh/90jm9ob6","slide":5,"bbox":[64,42,44,3]}
+{"kind":"textbox","id":"sh/mxs3y9sv","slide":5,"text":"SOLUTION / 05","textPreview":"SOLUTION / 05","textChars":13,"textLines":1,"bbox":[120,32,500,22]}
+{"kind":"textbox","id":"sh/7y147et0","slide":5,"text":"Naritai / 成長カルテ","textPreview":"Naritai / 成長カルテ","textChars":15,"textLines":1,"bbox":[64,680,240,16]}
+{"kind":"textbox","id":"sh/wnul4jax","slide":5,"text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1160,676,56,18]}
+{"kind":"textbox","id":"sh/ho3mdobi","slide":5,"text":"データで先手を打つ、人材投資ダッシュボード。","textPreview":"データで先手を打つ、人材投資ダッシュボード。","textChars":22,"textLines":1,"bbox":[64,78,1080,94]}
+{"kind":"textbox","id":"sh/u1c329sr","slide":5,"text":"「誰が危ないか」ではなく、「どの投資が未回収か」を見える化。","textPreview":"「誰が危ないか」ではなく、「どの投資が未回収か」を見える化。","textChars":30,"textLines":1,"bbox":[64,183,980,36]}
+{"kind":"shape","id":"sh/vml4betc","slide":5,"bbox":[64,290,516,122]}
+{"kind":"textbox","id":"sh/crqlszad","slide":5,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[86,314,46,28]}
+{"kind":"textbox","id":"sh/dsz214by","slide":5,"text":"未回収額の可視化","textPreview":"未回収額の可視化","textChars":8,"textLines":1,"bbox":[148,312,380,30]}
+{"kind":"textbox","id":"sh/90bu58na","slide":5,"text":"投資残高を一人ひとり追う","textPreview":"投資残高を一人ひとり追う","textChars":12,"textLines":1,"bbox":[148,352,380,22]}
+{"kind":"shape","id":"sh/8z2dwnmp","slide":5,"bbox":[612,290,516,122]}
+{"kind":"textbox","id":"sh/nytc3i54","slide":5,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[634,314,46,28]}
+{"kind":"textbox","id":"sh/mdkvud4j","slide":5,"text":"損益分岐点カーブ","textPreview":"損益分岐点カーブ","textChars":8,"textLines":1,"bbox":[696,312,380,30]}
+{"kind":"textbox","id":"sh/x4vu9sn6","slide":5,"text":"回収までの距離を示す","textPreview":"回収までの距離を示す","textChars":10,"textLines":1,"bbox":[696,352,380,22]}
+{"kind":"shape","id":"sh/w3md0nml","slide":5,"bbox":[64,440,516,122]}
+{"kind":"textbox","id":"sh/v2dc7i5g","slide":5,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[86,464,46,28]}
+{"kind":"textbox","id":"sh/a14vyd4v","slide":5,"text":"定着リスク早期アラート","textPreview":"定着リスク早期アラート","textChars":11,"textLines":1,"bbox":[148,462,380,30]}
+{"kind":"textbox","id":"sh/58fedcni","slide":5,"text":"兆候を行動前に拾う","textPreview":"兆候を行動前に拾う","textChars":9,"textLines":1,"bbox":[148,502,380,22]}
+{"kind":"shape","id":"sh/k7md47mx","slide":5,"bbox":[612,440,516,122]}
+{"kind":"textbox","id":"sh/4buxgbu9","slide":5,"text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[634,464,46,28]}
+{"kind":"textbox","id":"sh/5cne9gbe","slide":5,"text":"施策効果の検証","textPreview":"施策効果の検証","textChars":7,"textLines":1,"bbox":[696,462,380,30]}
+{"kind":"textbox","id":"sh/i9cfe1c3","slide":5,"text":"打ち手を学習資産にする","textPreview":"打ち手を学習資産にする","textChars":11,"textLines":1,"bbox":[696,502,380,22]}
+{"kind":"notes","id":"nt/kiut31","slide":5,"text":""}
+{"kind":"slide","id":"sl/6j6lw1","slide":6,"title":"SOLUTION / 06","textShapes":17}
+{"kind":"shape","id":"sh/0r2xs36l","slide":6,"bbox":[64,42,44,3]}
+{"kind":"textbox","id":"sh/fqtgjyp0","slide":6,"text":"SOLUTION / 06","textPreview":"SOLUTION / 06","textChars":13,"textLines":1,"bbox":[120,32,500,22]}
+{"kind":"textbox","id":"sh/ep0fqtof","slide":6,"text":"Naritai / 成長カルテ","textPreview":"Naritai / 成長カルテ","textChars":15,"textLines":1,"bbox":[64,680,240,16]}
+{"kind":"textbox","id":"sh/doryho7u","slide":6,"text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1160,676,56,18]}
+{"kind":"textbox","id":"sh/snixoj69","slide":6,"text":"見る → 向き合う → 動かす。","textPreview":"見る → 向き合う → 動かす。","textChars":16,"textLines":1,"bbox":[64,78,1080,94]}
+{"kind":"textbox","id":"sh/rm9gfepo","slide":6,"text":"「測って終わり」にしない、現場で自走するまでの伴走。","textPreview":"「測って終わり」にしない、現場で自走するまでの伴走。","textChars":26,"textLines":1,"bbox":[64,183,980,36]}
+{"kind":"shape","id":"sh/ql0fm9oj","slide":6,"bbox":[64,300,316,225]}
+{"kind":"textbox","id":"sh/xkvytsny","slide":6,"text":"01","textPreview":"01","textChars":2,"textLines":1,"bbox":[88,326,80,28]}
+{"kind":"textbox","id":"sh/cjmh0n6t","slide":6,"text":"第三者1on1","textPreview":"第三者1on1","textChars":7,"textLines":1,"bbox":[88,372,250,34]}
+{"kind":"textbox","id":"sh/yhsj21wr","slide":6,"text":"本音を可視化","textPreview":"本音を可視化","textChars":6,"textLines":1,"bbox":[88,426,248,54]}
+{"kind":"textbox","id":"sh/jil0b6dw","slide":6,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[390,389,28,30]}
+{"kind":"shape","id":"sh/kju14beh","slide":6,"bbox":[427,300,316,225]}
+{"kind":"textbox","id":"sh/lk3idgv2","slide":6,"text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[451,326,80,28]}
+{"kind":"textbox","id":"sh/adsjy1wf","slide":6,"text":"未来接続","textPreview":"未来接続","textChars":4,"textLines":1,"bbox":[451,372,250,34]}
+{"kind":"textbox","id":"sh/be1076d0","slide":6,"text":"3〜5年ビジョンと\n今の業務をつなぐ","textPreview":"3〜5年ビジョンと | 今の業務をつなぐ","textChars":18,"textLines":2,"bbox":[451,426,248,54]}
+{"kind":"textbox","id":"sh/cfa10rel","slide":6,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[753,389,28,30]}
+{"kind":"shape","id":"sh/xgji9wv6","slide":6,"bbox":[790,300,316,225]}
+{"kind":"textbox","id":"sh/u9cjalwj","slide":6,"text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[814,326,80,28]}
+{"kind":"textbox","id":"sh/va5kjqd4","slide":6,"text":"自走伴走","textPreview":"自走伴走","textChars":4,"textLines":1,"bbox":[814,372,250,34]}
+{"kind":"textbox","id":"sh/ruxgbitg","slide":6,"text":"現場で行動が続く\n状態まで支える","textPreview":"現場で行動が続く | 状態まで支える","textChars":16,"textLines":2,"bbox":[814,426,248,54]}
+{"kind":"textbox","id":"sh/qtof2dcb","slide":6,"text":"“本人の納得” が、組織に残る理由と主体的な行動をつくる。","textPreview":"“本人の納得” が、組織に残る理由と主体的な行動をつくる。","textChars":29,"textLines":1,"bbox":[64,586,900,28]}
+{"kind":"notes","id":"nt/6j6lw1","slide":6,"text":""}
+{"kind":"slide","id":"sl/bz21bn","slide":7,"title":"ADVISORY / 07","textShapes":14}
+{"kind":"shape","id":"sh/9s7elgb2","slide":7,"bbox":[64,42,44,3]}
+{"kind":"textbox","id":"sh/m5gva1sr","slide":7,"text":"ADVISORY / 07","textPreview":"ADVISORY / 07","textChars":13,"textLines":1,"bbox":[120,32,500,22]}
+{"kind":"textbox","id":"sh/nqpwj6tc","slide":7,"text":"Naritai / 成長カルテ","textPreview":"Naritai / 成長カルテ","textChars":15,"textLines":1,"bbox":[64,680,240,16]}
+{"kind":"textbox","id":"sh/wvydgbat","slide":7,"text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1160,676,56,18]}
+{"kind":"textbox","id":"sh/xw7epgbe","slide":7,"text":"社長のための「若手 × 時代」の相談役。","textPreview":"社長のための「若手 × 時代」の相談役。","textChars":20,"textLines":1,"bbox":[64,78,1080,94]}
+{"kind":"textbox","id":"sh/atgve1sn","slide":7,"text":"経営コンサルではなく、Z世代当事者のリアルを経営判断の材料に。","textPreview":"経営コンサルではなく、Z世代当事者のリアルを経営判断の材料に。","textChars":31,"textLines":1,"bbox":[64,183,980,36]}
+{"kind":"shape","id":"sh/vupwn6t8","slide":7,"bbox":[64,286,432,258]}
+{"kind":"textbox","id":"sh/kzixkvap","slide":7,"text":"Z GENERATION ADVISORY","textPreview":"Z GENERATION ADVISORY","textChars":21,"textLines":1,"bbox":[98,320,300,20]}
+{"kind":"textbox","id":"sh/50ret0ba","slide":7,"text":"若手の違和感を\n“経営が動ける言葉”に。","textPreview":"若手の違和感を | “経営が動ける言葉”に。","textChars":20,"textLines":2,"bbox":[98,365,330,82]}
+{"kind":"textbox","id":"sh/x4redsfm","slide":7,"text":"相談無料","textPreview":"相談無料","textChars":4,"textLines":1,"bbox":[98,488,150,25]}
+{"kind":"shape","id":"sh/w3yx4ne1","slide":7,"bbox":[632,312,10,10]}
+{"kind":"textbox","id":"sh/bipwbixg","slide":7,"text":"採用・定着の打ち手","textPreview":"採用・定着の打ち手","textChars":9,"textLines":1,"bbox":[662,304,355,28]}
+{"kind":"textbox","id":"sh/ahgf2dwv","slide":7,"text":"若手当事者の視点で整理","textPreview":"若手当事者の視点で整理","textChars":11,"textLines":1,"bbox":[662,338,330,20]}
+{"kind":"shape","id":"sh/l8ryhcfi","slide":7,"bbox":[632,386,10,10]}
+{"kind":"textbox","id":"sh/k7ix87ex","slide":7,"text":"育成とマネジメント","textPreview":"育成とマネジメント","textChars":9,"textLines":1,"bbox":[662,378,355,28]}
+{"kind":"textbox","id":"sh/j69gf2xc","slide":7,"text":"若手当事者の視点で整理","textPreview":"若手当事者の視点で整理","textChars":11,"textLines":1,"bbox":[662,412,330,20]}
+{"kind":"shape","id":"sh/y50f6xwr","slide":7,"bbox":[632,460,10,10]}
+{"kind":"textbox","id":"sh/1c7e58fe","slide":7,"text":"組織の見えない摩擦","textPreview":"組織の見えない摩擦","textChars":9,"textLines":1,"bbox":[662,452,355,28]}
+{"kind":"textbox","id":"sh/0bexw3yt","slide":7,"text":"若手当事者の視点で整理","textPreview":"若手当事者の視点で整理","textChars":11,"textLines":1,"bbox":[662,486,330,20]}
+{"kind":"notes","id":"nt/bz21bn","slide":7,"text":""}
+{"kind":"slide","id":"sl/lnng1e","slide":8,"title":"CASE STUDY / 08","textShapes":19}
+{"kind":"shape","id":"sh/365w3e1g","slide":8,"bbox":[64,42,44,3]}
+{"kind":"textbox","id":"sh/4rexwj21","slide":8,"text":"CASE STUDY / 08","textPreview":"CASE STUDY / 08","textChars":15,"textLines":1,"bbox":[120,32,500,22]}
+{"kind":"textbox","id":"sh/psne5ojm","slide":8,"text":"Naritai / 成長カルテ","textPreview":"Naritai / 成長カルテ","textChars":15,"textLines":1,"bbox":[64,680,240,16]}
+{"kind":"textbox","id":"sh/u1cvq9kz","slide":8,"text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1160,676,56,18]}
+{"kind":"textbox","id":"sh/f2lwze1k","slide":8,"text":"辞める理由を、残る意思と行動に変えた。","textPreview":"辞める理由を、残る意思と行動に変えた。","textChars":19,"textLines":1,"bbox":[64,78,1080,94]}
+{"kind":"textbox","id":"sh/g3edsj25","slide":8,"text":"ケースは個人を特定しない形で要約しています。","textPreview":"ケースは個人を特定しない形で要約しています。","textChars":22,"textLines":1,"bbox":[64,183,980,36]}
+{"kind":"shape","id":"sh/h4ne14ja","slide":8,"bbox":[64,287,516,264]}
+{"kind":"textbox","id":"sh/6xcvmpkn","slide":8,"text":"営業代行 / 24歳","textPreview":"営業代行 / 24歳","textChars":10,"textLines":1,"bbox":[92,316,230,24]}
+{"kind":"textbox","id":"sh/7ylwvul8","slide":8,"text":"BEFORE","textPreview":"BEFORE","textChars":6,"textLines":1,"bbox":[92,360,100,18]}
+{"kind":"textbox","id":"sh/bapk3mpo","slide":8,"text":"転職サイト登録・消耗","textPreview":"転職サイト登録・消耗","textChars":10,"textLines":1,"bbox":[92,386,195,42]}
+{"kind":"textbox","id":"sh/a9gjaho3","slide":8,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[299,389,38,30]}
+{"kind":"textbox","id":"sh/xwr25c7u","slide":8,"text":"AFTER","textPreview":"AFTER","textChars":5,"textLines":1,"bbox":[356,360,100,18]}
+{"kind":"textbox","id":"sh/wby1cr69","slide":8,"text":"在籍継続・主体化","textPreview":"在籍継続・主体化","textChars":8,"textLines":1,"bbox":[356,386,188,52]}
+{"kind":"shape","id":"sh/jy9k7mp0","slide":8,"bbox":[92,455,460,1]}
+{"kind":"textbox","id":"sh/yx03ehof","slide":8,"text":"3年後の理想から逆算","textPreview":"3年後の理想から逆算","textChars":10,"textLines":1,"bbox":[92,477,440,34]}
+{"kind":"shape","id":"sh/l0r29w7q","slide":8,"bbox":[612,287,516,264]}
+{"kind":"textbox","id":"sh/kzilgr65","slide":8,"text":"飲食店舗 / 27歳","textPreview":"飲食店舗 / 27歳","textChars":10,"textLines":1,"bbox":[640,316,230,24]}
+{"kind":"textbox","id":"sh/z25kv2pg","slide":8,"text":"BEFORE","textPreview":"BEFORE","textChars":6,"textLines":1,"bbox":[640,360,100,18]}
+{"kind":"textbox","id":"sh/e1wj2xov","slide":8,"text":"抱え込み・部下と摩擦","textPreview":"抱え込み・部下と摩擦","textChars":10,"textLines":1,"bbox":[640,386,195,42]}
+{"kind":"textbox","id":"sh/29ovqpcv","slide":8,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[847,389,38,30]}
+{"kind":"textbox","id":"sh/3axwzudg","slide":8,"text":"AFTER","textPreview":"AFTER","textChars":5,"textLines":1,"bbox":[904,360,100,18]}
+{"kind":"textbox","id":"sh/4b6dszu1","slide":8,"text":"任せるリーダーへ\n（役員候補）","textPreview":"任せるリーダーへ | （役員候補）","textChars":15,"textLines":2,"bbox":[904,386,188,52]}
+{"kind":"shape","id":"sh/pcfe14v6","slide":8,"bbox":[640,455,460,1]}
+{"kind":"textbox","id":"sh/u54vmpcj","slide":8,"text":"他責を脱し、対話を再設計","textPreview":"他責を脱し、対話を再設計","textChars":12,"textLines":1,"bbox":[640,477,440,34]}
+{"kind":"notes","id":"nt/lnng1e","slide":8,"text":""}
+{"kind":"slide","id":"sl/ki8nsl","slide":9,"title":"OPERATIONAL VALUE / 09","textShapes":15}
+{"kind":"shape","id":"sh/5w32d4ru","slide":9,"bbox":[64,42,44,3]}
+{"kind":"textbox","id":"sh/itcj2ps3","slide":9,"text":"OPERATIONAL VALUE / 09","textPreview":"OPERATIONAL VALUE / 09","textChars":22,"textLines":1,"bbox":[120,32,500,22]}
+{"kind":"textbox","id":"sh/3ulkbu9o","slide":9,"text":"Naritai / 成長カルテ","textPreview":"Naritai / 成長カルテ","textChars":15,"textLines":1,"bbox":[64,680,240,16]}
+{"kind":"textbox","id":"sh/szel8ja5","slide":9,"text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1160,676,56,18]}
+{"kind":"textbox","id":"sh/dkn2horq","slide":9,"text":"管理職の負担を増やさず、育成を資産にする。","textPreview":"管理職の負担を増やさず、育成を資産にする。","textChars":21,"textLines":1,"bbox":[64,78,1080,94]}
+{"kind":"textbox","id":"sh/qxc369sf","slide":9,"text":"現場に「新しい仕事」を足さないから、仕組みが続く。","textPreview":"現場に「新しい仕事」を足さないから、仕組みが続く。","textChars":25,"textLines":1,"bbox":[64,183,980,36]}
+{"kind":"shape","id":"sh/ry5kfe90","slide":9,"bbox":[64,300,316,218]}
+{"kind":"textbox","id":"sh/0nelcjah","slide":9,"text":"0","textPreview":"0","textChars":1,"textLines":1,"bbox":[89,327,75,50]}
+{"kind":"textbox","id":"sh/1on2lor2","slide":9,"text":"面談準備","textPreview":"面談準備","textChars":4,"textLines":1,"bbox":[89,398,260,32]}
+{"kind":"textbox","id":"sh/pofalcji","slide":9,"text":"カルテに効く問いが表示","textPreview":"カルテに効く問いが表示","textChars":11,"textLines":1,"bbox":[89,446,260,26]}
+{"kind":"shape","id":"sh/onm9s72x","slide":9,"bbox":[427,300,316,218]}
+{"kind":"textbox","id":"sh/3mdsj21c","slide":9,"text":"→","textPreview":"→","textChars":1,"textLines":1,"bbox":[452,327,75,50]}
+{"kind":"textbox","id":"sh/2l4rqxkr","slide":9,"text":"やりっぱなし防止","textPreview":"やりっぱなし防止","textChars":8,"textLines":1,"bbox":[452,398,260,32]}
+{"kind":"textbox","id":"sh/dsfapwje","slide":9,"text":"次回までの変化を追える","textPreview":"次回までの変化を追える","textChars":11,"textLines":1,"bbox":[452,446,260,26]}
+{"kind":"shape","id":"sh/cr69wr2t","slide":9,"bbox":[790,300,316,218]}
+{"kind":"textbox","id":"sh/bqxsnm1o","slide":9,"text":"∞","textPreview":"∞","textChars":1,"textLines":1,"bbox":[815,327,75,50]}
+{"kind":"textbox","id":"sh/qporuhk3","slide":9,"text":"育成履歴の資産化","textPreview":"育成履歴の資産化","textChars":8,"textLines":1,"bbox":[815,398,260,32]}
+{"kind":"textbox","id":"sh/twbqtsja","slide":9,"text":"内製化できる育成知見へ","textPreview":"内製化できる育成知見へ","textChars":11,"textLines":1,"bbox":[815,446,260,26]}
+{"kind":"textbox","id":"sh/sv29kn2p","slide":9,"text":"管理職は「聞くべきこと」に集中。育成は属人化せず、再現可能になる。","textPreview":"管理職は「聞くべきこと」に集中。育成は属人化せず、再現可能になる。","textChars":33,"textLines":1,"bbox":[64,577,980,28]}
+{"kind":"notes","id":"nt/ki8nsl","slide":9,"text":""}
+{"kind":"slide","id":"sl/0ha7p9","slide":10,"title":"PLAN & CTA / 10","textShapes":16}
+{"kind":"shape","id":"sh/ve5wve5c","slide":10,"bbox":[64,42,44,3]}
+{"kind":"textbox","id":"sh/wfex4jmh","slide":10,"text":"PLAN & CTA / 10","textPreview":"PLAN & CTA / 10","textChars":15,"textLines":1,"bbox":[120,32,500,22]}
+{"kind":"textbox","id":"sh/h0nexon2","slide":10,"text":"Naritai / 成長カルテ","textPreview":"Naritai / 成長カルテ","textChars":15,"textLines":1,"bbox":[64,680,240,16]}
+{"kind":"textbox","id":"sh/i1wf694n","slide":10,"text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1160,676,56,18]}
+{"kind":"textbox","id":"sh/j25wze58","slide":10,"text":"人材投資の回収を、\n始めましょう。","textPreview":"人材投資の回収を、 | 始めましょう。","textChars":17,"textLines":2,"bbox":[64,122,660,135]}
+{"kind":"textbox","id":"sh/43yx8jmt","slide":10,"text":"初期費用 0 円。まずは3ヶ月・3名から。","textPreview":"初期費用 0 円。まずは3ヶ月・3名から。","textChars":21,"textLines":1,"bbox":[68,285,600,32]}
+{"kind":"shape","id":"sh/547e1one","slide":10,"bbox":[64,364,344,154]}
+{"kind":"textbox","id":"sh/y5cvup4j","slide":10,"text":"STANDARD","textPreview":"STANDARD","textChars":8,"textLines":1,"bbox":[92,396,300,20]}
+{"kind":"textbox","id":"sh/z6lwnu54","slide":10,"text":"月額 165,000円","textPreview":"月額 165,000円","textChars":11,"textLines":1,"bbox":[92,430,270,32]}
+{"kind":"textbox","id":"sh/3ylszmhk","slide":10,"text":"3ヶ月パイロット","textPreview":"3ヶ月パイロット","textChars":8,"textLines":1,"bbox":[92,477,220,22]}
+{"kind":"shape","id":"sh/ixcbqh0z","slide":10,"bbox":[430,364,344,154]}
+{"kind":"textbox","id":"sh/503a1wza","slide":10,"text":"PREMIUM","textPreview":"PREMIUM","textChars":7,"textLines":1,"bbox":[458,396,300,20]}
+{"kind":"textbox","id":"sh/4zutsrip","slide":10,"text":"月額 150,000円","textPreview":"月額 150,000円","textChars":11,"textLines":1,"bbox":[458,430,270,32]}
+{"kind":"textbox","id":"sh/vu1sv2h8","slide":10,"text":"継続導入プラン","textPreview":"継続導入プラン","textChars":7,"textLines":1,"bbox":[458,477,220,22]}
+{"kind":"shape","id":"sh/utsbmx0n","slide":10,"bbox":[842,330,306,230]}
+{"kind":"textbox","id":"sh/hw3axcze","slide":10,"text":"無料診断","textPreview":"無料診断","textChars":4,"textLines":1,"bbox":[872,366,220,27]}
+{"kind":"textbox","id":"sh/gvato7it","slide":10,"text":"自社の離職・\n未回収コストを\n診断してみる","textPreview":"自社の離職・ | 未回収コストを | 診断してみる","textChars":21,"textLines":3,"bbox":[872,406,230,94]}
+{"kind":"textbox","id":"sh/761sr2hc","slide":10,"text":"CONTACT →","textPreview":"CONTACT →","textChars":9,"textLines":1,"bbox":[872,520,180,18]}
+{"kind":"textbox","id":"sh/65sbix0r","slide":10,"text":"Naritai / 成長カルテ","textPreview":"Naritai / 成長カルテ","textChars":15,"textLines":1,"bbox":[64,603,350,30]}
+{"kind":"textbox","id":"sh/a18buxkj","slide":10,"text":"人材投資を、回収できる組織へ。","textPreview":"人材投資を、回収できる組織へ。","textChars":15,"textLines":1,"bbox":[64,638,460,22]}
+{"kind":"notes","id":"nt/0ha7p9","slide":10,"text":""}
