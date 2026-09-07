@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { getAllColumns } from '@/lib/columns';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000';
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.naritai-career-official.com';
 
   const columnEntries: MetadataRoute.Sitemap = getAllColumns().map((c) => ({
     url: `${baseUrl}/column/${c.slug}`,
