@@ -64,7 +64,7 @@ export default function Header({ config }: HeaderProps) {
     document.body.addEventListener('scroll', handleScroll, { passive: true });
 
     // セクションIDをconfigから取得
-    const sections = config.headerLinks.map(link => link.href);
+    const sections = config.headerLinks.map(link => link.href).filter(href => href.startsWith('#'));
     const header = headerRef.current;
     const headerHeight = header ? header.offsetHeight : 100;
     const rootMargin = `-${headerHeight + 100}px 0px -60% 0px`;
