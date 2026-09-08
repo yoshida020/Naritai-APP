@@ -212,6 +212,20 @@ export default function ColumnDetailPage({ params }: Props) {
               dangerouslySetInnerHTML={{ __html: a.contentHtml }}
             />
 
+            {/* ハッシュタグ */}
+            {a.tags && a.tags.length > 0 && (
+              <div className="mt-10 flex flex-wrap gap-2">
+                {a.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full bg-[#F0F2F8] px-3 py-1 text-sm font-bold text-[#202D5F]"
+                  >
+                    #{t}
+                  </span>
+                ))}
+              </div>
+            )}
+
             {/* CTA */}
             <section className="mt-12 rounded-xl bg-[#202D5F] px-8 py-9 text-center text-white">
               <h2 className="mb-2 text-xl font-bold text-white">
