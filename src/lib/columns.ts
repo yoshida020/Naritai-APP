@@ -41,6 +41,7 @@ export const columnArticles: ColumnArticle[] = [
     tags: ['エンゲージメント', '定着支援', '離職防止', '採用コスト'],
     date: '2026.09.08',
     isoDate: '2026-09-08',
+    image: '/images/column/engagement-survey-iminai.jpg',
     popular: true,
     summary: [
       'サーベイが無駄になりやすいのは、大企業向けの多機能を中小企業がそのまま使うから。規模で必要なものは違う',
