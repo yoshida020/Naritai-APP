@@ -100,6 +100,7 @@ export const columnArticles: ColumnArticle[] = [
     tags: ['1on1', '1on1代行', '定着支援', '早期離職'],
     date: '2026.09.07',
     isoDate: '2026-09-07',
+    image: '/images/column/1on1-umakuikanai.jpg',
     popular: true,
     summary: [
       '本来の1on1は、会社の目標と人生の目標の両方を深掘りし、次の行動まで決める場（ただの進捗確認ではない）',
