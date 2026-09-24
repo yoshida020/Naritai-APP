@@ -39,3 +39,6 @@ next-env.d.ts
 deliverables/
 HANDOFF.md
 **/node_modules/
+
+# Generated from existing public analytics configuration
+/public/naritai-lp/analytics.js
