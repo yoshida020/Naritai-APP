@@ -2,7 +2,7 @@ name: LP release check
 
 on:
   push:
-    branches: [codex/karte-lp-release]
+    branches: [codex/karte-lp-release, codex/lp-route-fix]
   pull_request:
     branches: [main]
   workflow_dispatch:

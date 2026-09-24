@@ -14,9 +14,6 @@ if (gtmId && /^GTM-[A-Z0-9]+$/.test(gtmId)) {
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async rewrites() {
-    return { beforeFiles: [{ source: '/lp', destination: '/naritai-lp/index.html' }] };
-  },
   async redirects() {
     return [
       {
