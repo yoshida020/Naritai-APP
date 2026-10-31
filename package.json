@@ -16,7 +16,7 @@
     "@tailwindcss/vite": "^4.1.17",
     "lottie-react": "^2.4.1",
     "next": "^14",
-    "react": "^18",
+    "react": "^19",
     "react-dom": "^18",
     "react-hook-form": "^7.68.0",
     "tailwind-merge": "^3.4.0",
@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@types/node": "^20",
-    "@types/react": "^18",
+    "@types/react": "^19",
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "^14",
